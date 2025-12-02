@@ -215,21 +215,22 @@ export default function EventCalendar() {
   return (
     <section className="py-16 pb-16 mx-auto container">
       {/* Header Section */}
-      <div className="bg-[var(--dark-blue)] py-4 rounded-xl">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="bg-[var(--dark-blue)] py-4 sm:py-5 md:py-6 rounded-xl">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 flex-wrap">
             {/* Event Calendar Title */}
-            <h2 className="text-white !text-[35px]">Event Calendar</h2>
+            <h2 className="text-white text-2xl sm:text-3xl md:text-[32px] lg:!text-[35px] w-full md:w-auto text-center md:text-left">Event Calendar</h2>
 
             {/* Date Navigation */}
-            <div className="flex items-center gap-2 md:gap-4 flex-1 justify-center">
-              <button className="date-nav-prev text-white hover:opacity-80 transition-opacity flex-shrink-0">
+            <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-1 justify-center w-full md:w-auto">
+              <button className="date-nav-prev text-white hover:opacity-80 transition-opacity flex-shrink-0 p-1.5 md:p-2">
                 <svg
-                  width="20"
-                  height="20"
+                  width="18"
+                  height="18"
                   viewBox="0 0 16 16"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="sm:w-5 sm:h-5 md:w-6 md:h-6"
                 >
                   <path
                     d="M10 12L6 8L10 4"
@@ -241,17 +242,25 @@ export default function EventCalendar() {
                 </svg>
               </button>
 
-              <div className="flex-1 max-w-md">
+              <div className="flex-1 max-w-full md:max-w-lg lg:max-w-md">
                 <Swiper
                   modules={[Navigation]}
-                  spaceBetween={8}
+                  spaceBetween={6}
                   slidesPerView={3}
                   breakpoints={{
-                    640: {
+                    480: {
                       slidesPerView: 4,
-                      spaceBetween: 12,
+                      spaceBetween: 8,
+                    },
+                    640: {
+                      slidesPerView: 5,
+                      spaceBetween: 10,
                     },
                     768: {
+                      slidesPerView: 6,
+                      spaceBetween: 12,
+                    },
+                    1024: {
                       slidesPerView: 6,
                       spaceBetween: 12,
                     },
@@ -265,17 +274,17 @@ export default function EventCalendar() {
                   {dates.map((date, index) => (
                     <SwiperSlide key={index}>
                       <div
-                        className={`flex flex-col items-center cursor-pointer transition-all px-2 py-2 rounded-lg ${
+                        className={`flex flex-col items-center cursor-pointer transition-all px-1.5 sm:px-2 md:px-2.5 py-1.5 sm:py-2 md:py-2.5 rounded-lg ${
                           selectedDate === index
                             ? "bg-[var(--dark-orange-red-light)]"
                             : "text-white hover:bg-[var(--dark-orange-red-light)] hover:bg-opacity-10"
                         }`}
                         onClick={() => handleDateSelect(index)}
                       >
-                        <span className={`text-base md:text-lg font-semibold ${selectedDate === index ? "text-black" : "text-white"}`}>
+                        <span className={`text-sm sm:text-base md:text-lg font-semibold ${selectedDate === index ? "text-black" : "text-white"}`}>
                           {date.day}
                         </span>
-                        <span className={`text-xs ${selectedDate === index ? "text-black" : "text-white opacity-80"}`}>
+                        <span className={`text-[10px] sm:text-xs md:text-xs ${selectedDate === index ? "text-black" : "text-white opacity-80"}`}>
                           {date.month}
                         </span>
                       </div>
@@ -284,13 +293,14 @@ export default function EventCalendar() {
                 </Swiper>
               </div>
 
-              <button className="date-nav-next text-white hover:opacity-80 transition-opacity flex-shrink-0">
+              <button className="date-nav-next text-white hover:opacity-80 transition-opacity flex-shrink-0 p-1.5 md:p-2">
                 <svg
-                  width="20"
-                  height="20"
+                  width="18"
+                  height="18"
                   viewBox="0 0 16 16"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="sm:w-5 sm:h-5 md:w-6 md:h-6"
                 >
                   <path
                     d="M6 4L10 8L6 12"
@@ -304,24 +314,25 @@ export default function EventCalendar() {
             </div>
 
             {/* Event Category Dropdown */}
-            <div className="relative">
+            <div className="relative w-full md:w-auto">
               <select 
                 value={selectedCategory}
                 onChange={handleCategoryChange}
-                className="bg-[var(--light-gray)] px-4 py-2 rounded-lg text-sm appearance-none pr-8 focus:outline-none cursor-pointer"
+                className="bg-[var(--light-gray)] px-3 sm:px-4 md:px-5 py-2 md:py-2.5 rounded-lg text-xs sm:text-sm md:text-sm appearance-none pr-8 md:pr-10 focus:outline-none cursor-pointer w-full md:w-auto"
               >
                 <option value="">Event Category</option>
                 <option value="Academic">Academic</option>
                 <option value="Cultural">Cultural</option>
                 <option value="Sports">Sports</option>
               </select>
-              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+              <div className="absolute right-2 sm:right-3 md:right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
                 <svg
-                  width="16"
-                  height="16"
+                  width="14"
+                  height="14"
                   viewBox="0 0 16 16"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="sm:w-4 sm:h-4 md:w-4 md:h-4"
                 >
                   <path
                     d="M4 6L8 10L12 6"

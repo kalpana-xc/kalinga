@@ -1,0 +1,336 @@
+"use client";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
+
+const journeyData = [
+  {
+    year: "1997",
+    title: "Lorem ipsum dolor sit amet, consectetur",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
+    cardBg: "bg-white"
+  },
+  {
+    year: "1998",
+    title: "Lorem ipsum dolor sit amet, consectetur",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
+    cardBg: "bg-[var(--lite-sand)]"
+  },
+  {
+    year: "1999",
+    title: "Lorem ipsum dolor sit amet, consectetur",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
+    cardBg: "bg-white"
+  },
+  {
+    year: "2003",
+    title: "Lorem ipsum dolor sit amet, consectetur",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
+    cardBg: "bg-[var(--lite-sand)]"
+  },
+  {
+    year: "2007",
+    title: "Lorem ipsum dolor sit amet, consectetur",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
+    cardBg: "bg-white"
+  }
+];
+
+export default function OurJourney() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [swiperInstance, setSwiperInstance] = useState(null);
+  const timelineContainerRef = useRef(null);
+  const dotRefs = useRef([]);
+  const [lineStyles, setLineStyles] = useState([]);
+
+  useEffect(() => {
+    const updateLinePositions = () => {
+      if (timelineContainerRef.current && dotRefs.current.length > 0) {
+        const container = timelineContainerRef.current;
+        const containerRect = container.getBoundingClientRect();
+        // Responsive gap: smaller on mobile, larger on desktop
+        const isMobile = window.innerWidth < 768;
+        const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+        const gap = isMobile ? 8 : isTablet ? 12 : 20;
+        const newLineStyles = [];
+
+        for (let i = 0; i < dotRefs.current.length - 1; i++) {
+          const currentDot = dotRefs.current[i];
+          const nextDot = dotRefs.current[i + 1];
+
+          if (currentDot && nextDot) {
+            const currentRect = currentDot.getBoundingClientRect();
+            const nextRect = nextDot.getBoundingClientRect();
+
+            // Calculate center positions relative to container
+            const currentCenter = currentRect.left + currentRect.width / 2 - containerRect.left;
+            const nextCenter = nextRect.left + nextRect.width / 2 - containerRect.left;
+
+            // Line starts from current dot center + gap, ends at next dot center - gap
+            const lineLeft = currentCenter + gap;
+            const lineWidth = (nextCenter - currentCenter) - (gap * 2);
+
+            newLineStyles.push({
+              left: `${lineLeft}px`,
+              width: `${lineWidth}px`,
+            });
+          }
+        }
+
+        setLineStyles(newLineStyles);
+      }
+    };
+
+    const timer = setTimeout(updateLinePositions, 0);
+    window.addEventListener('resize', updateLinePositions);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', updateLinePositions);
+    };
+  }, [activeIndex]);
+
+  return (
+    <section className="py-16 lg:py-24 bg-[var(--dark-blue)] relative overflow-x-hidden">
+      <style dangerouslySetInnerHTML={{__html: `
+        /* Desktop only - custom wide slides */
+        @media (min-width: 1024px) {
+          .journey-swiper .swiper-slide {
+            width: 66.666% !important;
+          }
+          .journey-swiper .swiper-wrapper {
+            align-items: stretch;
+            overflow: visible !important;
+            gap: 120px !important;
+          }
+          .journey-swiper {
+            overflow: visible !important;
+          }
+          .journey-swiper .swiper {
+            overflow: visible !important;
+          }
+        }
+        .timeline-dot-wrapper {
+          position: relative;
+        }
+        .timeline-segment {
+          position: absolute;
+          top: 8px;
+          height: 2px;
+          background-color: rgba(162, 162, 162, 1);
+          z-index: 0;
+          transition: background-color 0.3s ease;
+        }
+        .timeline-segment.active {
+          background-color: #F5A623;
+        }
+        @media (max-width: 767px) {
+          .timeline-segment {
+            top: 5px;
+            height: 1.5px;
+          }
+          .timeline-dot-wrapper {
+            min-width: 40px;
+          }
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .timeline-segment {
+            top: 6.5px;
+            height: 1.75px;
+          }
+        }
+        .timeline-progress-line {
+          position: absolute;
+          top: 8px;
+          left: 8px;
+          height: 2px;
+          background-color: #F5A623;
+          z-index: 1;
+          transition: width 0.5s ease-in-out;
+        }
+      `}} />
+      <div className="container mx-auto px-4 lg:px-6">
+        {/* Title */}
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="font-stix text-white text-4xl md:text-5xl lg:text-6xl">
+            Our Journey
+          </h2>
+        </div>
+
+        {/* Content Cards Swiper */}
+        <div className="mb-8 sm:mb-10 md:mb-12 lg:mb-16 px-4 md:pl-12 lg:pl-16">
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={16}
+            slidesPerView={1}
+            centeredSlides={false}
+            loop={true}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 1,
+                spaceBetween: 24,
+              },
+              1024: {
+                slidesPerView: "auto",
+                spaceBetween: 24,
+              },
+            }}
+            navigation={{
+              nextEl: ".journey-swiper-button-next",
+              prevEl: ".journey-swiper-button-prev",
+            }}
+            onSwiper={setSwiperInstance}
+            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+            className="journey-swiper"
+          >
+            {journeyData.map((item, index) => (
+              <SwiperSlide key={index}>
+                <div className="relative rounded-2xl overflow-hidden shadow-lg h-full min-h-[280px] md:overflow-visible md:min-h-[400px]">
+                  <div className="relative flex flex-col md:flex-row items-stretch h-full bg-[var(--lite-sand)] rounded-2xl overflow-hidden md:overflow-visible">
+                    {/* Image - On Top (Mobile) / On Left (Desktop) */}
+                    <div className="relative h-[180px] md:h-full min-h-[180px] md:min-h-[400px] w-full md:w-[50%] md:-ml-12 lg:-ml-25 z-20">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover rounded-t-2xl md:rounded-2xl md:mt-5 md:!h-[360px]"
+                      />
+                    </div>
+
+                    {/* Text Content - Below Image (Mobile) / On Right (Desktop) */}
+                    <div className="rounded-b-2xl md:rounded-r-2xl p-3 md:p-5 lg:p-4 flex flex-col justify-center flex-1">
+                      <div 
+                        className="text-[var(--button-red)] font-stix text-3xl md:text-6xl font-bold mb-2 md:mb-4"
+                        style={{
+                          WebkitTextStroke: '0.0001px var(--button-red)',
+                          WebkitTextFillColor: 'transparent',
+                          color: 'transparent',
+                        }}
+                      >
+                        {item.year}
+                      </div>
+                      <h3 className="text-[var(--foreground)] font-stix font-semibold text-base md:text-xl lg:text-2xl mb-2 md:mb-4">
+                        {item.title}
+                      </h3>
+                      <div className="space-y-1.5 md:space-y-3">
+                        <p className="text-[var(--light-text-gray)] text-xs md:text-sm lg:text-base leading-relaxed line-clamp-2 md:line-clamp-none">
+                          {item.description}
+                        </p>
+                        <p className="text-[var(--light-text-gray)] text-xs md:text-sm lg:text-base leading-relaxed line-clamp-2 md:line-clamp-none">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* Timeline */}
+        <div className="relative">
+          {/* Timeline Markers and Navigation */}
+          <div className="relative flex items-center justify-between">
+            {/* Previous Button */}
+            <button className="journey-swiper-button-prev bg-[var(--button-red)] hover:bg-[#a2a2a2] w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-lg flex items-center justify-center relative top-[-6px] sm:top-[-8px] md:top-[-10px]">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-white sm:w-5 sm:h-5 md:w-5 md:h-5"
+              >
+                <path
+                  d="M15 18L9 12L15 6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            {/* Year Markers */}
+            <div ref={timelineContainerRef} className="flex-1 flex items-center justify-between mx-2 sm:mx-4 md:mx-6 lg:mx-8 relative">
+              {/* Timeline Segments */}
+              {lineStyles.map((style, index) => (
+                <div
+                  key={index}
+                  className={`timeline-segment ${index < activeIndex ? 'active' : ''}`}
+                  style={style}
+                />
+              ))}
+
+              {journeyData.map((item, index) => (
+                <div
+                  key={index}
+                  className="timeline-dot-wrapper flex flex-col items-center cursor-pointer relative z-10"
+                  onClick={() => {
+                    if (swiperInstance) {
+                      swiperInstance.slideTo(index);
+                      setActiveIndex(index);
+                    }
+                  }}
+                >
+                  <div
+                    ref={(el) => {
+                      if (el) dotRefs.current[index] = el;
+                    }}
+                    className={`w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 rounded-full mb-1 sm:mb-1.5 md:mb-2 transition-all relative z-10 ${
+                      activeIndex === index
+                        ? "bg-[var(--button-red)] scale-125 sm:scale-110 md:scale-125"
+                        : "bg-[#A2A2A2]"
+                    }`}
+                  ></div>
+                  <span
+                    className={`text-xs sm:text-sm md:text-base font-plus-jakarta-sans transition-colors ${
+                      activeIndex === index
+                        ? "text-white font-semibold"
+                        : "text-white"
+                    }`}
+                  >
+                    {item.year}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Next Button */}
+            <button className="journey-swiper-button-next bg-[var(--button-red)] hover:bg-[#a2a2a2] w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-lg flex items-center justify-center relative top-[-6px] sm:top-[-8px] md:top-[-10px]">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-white sm:w-5 sm:h-5 md:w-5 md:h-5"
+              >
+                <path
+                  d="M9 18L15 12L9 6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
