@@ -24,7 +24,7 @@ const AboutKalinga = () => {
         <div className="container mx-auto px-5 flex justify-center relative">
           {/* Single dark blue panel with overlapping image */}
           <div className="relative bg-[var(--dark-blue)] rounded-2xl p-8 md:p-12 lg:p-16 text-white overflow-visible shadow-2xl w-full max-w-[1254px] h-auto md:min-h-[561px]">
-            <div className="grid md:grid-cols-2 gap-8 items-start relative z-10">
+            <div className="grid md:grid-cols-2 gap-8 items-start relative z-1">
               {/* Left: Title and button */}
               <div className="space-y-6">
                 <h2 className="font-stix text-3xl md:text-4xl lg:text-5xl leading-tight">
@@ -48,7 +48,7 @@ const AboutKalinga = () => {
             </div>
 
             {/* Decorative large outlined "About Kalinga" text (panel-relative and visible) */}
-            <div className="pointer-events-none absolute left-6 md:left-10 bottom-6 md:bottom-15   opacity-100 select-none z-30">
+            <div className="pointer-events-none absolute left-6 md:left-10 bottom-6 md:bottom-15   opacity-100 select-none z-2">
               <h2
                 className="font-stix about-kalinga-text leading-none whitespace-nowrap"
                 style={{
@@ -63,7 +63,7 @@ const AboutKalinga = () => {
             </div>
 
           {/* Overlapping student image on the right side */}
-          <div className="absolute right-8 md:right-16 lg:right-15 top-1/2 -translate-y-27 z-20 hidden md:block">
+          <div className="absolute right-8 md:right-16 lg:right-15 top-1/2 -translate-y-27 z-1 hidden md:block">
             <div className="relative w-[555px] h-[452px] rounded-[10px] overflow-hidden shadow-2xl">
               <Image
                 src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/about-kalinga.webp"

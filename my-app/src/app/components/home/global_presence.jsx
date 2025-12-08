@@ -44,7 +44,7 @@ const GlobalPresence = ({
         </div>
 
         {/* Logos inside background */}
-        <div className="pb-6 sm:pb-8 md:pb-12 lg:pb-10 -mt-4 sm:-mt-6 md:-mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 w-full z-10 relative px-4">
+        <div className="pb-6 sm:pb-8 md:pb-12 lg:pb-10 -mt-4 sm:-mt-6 md:-mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 w-full z-4 relative px-4">
           {logos.map((l) => (
             <div key={l} className="bg-white text-gray-700 rounded-md px-4 sm:px-6 py-2 sm:py-3 shadow text-xs sm:text-sm font-medium w-full sm:w-[150px] md:w-[150px] h-auto min-h-[70px] sm:h-[70px] border-[4px] sm:border-[6px] border-white flex items-center justify-center">
               {l}

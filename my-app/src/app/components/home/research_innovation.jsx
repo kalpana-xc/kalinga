@@ -26,7 +26,7 @@ export default function ResearchInnovation() {
           {/* Right side with image and cards */}
           <div className="relative flex justify-center md:justify-end items-end mt-6 md:mt-0">
             {/* Main image */}
-            <div className="relative w-full max-w-[496px] h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px] rounded-[10px] overflow-hidden shadow-2xl z-10">
+            <div className="relative w-full max-w-[496px] h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px] rounded-[10px] overflow-hidden shadow-2xl z-6">
               <Image 
                 src="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg"
                 alt="Research & Innovation"

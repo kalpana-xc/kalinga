@@ -37,7 +37,11 @@ const achievements = [
 export default function Achievements() {
   return (
     <>
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        .achievements-swiper .swiper-slide > div {
+          transition: all 0.4s ease-in-out !important;
+        }
         .achievements-swiper .swiper-slide-active > div {
           min-height: 320px !important;
           background-color: var(--dark-skin) !important;
@@ -61,15 +65,17 @@ export default function Achievements() {
           bottom: 0;
           left: 50%;
           transform: translateX(-50%);
-          z-index: 10;
+          z-index: 1;
           margin-top: 16px;
         }
         .achievements-swiper {
           padding-bottom: 60px !important;
+          min-height: 320px !important;
         }
         @media (min-width: 640px) {
           .achievements-swiper {
             padding-bottom: 0 !important;
+            min-height: 360px !important;
           }
           .achievements-swiper-wrapper {
             position: relative;
@@ -80,7 +86,7 @@ export default function Achievements() {
             left: calc(50% + 10px);
             transform: none;
             margin-top: 0;
-            z-index: 10;
+            z-index: 1;
           }
         }
         @media (min-width: 1024px) {
@@ -109,9 +115,9 @@ export default function Achievements() {
               {/* Navigation Buttons - Positioned below 2nd card, aligned to left */}
               <div className="achievements-nav-buttons flex items-center gap-3 justify-center sm:justify-start pointer-events-auto">
                 <div className="bg-white p-[2px] shadow-lg rounded-lg pointer-events-none">
-                  <button 
+                  <button
                     type="button"
-                    className="achievements-swiper-button-prev w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[var(--button-red)] hover:bg-[#A2A2A2] text-white flex items-center justify-center hover:opacity-90 transition-opacity cursor-pointer pointer-events-auto relative z-10"
+                    className="achievements-swiper-button-prev w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[var(--button-red)] hover:bg-[#A2A2A2] text-white flex items-center justify-center hover:opacity-90 transition-opacity cursor-pointer pointer-events-auto relative"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -119,9 +125,9 @@ export default function Achievements() {
                   </button>
                 </div>
                 <div className="bg-white p-[2px] shadow-lg rounded-lg pointer-events-none">
-                  <button 
+                  <button
                     type="button"
-                    className="achievements-swiper-button-next w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[var(--button-red)] text-white flex items-center justify-center hover:bg-[#A2A2A2] transition-colors cursor-pointer pointer-events-auto relative z-10"
+                    className="achievements-swiper-button-next w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[var(--button-red)] text-white flex items-center justify-center hover:bg-[#A2A2A2] transition-colors cursor-pointer pointer-events-auto relative"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -150,31 +156,31 @@ export default function Achievements() {
                 }}
                 className="achievements-swiper [&_.swiper-wrapper]:!items-start [&_.swiper-slide]:!h-auto"
               >
-              {achievements.map((achievement) => (
-                <SwiperSlide key={achievement.id} className="!h-auto">
-                  <div className="bg-[var(--light-gray)] rounded-xl p-6 sm:p-8 flex flex-col justify-between">
-                    <div>
-                    <h3 className="text-lg sm:text-xl font-stix font-semibold text-[var(--foreground)] mb-4">
-                      {achievement.title}
-                    </h3>
-                    <div className="w-full h-px bg-[var(--foreground)] mb-4"></div>
+                {achievements.map((achievement) => (
+                  <SwiperSlide key={achievement.id} className="!h-auto">
+                    <div className="bg-[var(--light-gray)] rounded-xl p-6 sm:p-8 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-stix font-semibold text-[var(--foreground)] mb-4">
+                          {achievement.title}
+                        </h3>
+                        <div className="w-full h-px bg-[var(--foreground)] mb-4"></div>
+                      </div>
+                      <div>
+                        <h3 className="!text-6xl !sm:text-4xl font-stix font-bold text-[var(--foreground)] mb-4">
+                          {achievement.number}
+                        </h3>
+                        <p className="text-[var(--light-text-gray)] leading-relaxed font-plus-jakarta-sans">
+                          {achievement.description}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                    <h3 className="!text-6xl !sm:text-4xl font-stix font-bold text-[var(--foreground)] mb-4">
-                      {achievement.number}
-                    </h3>
-                    <p className="text-[var(--light-text-gray)] leading-relaxed font-plus-jakarta-sans">
-                      {achievement.description}
-                    </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   )
 }
