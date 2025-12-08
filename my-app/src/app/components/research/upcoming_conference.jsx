@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 
 import GlobalArrowButton from "../general/global-arrow_button";
 
-const conferences = [
+const defaultConferences = [
   {
     id: 1,
     title: "Lorem Ipsum Dolor Sit Amet",
@@ -40,11 +40,16 @@ const conferences = [
   },
 ];
 
-export default function UpcomingConference() {
+export default function UpcomingConference({ 
+  conferences = defaultConferences,
+  title = "Upcoming Conferences",
+  backgroundColor = "bg-[var(--light-gray)]",
+  backgroundColorcard = "bg-white"
+}) {
   return (
-    <section className="bg-[var(--light-gray)] pt-16 pb-16">
+    <section className={`${backgroundColor} pt-16 pb-16`}>
       <div className="container mx-auto px-6">
-        <h2 className="text-center mb-10">Upcoming Conferences</h2>
+        <h2 className="text-center mb-10">{title}</h2>
 
         <Swiper
           modules={[Pagination]}
@@ -64,7 +69,7 @@ export default function UpcomingConference() {
         >
           {conferences.map((conf) => (
             <SwiperSlide key={conf.id}>
-              <div className="bg-white rounded-2xl shadow-sm p-3 md:p-4 flex flex-col md:flex-row gap-4 items-center">
+              <div className={`${backgroundColorcard} rounded-2xl shadow-sm  flex flex-col md:flex-row gap-4 items-center`}>
                 <div className="w-full md:w-2/5">
                   <Image
                     src={conf.image}
@@ -75,9 +80,9 @@ export default function UpcomingConference() {
                   />
                 </div>
 
-                <div className="w-full md:w-3/5 flex flex-col gap-6">
+                <div className="w-full md:w-3/5 flex flex-col gap-6 pb-10">
                   {/* Badges positioned at top right */}
-                  <div className="flex justify-end gap-2 items-center">
+                  <div className="flex justify-end gap-2 items-center mr-4 mt-10">
                     <p className="inline-flex items-center px-2 md:px-3 py-1 rounded-lg bg-[var(--dark-green)] text-white text-xs whitespace-nowrap">
                       {conf.date}
                     </p>

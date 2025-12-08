@@ -1,14 +1,15 @@
 "use client"
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import Image from "next/image";
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
-const videoInterviews = [
+const defaultVideoInterviews = [
     {
         id: 1,
         title: "Lorem Ipsum Dolor Sit Amet, Consectetur",
@@ -66,7 +67,7 @@ function VideoCardSlider({
 
   return (
     <div
-      className={`bg-[var(--lite-sand)] rounded-[20px] overflow-hidden transition-all duration-300 ${sizeClass} flex flex-col ${borderClass} ${transformClass}`}>
+      className={`bg-[var(--lite-sand)] rounded-[10px] overflow-hidden transition-all duration-300 ${sizeClass} flex flex-col ${borderClass} ${transformClass}`}>
       {/* Video Thumbnail */}
       <div className="relative w-full flex-1 flex-shrink-0 p-3 pb-0 box-border">
         <div className="relative w-full h-full">
@@ -100,29 +101,62 @@ function VideoCardSlider({
   );
 }
 
-export default function SustainableSlider() {
+export default function SustainableSlider({ 
+    videos = defaultVideoInterviews,
+    subtitle = "Video Interviews",
+    title = "Lorem ipsum dolor sit amet, consectetur",
+    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
+    backgroundColor = "bg-[var(--light-gray)]",
+    showPagination = true,
+    showNavigation = true
+}) {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <div className="w-full container mx-auto my-0">
-            <div className="swiper-container h-[450px] md:h-[600px] relative !m-0 p-0">
-                <Swiper
-                    spaceBetween={16}
-                    slidesPerView={1}
-                    centeredSlides={true}
-                    loop={true}
-                    speed={500}
-                    autoplay={{
-                        delay: 12000000,
-                        disableOnInteraction: false,
-                    }}
-                    pagination={{
-                        clickable: true,
-                        dynamicBullets: false,
-                    }}
-                    modules={[Pagination, Autoplay]}
-                    className="sustainable-swiper h-full"
-                    onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        <section className={`${backgroundColor} pt-16`}>
+            <div className="w-full container mx-auto my-0">
+                {/* Heading Section */}
+                <div className="text-center px-4">
+                    {subtitle && (
+                        <h5 className="text-[var(--button-red)] !sm:text-lg md:!text-xl !lg:text-[25px] font-plus-jakarta-sans mb-2">
+                            {subtitle}
+                        </h5>
+                    )}
+                    {title && (
+                        <h2 className="font-stix text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[var(--foreground)] mb-4">
+                            {title}
+                        </h2>
+                    )}
+                    {description && (
+                        <p className="text-gray-600 text-sm md:text-base max-w-3xl mx-auto font-plus-jakarta-sans mb-0">
+                            {description}
+                        </p>
+                    )}
+                </div>
+
+                <div className="swiper-container h-[450px] md:h-[600px] relative !m-0 p-0 !-mt-8 md:!-mt-15">
+                    <Swiper
+                        spaceBetween={16}
+                        slidesPerView={1}
+                        centeredSlides={true}
+                        loop={true}
+                        speed={500}
+                        autoplay={{
+                            delay: 12000000,
+                            disableOnInteraction: false,
+                        }}
+                        pagination={showPagination ? {
+                            clickable: true,
+                            dynamicBullets: false,
+                            el: '.three-card-pagination',
+                        } : false}
+                        navigation={showNavigation ? {
+                            nextEl: '.three-card-button-next',
+                            prevEl: '.three-card-button-prev',
+                        } : false}
+                        modules={[Pagination, Autoplay, Navigation]}
+                        className="sustainable-swiper h-full"
+                        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                     breakpoints={{
                         640: {
                             slidesPerView: 1,
@@ -142,7 +176,7 @@ export default function SustainableSlider() {
                         },
                     }}
                 >
-                    {videoInterviews.map((video, index) => (
+                    {videos.map((video, index) => (
                         <SwiperSlide key={video.id}>
                             <div className="relative overflow-hidden transition-all duration-700 transform h-full flex items-center justify-center">
                                 <VideoCardSlider
@@ -154,7 +188,28 @@ export default function SustainableSlider() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                
+
+                {/* Navigation Buttons - Positioned over middle card */}
+                {showNavigation && (
+                    <div className="absolute left-1/2 transform -translate-x-1/2 bottom-[-20px] md:bottom-[80px] flex justify-center items-center gap-3 z-50">
+                        <button
+                            className="three-card-button-prev w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[var(--button-red)] hover:bg-white text-white hover:text-black flex items-center justify-center transition-opacity shadow-md"
+                            aria-label="Previous slide"
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button
+                            className="three-card-button-next w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[var(--button-red)] hover:bg-white text-white hover:text-black flex items-center justify-center transition-opacity shadow-md border border-gray-300"
+                            aria-label="Next slide"
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                )}
             </div>
             
             
@@ -170,14 +225,14 @@ export default function SustainableSlider() {
                     }
                 }
                 .sustainable-swiper .swiper-pagination-bullet {
-                    background: #3B82F6;
+                    background: var(--button-red);
                     opacity: 0.5;
-                    
-                    
+                    width: 10px;
+                    height: 10px;
                 }
                 .sustainable-swiper .swiper-pagination-bullet-active {
                     opacity: 1;
-                    background: #3B82F6;
+                    background: var(--button-red);
                 }
                 .sustainable-swiper .swiper-slide {
                     opacity: 1;
@@ -215,7 +270,13 @@ export default function SustainableSlider() {
                 .sustainable-swiper {
                     height: 100%;
                 }
+                .three-card-button-prev.swiper-button-disabled,
+                .three-card-button-next.swiper-button-disabled {
+                    opacity: 0.35;
+                    cursor: not-allowed;
+                }
             `}</style>
         </div>
+        </section>
     );
 } 

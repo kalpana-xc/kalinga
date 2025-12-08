@@ -213,7 +213,7 @@ export default function EventCalendar() {
   };
 
   return (
-    <section className="py-16 pb-16 mx-auto container">
+    <section className="py-16 pb-0 mx-auto container">
       {/* Header Section */}
       <div className="bg-[var(--dark-blue)] py-4 sm:py-5 md:py-6 rounded-xl">
         <div className="container mx-auto px-4 sm:px-6 md:px-8">
@@ -390,7 +390,7 @@ export default function EventCalendar() {
                   </div>
                 ))}
                           {/* Pagination */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between flex-wrap gap-2">
             <div className="flex items-center gap-2">
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                 <button

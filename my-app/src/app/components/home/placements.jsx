@@ -30,9 +30,9 @@ const Placements = () => {
         <div className="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-10 items-center md:items-center">
           {/* Left: title + stats */}
           <div className="w-full">
-            <div className="text-sm sm:text-base md:text-lg lg:text-[25px] text-[var(--button-red)] mb-2 sm:mb-2.5 lg:mb-3 font-plus-jakarta-sans font-medium leading-tight sm:leading-[25px]">
+            <h5 className="text-sm sm:text-base md:!text-[25px] text-[var(--button-red)] mb-2 sm:mb-2.5 lg:mb-3 font-plus-jakarta-sans font-medium leading-tight sm:leading-[25px]">
               Placements
-            </div>
+            </h5>
             <h2 className="font-stix text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-[50px] mb-2 sm:mb-3 lg:mb-4 leading-tight text-[var(--foreground)]">
               Lorem ipsum dolor sit amet, consectetur
             </h2>

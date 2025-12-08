@@ -18,9 +18,9 @@ const GlobalPresence = ({
       <div className="container mx-auto px-4 lg:px-6">
         <div className={`mx-auto ${backgroundColor} rounded-xl p-4 sm:p-6 md:p-12 text-center text-white relative w-full h-auto min-h-[500px] sm:min-h-[550px] md:h-[571px]`}>
         <div className="max-w-4xl mx-auto">
-          <div className={`text-base font-plus-jakarta-sans sm:text-lg md:text-xl lg:text-[25px] ${subtitleColor} mb-2 sm:mb-3 font-medium leading-[25px] text-center`}>
+          <h5 className={`text-base font-plus-jakarta-sans !sm:text-lg md:text-xl !lg:text-[25px] ${subtitleColor} mb-2 sm:mb-3 font-medium leading-[25px] text-center`}>
             {subtitle}
-          </div>
+          </h5>
           <h2 className={`font-stix text-2xl sm:text-3xl md:text-4xl lg:text-[50px] my-3 sm:my-4 leading-tight px-2 ${titleColor}`}>
             {title}
           </h2>
