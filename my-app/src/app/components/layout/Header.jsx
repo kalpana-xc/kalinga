@@ -239,7 +239,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="relative z-10 w-full overflow-x-hidden" >
+    <header className="relative z-[10040] w-full overflow-visible">
       {/* Top Bar */}
       <div className="text-xs py-5 w-full">
         <div className="container mx-auto px-4 lg:px-6">
@@ -268,8 +268,8 @@ const Header = () => {
       </div>
 
       {/* Main Header */}
-      <div className={`transition-all z-40 w-full ${isScrolled ? 'fixed top-0 left-0 right-0 bg-white duration-500 shadow-md' : ' duration-500'}`}>
-          <div className="flex items-center justify-around container mx-auto px-4 lg:px-8 py-4 w-full max-w-full !z-40">
+      <div className={`transition-all z-[10050] w-full overflow-visible ${isScrolled ? 'fixed top-0 left-0 right-0 bg-white duration-500 shadow-md' : ' duration-500'}`}>
+          <div className="flex items-center justify-around container mx-auto px-4 lg:px-8 py-4 w-full max-w-full !z-[10050] overflow-visible">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 relative">
               <div className="w-36 h-12">
@@ -287,11 +287,11 @@ const Header = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-2">
+            <nav className="hidden lg:flex items-center gap-2 overflow-visible">
               {navItems.map((item) => (
                 <div
                   key={item.id}
-                  className="relative group"
+                  className="relative group z-[10060]"
                   onMouseEnter={() => item.megaMenu && setActiveMenu(item.id)}
                   onMouseLeave={() => setActiveMenu(null)} 
                 >

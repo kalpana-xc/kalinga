@@ -14,6 +14,7 @@ import NewsEvents from "./components/home/news_and_events";
 import SocialThumbs from "./components/home/social_thumbnail";
 import AdmissionCareer from "./components/general/admission_cta";
 import Achievements from "./components/home/achievements";
+import Testimonials from "./components/home/Testimonials";
 
 const quickLinks = [
   {
@@ -84,6 +85,7 @@ export default function Home() {
       <Placements />
       <GlobalPresence />
       <ResearchInnovation />
+      <Testimonials />
       <CampusTour />
       <NewsEvents />
       <SocialThumbs />

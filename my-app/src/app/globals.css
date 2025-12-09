@@ -57,7 +57,7 @@ body {
 /* Base styles - can be overridden by Tailwind utilities */
 @layer base {
   .container {
-    @apply mx-auto px-4 max-w-7xl;
+    @apply mx-auto px-4 !max-w-[1200px];
   }
   
   h1 {

@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 const MegaMenu = ({ sections }) => {
   return (
-    <div className="absolute left-0 top-full pt-2 w-max min-w-[400px] animate-fadeIn">
-      <div className="bg-white rounded-lg shadow-2xl border border-gray-100 p-6">
+    <div className="absolute left-0 top-full pt-2 w-max min-w-[400px] animate-fadeIn z-[10100] pointer-events-auto">
+      <div className="bg-white text-black rounded-lg shadow-2xl border border-gray-100 p-6 z-[10100] relative">
         <div className="grid grid-cols-2 gap-6">
           {sections.map((section, idx) => (
             <div key={idx}>
