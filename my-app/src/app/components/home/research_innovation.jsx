@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import GlobalArrowButton from '../general/global-arrow_button'
+import SectionHeading from '../general/SectionHeading'
 
 export default function ResearchInnovation() {
   const sectionRef = useRef(null)
@@ -84,12 +85,11 @@ export default function ResearchInnovation() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center mb-5">
           {/* Left content */}
           <div className="pt-4 sm:pt-6 md:pt-12">
-            <h5 className="text-sm sm:text-base md:!text-[25px] text-[var(--button-red)] mb-2 sm:mb-2.5 lg:mb-3 font-plus-jakarta-sans font-medium leading-tight sm:leading-[25px]">
-              Research At Kalinga
-            </h5>
-            <h2 className="font-stix text-2xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight mb-4 sm:mb-6 text-[var(--foreground)]">
-              Lorem ipsum dolor sit amet, consectetur
-            </h2>
+            <SectionHeading
+              subtitle="Research At Kalinga"
+              title="Lorem ipsum dolor sit amet, consectetur"
+              titleClassName="text-[var(--foreground)]"
+            />
             <div className="mt-4 sm:mt-6">
               <GlobalArrowButton >
                 Learn More
@@ -119,13 +119,13 @@ export default function ResearchInnovation() {
                 className="rounded-xl p-4 sm:p-4 flex flex-col justify-between transition-colors duration-300 bg-[var(--light-gray)] hover:bg-[var(--card-skin)]"
               >
                 <div>
-                  <h3 className="text-lg sm:text-xl font-stix font-semibold text-[var(--foreground)] mb-4">
+                  <h3 className="text-lg sm:text-xl font-stix  text-[var(--foreground)] mb-4">
                     {stat.label}
                   </h3>
                   <div className="w-full h-px bg-[var(--foreground)] mb-4"></div>
                 </div>
                 <div>
-                  <h2 className="font-stix font-bold text-[var(--foreground)]">
+                  <h2 className="font-stix  text-[var(--foreground)]">
                     {getAnimatedValue(stat)}
                   </h2>
                 </div>

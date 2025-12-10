@@ -76,10 +76,14 @@ body {
     line-height: 45px;
     font-family: 'STIX Two Math', serif;
   }
+  h4 {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'STIX Two Math', serif;
+  }
   
   p {
-    @apply text-base;
-    font-weight: 500;
+    @apply text-sm;
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
   

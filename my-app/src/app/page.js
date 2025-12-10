@@ -60,7 +60,7 @@ export default function Home() {
       <HeroSection />
 
       {/* Quick Links Section */}
-      <section className="container md:-mt-16 mt-6 sm:-mt-20 md:-mt-45 mx-auto px-3 sm:px-4 lg:px-6 py-6 sm:py-8 lg:py-6 bg-[var(--dark-blue)]/80 z-2 backdrop-blur-xs relative rounded-xl sm:rounded-2xl lg:rounded-4xl max-w-5xl">
+      <section className="container md:-mt-16 mt-6 sm:-mt-20 md:-mt-35 mx-auto px-3 sm:px-4 lg:px-6 py-6 sm:py-8 lg:py-6 bg-[var(--dark-blue)]/80 z-2 backdrop-blur-xs relative rounded-xl sm:rounded-2xl lg:rounded-4xl max-w-5xl">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 md:gap-6">
           {quickLinks.map((link) => (
             <Link

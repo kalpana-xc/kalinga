@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Stack from '../gsap/Stack'
 import LogoLoop from '../gsap/LogoLoop'
+import SectionHeading from '../general/SectionHeading'
 
 const logos = [
   'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/infosys.webp',
@@ -102,12 +103,12 @@ const Placements = () => {
         <div className="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-10 items-center md:items-center">
           {/* Left: title + stats */}
           <div className="w-full">
-            <h5 className="text-sm sm:text-base md:!text-[25px] text-[var(--button-red)] mb-2 sm:mb-2.5 lg:mb-3 font-plus-jakarta-sans font-medium leading-tight sm:leading-[25px]">
-              Placements
-            </h5>
-            <h2 className="font-stix text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-[50px] mb-2 sm:mb-3 lg:mb-4 leading-tight text-[var(--foreground)]">
-            Empowering Careers, One Success Story at a Time
-            </h2>
+           
+            <SectionHeading
+              subtitle="Placements"
+              title="Empowering Careers, One Success Story at a Time"
+         
+            /> 
             <p className="text-xs sm:text-sm md:text-[15px] text-gray-600 max-w-xl mb-4 sm:mb-5 lg:mb-6 font-plus-jakarta-sans leading-relaxed sm:leading-normal lg:leading-[25px]">
             Kalinga University has a strong placement ecosystem that bridges academic excellence with real-world opportunities. With over 400+ corporate recruiters, 8000+ students placed, and 1300+ internships offered, our graduates are shaping successful careers across industries worldwide.Our dedicated Training & Placement Cell ensures every student is career-ready through resume-building sessions, mock interviews, aptitude training, and industry exposure.
             </p>

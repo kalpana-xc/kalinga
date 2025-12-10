@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react'
 import Image from 'next/image'
+import SectionHeading from '../general/SectionHeading'    
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css'
@@ -197,7 +198,12 @@ export default function FeatureCards({
 
             {/* Text content on right */}
             <div className="flex flex-col justify-center">
-              <h2 className="font-stix text-xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl leading-tight mb-3 sm:mb-4 text-white">{title}</h2>
+              <SectionHeading
+                // subtitle="Why is Kalinga University the Right Choice?"
+                title="Why is Kalinga University the Right Choice?"
+                titleClassName="text-white"
+               
+              />
               <p className="text-white leading-relaxed">
                 {displayText}
                 {!isExpanded && hiddenText && (
@@ -268,9 +274,10 @@ export default function FeatureCards({
                             </div>
                           )}
                           <div className="flex-1 flex flex-col">
-                            <h4 className="font-semibold !text-base mb-1.5 sm:mb-2">{c.title}</h4>
+                            <h4 className="text-sm  font-stix
+ mb-1.5 sm:mb-2">{c.title}</h4>
                             <p
-                              className="text-xs sm:text-sm leading-relaxed text-[0.75rem] sm:text-[0.8rem] md:text-[0.85rem] flex-1"
+                              className="text-[12px]"
                               style={cardExpanded[c.id] ? undefined : collapsedTextStyle}
                             >
                               {c.body}
@@ -278,7 +285,7 @@ export default function FeatureCards({
                             {c.body && (
                               <button
                                 onClick={() => toggleCard(c.id)}
-                                className="mt-2 text-[var(--button-red)] text-xs sm:text-sm font-semibold hover:opacity-80 transition-opacity self-start"
+                                className="mt-2 text-[var(--button-red)] text-[12px] hover:opacity-80 transition-opacity self-start"
                               >
                                 {cardExpanded[c.id] ? 'Read Less' : 'Read More'}
                               </button>

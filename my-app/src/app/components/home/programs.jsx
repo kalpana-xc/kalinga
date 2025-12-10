@@ -9,7 +9,7 @@ import 'swiper/css/navigation'
 import GlobalArrowButton from '../general/global-arrow_button'
 import GlobalRedPlainButton from '../general/global-red_plain_button'
 import Stack from '../gsap/Stack'
-
+import SectionHeading from '../general/SectionHeading'
 const Programs = () => {
   const [activeTab, setActiveTab] = useState('UG')
   const [query, setQuery] = useState('')
@@ -47,13 +47,11 @@ const Programs = () => {
           <div className="flex flex-col justify-end">
             {/* Header text */}
             <div className="mb-4 sm:mb-5 lg:mb-6">
-              <div className="text-[var(--button-red)] text-base sm:text-lg md:text-xl lg:text-[25px] pt-2 sm:pt-4 md:pt-6 lg:pt-8 font-plus-jakarta-sans font-medium leading-tight sm:leading-[25px]">
-                Explore Our Programs
-              </div>
-              <h2 className="font-stix text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[50px] leading-tight pt-2 sm:pt-4 md:pt-6 lg:pt-8 text-[var(--foreground)]">
-              Learn Without Limits. Grow Without Boundaries.
-              </h2>
-              <p className="text-[var(--light-text-gray)] text-sm md:text-base max-w-3xl mx-auto">Explore future-focused programs that combine academic excellence with hands-on industry exposure, preparing you for success in a connected, global world.</p>
+              <SectionHeading
+                subtitle="Explore Our Programs"
+                title="Learn Without Limits. Grow Without Boundaries."
+              />
+              <p className="text-[var(--light-text-gray)] text-sm md:text-sm max-w-3xl mx-auto">Explore future-focused programs that combine academic excellence with hands-on industry exposure, preparing you for success in a connected, global world.</p>
             </div>
 
             {/* Tabs */}

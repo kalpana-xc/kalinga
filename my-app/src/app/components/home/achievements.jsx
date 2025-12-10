@@ -213,13 +213,13 @@ export default function Achievements() {
                   <SwiperSlide key={achievement.id} className="!h-auto">
                     <div className="bg-[var(--light-gray)] rounded-xl p-10 md:p-6 flex flex-col justify-between">
                       <div>
-                        <h3 className="text-lg sm:text-xl font-stix font-semibold text-[var(--foreground)] mb-4">
+                        <h3 className="text-lg sm:text-xl font-stix  text-[var(--foreground)] mb-4">
                           {achievement.title}
                         </h3>
                         <div className="w-full h-px bg-[var(--foreground)] mb-4"></div>
                       </div>
                       <div>
-                        <h2 className="font-stix font-bold text-[var(--foreground)] mb-4">
+                        <h2 className="font-stix  text-[var(--foreground)] mb-4">
                           {achievement.number}
                         </h2>
                         <p className="text-[var(--light-text-gray)] leading-relaxed font-plus-jakarta-sans">

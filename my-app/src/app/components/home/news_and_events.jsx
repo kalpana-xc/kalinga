@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react'
 import Image from 'next/image'
 import GlobalArrowButton from '../general/global-arrow_button'
 import FeaturedNewsCard from '../general/featured_news_card'
+import SectionHeading from '../general/SectionHeading'
 
 export default function NewsEvents() {
   const [selectedIdx, setSelectedIdx] = useState(0)
@@ -107,7 +108,11 @@ export default function NewsEvents() {
           {/* Left section: News & Events title and two cards */}
           <div className="md:col-span-2 flex flex-col">
             {/* Section title */}
-            <h2 className=" font-stix text-black mb-6 sm:mb-8">News & Events</h2>
+            <SectionHeading
+              // subtitle="News & Events"
+              title="News & Events"
+              titleClassName="text-[var(--foreground)]"
+            />
             
             {/* Two column grid for news cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-6">
