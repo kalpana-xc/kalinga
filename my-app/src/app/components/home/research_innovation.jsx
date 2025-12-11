@@ -87,7 +87,7 @@ export default function ResearchInnovation() {
           <div className="pt-4 sm:pt-6 md:pt-12">
             <SectionHeading
               subtitle="Research At Kalinga"
-              title="At KU, students go beyond classroom learning, transforming ideas into real-world solutions"
+              title="Fueling Innovation Through Research Excellence"
               titleClassName="text-[var(--foreground)]"
             />
             <div className="mt-4 sm:mt-6">

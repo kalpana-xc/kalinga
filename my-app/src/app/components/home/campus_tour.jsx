@@ -55,11 +55,13 @@ export default function CampusTour() {
 
               {/* Right: CTA Button */}
               <div className="flex items-center gap-3">
+                <a href="https://virtualtour.kalingauniversity.ac.in/">
               <GlobalArrowButton className="!bg-white !text-black"
                 arrowClassName="!bg-[var(--button-red)]"
                 arrowIconClassName="!text-white"
                 textClassName="!text-black"
                 >Explore Now</GlobalArrowButton>
+                </a>
               </div>
             </div>
           </div>

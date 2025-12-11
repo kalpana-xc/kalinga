@@ -274,7 +274,7 @@ export default function FeatureCards({
                             </div>
                           )}
                           <div className="flex-1 flex flex-col">
-                            <h4 className="text-lg font-plus-jakarta-sans
+                            <h4 className="text-lg font-plus-jakarta-sans !text-[16px] !font-medium
  mb-1.5 sm:mb-2">{c.title}</h4>
                             <p
                               className="text-sm"
@@ -285,7 +285,7 @@ export default function FeatureCards({
                             {c.body && (
                               <button
                                 onClick={() => toggleCard(c.id)}
-                                className="mt-2 text-[var(--button-red)] text-sm hover:opacity-80 transition-opacity self-start"
+                                className="mt-2 text-[var(--button-red)] text-sm hover:opacity-80 transition-opacity self-start !text-[13px]"
                               >
                                 {cardExpanded[c.id] ? 'Read Less' : 'Read More'}
                               </button>
