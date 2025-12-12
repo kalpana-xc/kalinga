@@ -27,14 +27,14 @@ export default function Partner({
                 {blueItems.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-center bg-white rounded-xl p-4 sm:p-6  h-24 sm:h-28 w-full shadow-sm hover:shadow-md transition-shadow"
+                    className="flex items-center justify-center bg-white rounded-xl p-3 h-20 w-16 w-full shadow-sm hover:shadow-md transition-shadow"
                   >
                     {item.imageSrc && (
                       <Image
                         src={item.imageSrc}
                         alt={item.imageAlt || item.text || `Partner logo ${idx + 1}`}
-                        width={120}
-                        height={48}
+                        width={140}
+                        height={140}
                         className="object-contain h-12 max-w-full"
                         loading="lazy"
                       />
@@ -61,7 +61,8 @@ export default function Partner({
                 {redItems.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-center bg-white rounded-xl p-4 sm:p-6  h-24 sm:h-28 w-full shadow-sm hover:shadow-md transition-shadow"
+                    className="flex items-center justify-center bg-white rounded-xl p-3 h-20 w-16 w-full shadow-sm hover:shadow-md transition-shadow"
+
                   >
                     {item.imageSrc && (
                       <Image

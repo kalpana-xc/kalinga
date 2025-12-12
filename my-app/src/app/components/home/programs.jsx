@@ -11,7 +11,7 @@ import GlobalRedPlainButton from '../general/global-red_plain_button'
 import Stack from '../gsap/Stack'
 import SectionHeading from '../general/SectionHeading'
 const Programs = () => {
-  const [activeTab, setActiveTab] = useState('UG')
+  const [activeTab, setActiveTab] = useState('Diploma')
   const [query, setQuery] = useState('')
 
   const programs = [

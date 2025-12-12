@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 
 export default function ImageSlider({ 
   items = [],
-  className = "" 
+  className = "pt-6 " 
 }) {
   // Default items if none provided
   const defaultItems = [

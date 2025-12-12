@@ -120,7 +120,7 @@ const Placements = () => {
          
             /> 
             <p className="text-xs sm:text-sm md:text-[15px] text-gray-600 max-w-xl mb-4 sm:mb-5 lg:mb-6 font-plus-jakarta-sans leading-relaxed sm:leading-normal lg:leading-[25px]">
-            Kalinga University has a strong placement ecosystem that bridges academic excellence with real-world opportunities. With over 400+ corporate recruiters, 8000+ students placed, and 1300+ internships offered, our graduates are shaping successful careers across industries worldwide.Our dedicated Training & Placement Cell ensures every student is career-ready through resume-building sessions, mock interviews, aptitude training, and industry exposure.
+            Kalinga University has a strong placement ecosystem that bridges academic excellence with real-world opportunities. With over 400+ corporate recruiters, 8000+ students placed, and 1300+ internships offered, our graduates are shaping successful careers across industries worldwide.
             </p>
 
             <div className="grid grid-cols-2 sm:flex sm:flex-row items-start gap-4 sm:gap-3 lg:gap-5 text-gray-800">

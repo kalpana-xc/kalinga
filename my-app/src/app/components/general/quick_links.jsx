@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import QuickLinkCard from './quick_link_card'
+import SectionHeading from "../general/SectionHeading";
 
 const defaultQuickLinks = [
   {
@@ -46,23 +47,24 @@ const QuickLinks = ({
   title = "Quick Links",
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid",
   backgroundColor = "bg-[var(--dark-blue)]",
-  cardBackgroundColor = "bg-[var(--lite-sand)]"
+  cardBackgroundColor = "bg-[var(--lite-sand)]",
+  textColorClassName = "text-white/80",
+  showReadMore = true,
+  titleClassName = "",
 }) => {
   return (
     <section className={`${backgroundColor} py-16`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="font-stix text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-4">
-            {title}
-          </h2>
-          <p className="text-white/80 text-sm md:text-base max-w-4xl mx-auto font-plus-jakarta-sans">
+       <SectionHeading title={title} titleClassName={titleClassName} />
+          <p className={`text-sm  max-w-4xl mx-auto font-plus-jakarta-sans ${textColorClassName}`}>
             {description}
           </p>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
           {links.map((link) => (
             <QuickLinkCard
               key={link.id}
@@ -70,6 +72,7 @@ const QuickLinks = ({
               title={link.title}
               description={link.description}
               cardBackgroundColor={cardBackgroundColor}
+              showReadMore={showReadMore}
             />
           ))}
         </div>

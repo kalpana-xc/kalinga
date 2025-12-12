@@ -44,7 +44,9 @@ export default function UpcomingConference({
   conferences = defaultConferences,
   title = "Upcoming Conferences",
   backgroundColor = "bg-[var(--light-gray)]",
-  backgroundColorcard = "bg-white"
+  backgroundColorcard = "bg-white",
+  showCategory = true,
+  showDate = true
 }) {
   return (
     <section className={`${backgroundColor} pt-16 pb-16`}>
@@ -80,16 +82,22 @@ export default function UpcomingConference({
                   />
                 </div>
 
-                <div className="w-full md:w-3/5 flex flex-col gap-6 pb-10 md:px-0 px-5">
+                <div className="w-full md:w-3/5 flex flex-col gap-6 md:px-0 px-5 py-4 md:py-0">
                   {/* Badges positioned at top right */}
-                  <div className="flex justify-end gap-5 items-center mr-4 md:mt-10 mt-5">
-                    <p className="inline-flex font-light font-plus-jakarta-sans  items-center px-2 md:px-3 py-1 rounded-lg bg-[var(--dark-green)] text-white text-xs whitespace-nowrap">
-                      {conf.date}
-                    </p>
-                    <p className="inline-flex font-light font-plus-jakarta-sans items-center px-2 md:px-3 py-1 rounded-lg bg-[var(--dark-blue)] text-white text-xs whitespace-nowrap">
-                      {conf.category}
-                    </p>
-                  </div>
+                  {(showDate || showCategory) && (
+                    <div className="flex justify-end gap-5 items-center mr-4 md:mt-10 mt-5">
+                      {showDate && (
+                        <p className="inline-flex font-light font-plus-jakarta-sans  items-center px-2 md:px-3 py-1 rounded-lg bg-[var(--dark-green)] text-white text-xs whitespace-nowrap">
+                          {conf.date}
+                        </p>
+                      )}
+                      {showCategory && (
+                        <p className="inline-flex font-light font-plus-jakarta-sans items-center px-2 md:px-3 py-1 rounded-lg bg-[var(--dark-blue)] text-white text-xs whitespace-nowrap">
+                          {conf.category}
+                        </p>
+                      )}
+                    </div>
+                  )}
 
                   <div>
                     <h3 className="!text-4xl  mb-3">

@@ -37,7 +37,7 @@ export default function MediaCardSlider({
         </div>
 
         {/* Slider Section */}
-        <div className="relative py-8">
+        <div className="relative">
           <Swiper
             modules={[Navigation]}
             spaceBetween={24}
@@ -64,7 +64,7 @@ export default function MediaCardSlider({
               nextEl: `.${swiperClassName}-button-next`,
               prevEl: `.${swiperClassName}-button-prev`,
             }}
-            className={`${swiperClassName} !pb-12 [&_.swiper-wrapper]:!flex [&_.swiper-wrapper]:items-stretch [&_.swiper-slide]:!h-auto [&_.swiper-slide]:!flex`}
+            className={`${swiperClassName} !pb-5 [&_.swiper-wrapper]:!flex [&_.swiper-wrapper]:items-stretch [&_.swiper-slide]:!h-auto [&_.swiper-slide]:!flex`}
             loop={false}
             autoHeight={false}
           >
@@ -137,7 +137,7 @@ export default function MediaCardSlider({
           </Swiper>
 
           {/* Navigation Buttons */}
-          <div className="flex justify-end items-center gap-3 mt-4">
+          <div className="flex justify-end items-center gap-3">
             <button className={`${swiperClassName}-button-prev w-12 h-12 rounded-lg bg-[var(--button-red)] hover:bg-[#A2A2A2] flex items-center justify-center hover:opacity-90 transition-opacity shadow-md`}>
               <svg
                 width="20"

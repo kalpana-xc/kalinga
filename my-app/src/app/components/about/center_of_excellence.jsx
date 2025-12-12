@@ -32,17 +32,21 @@ const centresOfExcellence = [
   },
 ];
 
-export default function CenterOfExcellence() {
+export default function CenterOfExcellence({
+  centres = centresOfExcellence,
+  title = "Centres of Excellence",
+  description = "At Kalinga, we'll not just build your future with only classroom-based studies, but there's something more to it that will make your learning experience fun and exciting. Presenting to you our Centres of Excellence that will introduce you to the future of technologies.",
+}) {
   return (
     <section className="py-16 bg-white relative">
       <div className="container mx-auto px-4 lg:px-5">
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-12">
           <h2 className="font-stix text-[var(--foreground)] text-3xl md:text-4xl lg:text-5xl mb-4">
-            Centres of Excellence
+            {title}
           </h2>
-          <p className="text-[var(--light-text-gray)] max-w-4xl mx-auto">
-            At Kalinga, we'll not just build your future with only classroom-based studies, but there's something more to it that will make your learning experience fun and exciting. Presenting to you our Centres of Excellence that will introduce you to the future of technologies.
+          <p className="text-[var(--light-text-gray)] max-w-4xl mx-auto"> 
+            {description}
           </p>
         </div>
       </div>
@@ -125,7 +129,7 @@ export default function CenterOfExcellence() {
             loop={false}
             autoHeight={false}
           >
-            {centresOfExcellence.map((centre) => (
+            {centres.map((centre) => (
               <SwiperSlide key={centre.id}>
                 <div className="h-full w-full">
                   <div className="bg-white rounded-xl p-1 h-full relative">

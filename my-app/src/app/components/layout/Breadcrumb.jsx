@@ -3,17 +3,82 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useBreadcrumb } from './BreadcrumbContext';
+import { useEffect, useRef } from 'react';
 
-const Breadcrumb = ({ customBreadcrumbs = null, heroImage = null, pageTitle = null }) => {
+const routeHeroImages = [
+  {
+    match: /^\/about/,
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/about-banner.webp",
+  },
+  {
+    match: /^\/departments\/faculty-of-information-technology/,
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/student-gathered.webp",
+  },
+  {
+    match: /^\/departments\/courses/,
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/course/student-computer.webp",
+  }
+
+];
+
+const Breadcrumb = ({ customBreadcrumbs, heroImage, pageTitle }) => {
   const pathname = usePathname();
+  const breadcrumbContext = useBreadcrumb();
+  const { breadcrumbData: contextData } = breadcrumbContext || {};
 
   // Don't show breadcrumb on homepage
   if (pathname === '/') return null;
 
+  // Track previous pathname to detect route changes
+  const prevPathnameRef = useRef(pathname);
+
+  // Clear breadcrumb data when pathname changes
+  useEffect(() => {
+    if (!breadcrumbContext?.setBreadcrumbData) return;
+
+    const pathnameChanged = prevPathnameRef.current !== pathname;
+    
+    if (pathnameChanged) {
+      // Pathname changed - clear old breadcrumb data first
+      prevPathnameRef.current = pathname;
+      breadcrumbContext.setBreadcrumbData(null);
+    }
+  }, [pathname, breadcrumbContext]);
+
+  // Check for new breadcrumb data - runs after page components have a chance to set it
+  useEffect(() => {
+    if (!breadcrumbContext?.setBreadcrumbData) return;
+
+    // Check immediately first (in case data was set synchronously)
+    if (typeof window !== 'undefined' && window.__breadcrumbData) {
+      breadcrumbContext.setBreadcrumbData(window.__breadcrumbData);
+      delete window.__breadcrumbData;
+      return;
+    }
+
+    // Also check after a microtask to catch data set in useEffect
+    const timeoutId = setTimeout(() => {
+      if (typeof window !== 'undefined' && window.__breadcrumbData) {
+        breadcrumbContext.setBreadcrumbData(window.__breadcrumbData);
+        delete window.__breadcrumbData;
+      }
+    }, 0);
+
+    return () => clearTimeout(timeoutId);
+  }, [pathname, breadcrumbContext]);
+
+  // Use context data if available, otherwise use props
+  const finalHeroImage = contextData?.heroImage ?? heroImage;
+  const finalPageTitle = contextData?.pageTitle ?? pageTitle;
+  const finalCustomBreadcrumbs = contextData?.customBreadcrumbs ?? customBreadcrumbs;
+
   // Generate breadcrumbs from path or use custom ones
   const generateBreadcrumbs = () => {
-    if (customBreadcrumbs) return customBreadcrumbs;
+    // If customBreadcrumbs is explicitly provided (even if empty array), use it
+    if (finalCustomBreadcrumbs !== undefined) return finalCustomBreadcrumbs;
 
+    // Otherwise, auto-generate from pathname
     const paths = pathname.split('/').filter(Boolean);
     const breadcrumbs = [{ label: 'Home', href: '/' }];
 
@@ -31,24 +96,35 @@ const Breadcrumb = ({ customBreadcrumbs = null, heroImage = null, pageTitle = nu
   };
 
   const breadcrumbs = generateBreadcrumbs();
-  const currentPageTitle = pageTitle || breadcrumbs[breadcrumbs.length - 1]?.label || '';
+  
+  // If heroImage is explicitly provided, use it directly (no fallback)
+  // If not provided, check routeHeroImages, otherwise null
+  const resolvedHeroImage = finalHeroImage !== undefined
+    ? finalHeroImage
+    : (routeHeroImages.find(route => route.match.test(pathname))?.image || null);
+  
+  // If pageTitle is explicitly provided, use it directly (no fallback)
+  // If not provided, use last breadcrumb label or empty string
+  const currentPageTitle = finalPageTitle !== undefined
+    ? finalPageTitle
+    : (breadcrumbs[breadcrumbs.length - 1]?.label || '');
 
   return (
     <div className="relative px-5  ">
       {/* Hero Image Section */}
-      <div className="relative h-[400px] rounded-4xl md:h-[500px] lg:h-[600px] w-full overflow-visible bg-gradient-to-br from-[var(--dark-blue)] to-[var(--foreground)] z-0 pb-20 md:pb-24 lg:pb-28">
-        {heroImage ? (
+      <div className="relative h-[400px] rounded-4xl md:h-[400px] lg:h-[400px] w-full overflow-visible bg-gradient-to-br from-[var(--dark-blue)] to-[var(--foreground)] z-0 pb-20 md:pb-24 lg:pb-28">
+        {resolvedHeroImage ? (
           <>
-            <div className="absolute inset-0 overflow-hidden ">
+            <div className="absolute inset-0 overflow-hidden rounded-4xl">
               <Image
-                src={heroImage}
+                src={resolvedHeroImage}
                 alt={currentPageTitle}
                 fill
                 className="object-cover"
                 priority
               />
               {/* Gradient Overlay for image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[var(--dark-blue)]/80 via-[var(--dark-blue)]/60 to-[var(--foreground)]/80"></div>
+              <div className="absolute inset-0"></div>
             </div>
           </>
         ) : (
@@ -69,7 +145,7 @@ const Breadcrumb = ({ customBreadcrumbs = null, heroImage = null, pageTitle = nu
       </div>
 
       {/* White Section */}
-      <div className="relative bg-white py-4 md:py-6 lg:py-8 z-0 mb-16 md:mb-20 lg:mb-24">
+      <div className="relative bg-white py-4 md:py-6 lg:py-8 z-0">
         {/* Spacer to maintain layout and prevent overlap with breadcrumb */}
       </div>
 

@@ -56,7 +56,7 @@ export default function ScholarshipsSlider() {
         </div>
 
         {/* Slider Section - Inside Container with Beige Background */}
-        <div className="relative py-8 rounded-xl">
+        <div className="relative pt-8 rounded-xl">
         <Swiper
           modules={[Navigation]}
           spaceBetween={24}

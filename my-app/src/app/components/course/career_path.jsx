@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import CareerCard from "../general/career-card";
 
-const careerPaths = [
+const defaultCareers = [
   {
     id: 1,
     title: "3D Animator",
@@ -33,15 +33,19 @@ const careerPaths = [
   },
 ];
 
-export default function CareerPath() {
+export default function CareerPath({
+  title = "Career Pathways",
+  description = "Get ready to turn your unique ideas into reality in the world of tech and design with limitless career opportunities.",
+  careers = defaultCareers,
+}) {
   return (
     <section className="py-16 pb-16 bg-white relative">
       <div className="">
         {/* Header Section */}
         <div className="text-center mb-10">
-          <h2 className="mb-4">Career Pathways</h2>
+          <h2 className="mb-4">{title}</h2>
           <p className="text-[var(--light-text-gray)] max-w-3xl mx-auto">
-            Get ready to turn your unique ideas into reality in the world of tech and design with limitless career opportunities.
+            {description}
           </p>
         </div>
 
@@ -73,7 +77,7 @@ export default function CareerPath() {
             loop={true}
             autoHeight={false}
           >
-            {careerPaths.map((career) => (
+            {careers.map((career) => (
               <SwiperSlide key={career.id}>
                 <div className="h-full w-full">
                   <CareerCard

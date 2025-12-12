@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react'
+import SectionHeading from './SectionHeading'
 
 const defaultFAQItems = [
   {
@@ -55,15 +56,15 @@ const FAQ = ({
   return (
     <section className={`${backgroundColor} py-16`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title */}
-        {title && (
-          <h2 className="font-stix text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-8 md:mb-12 text-[var(--foreground)] text-center">
-            {title}
-          </h2>
-        )}
+       <SectionHeading 
+       title={title} 
+       subtitle="FAQ"
+       titleClassName="text-center"
+       subtitleClassName="text-center"
+       />
 
         {/* FAQ Items */}
-        <div className="max-w-4xl mx-auto space-y-4">
+        <div className="max-w-4xl mx-auto space-y-4 mt-5">
           {items.map((item) => {
             const isOpen = openItems.has(item.id)
             return (
@@ -74,14 +75,14 @@ const FAQ = ({
                 {/* Question Header */}
                 <button
                   onClick={() => toggleItem(item.id)}
-                  className={`w-full flex items-center justify-between p-4 sm:p-5 md:p-6 transition-colors ${
+                  className={`w-full flex items-center justify-between p-4  transition-colors ${
                     isOpen 
                       ? 'bg-[var(--button-red)] text-white' 
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200        '
                   }`}
                   aria-expanded={isOpen}
                 >
-                  <h3 className="font-semibold text-left text-sm sm:text-base md:text-lg pr-4 !text-[22px] font-plus-jakarta-sans">
+                  <h3 className=" text-left text-xl  pr-4  font-plus-jakarta-sans">
                     {item.question}
                   </h3>
                   <div className="flex-shrink-0">
@@ -114,7 +115,7 @@ const FAQ = ({
                   }`}
                 >
                   <div className="p-4 sm:p-5 md:p-6 bg-[var(--lite-sand)]">
-                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed font-plus-jakarta-sans">
+                    <p className="text-gray-700 text-sm leading-relaxed font-plus-jakarta-sans">
                       {item.answer}
                     </p>
                   </div>

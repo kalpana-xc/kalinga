@@ -1,5 +1,5 @@
-export default function PublicationGrid() {
-  const stats = [
+export default function PublicationGrid({ 
+  stats = [
     {
       title: "Publications",
       value: "1250 +",
@@ -20,10 +20,11 @@ export default function PublicationGrid() {
       value: "78 +",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
     },
-  ];
+  ]
+}) {
 
   return (
-    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6 pb-16">
+    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6 py-16">
       {stats.map((stat, index) => (
         <div
           key={index}

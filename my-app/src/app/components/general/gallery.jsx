@@ -7,43 +7,53 @@ import 'swiper/css'
 const defaultGalleryImages = [
   {
     id: 1,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
-    alt: "Garba Night celebration"
-  },
-  {
-    id: 2,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
-    alt: "Cultural event gathering"
-  },
-  {
-    id: 3,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
-    alt: "Traditional event"
-  },
-  {
-    id: 4,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
-    alt: "Festive celebration"
-  },
-  {
-    id: 5,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
-    alt: "University event"
-  },
-  {
-    id: 6,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
-    alt: "Student gathering"
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/glimpse/IMG-20250409-WA0108.jpg",
+    alt: "Gallery-1"
   },
   {
     id: 7,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
-    alt: "Cultural festival"
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/glimpse/IMG-20250328-WA0039.jpg",
+    alt: "Gallery-7"
   },
   {
-    id: 8,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
-    alt: "Community event"
+    id: 2,
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/glimpse/IMG-20250409-WA0144.jpg",
+    alt: "Gallery-2"
+  },
+  {
+    id: 9,
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/glimpse/glimpse-2.jpeg",
+    alt: "Gallery-8"
+  },
+  {
+    id: 3,
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/glimpse/IMG-20250409-WA0079.jpg",
+    alt: "Gallery-3"
+  },
+  {
+    id: 4,
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/glimpse/cs1.jpg",
+    alt: "Gallery-4"
+  },
+  {
+    id: 5,
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/glimpse/IMG-20250409-WA0135.jpg",
+    alt: "Gallery-5"
+  },
+  {
+    id: 6,
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/glimpse/IMG-20250328-WA0045.jpg",
+    alt: "Gallery-6"
+  },
+  {
+     id: 8,
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/glimpse/IMG-20250409-WA0102.jpg",
+    alt: "Gallery-8"
+  },
+  {
+     id: 10,
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/glimpse/glimpse-1.jpeg",
+    alt: "Gallery-10"
   }
 ]
 
