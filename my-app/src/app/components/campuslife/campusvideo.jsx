@@ -23,7 +23,7 @@ export default function CampusLife() {
         {/* If playing → show YouTube video */}
         {play && (
           <iframe
-            className="w-full h-[420px] md:h-[520px]"
+            className="w-full h-[420px] md:h-[520px] "
             src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
             title="Campus Life Video"
             allow="autoplay; encrypted-media"
@@ -32,14 +32,14 @@ export default function CampusLife() {
         )}
 
         {/* Dark Overlay only when not playing */}
-        {!play && <div className="absolute inset-0 bg-black/40"></div>}
+        {!play && <div className="absolute inset-0 bg-black/40 "></div>}
 
         {/* Play Button (hidden when playing) */}
         {!play && (
           <div className="absolute inset-0 flex justify-center items-center">
             <div
               onClick={() => setPlay(true)}
-              className="w-16 h-16 bg-white/30 backdrop-blur-md rounded-full flex justify-center items-center cursor-pointer hover:bg-white/40 transition"
+              className="w-16 h-16 bg-white/30 backdrop-blur-md rounded-full flex justify-center items-center cursor-pointer hover:bg-white/40 transition mb-8"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
