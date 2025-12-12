@@ -15,7 +15,7 @@ export default function VisionMission({
   missionTitle = "Mission",
   visionText = defaultVision,
   missionText = defaultMission,
-  imageSrc = "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/person-standing-1.png",
+  imageSrc = "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/student-img-2.png",
   imageAlt = "Vision and Mission",
   showImage = true,
   className = "",
@@ -42,7 +42,7 @@ export default function VisionMission({
           missionTitle: mt = "Mission",
           visionText: vtxt = defaultVision,
           missionText: mtxt = defaultMission,
-          imageSrc: imgSrc = "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/person-standing-1.png",
+          imageSrc: imgSrc = "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/student-img-2.png",
           imageAlt: imgAlt = "Vision and Mission",
           showImage: showImg = true,
           className: cls = "",
@@ -80,8 +80,8 @@ export default function VisionMission({
               <div className={`grid grid-cols-1 ${gridCols} gap-8 lg:gap-6 items-stretch`}>
                 {/* Left - Vision Box */}
                 <div className={`${visionCol} flex`}>
-                  <div className="bg-[var(--dark-skin)] p-6 lg:p-8 rounded-2xl shadow-lg transform-3d-slant-mirror w-full flex flex-col">
-                    <h3 className="font-stix text-[var(--foreground)] mb-4 text-center">
+                  <div className="bg-[var(--dark-skin)] p-[25px] flex justify-center self-center rounded-2xl shadow-lg transform-3d-slant-mirror w-full flex flex-col md:mb-10">
+                    <h3 className="font-stix text-[var(--foreground)] mb-4 text-center !text-[35px]">
                       {vt}
                     </h3>
                     <div className="flex-1">
@@ -92,13 +92,13 @@ export default function VisionMission({
 
                 {/* Center - Person Image */}
                 {showImg && (
-                  <div className="order-3 lg:order-2 lg:col-span-2 flex justify-center">
-                    <div className="relative w-full max-w-[250px] lg:max-w-[300px]">
+                  <div className="order-3 lg:order-2 lg:col-span-2 flex justify-center items-end">
+                    <div className="relative w-full max-w-[220px]">
                       <Image
                         src={imgSrc}
                         alt={imgAlt}
-                        width={400}
-                        height={600}
+                        width={250}
+                        height={550}
                         className="w-full h-auto object-contain"
                         priority
                       />
@@ -108,8 +108,8 @@ export default function VisionMission({
 
                 {/* Right - Mission Box */}
                 <div className={`${missionCol} flex`}>
-                  <div className="bg-[var(--dark-skin)] p-6 lg:p-8 rounded-2xl shadow-lg transform-3d-slant w-full flex flex-col">
-                    <h3 className="font-stix text-[var(--foreground)] mb-4 text-center">
+                  <div className="bg-[var(--dark-skin)] p-[25px] flex justify-center self-center rounded-2xl shadow-lg transform-3d-slant w-full flex flex-col md:mb-10">
+                    <h3 className="font-stix text-[var(--foreground)] mb-4 text-center !text-[35px]">
                       {mt}
                     </h3>
                     <div className="flex-1">

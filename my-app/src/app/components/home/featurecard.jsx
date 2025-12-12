@@ -173,7 +173,7 @@ export default function FeatureCards({
   }
 
   // Dynamically calculate truncated and hidden text from fullText
-  const truncateLimit = 200
+  const truncateLimit = 300
   const truncatedText = effectiveFullText?.length > truncateLimit ? effectiveFullText.slice(0, truncateLimit) : effectiveFullText
   const hiddenText = effectiveFullText?.length > truncateLimit ? effectiveFullText.slice(truncateLimit) : ''
   const displayText = isExpanded ? effectiveFullText : truncatedText
@@ -182,12 +182,12 @@ export default function FeatureCards({
     <section className="py-16 px-4">
       <div className="relative">
         {/* Main rounded dark panel */}
-        <div className="relative rounded-2xl sm:rounded-3xl bg-[var(--dark-blue)] overflow-visible text-white shadow-2xl p-4 sm:p-6 md:p-8 lg:p-12 pt-10">
+        <div className="relative rounded-2xl sm:rounded-3xl bg-[var(--dark-blue)] overflow-visible text-white shadow-md p-4 sm:p-6 md:p-8 lg:p-12 pt-10">
           
           {/* Top section: Image left, Text right */}
           <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 mb-6 sm:mb-8 md:mb-10">
             {/* Image on left - extending outside on top */}
-            <div className="relative w-full h-[450px] -mt-8 sm:-mt-12 md:-mt-16 lg:-mt-20 xl:-mt-24 p-8">
+            <div className="relative w-full h-[350px] md:h-[450px] -mt-8 sm:-mt-12 md:-mt-16 lg:-mt-25 xl:-mt-24 p-8">
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl transform-3d-slant-mirror">
                 <Image
                   src={imageUrl}

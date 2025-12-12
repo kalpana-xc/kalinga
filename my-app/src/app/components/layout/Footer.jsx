@@ -113,7 +113,7 @@ export default function Footer() {
               {/* Contact Us Section */}
               <div className="grid grid-cols-1 gap-3 sm:gap-4 lg:gap-6">
                 <h4 className="text-sm sm:text-base lg:text-lg font-normal text-white font-stix">Contact us</h4>
-                <div className="grid grid-cols-1 gap-3 sm:gap-4 md:gap-6 lg:gap-8 text-xs sm:text-xs lg:text-sm text-white/80">
+                <div className="grid grid-cols-1 gap-3 sm:gap-4 md:gap-6 lg:gap-8 text-xs sm:text-xs lg:text-sm text-white/80 pb-10 md:pb-0">
               <div>
                 <div className="flex items-start gap-2.5 sm:gap-3">
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 text-[var(--dark-orange-red)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path></svg>
@@ -161,7 +161,7 @@ export default function Footer() {
             className="pointer-events-none pb-4 sm:pb-8 lg:pb-0 overflow-x-hidden px-4 sm:px-0"
           >   
             <h2
-              className="footer-decorative-text leading-none pb-4 sm:pb-8 lg:pb-0 text-center max-w-full"
+              className="footer-decorative-text leading-none lg:pb-0 text-center max-w-full"
                style={{
                     color: 'transparent',
                     WebkitTextStroke: '1.57px #FFFFFF',

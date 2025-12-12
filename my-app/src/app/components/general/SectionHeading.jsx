@@ -13,7 +13,7 @@ export default function SectionHeading({
         </h5>
       )}
       {title && (
-        <h2 className={`font-stix  py-3  leading-12 text-[var(--foreground)] ${titleClassName}`}>
+        <h2 className={`font-stix leading-12 mb-2 text-[var(--foreground)] ${titleClassName}`}>
           {title}
         </h2>
       )}

@@ -39,6 +39,18 @@ const programs = [
     duration: "2 Year",
     level: "PG",
   },
+  {
+    id: 6,
+    title: "Master of Technology (M.Tech)",
+    duration: "2 Year",
+    level: "PG",
+  },
+  {
+    id: 6,
+    title: "Master of Technology (M.Tech)",
+    duration: "2 Year",
+    level: "PG",
+  },
 ];
 
 export default function ProgramsOffered() {
@@ -54,9 +66,9 @@ export default function ProgramsOffered() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column */}
           <div className="flex flex-col gap-6 order-2 lg:order-1">
-            <div className="lg:pt-30">
+            <div className="pt-20">
               <h2 className="text-white mb-4">Programs Offered</h2>
-              <p className="text-white leading-relaxed">
+              <p className="text-white leading-relaxed pr-10">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -69,13 +81,13 @@ export default function ProgramsOffered() {
                 alt="Students"
                 width={500}
                 height={400}
-                className="rounded-lg object-cover w-full"
+                className="rounded-lg object-cover w-full h-[300px] md:h-[400px] lg:h-[500px]"
               />
             </div>
           </div>
 
           {/* Right Column */}
-          <div className="flex flex-col py-16 order-1 lg:order-2">
+          <div className="flex flex-col justify-center order-1 lg:order-2">
             {/* Search Bar */}
             <div className="relative p-4 px-4">
               <input
@@ -101,7 +113,7 @@ export default function ProgramsOffered() {
             </div>
 
             {/* Program List */}
-            <div className="p-4 max-h-[550px] overflow-y-auto custom-scrollbar">
+            <div className="p-4 max-h-[475px] overflow-y-auto custom-scrollbar">
               {filteredPrograms.map((program) => (
                 <div
                   key={program.id}
@@ -120,13 +132,13 @@ export default function ProgramsOffered() {
                       <h3 className="text-[var(--button-red)] font-semibold mb-2 text-lg font-plus-jakarta-sans">
                         {program.title}
                       </h3>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
                       <p className="text-[var(--light-text-gray)] !font-[500]">
                         Duration: {program.duration}
                       </p>
                       <a
                       href="#"
-                      className="font-[500] flex items-center gap-1 hover:gap-2 transition-all ml-4"
+                      className="font-[500] flex items-center gap-1 hover:gap-2 transition-all md:ml-4"
                     >
                       Explore Program
                       <svg

@@ -160,8 +160,8 @@ const Breadcrumb = ({ customBreadcrumbs, heroImage, pageTitle }) => {
       {/* Page Title Card - Positioned at the boundary between blue and white sections */}
       {currentPageTitle  && (
         <div className="container mx-auto">
-        <div className="absolute z-[100] flex md:flex-row flex-col md:items-end items-start gap-4 md:gap-6 bottom-[40px] md:bottom-[50px] lg:bottom-[50px] translate-y-1/2 mb-8 md:mb-12">
-          <div className="bg-[var(--dark-blue)]/80 backdrop-blur-md rounded-2xl min-h-[180px] flex justify-center items-center min-w-[300px] max-w-3/5 wraptext-center">
+        <div className="absolute z-[100] flex md:flex-row flex-col md:items-end items-start gap-4 md:gap-6 bottom-[40px] md:bottom-[50px] lg:bottom-[50px] translate-y-1/2 mb-8 md:mb-16">
+          <div className="bg-[var(--dark-blue)]/80 backdrop-blur-md rounded-2xl min-h-[200px] flex justify-center items-center min-w-[330px] max-w-3/5 wraptext-center">
             <h1 className="font-stix text-center text-white text-2xl md:text-4xl lg:text-5xl font-normal ">
               {currentPageTitle}
             </h1>

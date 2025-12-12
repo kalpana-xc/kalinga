@@ -41,12 +41,16 @@ const AccreditationRanking = ({
   return (
     <section className="py-16 ">
       <div className="">
-        <div className="flex flex-col md:flex-row items-center md:items-center gap-4 md:gap-0.5">
+        <div className="relative flex flex-col md:flex-row items-center md:items-center">
           {/* Left title pill */}
-          <div className="flex-none relative w-full md:w-auto md:left-[-130px] z-1">
-            <div className="bg-[var(--button-red)] text-white rounded-[80px] sm:rounded-[100px] md:rounded-[120px] flex items-center justify-center shadow-lg w-full md:w-[574px] h-auto min-h-[100px] sm:min-h-[140px] md:h-[172px] px-4 sm:px-6 md:px-0">
-              <h2 className="text-xl sm:text-2xl md:text-4xl font-stix leading-tight text-left md:ml-25 py-2 sm:py-0">
-                {heading}
+          <div className="relative w-full md:w-auto z-10 md:mr-[-130px]">
+            <div className="bg-[var(--button-red)] text-white rounded-r-[80px] sm:rounded-r-[100px] md:rounded-r-[120px] flex items-center justify-center shadow-lg w-full md:w-[430px] h-auto min-h-[100px] sm:min-h-[140px] md:h-[172px] px-4 sm:px-6 md:px-0">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-stix leading-tight text-left py-2 sm:py-0">
+                {heading.split(' & ').map((part, index, array) => (
+                  <span key={index} className="block">
+                    {part}{index < array.length - 1 ? ' &' : ''}
+                  </span>
+                ))}
                 {secondHeading && (
                   <span className="block text-lg sm:text-xl md:text-2xl font-normal">
                     {secondHeading}
@@ -57,7 +61,7 @@ const AccreditationRanking = ({
           </div>
 
           {/* LogoLoop slider */}
-          <div className="flex-1 w-full justify-center items-center md:w-auto md:ml-[-130px] overflow-hidden relative">
+          <div className="flex-1 w-full justify-center items-center md:pl-[130px] overflow-hidden relative">
             <LogoLoop
               logos={logoLoopItems}
               speed={60}

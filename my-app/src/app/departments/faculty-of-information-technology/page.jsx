@@ -64,12 +64,34 @@ import UpcomingConference from "../../components/research/upcoming_conference";
         description: "Explore the latest trends in technology, artificial intelligence, and digital transformation in education and industry applications.",
       },
     ]
+
+    const MentorIntroProps = [
+      {
+        cardClassName: "",
+        imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/omprakash.png",
+        title: "Mr. Omprakash Dewangan",
+        subtitle: "Head of Department",
+        department: "Faculty of Information Technology",
+        message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+       }
+    ]
   return (
     <div>
-      <MainIntro />
+       <MainIntro 
+      title="Transforming futures with knowledge & innovation"
+      description={["Established in 2013, Kalinga University, Raipur has emerged as a premier institution of higher learning in Central India, strategically located in the Smart City of New Raipur, Chhattisgarh. The University is recognized for its academic excellence, global perspective, and commitment to innovation and research.",
+      "With a strong focus on quality education, Kalinga University offers 130+ undergraduate, postgraduate, and doctoral programs across diverse disciplines including Arts, Management, Law, Pharmacy, Information Technology, and Science. The curriculum is designed in alignment with the National Education Policy (NEP) 2020, ensuring that students are equipped with contemporary skills and global competencies."
+    ,"The University is home to students from over 29+ countries, creating a vibrant, multicultural environment that promotes collaboration and cross-cultural understanding. Through partnerships with global leaders such as IBM, Cisco, Bosch, and Microsoft, Kalinga University integrates academic learning with practical industry experience."
+    ,"Spread across a 50-acre green campus, the University features modern infrastructure, advanced laboratories, digital classrooms, and Centres of Excellence, providing an ecosystem that fosters creativity, research, and innovation."
+    ,"Driven by its mission to empower learners with knowledge, leadership, and integrity, Kalinga University continues to shape the next generation of professionals, innovators, and changemakers who contribute meaningfully to society and the world."
+    ]}
+      imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg"
+      imageAlt="Kalinga University campus"
+      />
       <PublicationGrid />
       <ProgramsOffered />
-      <DeptHeadIntro />
+      <DeptHeadIntro items={MentorIntroProps} />
       <DeptSyllabus />
       <Placements />
       <MediaCardSlider

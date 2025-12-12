@@ -61,7 +61,7 @@ export default function StudentActivities({
                   className="rounded-lg object-cover w-full"
                 />
                 {activity.date && (
-                  <div className="absolute bottom-3 right-3 bg-[var(--dark-orange-red-light)] px-3 py-1.5 rounded text-[#000] text-sm font-medium">
+                  <div className="absolute bottom-3 right-3 bg-[var(--dark-orange-red-light)] px-3 py-1.5 rounded text-[#000] text-[10px] font-medium">
                     {activity.date}
                   </div>
                 )}

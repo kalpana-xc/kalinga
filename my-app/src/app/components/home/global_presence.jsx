@@ -21,7 +21,7 @@ const GlobalPresence = ({
   return (
     <section className={sectionClassName}>
       <div className="px-4 lg:px-6">
-        <div className={`mx-auto ${backgroundColor} rounded-xl px-4 text-center text-white relative w-full h-auto min-h-[500px] sm:min-h-[500px] md:h-[500px]`}>
+        <div className={`mx-auto ${backgroundColor} rounded-xl text-center text-white relative w-full h-auto min-h-[500px] sm:min-h-[500px] md:h-[500px]`}>
         <div className="max-w-4xl mx-auto pt-16">
         <SectionHeading
           subtitle={subtitle}
@@ -36,9 +36,9 @@ const GlobalPresence = ({
         </div>
 
         {/* globe graphic */}
-        <div className="mt-6 sm:mt-8">
+        <div className="mt-0 md:mt-8">
           <div className="mx-auto w-full max-w-[729px] h-auto min-h-[200px] sm:min-h-[250px] md:h-[289px] relative -mb-8 sm:-mb-12 md:-mb-17 z-0 px-4">
-            <div className="relative w-full h-[289px]">
+            <div className="relative w-full h-[150px] sm:h-[150px] md:h-[289px]">
               <Image
                 src={imageUrl}
                 alt={imageAlt}

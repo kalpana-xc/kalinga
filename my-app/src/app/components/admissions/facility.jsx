@@ -47,7 +47,7 @@ export default function Facility({
 }) {
   return (
     <section className="py-16 bg-white relative">
-      <div className="container mx-auto px-4 lg:px-5">
+      <div className="px-4 lg:px-5">
         {/* Header Section */}
         <SectionHeading 
                         subtitleClassName={subtitleClassName}
@@ -90,7 +90,7 @@ export default function Facility({
             {facilities.map((facility) => (
               <SwiperSlide key={facility.id} className="!overflow-visible">
                 <div className="h-full w-full">
-                  <div className="bg-white rounded-xl  overflow-visible h-full group-hover:z-[50] relative transition-all duration-300 cursor-pointer group">
+                  <div className="bg-white rounded-xl overflow-visible h-full group-hover:z-[50] relative transition-all duration-300 cursor-pointer group shadow-md group-hover:shadow-xl">
                     {/* Image Container - Fixed wrapper with padding for upward growth (250px visible + 50px padding = 300px total) */}
                     <div className="relative w-full min-h-[300px] overflow-visible rounded-t-xl">
                       {/* Image - Positioned at bottom, grows upward on hover */}
