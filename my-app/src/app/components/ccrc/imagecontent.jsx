@@ -5,11 +5,15 @@ import GlobalArrowButton from "@/app/components/general/global-arrow_button";
 import SectionHeading from "../general/SectionHeading";
 
 const additionalContent = [
-  "With skill-based training programs, workshops, guest lectures, corporate mentorship, industrial visits, soft skill trainings, personality development workshops, internships, industrial training, campus placement drives, and industry-certified programs, we’re able to maximise the output and save the time of students and working professionals, and build a future-ready workforce. The Centre features state-of-the-art infrastructure and resources that meet industry standards and has earned high appreciation from leading organisations across India and abroad. With experiential learning strategies and an updated curriculum, our students are placed at top companies, and corporate professionals have learned to deliver maximum output and maintain consistent performance."
+  "Our incubation managers and support members transform their raw ideas into real ventures. With expert guidance, research-related infrastructure, pitch trainings, workshops, guest lectures, industrial visits, and presentation trainings, our incubation centre will guide you at every stage of your startup journey. In line with the Startup India Policy and the Chhattisgarh State Startup & Incubation Policy, KIF ensures that its incubation model is closely aligned with both national and regional priorities. Through industrial insights, networking opportunities, and seed funding support, KIF will fast-track your entrepreneurial journey. Whether you are building a new app or solving a real-world problem, it will provide you with an environment where your innovative ideas will be executed in the right direction."
+];
+
+const additionalContent2 = [
+  "support members transform their raw ideas into real ventures. With expert guidance, research-related infrastructure, pitch trainings, workshops, guest lectures, industrial visits, and presentation trainings, our incubation centre will guide you at every stage of your startup journey. In line with the Startup India Policy and the Chhattisgarh State Startup & Incubation Policy, KIF ensures that its incubation model is closely aligned with both national and regional priorities. Through industrial insights, networking opportunities, and seed funding support, KIF will fast-track your entrepreneurial journey. Whether you are building a new app or solving a real-world problem, it will provide you with an environment where your innovative ideas will be executed in the right direction."
 ];
 
 export default function ImageContent({
-  imageSrc = "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/ccrclogo.webp",
+  imageSrc = "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/kif.png",
   imageAlt = "CCRC Banner",
   imageWidth = 600,
   imageHeight = 400,
@@ -19,7 +23,9 @@ export default function ImageContent({
   buttonText = "Read More",
   className = "",
   hasImage = true,
+  readmore = true,
   subtitleclassName = "",
+  additionalContent = additionalContent2,
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -58,13 +64,15 @@ export default function ImageContent({
               </div>
             )}
           </div>
-          <GlobalArrowButton
-            variant="transparent"
-            onClick={toggleExpand}
-            className={isExpanded ? '' : ''}
-          >
-            {isExpanded ? 'Read Less' : buttonText}
-          </GlobalArrowButton>
+          {readmore !== false && (
+            <GlobalArrowButton
+              variant="transparent"
+              onClick={toggleExpand}
+              className={isExpanded ? '' : ''}
+            >
+              {isExpanded ? 'Read Less' : buttonText}
+            </GlobalArrowButton>
+          )}
         </div>
       </div>
     </section>

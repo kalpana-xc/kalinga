@@ -10,6 +10,23 @@ import Gallery from "@/app/components/general/gallery";
 import DeptHeadIntro from "@/app/components/department/dept_head_intro";
 import AdmissionCareer from "@/app/components/general/admission_cta";
 import MediaCardSlider from "@/app/components/general/media-card-slider";
+
+// Model breradcrumb
+
+const breadcrumbData = {
+  heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
+ imageposition:"object-top",
+  pageTitle: "Career and Corporate Resource Centre",
+  customBreadcrumbs: [
+    { label: 'Home', href: '/' },
+    { label: 'Career and Corporate Resource Centre', href: '/career-and-corporate-resource-centre' }
+  ]
+};
+
+// Register it globally (no import needed - this pattern works automatically)
+if (typeof window !== 'undefined') {
+  window.__breadcrumbData = breadcrumbData;
+}
 const newsConferences = [
   {
     id: 1,

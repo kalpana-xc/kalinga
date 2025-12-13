@@ -29,6 +29,7 @@ const routeHeroImages = [
   },  
 
 ];
+const imageposition = "object-center";
 
 const Breadcrumb = ({ customBreadcrumbs, heroImage, pageTitle }) => {
   const pathname = usePathname();
@@ -128,7 +129,7 @@ const Breadcrumb = ({ customBreadcrumbs, heroImage, pageTitle }) => {
                 src={resolvedHeroImage}
                 alt={currentPageTitle}
                 fill
-                className="object-cover"
+                className={`object-cover object-center ${imageposition}`} 
                 priority
               />
               {/* Gradient Overlay for image */}

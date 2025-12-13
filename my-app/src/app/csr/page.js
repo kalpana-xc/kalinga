@@ -20,10 +20,10 @@ import { useLayoutEffect } from "react";
 // No imports needed for breadcrumb! Just define the const and it works.
 const breadcrumbData = {
   heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
-  pageTitle: "Corporate a Sociala Responsibility",
+  pageTitle: "Corporate Social Responsibility",
   customBreadcrumbs: [
     { label: 'Home', href: '/' },
-    { label: 'CSaR', href: '/csr' }
+    { label: 'CSR', href: '/csr' }
   ]
 };
 
@@ -39,7 +39,6 @@ export default function KIFPage({
         visionText: [
             "Holistic Development",
             "lluminating the World with Light of Knowledge ",
-            "Third vision point",
             "Global Diversity",
             "Multicultural Environment ",  
             "Team Spirit & Bonding",
@@ -54,31 +53,27 @@ export default function KIFPage({
     const Items = [
         {
           id: 1,
-          text: "Improved performance and output"
+          text: "To provide training in technical and vocational education"
         },
         {
           id: 2,
-          text: "Better decision-making"
+          text: "To plant trees for environmental improvement"
         },
         {
           id: 3,
-          text: "Enhanced employee engagement rate"
+          text: "To organise social, cultural, and religious programs"
         },
         {
           id: 4,
-          text: "Increased competitiveness"
+          text: "To develop rural areas "
         },
         {
           id: 5,
-          text: "Improved leadership and team collaboration"
+          text: "To provide training in industries related to the Khadi Village Industry"
         },
         {
           id: 6,
-          text: "Improved client/customer satisfaction"
-        },
-        {
-          id: 7,
-          text: "Stronger work culture and long-term profitability"
+          text: "Promote advanced agricultural techniques and provide their training in rural areas "
         }
       ]
 
@@ -137,28 +132,50 @@ export default function KIFPage({
     const FAQItems = [
         {
           id: 1,
-          question: "What is the admission process?",
-          answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+          question: "Target Groups",
+          answer: [
+            'Students',
+            'Youth',
+            'Women',
+            'Underprivileged Communities',
+            'School Students',
+            'Industry Partners '
+          ],
         },
         {
           id: 2,
-          question: "What are the eligibility criteria?",
-          answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+          question: "Villages Adopted",
+          answer: [
+            'Kotni',
+            'Palaud',
+            'Tandul',
+            'Kotara Bhantha',
+            'Parsada',
+            'Kuhera'
+          ],
         },
         {
           id: 3,
-          question: "What documents are required?",
-          answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-        },
-        {
-          id: 4,
-          question: "How can I apply for scholarships?",
-          answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-        },
-        {
-          id: 5,
-          question: "What is the fee structure?",
-          answer: " amlLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+          question: "Our Programs",
+          answer: {
+            type: 'table',
+            headers: ['S.No', 'Program Name', 'CSR Initiatives'],
+            rows: [
+              { id: 1, program: 'STEM Education: STEM For Girls In India', description: 'The representation of women and girls in STEM fields (Science, Technology, Engineering, and Mathematics) is quite less in India, but we fulfil this gap by introducing STEM education to girls in rural areas.' },
+              { id: 2, program: 'Rural Infrastructure Development', description: 'Improving the lives of rural people is essential in terms of education, healthcare, sanitation, infrastructure, road development, water supply, irrigation schemes, local markets, and telecommunication. We help corporates address rural development challenges with proper resource planning and employee volunteering, which will not only develop their village but will also generate employment opportunities for both men and women.' },
+              { id: 3, program: 'Skill Development', description: 'Essential for both economic growth and social development, this program will turn youth into a future-ready workforce, as we will conduct skill-based training programs in economically weaker sections of society across India or establish centres on your behalf.' },
+              { id: 4, program: 'Training of Women/Youth', description: 'Investment in skilling women in different sectors, such as helping them establish small businesses which they can run from the comfort of their home, will help them build long-term careers and will lead to sustainable change in the economy and help corporates take ethical responsibility.' },
+              { id: 5, program: 'Road Safety', description: 'We will help you address one of the biggest issues in India, i.e, Road Safety. Under this CSR initiative, we will undertake activities like building roads, driving training, investment in R&D in road safety, road accident trauma care, and developing road safety curriculum for school children, inspection of used vehicles, driving testing, and much more.' },
+              { id: 6, program: 'Encouragement of Sports in Rural Areas', description: 'To bring out the talent of the youth of rural areas, we will establish sports centres, provide training, and even organise local tournaments in economically backward areas and create opportunities for their growth too.' },
+              { id: 7, program: 'Health Sector', description: 'Under this CSR initiative, we will establish medical institutions, organise healthcare camps and awareness programs, and vaccination drives to provide quality healthcare services to underserved communities of our nation.' },
+              { id: 8, program: 'Sanitation', description: 'We support corporates in undertaking sanitation initiatives by promoting cleanliness and hygiene. Our programs will include campaigns on personal hygiene, public health, menstrual health for women, and waste management practices. We will also organise clean-up projects for rivers and ponds.' },
+              { id: 9, program: 'Environment', description: 'Environmental pollution is growing at a fast rate as more companies are emitting heavy chemicals into the atmosphere, which makes it imperative for companies to invest their CSR funds in the same. We help companies with the following CSR activities:' },
+              { id: 10, program: 'Cultural Preservation', description: 'Documenting and promoting local culture' },
+              { id: 11, program: 'Disaster Relief', description: 'Emergency response and rehabilitation' },
+              { id: 12, program: 'Elderly Care', description: 'Support for senior citizens' },
+              { id: 13, program: 'Youth Development', description: 'Leadership and career guidance' }
+            ]
+          }
         }
       ]
 
@@ -178,58 +195,30 @@ export default function KIFPage({
       
   return (
     <div>
-      <ImageContent hasImage={false} className="items-center justify-center" title="Corporate Social Responsibility (CSR)" subtitleclassName="hidden" description="Companies today understand the importance of giving back by being socially responsible towards society, but with a lack of time, planning, and expertise, they fail to develop effective programs. The Corporate Social Responsibility (CSR) initiatives at Kalinga come under Bhagwan Shri Bala Sai Educational and Charitable Society, which works on behalf of different organisations and assists them in staying ahead in sustainable and social welfare." />
-    <MainIntro 
-      title="About Bhagwan Shri Bala Sai Educational And Charitable Society "
-      description={["Companies today understand the importance of giving back by being socially responsible towards society, but with a lack of time, planning, and expertise, they fail to develop effective programs. The Corporate Social Responsibility (CSR) initiatives at Kalinga come under Bhagwan Shri Bala Sai Educational and Charitable Society, which works on behalf of different organisations and assists them in staying ahead in sustainable and social welfare."]}
-      imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg"
+      <ImageContent 
+        hasImage={false} 
+        readmore={false} 
+        className="items-center justify-center" 
+        title="Corporate Social Responsibility (CSR)" 
+        subtitleclassName="hidden" 
+        description="Companies today understand the importance of giving back by being socially responsible towards society, but with a lack of time, planning, and expertise, they fail to develop effective programs. The Corporate Social Responsibility (CSR) initiatives at Kalinga come under Bhagwan Shri Bala Sai Educational and Charitable Society, which works on behalf of different organisations and assists them in staying ahead in sustainable and social welfare. It handles every project with transparency and accountability by identifying real social needs, developing solutions to address those challenges, working towards the cause, and measuring outcomes. The organization helps companies successfully channelise their CSR efforts by focusing on their business objectives and delivering measurable results."
+      />    
+     <MainIntro 
+      title="About Bhagwan Shri Bala Sai Educational And Charitable Society"
+      description={["It is a philanthropic organisation that is primarily involved in education and social welfare activities. The society works towards uplifting the underprivileged communities by offering them inclusive educational opportunities, healthcare facilities, and engaging in charitable activities. The society operates educational institutions, healthcare camps, scholarship programs, and other social welfare initiatives."]}
+      imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/csr.png"
       imageAlt="Kalinga University campus"
-   
       showKnowMore={false}
-      showImage={false}
+      showImage={true}
       />
       <VisionMission data={visionMissionData} showImg={false} />
-      <ImageListItem items={Items} imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/ccrc.webp" title="Benefits for Organisations"  />
+      <ImageListItem items={Items} imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/ccrc.webp" title="Objectives of the Organisation"  />
 
-        <ImageContent hasImage={false} className="items-center justify-center" title="Corporate Social Responsibility (CSR)" subtitleclassName="hidden" description="Companies today understand the importance of giving back by being socially responsible towards society, but with a lack of time, planning, and expertise, they fail to develop effective programs. The Corporate Social Responsibility (CSR) initiatives at Kalinga come under Bhagwan Shri Bala Sai Educational and Charitable Society, which works on behalf of different organisations and assists them in staying ahead in sustainable and social welfare." />
-    
-      <CenterOfExcellence
-        centres={centres}
-        title="Startup Partners"
-        description="Explore the spaces and partnerships that power the Kalinga Incubation Foundation."
-      />
+      <ImageContent hasImage={false}  className="items-center justify-center" title="Career and Corporate Resource Centre" subtitleclassName="hidden" description="It is a philanthropic organisation that is primarily involved in education and social welfare activities. The society works towards uplifting the underprivileged communities by offering them inclusive educational opportunities, healthcare facilities, and engaging in charitable activities. The society operates educational institutions, healthcare camps, scholarship programs, and other social welfare initiatives." />
+      <FAQ  />
+      <CenterOfExcellence centres={centres} title="Startup Partners" description="Explore the spaces and partnerships that power the Kalinga Incubation Foundation." />
       <StudentActivities activities={activities} title="KIF  Glimpse" subtitle="" />
       
-      {/* DataTable Example */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8 font-plus-jakarta-sans">Committee Members</h2>
-            <DataTable
-              columns={[
-                { key: "slNo", label: "Sl. No", width: "w-20" },
-                { key: "name", label: "Name of member", width: "w-48" },
-                { key: "designation", label: "Designation", width: "flex-1" },
-                { key: "category", label: "Category", width: "w-40" }
-              ]}
-              data={[
-                { slNo: 1, name: "Name", designation: "Professor/ECE", category: "Chairperson" },
-                { slNo: 2, name: "Name", designation: "Professor/Mechanical", category: "Member" },
-                { slNo: 3, name: "Name", designation: "Assistant professor", category: "Member" },
-                { slNo: 4, name: "Name", designation: "Non-Teaching Staff", category: "Member" },
-                { slNo: 5, name: "Name", designation: "Student/ECE", category: "Member" },
-                { slNo: 6, name: "Name", designation: "Student/Mechanical", category: "Member" },
-                { slNo: 7, name: "Name", designation: "Advocate", category: "Asso. Committed" },
-                { slNo: 8, name: "Name", designation: "Professor/ECE", category: "Member" },
-                { slNo: 9, name: "Name", designation: "Professor/Mechanical", category: "Member" }
-              ]}
-              overflowX={false}
-            />
-          </div>
-        </div>
-      </section>
-
-      <FAQ items={FAQItems} noSection={true} />
       <AdmissionCareer />
      
     </div>

@@ -11,37 +11,37 @@ const leadership = [
     id: 1,
     name: "Dr. Rajeev Kumar",
     title: "Chairman",
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/omprakash.png",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/Leadership/Rajeev+Kumar.png",
   },
   {
     id: 2,
     name: "Dr. Sandeep Arora",
     title: "Chancellor",
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/omprakash.png",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/Leadership/Sandeep+Arora.png",
   },
   {
     id: 3,
     name: "Mr. Sajjan Singh",
     title: "Pro-Chancellor",
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/omprakash.png",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/Leadership/Sajjan+Singh.png",
   },
   {
     id: 4,
     name: "Dr. R. Shridhar",
     title: "Vice-Chancellor",
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/omprakash.png",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/Leadership/Shridhar.png",
   },
   {
     id: 5,
     name: "Dr. Byju John",
     title: "Director General",
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/omprakash.png",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/Leadership/Byju+John.png",
   },
   {
     id: 6,
     name: "Dr. Sandeep Gandhi",
     title: "Registrar",
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/omprakash.png",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/Leadership/Sandeep+Gandhi.png",
   },
 ];
 

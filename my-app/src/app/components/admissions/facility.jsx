@@ -9,7 +9,7 @@ const defaultFacilities = [
   {
     id: 1,
     name: "Hostel",
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/library.webp",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/facilities/hostel.webp",
   },
   {
     id: 2,
@@ -19,28 +19,29 @@ const defaultFacilities = [
   {
     id: 3,
     name: "GYM",
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/library.webp",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/facilities/gym.webp",
   },
   {
     id: 4,
     name: "Playground",
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/library.webp",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/facilities/DSC00047.webp",
   },
   {
     id: 5,
     name: "LAB",
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/library.webp",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/facilities/labotories.webp",
   },
   {
     id: 6,
-    name: "LAB",
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/library.webp",
+    name: "Canteen",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/facilities/canteen+mess.webp",
   },
 ];
 
 export default function Facility({
-  title = "Stories that define our Kalinga spirit.",
+  title = "A Campus That Defines Possibilities",
   subtitle = "Real Stories. Real Success.",
+  description = " Kalinga University offers a state-of-the-art campus that redefines the student experience. Our cutting-edge labs, expansive library, modern hostels, and recreational facilities ensure a balanced environment where learning and lifestyle go hand in hand.",
   titleClassName = "text-center",
   subtitleClassName = "text-center !text-[var(--button-red)]",
   facilities = defaultFacilities,
@@ -55,6 +56,11 @@ export default function Facility({
                         subtitle={subtitle}
                         title={title}
                     />
+                    {description && (
+                      <p className="text-center text-gray-600 max-w-3xl mx-auto mt-4 mb-8">
+                        {description}
+                      </p>
+                    )}
         {/* Slider Section */}
         <div className="relative overflow-visible">
           <Swiper 
