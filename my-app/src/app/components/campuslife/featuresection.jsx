@@ -26,7 +26,7 @@ export default function Page() {
 
 
   return (
-    <div className="max-w-[1200px] mx-auto px-6 py-20 flex flex-col gap-32">
+    <div className="max-w-[1200px] mx-auto px-6 py-8 flex flex-col gap-24 items-stretch">
 
       {[
         { type: "sandal", title: "Academic Infrastructure", desc: "Kalinga University offers state-of-the-art academic infrastructure with smart classrooms, digital learning tools, and well-equipped labs that promote innovation and practical learning." },
@@ -40,15 +40,16 @@ export default function Page() {
         <div
           key={index}
           className="relative w-full min-h-[380px] 
-                     md:min-h-[380px] 
-                     flex flex-col md:block"
+                     md:min-h-[450px] 
+                     flex flex-col md:block
+                     py-8 md:py-16"
         >
 
           {sec.type === "sandal" ? (
             // IMAGE RIGHT
             <div
               className="
-                absolute md:bottom-[150px] md:left-[550px] md:w-[40%]
+                absolute md:bottom-[100px] md:left-[550px] md:w-[40%]
                 w-full static md:absolute 
               "
             >
@@ -77,7 +78,7 @@ export default function Page() {
             // IMAGE LEFT
             <div
               className="
-                absolute md:-top-[60px] md:left-[100px] md:w-[40%] z-20
+                absolute md:top-0 md:left-[190px] md:w-[40%] z-20
                 w-full static md:absolute
               "
             >
@@ -110,37 +111,47 @@ export default function Page() {
               className="
               bg-[var(--card-sandal)] rounded-2xl p-8 shadow-md w-full md:w-[45%] 
               min-h-[280px] md:min-h-[280px]
-              md:left-[180px] 
-              mt-6 md:mt-0 relative
+              md:absolute md:left-[180px] md:top-[100px]
+              mt-6 md:mt-0
             "
             >
               <h1 className="text-2xl font-regular mt-[40px] mb-3">{sec.title}</h1>
               <p className="text-sm text-[var(--foreground)]/70 leading-relaxed mb-4 w-[280px] mb:w-[338px]">{sec.desc}</p>
-              <GlobalArrowButton>Apply Now</GlobalArrowButton>
+              <GlobalArrowButton>Know More</GlobalArrowButton>
             </div>
           ) : (
             <div
               className="
               bg-[var(--button-red)] text-white rounded-2xl p-8 shadow-md 
               w-full md:w-[45%] min-h-[280px]
-              md:absolute md:right-[180px] md:top-[80px]
+              md:absolute md:right-[138px] md:top-[100px]
               mt-6 md:mt-0
             "
             >
-              <h2 className="text-2xl font-regular mb-3 mt-8 md:pl-[100px]">
+              <h2 className="text-2xl font-regular mb-3 mt-8 md:pl-[140px]">
                 {sec.title}
               </h2>
-              <p className="text-sm leading-relaxed mb-4 md:pl-[100px]">
+              <p className="text-sm leading-relaxed mb-4 md:pl-[140px]">
                 {sec.desc}
               </p>
-<GlobalArrowButton 
- className="!bg-white !text-[var(--foreground)]"
-  variant="transparent"
-  arrowClassName="bg-[var(--brown)]"
->
-  Apply Now
-</GlobalArrowButton>
-             
+              <div className={`md:pl-[140px] flex ${index === 1 ? 'gap-4' : ''} flex-wrap`}>
+                <GlobalArrowButton 
+                  className="!bg-white !text-[var(--foreground)]"
+                  variant="transparent"
+                  arrowClassName="bg-[var(--brown)]"
+                >
+                  Know More
+                </GlobalArrowButton>
+                {index === 1 && (
+                  <GlobalArrowButton 
+                    className="!bg-[var(--dark-orange-red)] !border-[1px] !border-white !text-white hover:!bg-[var(--dark-orange-red-light)]"
+                    arrowClassName="!bg-white"
+                    arrowIconClassName="!text-[var(--dark-orange-red)]"
+                  >
+                    Check fees
+                  </GlobalArrowButton>
+                )}
+              </div>
             </div>
           )}
         </div>
