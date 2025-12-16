@@ -9,23 +9,33 @@ import "swiper/css/navigation";
 export default function PublicationGrid({ 
   stats = [
     {
-      title: "Publications",
-      value: "1250 +",
+      title: "Research Publications",
+      value: "3360 +",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
     },
     {
       title: "Startups",
-      value: "12 +",
+      value: "6 +",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
     },
     {
-      title: "Awards",
-      value: "63 +",
+      title: "Patents",
+      value: "532 +",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
     },
     {
-      title: "Conferences",
-      value: "78 +",
+      title: "H-Index",
+      value: "19 +",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
+    },
+    {
+      title: "Research Labs",
+      value: "90 +",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
+    },
+    {
+      title: "Citations",
+      value: "2136 +",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
     },
   ]

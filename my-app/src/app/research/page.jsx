@@ -12,7 +12,8 @@ import AdmissionCareer from "../components/general/admission_cta";
 import UpcomingConferences from "../components/research/upcoming_conference";
 import MentorIntro from "../components/department/dept_head_intro";
 import CenterOfExcellence from "../components/about/center_of_excellence";
-import AwardsScrollbar from "../components/home/awards-scrollbar";  
+import AwardsScrollbar from "../components/home/awards-scrollbar"; 
+import AutoBreadcrumb from "../components/layout/BreadcrumbData";
 export default function Research() {
 
   const newsConferences = [
@@ -109,20 +110,32 @@ export default function Research() {
       active: true,
     },
   ];
+  const breadcrumbData = {
+    heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/research/reserarch-banner.webp",
+    pageTitle: "Research",
+    customBreadcrumbs: [
+      { label: 'Home', href: '/' },
+      { label: 'Research', href: '/research' }
+    ]
+  };
   return (
     <div>
-      <MainIntro title="Research at Kalinga University" description="Kalinga University is a leading institution for research and innovation. We are committed to providing a platform for research and innovation to our students and faculty." imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg" imageAlt="Kalinga University Research" />
+      <AutoBreadcrumb data={breadcrumbData} />
+      <MainIntro title="Research at Kalinga University" 
+      description="Kalinga University fosters a strong research culture that extends beyond classrooms through collaboration with leading universities and R&D institutions. Its research-driven curriculum, IPR and incubation cells support innovation, patents, commercialization, and industry linkage. With advanced CIF laboratories, research tools, plagiarism checks, and a robust research policy, the university empowers students to independently explore, innovate, and solve real-world challenges."
+       imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/research/research-main-content.webp" imageAlt="Kalinga University Research" />
 
       <PublicationGrid  />
       <OrganogramOfKalinga 
-        title="Apply of Kalinga University"
-        description="Kalinga University follows a well-defined governance structure that ensures smooth administration, transparency, and institutional excellence."
-        buttonLabel="Explore Now"
+        title="Apply Now for Ph.D. Admissions"
+        description="Begin your research journey with world-class faculty, advanced labs, and a structured research ecosystem."
+        buttonLabel="Apply Now"
         href="/about-us"
       
       />
       <UGCLogo />
       <QuickLinks titleClassName="text-white" />
+      
       <MentorIntro   imageSrc = "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/omprakash.png"
   title = "Mr. Amul"
   subtitle = "Head of Research"
@@ -130,6 +143,7 @@ export default function Research() {
   quote = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   />  
+
       <FAQ 
         title="Research Committee Members" 
         subtitleClassName="!hidden" 
