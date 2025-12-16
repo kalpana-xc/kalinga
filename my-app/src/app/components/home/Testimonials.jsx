@@ -39,7 +39,7 @@ const defaultTestimonialsData = [
     }
 ];
 
-export default function Testimonials({ testimonials = [], className = "" }) {
+export default function     Testimonials({ testimonials = [], className = "", subtitle = "Real Stories. Real Success.", title = "Stories that define our Kalinga spirit.", titleClassName = "", subtitleClassName = "", subtitleTextColor = "" }) {
     const testimonialsData = testimonials.length > 0 ? testimonials : defaultTestimonialsData;
     const [activeIndex, setActiveIndex] = useState(1);
     const [isMobile, setIsMobile] = useState(false);
@@ -165,10 +165,11 @@ export default function Testimonials({ testimonials = [], className = "" }) {
                 {/* Section Heading */}
                 <h5 className="text-gray-600 text-center leading-tight text-xs sm:text-sm md:text-base">
                     <SectionHeading 
-                        subtitleClassName="text-center"
-                        titleClassName="text-center"
-                        subtitle="Real Stories. Real Success."
-                        title="Stories that define our Kalinga spirit."
+                        subtitleClassName={`text-center ${subtitleClassName}`}
+                        titleClassName={`text-center ${titleClassName}`}
+                        subtitle={subtitle}
+                        title={title}
+                        subtitleTextColor={subtitleTextColor || "text-[var(--button-red)]"}
                     />
                 </h5>
                 {/* Slider Track */}
