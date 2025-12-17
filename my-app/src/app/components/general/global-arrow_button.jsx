@@ -73,7 +73,7 @@ export default function GlobalArrowButton({
       onClick={onClick}
       className={`${baseButtonClasses} ${variantButtonClasses[variant] || variantButtonClasses.default} ${showArrow ? '' : ''} ${className}`}
     >
-      <p className={`whitespace-nowrap  !font-medium max-w-fit ${textclassname} ${textClassName}`}>{children}</p>
+      <p className={`text-left  !font-medium max-w-fit ${textclassname} ${textClassName}`}>{children}</p>
       {showArrow && (
         <span className={`${arrowContainerClasses[variant] || arrowContainerClasses.default} ${arrowClassName}`}>
           <ArrowIcon />

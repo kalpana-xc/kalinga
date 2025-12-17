@@ -195,7 +195,7 @@ const FAQ = ({
     
     return (
       <Wrapper className={`${backgroundColor} py-16`}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-2">
           {showHeading && (
             <SectionHeading 
               title={title} 
@@ -330,7 +330,7 @@ const FAQ = ({
     
     return (
       <Wrapper className={`${backgroundColor} py-16`}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-2">
           {showHeading && (
             <SectionHeading 
               title={title} 
@@ -423,7 +423,7 @@ const FAQ = ({
     
     return (
       <Wrapper className={`${backgroundColor} py-16`}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-2">
           {showHeading && (
             <SectionHeading 
               title={title} 
@@ -525,7 +525,7 @@ const FAQ = ({
   // Render Default or Editable Variant
   return (
     <Wrapper className={`${backgroundColor} py-16`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-2">
         {showHeading && (
           <SectionHeading 
             title={title} 

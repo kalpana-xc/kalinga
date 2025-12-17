@@ -67,7 +67,7 @@ export default function ImageListItem({
             {/* Heading not scrollable */}
             <SectionHeading
               title={title}
-              titleClassName={`!py-2 ${headingClassName}`}
+              titleClassName={`!py-2 text-left  ${headingClassName}`}
             />
 
             {/* Scrollable items only */}

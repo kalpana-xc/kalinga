@@ -10,7 +10,7 @@ export default function Partner({
     className = "",
 }) {
   return (
-    <section className={` mx-5   y-16 !rounded-xl gradient-background  !px-0 ${className}`}>
+    <section className={` mx-2   y-16 !rounded-xl gradient-background  !px-0 ${className}`}>
         <div className="container md:rounded-none rounded-xl !p-0">
       <div className="grid grid-cols-1 md:grid-cols-2 !rounded-xl ">
         {/* Blue Background Grid - Left */}
@@ -18,7 +18,7 @@ export default function Partner({
           <div className="flex flex-col ">
             {/* Section Title */}
             <SectionHeading title={blueTitle} titleClassName="!py-2 text-white text-center" />
-            <p className="text-white text-center text-sm pb-5   ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p className="text-white text-center text-sm pb-5   ">Organizations that have participated in skill development and professional training initiatives</p>
     
             
             {/* Partners Grid */}
@@ -53,7 +53,7 @@ export default function Partner({
           <div className="flex flex-col ">
                     {/* Section Title */}
                     <SectionHeading title={redTitle} titleClassName="!py-2 text-white text-center" />
-                    <p className="text-white text-center text-sm pb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p className="text-white text-center text-sm pb-5"> Companies partnered with CCRC through MoUs for training and collaboration</p>
             
             {/* Partners Grid */}
             {redItems && Array.isArray(redItems) && redItems.length > 0 ? (

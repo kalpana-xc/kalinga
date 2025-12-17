@@ -70,7 +70,7 @@ const Gallery = ({
 
   return (
     <section className={`${backgroundColor} ${paddingClassName}`}>
-      <div className="px-4 sm:px-6 lg:px-8">
+      <div className="px-2">
         {/* Title */}
         <h2 className={titleClassName || defaultTitleClass}>
           {title}

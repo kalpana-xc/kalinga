@@ -203,7 +203,7 @@ const Placements = () => {
                 Trusted by 500+ Global Recruiters
               </h5>
 
-              <div className="w-full overflow-hidden relative px-4 sm:px-6 lg:px-8">
+              <div className="w-full overflow-hidden relative px-2">
                 <LogoLoop
                   logos={logoLoopItems}
                   speed={30}

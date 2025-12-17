@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import GlobalArrowButton from "@/app/components/general/global-arrow_button";
-import SectionHeading from "../general/SectionHeading";
+import SectionHeading from "@/app/components/general/SectionHeading";
 
 const additionalContent = [
   "Our incubation managers and support members transform their raw ideas into real ventures. With expert guidance, research-related infrastructure, pitch trainings, workshops, guest lectures, industrial visits, and presentation trainings, our incubation centre will guide you at every stage of your startup journey. In line with the Startup India Policy and the Chhattisgarh State Startup & Incubation Policy, KIF ensures that its incubation model is closely aligned with both national and regional priorities. Through industrial insights, networking opportunities, and seed funding support, KIF will fast-track your entrepreneurial journey. Whether you are building a new app or solving a real-world problem, it will provide you with an environment where your innovative ideas will be executed in the right direction."
@@ -24,7 +24,7 @@ export default function ImageContent({
   className = "",
   hasImage = true,
   readmore = true,
-  subtitleclassName = "",
+  subtitleclassName = "!mb-0",
   additionalContent = additionalContent2,
   titleClassName = "",
 }) {
@@ -54,7 +54,7 @@ export default function ImageContent({
         <div
           className={`col-span-6 gap-2 flex flex-col  ${mainContentColSpan} md:mx-auto`}
         >
-          <SectionHeading title={title} subtitle={subtitle} titleClassName="!py-2" subtitleClassName={`!py-2 ${subtitleclassName}`} />
+          <SectionHeading title={title} subtitle={subtitle} titleClassName="!py-2" subtitleClassName={`${subtitleclassName}`} />
           <div className="text-sm pb-4 space-y-3">
             <p>{description}</p>
             {isExpanded && (

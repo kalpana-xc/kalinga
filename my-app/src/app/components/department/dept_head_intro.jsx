@@ -202,7 +202,13 @@ function MentorCard({
                 {title}
               </h3>
               <div className="text-gray-700 leading-relaxed font-plus-jakarta-sans">
-                {typeof message === 'string' ? (
+                {Array.isArray(message) ? (
+                  message.map((paragraph, index) => (
+                    <p key={index} className={index > 0 ? "mt-4" : ""}>
+                      {paragraph}
+                    </p>
+                  ))
+                ) : typeof message === 'string' ? (
                   <p>{message}</p>
                 ) : Array.isArray(message) ? (
                   <div className="space-y-4">

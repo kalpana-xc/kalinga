@@ -20,7 +20,7 @@ export default function Gallery() {
   const duplicatedImages = [...images, ...images];
  
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 py-16 overflow-hidden">
+    <section className="w-full px-2 py-16 overflow-hidden">
       <h2 className="font-stix text-4xl sm:text-[50px] text-[var(--foreground)] text-center mb-12">
       Collage of life @KU
       </h2>

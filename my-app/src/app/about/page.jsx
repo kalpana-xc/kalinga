@@ -180,6 +180,9 @@ export default function About() {
     ,"Spread across a 50-acre green campus, the University features modern infrastructure, advanced laboratories, digital classrooms, and Centres of Excellence, providing an ecosystem that fosters creativity, research, and innovation."
     ,"Driven by its mission to empower learners with knowledge, leadership, and integrity, Kalinga University continues to shape the next generation of professionals, innovators, and changemakers who contribute meaningfully to society and the world."
     ]}
+    readMoreLabel="Read More"
+    readLessLabel="Read Less"
+    
       imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg"
       imageAlt="Kalinga University campus"
       showKnowMore={false}

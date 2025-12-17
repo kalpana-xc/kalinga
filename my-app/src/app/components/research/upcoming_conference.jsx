@@ -49,7 +49,7 @@ export default function UpcomingConference({
   showDate = true,
   imageWidth = 420,
   imageHeight = 230,
-  imageContainerClass = "w-full md:w-2/5"
+  imageContainerClass = "w-full md:w-2/5 pl-4"
 }) {
   return (
     <section className={`${backgroundColor} pt-16 pb-16`}>
@@ -75,7 +75,7 @@ export default function UpcomingConference({
         >
           {conferences.map((conf) => (
             <SwiperSlide key={conf.id}>
-              <div className={`${backgroundColorcard} rounded-2xl shadow-sm  flex flex-col md:flex-row gap-4 md:gap-8 items-center`}>
+              <div className={`${backgroundColorcard} rounded-2xl shadow-sm  flex flex-col md:flex-row gap-4 md:gap-8 items-center py-10`}>
                 <div className={imageContainerClass}>
                   <Image
                     src={conf.image}
@@ -87,7 +87,7 @@ export default function UpcomingConference({
                   />
                 </div>
 
-                <div className="w-full md:w-3/5 flex flex-col gap-6 md:px-0 px-5 py-10">
+                <div className="w-full md:w-3/5 flex flex-col gap-6 md:px-0 px-5 ">
                   {/* Badges positioned at top right */}
                   {(showDate || showCategory) && (
                     <div className="flex justify-end gap-5 items-center mr-4">
@@ -105,7 +105,7 @@ export default function UpcomingConference({
                   )}
 
                   <div>
-                    <h3 className="!text-4xl  mb-3">
+                    <h3 className="text-2xl md:text-4xl  mb-3">
                       {conf.title}
                     </h3>
                     <p className="text-[var(--light-text-gray)] text-sm">

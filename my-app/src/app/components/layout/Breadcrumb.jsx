@@ -149,7 +149,7 @@ const Breadcrumb = ({ customBreadcrumbs, heroImage, pageTitle }) => {
     : (breadcrumbs[breadcrumbs.length - 1]?.label || '');
 
   return (
-    <div className="relative px-5  ">
+    <div className="relative px-2  ">
       {/* Hero Image Section */}
       <div className="relative h-[400px] rounded-4xl md:h-[400px] lg:h-[400px] w-full overflow-visible bg-gradient-to-br from-[var(--dark-blue)] to-[var(--foreground)] z-0 pb-20 md:pb-24 lg:pb-28">
         {resolvedHeroImage ? (
@@ -191,11 +191,11 @@ const Breadcrumb = ({ customBreadcrumbs, heroImage, pageTitle }) => {
       {/* Page Title Card - Positioned at the boundary between blue and white sections */}
       {currentPageTitle  && (
         <div className="container mx-auto">
-        <div className="absolute z-[100] flex md:flex-row flex-col md:items-end items-start gap-4 md:gap-6 bottom-[40px] md:bottom-[50px] lg:bottom-[50px] translate-y-1/2 mb-8 md:mb-16">
-          <div className="bg-[var(--dark-blue)]/80 backdrop-blur-md rounded-2xl min-h-[200px] flex justify-center items-center min-w-[330px] max-w-3/5 wraptext-center md:p-0 p-5">
+        <div className="absolute z-[100] flex md:flex-row flex-col md:items-end items-start gap-4 md:gap-6 left-1/2 -translate-x-1/2 md:left-auto md:right-auto md:translate-x-0 md:bottom-[25px] bottom-0 translate-y-1/2 mb-8 md:mb-16 ">
+          <div className="bg-[var(--dark-blue)]/80 backdrop-blur-md rounded-2xl md:min-h-[150px] min-h-[100px] flex justify-center items-center min-w-[330px] md:max-w-3/5 max-w-full wraptext-center">
             <h1 className="font-stix text-center text-white text-2xl md:text-4xl lg:text-5xl font-normal ">
               {currentPageTitle}
-            </h1>
+            </h1> 
           </div>
           {/* Breadcrumb positioned next to the title card - horizontally aligned with blue box */}
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center h-auto min-h-[40px] md:min-h-[50px] gap-1 md:pl-0 pl-4 mb-4 md:mb-0 MD:-translate-y-1/2">

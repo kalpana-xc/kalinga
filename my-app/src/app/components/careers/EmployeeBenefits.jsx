@@ -42,7 +42,7 @@ export default function EmployeeBenefits() {
   ];
 
   return (
-    <section className="w-full max-w-[1249px] mx-auto py-20 px-4 sm:px-6 lg:px-8">
+    <section className="w-full max-w-[1249px] mx-auto py-20 px-2">
       <h2 className="text-[var(--dark-blue)] text-center text-3xl sm:text-[40px] mb-4">Employee Benefits</h2>
       <p className="text-center text-[14px] text-[var(--light-text-gray)] max-w-3xl mx-auto mb-16">
       At Kalinga University, we recognize that our people are our greatest asset. We are committed to creating a supportive, inclusive, and growth-oriented workplace that encourages excellence, innovation, and well-being.

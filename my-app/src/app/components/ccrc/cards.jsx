@@ -4,12 +4,12 @@ import GlobalArrowButton from "../general/global-arrow_button";
 export default function Cards({ cards = [] }) {
 
   return (
-    <section className="container py-16 mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section className="container py-16 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
       {cards.map((card, idx) => (
-        <div key={idx} className="bg-[var(--card-sandal)] rounded-xl p-8 flex flex-col gap-4 w-full mx-auto">
+        <div key={idx} className="bg-[var(--card-sandal)] rounded-xl p-10 flex flex-col gap-4 w-full mx-auto">
             <div className="flex flex-col justify-between h-full gap-6">
               <div>
-          <h3 className="md:text-4xl text-3xl ">{card.title}</h3>
+          <h3 className="md:text-3xl text-2xl ">{card.title}</h3>
           <p className="text-sm text-[var(--dark-gray)] pt-5">{card.description}</p>
           
           </div>
@@ -31,8 +31,8 @@ export default function Cards({ cards = [] }) {
               <Image
                 src={card.logoSrc}
                 alt="CYCD Logo"
-                width={80}
-                height={100}
+                width={120}
+                height={120}
                 className="rounded-lg"
                 style={{ objectFit: "contain" }}
               />
