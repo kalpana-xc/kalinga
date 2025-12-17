@@ -9,13 +9,13 @@ const centresOfExcellence = [
   {
     id: 1,
     name: "Electric Vehicles Training Centre",
-    title: "Godawari Electric Motors Pvt. Ltd. (Eblu)",
+    title: "In collaboration with Godawari Electric Motors Pvt. Ltd. (Eblu)",
     image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/godawari.png",
   },
   {
     id: 2,
     name: "IIoT Training Centre",
-    title: "Technoviz Auto",
+    title: "In collaboration with Technoviz Automation",
     image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/accerdation/Group+1000002977.png",
   },
   {
@@ -26,10 +26,28 @@ const centresOfExcellence = [
   },
   {
     id: 4,
-    name: "Robotics, Coding, & Drone",
-    title: "BDS Education",
+    name: "Robotics, Coding, & Drone Training Centre",
+    title: "In collaboration with BDS Education",
     image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/accerdation/Group+1000002988.png",
   },
+  {
+    id: 5,
+    name: "MSME Training Centre",
+    title: "In collaboration with IamSMEofIndia",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/smeindia.webp",
+  },
+  {
+    id: 6,
+    name: "AI & ML Courses Training Centre",
+    title: "In collaboration with the IBM Innovation Centre for Education",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/ibm.webp",
+  },
+  {
+    id: 7,
+    name: "Automobile Training Centre",
+    title: "In collaboration with JustAuto Solutions",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/justauto.webp",
+  }
 ];
 
 export default function CenterOfExcellence({
