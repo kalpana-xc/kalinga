@@ -11,6 +11,7 @@ export default function ResearchLab() {
       subtitle={null}
       description="We have research labs, including the Central Instrumentation Facility (CIF), and computer labs that fulfill the research needs of students through advanced resources, tools, and technologies."
       buttonText="Read More"
+      
       additionalContent={[]}
     />
   );

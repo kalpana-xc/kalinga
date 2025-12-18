@@ -223,10 +223,10 @@ export default function PhdResourcesAccordion({ className = "" }) {
                   "Image",
                 ]}
                 rows={[
-                  ["1", "2025", "PENDING", "NETJRF", "ROBIN KUMAR VERMA", "SANTOSH DAS", "YOGA", ""],
-                  ["2", "2025", "PENDING", "NETJRF", "SHUBHAM SINGH", "VISHNU SINGH", "YOGA", ""],
+                  ["1", "2025", "PENDING", "NETJRF", "ROBIN KUMAR VERMA", "SANTOSH DAS", "YOGA", <img src={"https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/phd_scholar_1.jpg"}/>],
+                  ["2", "2025", "PENDING", "NETJRF", "SHUBHAM SINGH", "VISHNU SINGH", "YOGA", <img src={"https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/phd_scholar_2.jpg"}/>],
                   ["3", "2025", "PENDING", "CSIR", "PRIYA", "ASHOK MALIK", "ZOOLOGY", ""],
-                  ["4", "2025", "PENDING", "NETJRF", "SHEETAL NAIK", "GOURISHANKAR", "ZOOLOGY", ""],
+                  ["4", "2025", "PENDING", "NETJRF", "SHEETAL NAIK", "GOURISHANKAR", "ZOOLOGY", <img src={"https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/phd_scholar_4.jpg"}/>],
                 ]}
               />
             </div>
