@@ -149,7 +149,7 @@ export default function CenterOfExcellence({
               nextEl: ".centres-swiper-button-next",
               prevEl: ".centres-swiper-button-prev",
             }}
-            className="centres-swiper !pb-12 [&_.swiper-wrapper]:!flex [&_.swiper-wrapper]:items-stretch [&_.swiper-slide]:!h-auto [&_.swiper-slide]:!flex"
+            className={`centres-swiper [&_.swiper-wrapper]:!flex [&_.swiper-wrapper]:items-stretch [&_.swiper-slide]:!h-auto [&_.swiper-slide]:!flex ${centres.length <= 3 ? '[&_.swiper-wrapper]:justify-center' : ''}`}
             loop={false}
             autoHeight={false}
           >

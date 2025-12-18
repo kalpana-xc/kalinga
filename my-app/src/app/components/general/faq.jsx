@@ -551,7 +551,7 @@ const FAQ = ({
         )}
 
         {/* FAQ Items */}
-        <div className="max-w-4xl mx-auto space-y-4 mt-5">
+        <div className="container mx-auto space-y-4 mt-5">
           {itemsToRender.map((item) => {
             const isOpen = openItems.has(item.id)
             return (
@@ -663,14 +663,14 @@ const FAQ = ({
                           columns={
                             item.answer.headers && item.answer.headers.length === 3
                               ? [
-                                  { key: "id", label: item.answer.headers[0] || "S.No", width: "w-20" },
-                                  { key: "program", label: item.answer.headers[1] || "Program Name", width: "w-48" },
-                                  { key: "description", label: item.answer.headers[2] || "CSR Initiatives", width: "flex-1" }
+                                  { key: "id", label: item.answer.headers[0] || "S.No", widthPx: 80 },
+                                  { key: "program", label: item.answer.headers[1] || "Program Name", widthPx: 300 },
+                                  { key: "description", label: item.answer.headers[2] || "CSR Initiatives", widthPx: 500 }
                                 ]
                               : item.answer.headers
                                 ? [
-                                    { key: "id", label: item.answer.headers[0] || "S.No", width: "w-20" },
-                                    { key: "name", label: item.answer.headers[1] || "Name", width: "flex-1" }
+                                    { key: "id", label: item.answer.headers[0] || "S.No", widthPx: 80 },
+                                    { key: "name", label: item.answer.headers[1] || "Name", widthPx: 400 }
                                   ]
                                 : tableColumns
                           }

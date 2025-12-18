@@ -1,5 +1,7 @@
 'use client'
 
+import SectionHeading from '../general/SectionHeading';
+
 export default function EmployeeBenefits() {
 
   const benefits = [
@@ -42,11 +44,16 @@ export default function EmployeeBenefits() {
   ];
 
   return (
-    <section className="w-full max-w-[1249px] mx-auto py-20 px-2">
-      <h2 className="text-[var(--dark-blue)] text-center text-3xl sm:text-[40px] mb-4">Employee Benefits</h2>
-      <p className="text-center text-[14px] text-[var(--light-text-gray)] max-w-3xl mx-auto mb-16">
-      At Kalinga University, we recognize that our people are our greatest asset. We are committed to creating a supportive, inclusive, and growth-oriented workplace that encourages excellence, innovation, and well-being.
-</p>
+    <section className="container mx-auto py-16 px-2">
+      <div className="text-center mb-16">
+        <SectionHeading 
+          title="Employee Benefits"
+          titleClassName=" mb-4"
+        />
+        <p className="text-center max-w-3xl mx-auto">
+          At Kalinga University, we recognize that our people are our greatest asset. We are committed to creating a supportive, inclusive, and growth-oriented workplace that encourages excellence, innovation, and well-being.
+        </p>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         
@@ -68,8 +75,7 @@ export default function EmployeeBenefits() {
             )}
             
 
-            <h3 className="text-[var(--dark-gray)] text-[20px] font-medium mb-[20px]">{item.title}</h3>
-            <div className="w-full h-[1px] bg-[var(--dark-gray)] mb-3"></div>
+            <h3 className="text-[20px] mb-[10px] border-b border-[var(--dark-gray)] pb-2">{item.title}</h3>
             <p className="text-[var(--dark-gray)] text-[15px]">
               {item.description}
             </p>

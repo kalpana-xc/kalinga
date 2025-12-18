@@ -26,7 +26,7 @@ export default function Page() {
 
 
   return (
-    <div className="container mx-auto px-6 py-8 flex flex-col md:gap-18 gap-10 items-stretch">
+    <div className="container mx-auto py-16 px-2 flex flex-col md:gap-16 gap-8 items-stretch">
 
       {[
         { type: "sandal", title: "Academic Infrastructure", desc: "Kalinga University offers state-of-the-art academic infrastructure with smart classrooms, digital learning tools, and well-equipped labs that promote innovation and practical learning." },
@@ -39,21 +39,19 @@ export default function Page() {
         
         <div
           key={index}
-          className="relative w-full min-h-[380px] 
-                     md:min-h-[450px] 
-                     flex flex-col md:block
-                     py-8 md:py-16"
+          className="relative w-full h-auto md:h-[400px]
+                     flex flex-col md:block"
         >
 
           {sec.type === "sandal" ? (
             // IMAGE RIGHT
             <div
               className="
-                absolute md:bottom-[100px] md:right-[0px] md:w-[55%]
-                w-full static md:absolute 
+                md:absolute md:bottom-[100px] md:right-[0px] md:w-[55%]
+                w-full mb-4 md:mb-0
               "
             >
-              <div className="relative h-[200px] md:h-[300px] rounded-2xl overflow-hidden shadow-lg w-full z-10">
+              <div className="relative h-[220px] md:h-[300px] rounded-2xl overflow-hidden shadow-lg w-full z-10">
                 <img
                   src={imageSets[index][indexes[index]]}
                   alt={`${sec.title} at Kalinga University`}
@@ -78,11 +76,11 @@ export default function Page() {
             // IMAGE LEFT
             <div
               className="
-                absolute md:top-0 md:left-[0px] md:w-[55%] z-20
-                w-full static md:absolute
+                md:absolute md:top-0 md:left-[0px] md:w-[55%] md:z-20
+                w-full mb-4 md:mb-0
               "
             >
-              <div className="relative h-[200px] md:h-[300px] rounded-2xl overflow-hidden shadow-lg w-full">
+              <div className="relative h-[220px] md:h-[300px] rounded-2xl overflow-hidden shadow-lg w-full">
                 <img
                   src={imageSets[index][indexes[index]]}
                   alt={`${sec.title} at Kalinga University`}
@@ -109,32 +107,30 @@ export default function Page() {
           {sec.type === "sandal" ? (
             <div
               className="
-              bg-[var(--card-sandal)] rounded-2xl p-8 shadow-md w-full md:w-[55%] 
-              min-h-[280px] md:min-h-[280px]
+              bg-[var(--card-sandal)] rounded-2xl p-6 md:p-8 shadow-md w-full md:w-[55%] 
+              md:min-h-[280px]
               md:absolute md:left-[0] md:top-[100px]
-              mt-6 md:mt-0
             "
             >
-              <h1 className="text-2xl font-regular mt-[40px] mb-3">{sec.title}</h1>
+              <h1 className="text-xl md:text-2xl font-regular md:mt-[40px] mb-3">{sec.title}</h1>
               <p className="text-sm text-[var(--foreground)]/70 leading-relaxed mb-4 md:w-3/4 w-full">{sec.desc}</p>
               <GlobalArrowButton>Know More</GlobalArrowButton>
             </div>
           ) : (
             <div
               className="
-              bg-[var(--button-red)] text-white rounded-2xl p-8 shadow-md 
-              w-full md:w-[55%] min-h-[280px]
+              bg-[var(--button-red)] text-white rounded-2xl p-6 md:p-8 shadow-md 
+              w-full md:w-[55%] md:min-h-[280px]
               md:absolute md:right-[0px] md:top-[100px]
-              mt-6 md:mt-0
             "
             >
-              <h2 className="text-2xl font-regular mb-3 mt-8 md:pl-[140px]">
+              <h2 className="text-xl md:text-2xl font-regular mb-3 md:mt-8 md:pl-[140px]">
                 {sec.title}
               </h2>
               <p className="text-sm leading-relaxed mb-4 md:pl-[140px] w-full">
                 {sec.desc}
               </p>
-              <div className={`md:pl-[140px] flex ${index === 1 ? 'gap-4' : ''} flex-wrap`}>
+              <div className={`md:pl-[140px] flex ${index === 1 ? 'gap-3 md:gap-4' : ''} flex-wrap`}>
                 <GlobalArrowButton 
                   className="!bg-white !text-[var(--foreground)]"
                   variant="transparent"

@@ -55,19 +55,19 @@ const DataTable = ({
   const tableData = data || []
 
   return (
-    <div className={`container mx-auto rounded-lg py-5 overflow-hidden shadow-md bg-white ${className}`}>
-      <div className={overflowX ? "overflow-x-auto" : ""}>
-        <table className={`border-collapse ${overflowX ? "min-w-full" : "w-full"}`}>
+    <div className={`${overflowX ? '' : 'container mx-auto'} rounded-lg py-5 overflow-hidden shadow-md bg-white ${className}`}>
+      <div className={overflowX ? "overflow-x-auto rounded-lg" : "rounded-lg overflow-hidden"}>
+        <table className={`${overflowX ? "min-w-full w-max" : "w-full"}`} style={{ borderSpacing: 0, borderCollapse: 'separate' }}>
           <thead>
             <tr className={headerBgColor}>
               {tableColumns.map((column, idx) => (
                 <th
                   key={column.key || idx}
                   className={`
-                    ${borderColor} border p-3 text-left font-plus-jakarta-sans font-semibold text-sm
+                    ${borderColor} border-b border-r border-t p-3 text-left font-plus-jakarta-sans font-semibold text-sm
                     ${headerTextColor}
                     ${column.widthPx ? "" : (column.width || "")}
-                    ${idx === 0 ? "rounded-tl-lg" : ""}
+                    ${idx === 0 ? "border-l rounded-tl-lg" : ""}
                     ${idx === tableColumns.length - 1 ? "rounded-tr-lg" : ""}
                   `}
                   style={column.widthPx ? { width: `${column.widthPx}px` } : {}}
@@ -82,7 +82,7 @@ const DataTable = ({
               <tr>
                 <td
                   colSpan={tableColumns.length}
-                  className={`${borderColor} border p-8 text-center text-gray-500 font-plus-jakarta-sans`}
+                  className={`${borderColor} border-b border-r border-l p-8 text-center text-gray-500 font-plus-jakarta-sans rounded-b-lg`}
                 >
                   No data available
                 </td>
@@ -101,12 +101,18 @@ const DataTable = ({
                     // Check if this row has listItems and we're rendering the description column
                     const hasListItems = row.listItems && Array.isArray(row.listItems) && column.key === 'description'
                     
+                    // Check if this is the last row
+                    const isLastRow = rowIdx === tableData.length - 1
+                    
                     return (
                       <td
                         key={column.key || colIdx}
                         className={`
-                          ${borderColor} border p-3 text-gray-700 font-plus-jakarta-sans text-sm
+                          ${borderColor} border-b border-r p-3 text-gray-700 font-plus-jakarta-sans text-sm
                           ${column.widthPx ? "" : (column.width || "")}
+                          ${colIdx === 0 ? "border-l" : ""}
+                          ${isLastRow && colIdx === 0 ? "rounded-bl-lg" : ""}
+                          ${isLastRow && colIdx === tableColumns.length - 1 ? "rounded-br-lg" : ""}
                         `}
                         style={column.widthPx ? { width: `${column.widthPx}px` } : {}}
                       >

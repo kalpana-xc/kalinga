@@ -113,7 +113,7 @@ export default function CareerApplicationForm({
       )}
 
       {/* FORM */}
-      <div className="mt-10 p-10 rounded-xl">
+      <div className="mt-10 rounded-xl">
         
         <div className="grid sm:grid-cols-2 gap-10">
 

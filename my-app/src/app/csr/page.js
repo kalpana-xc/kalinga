@@ -19,7 +19,7 @@ import { useLayoutEffect } from "react";
 // Just define your breadcrumb data as a const - Breadcrumb will automatically use it
 // No imports needed for breadcrumb! Just define the const and it works.
 const breadcrumbData = {
-  heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
+  heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/kif-banner.webp",
   pageTitle: "Corporate Social Responsibility",
   customBreadcrumbs: [
     { label: 'Home', href: '/' },
@@ -217,7 +217,7 @@ export default function KIFPage({
      <MainIntro 
       title="About Bhagwan Shri Bala Sai Educational And Charitable Society"
       description={["It is a philanthropic organisation that is primarily involved in education and social welfare activities. The society works towards uplifting the underprivileged communities by offering them inclusive educational opportunities, healthcare facilities, and engaging in charitable activities. The society operates educational institutions, healthcare camps, scholarship programs, and other social welfare initiatives."]}
-      imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/csr.png"
+      imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/csr/csr-intro.png"
       imageAlt="Kalinga University campus"
       showKnowMore={false}
       showImage={true}

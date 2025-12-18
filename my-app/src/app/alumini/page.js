@@ -20,8 +20,22 @@ import MediaCardSlider from "@/app/components/general/media-card-slider";
 import DataTable from "@/app/components/general/data-table";
 import SectionHeading from "@/app/components/general/SectionHeading";
 import CareerApplicationForm from "../components/careers/CareerApplicationForm";
+import ContactSection from "../components/cif/contact_section";
 
+// Breadcrumb configuration
+const breadcrumbData = {
+  heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/alumini/alumini.webp",
+  pageTitle: "Alumni",
+  customBreadcrumbs: [
+    { label: 'Home', href: '/' },
+    { label: 'Alumni', href: '/alumini' }
+  ]
+};
 
+// Register breadcrumb data globally
+if (typeof window !== 'undefined') {
+  window.__breadcrumbData = breadcrumbData;
+}
 
 export default function Alumini() {
   const videoItems = [
@@ -322,6 +336,7 @@ The Kalinga University’s alumni network is an open platform where our students
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut laboreLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ."
         buttonLabel="Explore Now"
         href="#"
+        useContainer={true}
       
       />
    <Gallery title="Alumni Meet Glimpse" images={galleryImages} />
@@ -349,6 +364,7 @@ The Kalinga University’s alumni network is an open platform where our students
         nameOnly={true}
         showDescription={false}
       />
+      <div className="py-16">
       <SectionHeading
         title="Members of Our Alumni Association"
         titleClassName="text-center py-5"
@@ -356,9 +372,9 @@ The Kalinga University’s alumni network is an open platform where our students
       <DataTable
         data={data}
         columns={columns}
-        className="pb-20"
+        className=""
       />
-    
+      </div>
         <CareerApplicationForm
           heading="Alumni Association Registration Form"
           description="Share your details to stay connected with Kalinga University, receive updates, and participate in alumni activities and events."
@@ -368,6 +384,7 @@ The Kalinga University’s alumni network is an open platform where our students
           useArrowSubmitButton={true}
           arrowSubmitVariant="white"
         />
+        <ContactSection />
   
    <Gallery title="Alumini talk" images={AlumniMeetImages} />
     

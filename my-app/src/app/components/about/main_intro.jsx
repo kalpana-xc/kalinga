@@ -39,7 +39,7 @@ export default function MainIntro({
     : descriptionArray.slice(0, initialVisibleParagraphs);
 
   return (
-    <section className="md:py-16 bg-white pt-20 md:pb-16 pb-10 ">
+    <section className="md:py-16 bg-white pt-18 md:pb-16 pb-10 ">
       <div className="container mx-auto px-2">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Section - Text Content */}

@@ -146,7 +146,7 @@ export default function Facilities() {
       <div className="px-2">
         {/* Main content area with selected facility */}
         <div
-          className="relative w-full rounded-xl sm:rounded-2xl overflow-visible shadow-lg h-[375px] sm:h-[375px] md:h-[580px] lg:h-[648px]"
+          className="relative w-full rounded-xl sm:rounded-2xl overflow-visible shadow-lg h-[400px] sm:h-[400px] md:h-[580px] lg:h-[648px]"
         style={{
           backgroundImage: `url(${facilities[currentSlide].image})`,
           backgroundSize: 'cover',
@@ -162,38 +162,43 @@ export default function Facilities() {
         {/* dark overlay */}
         <div className="absolute inset-0 bg-black/60 rounded-2xl transition-opacity duration-300"></div>
         <div className="container mx-auto px-5" >
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-start h-full py-4 sm:py-6 md:py-8 lg:py-12 xl:py-20">
-          {/* Left content */}
-          <div className="text-white pt-2 sm:pt-4 md:pt-6 lg:pt-8 space-y-3 sm:space-y-4 md:space-y-6 relative flex flex-col h-full">
+        <div className="relative z-10 h-full py-4 sm:py-6 md:py-8 lg:py-12 xl:py-30 flex flex-col justify-between">
+          {/* Top Section - Heading */}
+          <div className="text-white">
             <div className="sm:-mt-6 md:-mt-8 lg:-mt-10 xl:-mt-12">
-              {/* <div className="w-12 h-1 bg-orange-500 mb-4"></div> */}
-              
               <SectionHeading title="Facilities" subtitle="Life at Kalinga — Beyond Classrooms" titleClassName="text-white" subtitleClassName="text-white" />
             </div>
           </div>
-        </div>
-        <div className="flex md:items-center items-start flex-col md:flex-row">
-          <div className="flex flex-col justify-around flex-grow">
-              <div className="relative">
-                <span className="transition-all duration-300 text-lg sm:text-xl md:text-2xl lg:!text-3xl xl:md:text-[30px] text-white font-plus-jakarta-sans font-normal leading-tight sm:leading-[47px] text-left mb-4 sm:mb-6 md:mb-8 lg:mb-10 block -mt-4 sm:-mt-6 md:-mt-8 lg:-mt-10">
-                  0{currentSlide + 1}
-                  <span className="text-white/70 text-sm sm:text-base md:text-lg lg:text-xl xl:text-[22px] font-plus-jakarta-sans font-normal leading-tight sm:leading-[47px] text-left">
-                    /0{facilities.length}
-                  </span>
+          
+          {/* Bottom Section - Counter, Title, and Description */}
+          <div className="text-white mt-auto md:!mt-[85px]">
+            {/* Slide Counter */}
+            <div className="mb-4 sm:mb-6 md:mb-8">
+              <span className="transition-all duration-300 text-lg sm:text-xl md:text-2xl lg:!text-3xl xl:md:text-[30px] text-white font-plus-jakarta-sans font-normal leading-tight sm:leading-[47px] text-left block">
+                0{currentSlide + 1}
+                <span className="text-white/70 text-sm sm:text-base md:text-lg lg:text-xl xl:text-[22px] font-plus-jakarta-sans font-normal leading-tight sm:leading-[47px] text-left">
+                  /0{facilities.length}
                 </span>
+              </span>
+            </div>
+            
+            {/* Title and Description */}
+            <div className="flex md:items-end items-start flex-col md:flex-row gap-4 md:gap-8">
+              <div className="flex-grow">
                 <h3 className="facilities-title-text font-light font-stix leading-none tracking-tight capitalize transition-all duration-500 ease-in-out text-white" style={{ willChange: 'contents' }}>{facilities[currentSlide].title}</h3>
               </div>
-          </div>
-          <div className="text-white flex flex-col justify-end h-full">
-            <p className="max-w-full lg:max-w-md text-[11px] sm:text-xs md:text-sm lg:text-[14px] font-plus-jakarta-sans leading-relaxed sm:leading-[25px] duration-300 z-10 !text-white">
-              {facilities[currentSlide].description}
-            </p>
+              <div className="flex flex-col justify-end">
+                <p className="max-w-full lg:max-w-md text-[11px] sm:text-xs md:text-sm lg:text-[14px] font-plus-jakarta-sans leading-relaxed sm:leading-[25px] duration-300 z-10 !text-white">
+                  {facilities[currentSlide].description}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
         {/* Horizontal scrollable image slider - shows 3 on mobile, 5 on tablet+ */}
         {/* On mobile: positioned below, on desktop: overlapping inside image */}
         {/* Desktop overlay slider */}
-        <div className="hidden lg:block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:mt-0 lg:-translate-y-16 xl:-translate-y-20 lg:-bottom-12 xl:-bottom-16 lg:z-20 lg:w-[90%]">
+        <div className="hidden lg:block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:mt-0 lg:-translate-y-16 xl:-translate-y-20 lg:-bottom-12 xl:-bottom-16 lg:z-30 lg:w-[90%]">
           <div 
             className="flex gap-1 sm:gap-1.5 md:gap-2 overflow-x-auto pb-2 facilities-image-slider"
             style={{
@@ -255,7 +260,7 @@ export default function Facilities() {
           </div>
         </div>
         {/* Mobile slider placed below the panel */}
-        <div className="block lg:hidden w-full mt-4">
+        <div className="block lg:hidden w-full pt-8">
           <div 
             className="flex gap-1 sm:gap-1.5 md:gap-2 overflow-x-auto pb-2 facilities-image-slider"
             style={{

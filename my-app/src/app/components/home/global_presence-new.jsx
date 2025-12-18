@@ -3,6 +3,9 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from "next/image";
 import SectionHeading from "../general/SectionHeading";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
 
 const locations = [ 
   {
@@ -303,7 +306,7 @@ export default function Map({ backgroundColor = "", textColor = "" }) {
               }}
             >
               <svg 
-                className="text-[var(--dark-blue)] text-4xl animate-bounce w-10 h-10" 
+                className="text-[var(--dark-orange-red)] text-4xl animate-bounce w-10 h-10" 
                 fill="currentColor" 
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -320,7 +323,8 @@ export default function Map({ backgroundColor = "", textColor = "" }) {
         {/* Legend - Horizontal under image */}
         <div className="w-full rounded-[20px] bg-[#D9D9D975] backdrop-blur-md">
           <GlowingBox borderColor="var(--button-red)" className="p-6 rounded-[20px]">
-            <ul className={`flex flex-wrap items-center justify-center gap-4 md:gap-6 z-20 relative text-sm ${textColor}`}>
+            {/* Desktop: Flex Layout */}
+            <ul className={`hidden md:flex flex-wrap items-center justify-center gap-4 md:gap-6 z-20 relative text-sm ${textColor}`}>
               {locations.map((location) => (
                 <li 
                   key={location.id} 
@@ -336,6 +340,47 @@ export default function Map({ backgroundColor = "", textColor = "" }) {
                 </li>
               ))}
             </ul>
+
+            {/* Mobile: Swiper Slider */}
+            <div className="md:hidden relative global-presence-swiper">
+              <Swiper
+                modules={[Autoplay]}
+                slidesPerView={2}
+                spaceBetween={10}
+                loop={true}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }}
+                breakpoints={{
+                  480: {
+                    slidesPerView: 3,
+                    spaceBetween: 12,
+                  },
+                  640: {
+                    slidesPerView: 4,
+                    spaceBetween: 16,
+                  },
+                }}
+                className="z-20 relative"
+              >
+                {locations.map((location) => (
+                  <SwiperSlide key={location.id}>
+                    <div
+                      className={`flex flex-col items-center gap-2 cursor-pointer transition-colors py-2 ${
+                        activeLocation === location.id ? 'underline underline-offset-4' : ''
+                      } ${textColor}`}
+                      onClick={() => setActiveLocation(
+                        activeLocation === location.id ? null : location.id
+                      )}
+                    >
+                      <Image src={location.flag} alt={location.name} width={30} height={30} />
+                      <span className="text-xs text-center">{location.name}</span>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           </GlowingBox>
         </div>
       </div>

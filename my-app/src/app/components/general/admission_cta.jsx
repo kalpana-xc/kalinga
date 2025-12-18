@@ -39,7 +39,7 @@ const AdmissionCareer = ({
     <section className="pt-16 bg-white px-2">
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-0">
         {/* Left Panel - Admission */}
-        <div className="w-full bg-[var(--dark-orange-red)] rounded-l-lg p-5 sm:p-7 md:p-12 text-white flex flex-col  justify-center items-start">
+        <div className="w-full bg-[var(--dark-orange-red)] md:rounded-l-lg rounded-lg p-5 sm:p-7 md:p-12 text-white flex flex-col  justify-center items-start">
           <h1>{leftTitle}</h1>
           <h5 className="mt-4 sm:mt-6 md:mt-8 leading-tight sm:leading-normal font-stix leading-[32px] sm:leading-[40px] pr-4 sm:pr-8 md:pr-15">
             {leftDescription}
@@ -76,7 +76,7 @@ const AdmissionCareer = ({
         </div>
 
         {/* Right Panel - Career */}
-        <div className="w-full bg-[var(--button-red)] rounded-r-lg p-5 sm:p-7 md:p-12 text-white md:text-right text-left flex flex-col md:items-end items-start md:justify-end justify-start">
+        <div className="w-full bg-[var(--button-red)] md:rounded-r-lg rounded-lg p-5 sm:p-7 md:p-12 text-white md:text-right text-left flex flex-col md:items-end items-start md:justify-end justify-start">
           <h1>{rightTitle}</h1>
           <h5 className="mt-4 sm:mt-6 md:mt-8 leading-tight sm:leading-normal font-stix leading-[32px] sm:leading-[40px] pb-4 md:pl-20">
             {rightDescription}

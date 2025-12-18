@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
+import SectionHeading from './SectionHeading'
 
 const defaultGalleryImages = [
   {
@@ -66,15 +67,14 @@ const Gallery = ({
   titleClassName = ""
 }) => {
   const useSlider = images.length > 4
-  const defaultTitleClass = "font-stix mb-6 sm:mb-8 md:mb-10 text-[var(--foreground)] text-center"
 
   return (
     <section className={`${backgroundColor} ${paddingClassName}`}>
       <div className="px-2">
         {/* Title */}
-        <h2 className={titleClassName || defaultTitleClass}>
-          {title}
-        </h2>
+        <div className="mb-6 sm:mb-8 md:mb-10 text-center">
+          <SectionHeading title={title} titleClassName={titleClassName} />
+        </div>
 
         {useSlider ? (
           /* Slider Layout - when more than 4 images */

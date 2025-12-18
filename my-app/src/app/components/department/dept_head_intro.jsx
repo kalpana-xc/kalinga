@@ -107,7 +107,7 @@ function MentorCard({
         </div>
 
       <div className="lg:col-span-8 flex flex-col gap-6 relative lg:left-[-25px] lg:pt-20 lg:pt-0 z-10">
-        <div className="md:pl-12 pl-0">
+        <div className="md:pl-14 pl-0">
           <SectionHeading title={title} subtitle={subtitle} titleClassName="!py-2" />
           <p className="text-gray-700 text-xl">
             {department}
