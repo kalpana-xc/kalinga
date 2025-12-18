@@ -5,7 +5,7 @@ import GlobalArrowButton from "../general/global-arrow_button";
 import SectionHeading from "../general/SectionHeading";
 
 export default function CampusLife() {
-  const videoId = "dQw4w9WgXcQ"; // put your YouTube video ID here
+  const videoId = "diXWwdjlWCM?si=_h3Hnjqvly7MfsrN"; // put your YouTube video ID here
   const [play, setPlay] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -36,6 +36,9 @@ export default function CampusLife() {
         {/* Dark Overlay only when not playing */}
         {!play && <div className="absolute inset-0"></div>}
 
+        {/* Full Dark Overlay when text is expanded */}
+        {!play && isExpanded && <div className="absolute inset-0 bg-black/40"></div>}
+
         {/* Bottom Gradient Overlay */}
         {!play && <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>}
 
@@ -44,7 +47,7 @@ export default function CampusLife() {
           <div className="absolute inset-0 flex justify-center items-center">
             <div
               onClick={() => setPlay(true)}
-              className="w-14 h-14 md:w-16 md:h-16 bg-[var(--background)]/30 backdrop-blur-md rounded-full flex justify-center items-center cursor-pointer hover:bg-[var(--background)]/40 transition mb-4 md:mb-8"
+              className="w-14 h-14 md:w-16 md:h-16 bg-[var(--background)]/60 opacity-80 rounded-full flex justify-center items-center cursor-pointer hover:bg-[var(--background)]/40 transition mb-4 md:mb-8"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
