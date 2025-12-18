@@ -2,9 +2,9 @@
 
 import SectionHeading from '../general/SectionHeading';
 
-export default function EmployeeBenefits() {
+export default function EmployeeBenefits({ counsellingAreas }) {
 
-  const benefits = [
+  const defaultBenefits = [
     {
       id: 1,
       title: "Competitive Compensation",
@@ -43,17 +43,21 @@ export default function EmployeeBenefits() {
     }
   ];
 
+  const defaultData = {
+    title: "Employee Benefits",
+    description: "At Kalinga University, we recognize that our people are our greatest asset. We are committed to creating a supportive, inclusive, and growth-oriented workplace that encourages excellence, innovation, and well-being.",
+    benefits: defaultBenefits
+  };
+
+  const data = counsellingAreas?.[0] || defaultData;
+  const benefits = data.benefits || defaultBenefits;
+
   return (
-    <section className="container mx-auto py-16 px-2">
-      <div className="text-center mb-16">
-        <SectionHeading 
-          title="Employee Benefits"
-          titleClassName=" mb-4"
-        />
-        <p className="text-center max-w-3xl mx-auto">
-          At Kalinga University, we recognize that our people are our greatest asset. We are committed to creating a supportive, inclusive, and growth-oriented workplace that encourages excellence, innovation, and well-being.
-        </p>
-      </div>
+    <section className="w-full max-w-[1249px] mx-auto py-20 px-2">
+      <h2 className="text-[var(--dark-blue)] text-center text-3xl sm:text-[40px] mb-4">Employee Benefits</h2>
+      <p className="text-center text-[14px] text-[var(--light-text-gray)] max-w-3xl mx-auto mb-16">
+      At Kalinga University, we recognize that our people are our greatest asset. We are committed to creating a supportive, inclusive, and growth-oriented workplace that encourages excellence, innovation, and well-being.
+</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         

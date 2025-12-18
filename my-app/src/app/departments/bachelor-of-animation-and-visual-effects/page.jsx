@@ -211,19 +211,19 @@ function Courses() {
     links: [
       {
         id: 1,
-        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
+        // icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
         title: "Kalinga Incubation Foundation (KIF)",
         description: "KIF converts students' bold and unique entrepreneurial ideas into ACTION by providing all-around support.",
       },
       {
         id: 2,
-        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship.svg",
+        // icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship.svg",
         title: "Corporate Training And Consultancy Division (CTCD)",
         description: "CTCD offers customised training programs to junior, middle, and senior levels of management of different companies.",
       },
       {
         id: 3,
-        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/elgbility.svg",
+        // icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/elgbility.svg",
         title: "Career Development Centre",
         description: "It connects students with different companies and trains them in essential skills, helping them achieve their personal and professional goals.",
       },
