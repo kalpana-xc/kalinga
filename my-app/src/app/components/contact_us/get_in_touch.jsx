@@ -18,7 +18,8 @@ export default function GetInTouch() {
                  titleClassName="text-left mb-2 text-white"
                  subtitleClassName="text-left text-sm sm:text-base text-[var(--lite-sand)] max-w-xl"
                />
-               <p className="max-w-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+               <p className="max-w-xl">We’re here to help you with all your queries — from admissions and programs to collaborations and campus visits. Reach out to us, and our team will get back to you at the earliest.
+               </p>
              </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
@@ -94,7 +95,7 @@ export default function GetInTouch() {
               </div>
 
               {/* For Admissions card */}
-              <div className="bg-[var(--lite-sand)] rounded-xl px-6 py-6 shadow-md">
+              <div className="bg-[var(--lite-sand)] rounded-xl px-6 py-6 shadow-md flex items-start flex-col justify-center">
                 <h3 className="font-stix !text-[22px] mb-3 text-[var(--foreground)]">
                   For Admissions
                 </h3>
@@ -103,28 +104,25 @@ export default function GetInTouch() {
                      <span className="mt-0.5 text-[var(--button-red)]">
                        {/* location icon from footer */}
                        <svg
-                         className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--icons)] flex-shrink-0"
-                         fill="currentColor"
-                         viewBox="0 0 20 20"
-                         xmlns="http://www.w3.org/2000/svg"
-                       >
-                         <path
-                           fillRule="evenodd"
-                           d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                           clipRule="evenodd"
-                         ></path>
-                       </svg>
+                        className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--icons)] flex-shrink-0"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                        />
+                      </svg>
                     </span>
                     <p className="text-[var(--foreground)]">
-                      Kalinga University
-                      <br />
-                      Kotni, Near Mantralaya,
-                      Naya Raipur - 492101, Chhattisgarh, India
+                    You can reach out to us at<br/> <a href="tel:+91-9907252100" className="text-[var(--foreground)]">+91-9907252100</a> 
                     </p>
                   </li>
-                  <li className="flex items-center gap-2">
+                  {/* <li className="flex items-center gap-2">
                     <span className="text-[var(--button-red)]">
-                      {/* phone icon from footer */}
                       <svg
                         className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--icons)] flex-shrink-0"
                         fill="currentColor"
@@ -148,7 +146,6 @@ export default function GetInTouch() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="text-[var(--button-red)]">
-                      {/* email icon from footer */}
                       <svg
                         className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--icons)] flex-shrink-0"
                         fill="currentColor"
@@ -165,7 +162,7 @@ export default function GetInTouch() {
                     >
                       registrar@kalingauniversity.ac.in
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
