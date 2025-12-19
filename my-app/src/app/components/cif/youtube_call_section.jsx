@@ -22,7 +22,7 @@ export default function CifYoutubeCallSection() {
           <div className="relative w-full pb-[56.25%]">
             <iframe
               className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/j9wAQFY4nWU?si=a6hv00vSY38CX9to"
+              src=""
               title="CIF In Action"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

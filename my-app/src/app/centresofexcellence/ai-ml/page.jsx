@@ -2,7 +2,7 @@
 
 import { useLayoutEffect } from "react";
 import ImageContent from "@/app/components/ccrc/imagecontent";
-import WhatYouLearnSlider from "@/app/components/centresOfExcellence/what-you-learn-slider";
+import WhatYouLearnSlider from "@/app/components/centresofexcellence/what-you-learn-slider";
 import StudentActivities from "@/app/components/department/student_activities";
 import AdmissionCareer from "@/app/components/general/admission_cta";
 

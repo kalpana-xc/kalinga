@@ -232,7 +232,7 @@ export default function KIFPage({
         subtitle=""
       />
       <CenterOfExcellence centres={centres} title="Startup Partners" description="Explore the spaces and partnerships that power the Kalinga Incubation Foundation." />
-      <StudentActivities activities={activities} title="KIF  Glimpse" subtitle="" />
+      <StudentActivities activities={activities} title=" Glimpse" subtitle="" />
       
       <AdmissionCareer />
      

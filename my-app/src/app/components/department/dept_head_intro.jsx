@@ -169,11 +169,11 @@ function MentorCard({
       {/* Popup Modal */}
       {isPopupOpen && message && (
         <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm bg-opacity-50 z-50 flex items-end justify-center p-4"
+          className="fixed inset-0 bg-black/60  backdrop-blur-sm bg-opacity-50 z-50 flex items-end justify-center p-4"
           onClick={() => setIsPopupOpen(false)}
         >
           <div
-            className="bg-white rounded-xl p-4 md:p-8 max-w-2xl w-full  overflow-y-auto relative"
+            className="bg-white rounded-xl p-4 md:p-8 max-w-2xl w-full max-h-[85vh] overflow-y-auto relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
