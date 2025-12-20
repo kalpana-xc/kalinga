@@ -9,7 +9,7 @@ import AutoBreadcrumb from '../components/layout/BreadcrumbData'
 const page = () => {
     const breadcrumbData = {
         heroImage:
-            "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png",
+            "https://kalinga-university.s3.ap-south-1.amazonaws.com/research/reserarch-banner.webp",
         pageTitle: "Research Facilities",
         customBreadcrumbs: [
             { label: "Home", href: "/" },

@@ -20,22 +20,20 @@ export default function LibraryHeadMessage({
       department: designation,
       imageSrc,
       imageAlt: name,
-
-      // Popup content
-      message: [quote],
+      message: [quote], // popup content
     },
   ];
 
   return (
     <section className="library-head-message -mt-12 md:-mt-16 lg:-mt-24">
-      {/* ✅ Scoped + valid CSS (NO Tailwind parser issues) */}
+      {/* ✅ Scoped overrides */}
       <style jsx>{`
-        /* Align grid items from top instead of center */
+        /* Align grid items from top */
         .library-head-message :global(.grid) {
           align-items: flex-start !important;
         }
 
-        /* Remove desktop padding that pushes content down */
+        /* Remove desktop push-down padding */
         @media (min-width: 1024px) {
           .library-head-message :global(.lg\\:pt-20) {
             padding-top: 0 !important;
@@ -45,6 +43,12 @@ export default function LibraryHeadMessage({
         /* Ensure image starts from top */
         .library-head-message :global(img) {
           object-position: top;
+        }
+
+        /* ✅ CENTER THE POPUP MODAL */
+        .library-head-message
+          :global(.fixed.inset-0.flex.items-end.justify-center) {
+          align-items: center !important;
         }
       `}</style>
 

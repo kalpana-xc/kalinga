@@ -15,10 +15,10 @@ const page = () => {
    const breadcrumbData = {
         heroImage:
             "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png",
-        pageTitle: "Library",
+        pageTitle: "KU Library",
         customBreadcrumbs: [
             { label: "Home", href: "/" },
-            { label: "Library", href: "/library" },
+            { label: "KU Library", href: "/library" },
         ],
     };
   return (

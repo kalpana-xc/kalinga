@@ -7,8 +7,8 @@ export default function CanteenMess() {
   // ✅ 2 images as required
   const imageSets = [
     [
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/mess-1.webp",
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/mess-2.webp",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/canteen-and-mess/canteen+mess+(5).webp",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/canteen-and-mess/canteen+mess+(4).webp",
     ],
   ];
 

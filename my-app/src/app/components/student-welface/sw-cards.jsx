@@ -101,7 +101,7 @@ const swCardsData = [
     title: "Blood Donation Camps",
     description:
       "We organise blood donation camps in which students and faculty members actively participate and support a good cause.",
-    imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/research-facilities/researchfacilities-coe.jpg"
+    imageSrc: PLACEHOLDER_IMAGE
 ,
     logoSrc: "",
   },
