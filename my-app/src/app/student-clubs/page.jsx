@@ -188,11 +188,11 @@ export default function Page() {
       {/* Universal Title + Subheading */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-stix text-[var(--foreground)] mb-3">
+          <h2 className="font-stix text-[var(--foreground)] mb-3">
             Academic Clubs
 
           </h2>
-          <p className="max-w-3xl mx-auto text-sm md:text-base text-[var(--light-text-gray)]">
+          <p className="max-w-6xl mx-auto text-[var(--light-text-gray)]">
            Our academic clubs provide students with the resources and practical exposure that supplement their studies. We believe that knowledge should go beyond classroom studies, and students must be professionally prepared to take up any challenge in their field of study. Our academic clubs will expand their network and connect them with our faculty members. 
 
           </p>
@@ -205,7 +205,7 @@ export default function Page() {
           <div className="container mx-auto px-4">
 
             {/* Smaller Section Title */}
-            <h3 className="text-xl md:text-2xl font-jakarta font-semibold text-[var(--foreground)] mb-8 text-center">
+            <h3 className="  text-[var(--foreground)] mb-8 text-center">
               {section.title}
             </h3>
 
@@ -226,7 +226,7 @@ export default function Page() {
                   </div>
 
                   {/* Club Name */}
-                  <p className="mt-4 text-center font-jakarta text-base text-[var(--foreground)]">
+                  <p className="mt-2 text-center text-[var(--foreground)]">
                     {club.name}
                   </p>
                 </div>
