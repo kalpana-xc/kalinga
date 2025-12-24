@@ -15,7 +15,7 @@ export default function LeadershipCard({ name, title, image, usePTagForName = fa
       </div>
 
       {/* Name */}
-      <NameTag className="!text-[20px] text-[var(--foreground)] font-plus-jakarta-sans font-semibold">
+      <NameTag className="!text-[16px] text-[var(--foreground)] font-plus-jakarta-sans font-semibold">
         {name}
       </NameTag>
 
