@@ -4,7 +4,7 @@ import GlobalArrowButton from "../components/general/global-arrow_button";
 
 // Breadcrumb configuration
 const breadcrumbData = {
-  heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/academic-facilities/elearning.webp",
+  heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/about-banner.webp",
   pageTitle: "Annual Reports",
   customBreadcrumbs: [
     { label: 'Home', href: '/' },

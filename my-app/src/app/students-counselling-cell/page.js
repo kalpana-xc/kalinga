@@ -7,10 +7,10 @@ import EmployeeBenefits from "../components/careers/EmployeeBenefits"
 
 const breadcrumbData = {
     heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/about-banner.webp",
-    pageTitle: "Refund & Cancellation Policy",
+    pageTitle: "Students Counselling Cell",
     customBreadcrumbs: [
       { label: 'Home', href: '/' },
-      { label: 'refund & cancellation policy', href: '/refund-policy' }
+      { label: 'Students Counselling Cell', href: '/students-counselling-cell' }
     ]
   };
   
