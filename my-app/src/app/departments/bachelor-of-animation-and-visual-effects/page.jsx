@@ -237,7 +237,7 @@ function Courses() {
     { id: 'specialization', label: 'Specialization' },
     { id: 'career', label: 'Career Pathway' },
     { id: 'eligibility', label: 'Eligibility' },
-    { id: 'fees', label: 'Fees' },
+    { id: 'eligibility', label: 'Fees' },
     { id: 'syllabus', label: 'Syllabus' },
   ];
 
@@ -294,9 +294,6 @@ function Courses() {
           cardBackgroundColor="bg-[var(--button-red)]"
           useContainer={false}
         />
-      </div>
-      <div id="fees">
-        {/* Fees section - Add your fees content here */}
       </div>
       <div id="facilities">
         <Facility />

@@ -64,7 +64,7 @@ export default function CanteenMess() {
                 <img
                   src={imageSets[0][indexes[0]]}
                   alt="Mess Facility at Kalinga University"
-                  className="w-full h-full object-cover transition-all duration-700"
+                  className="w-full h-full object-cover transition-all duration-700 object-top"
                 />
               </div>
 

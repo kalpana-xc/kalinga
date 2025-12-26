@@ -224,7 +224,7 @@ export default function VisionMission({
           className: cls = "",
         } = entry;
 
-        const gridCols = showImg ? "lg:grid-cols-12" : "lg:grid-cols-2";
+        const gridCols = showImg ? "lg:grid-cols-13" : "lg:grid-cols-2";
         const visionCol = showImg
           ? "order-1 lg:order-1 lg:col-span-5"
           : "order-1 lg:order-1";
@@ -242,7 +242,7 @@ export default function VisionMission({
         return (
           <section id="vision-mission" key={idx} className={`pt-16 bg-white px-2 ${cls}`}>
             <div className="container mx-auto">
-              <div className={`grid grid-cols-1 ${gridCols} gap-8 lg:gap-6 items-stretch`}>
+              <div className={`grid grid-cols-1 ${gridCols} gap-4 items-stretch`}>
                 {/* Left - Vision Box */}
                 <div className={`${visionCol} flex`}>
                   {/* Filter Wrapper for Drop Shadow */}
@@ -273,9 +273,10 @@ export default function VisionMission({
                   </div>
                 </div>
 
+                
                 {/* Center - Person Image */}
                 {showImg && (
-                  <div className="order-3 lg:order-2 lg:col-span-2 flex justify-center items-end">
+                  <div className="order-3 lg:order-2 lg:col-span-3 flex justify-center items-end">
                     <div className="relative w-full max-w-[220px]">
                       <Image
                         src={imgSrc}

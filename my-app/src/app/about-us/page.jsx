@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import AboutHero from "../components/about/AboutHero";
 import MainIntro from "../components/about/main_intro";
 import VisionMission from "../components/about/vision-mission";
@@ -20,17 +21,13 @@ import CoreValues from "../components/about/core_values";
 // Breadcrumb configuration
 const breadcrumbData = {
   heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/about-banner.webp",
-  pageTitle: "About Us",
+  pageTitle: "About Kalinga",
   customBreadcrumbs: [
     { label: 'Home', href: '/' },
-    { label: 'About', href: '/about-us' }
+    { label: 'About Kalinga', href: '/about-us' }
   ]
 };
 
-// Register breadcrumb data globally
-if (typeof window !== 'undefined') {
-  window.__breadcrumbData = breadcrumbData;
-}
 
 const aboutFeatureCards = [
   {
@@ -194,7 +191,12 @@ const aboutApproval= [
    { id: 12, name: "CGG", logo: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/accerdation/cg-government.webp" },
 ]
 
-export default function About() {                     
+export default function AboutUs() {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);                     
   return (
     <div>
       <MainIntro 

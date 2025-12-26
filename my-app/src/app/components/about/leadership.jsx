@@ -1,6 +1,6 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import LeadershipCard from "../general/leadership-card";
@@ -57,7 +57,7 @@ export default function Leadership() {
         {/* Slider Section */}
         <div className="relative overflow-hidden px-0 lg:px-8 xl:px-16">
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             spaceBetween={24}
             slidesPerView={1}
             breakpoints={{
@@ -78,6 +78,11 @@ export default function Leadership() {
                 spaceBetween: 24,
               },
             }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            speed={1000}
             navigation={{
               nextEl: ".leadership-swiper-button-next",
               prevEl: ".leadership-swiper-button-prev",

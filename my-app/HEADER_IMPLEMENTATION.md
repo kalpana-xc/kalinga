@@ -59,7 +59,7 @@ src/app/
 {
   id: 'about',
   label: 'About Us',
-  href: '/about',
+  href: '/about-us',
   megaMenu: {
     sections: [
       {

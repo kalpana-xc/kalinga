@@ -7,7 +7,7 @@ export default function Page() {
   const imageSets = [
     ["https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/Infrastructure1.webp", "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/Infrastructure2.webp", "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/Infrastructure3.webp"],
     ["https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/transport-1.jpg", "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/transport-2.jpg", "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/transport-3.webp"],
-    ["https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/mini-market1.png","https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/mini-market2.webp","https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/mini-market3.webp"],
+    ["https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/mini-market2.webp","https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/mini-market3.webp"],
     ["https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/Health+Clinic1.webp", "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/Health+Clinic2.webp", "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/Health+Clinic3.webp"],
     ["https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/bank-atm1.png", "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/bank-atm2.jpeg", "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/bank-atm3.webp"],
     ["https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/security1.jpg","https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/security2.jpeg","https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/security3.jpeg"]
@@ -26,7 +26,7 @@ export default function Page() {
 
 
   return (
-    <div className="container mx-auto py-16 px-2 flex flex-col md:gap-16 gap-8 items-stretch">
+    <div className="container mx-auto py-16 md:pb-25 px-2 flex flex-col md:gap-20 gap-12 items-stretch">
 
       {[
         { type: "sandal", title: "Academic Infrastructure", desc: "Kalinga University offers state-of-the-art academic infrastructure with smart classrooms, digital learning tools, and well-equipped labs that promote innovation and practical learning." },
@@ -47,7 +47,7 @@ export default function Page() {
             // IMAGE RIGHT
             <div
               className="
-                md:absolute md:bottom-[100px] md:right-[0px] md:w-[55%]
+                md:absolute md:bottom-[75px] md:right-[0px] md:w-[55%]
                 w-full mb-4 md:mb-0
               "
             >
@@ -55,7 +55,7 @@ export default function Page() {
                 <img
                   src={imageSets[index][indexes[index]]}
                   alt={`${sec.title} at Kalinga University`}
-                  className="w-full h-full object-cover transition-all duration-700"
+                  className="w-full h-full object-cover transition-all duration-700 object-top"
                 />
               </div>
 
@@ -76,7 +76,7 @@ export default function Page() {
             // IMAGE LEFT
             <div
               className="
-                md:absolute md:top-0 md:left-[0px] md:w-[55%] md:z-20
+                md:absolute md:top-10 md:left-[0px] md:w-[55%] md:z-20
                 w-full mb-4 md:mb-0
               "
             >
@@ -84,7 +84,7 @@ export default function Page() {
                 <img
                   src={imageSets[index][indexes[index]]}
                   alt={`${sec.title} at Kalinga University`}
-                  className="w-full h-full object-cover transition-all duration-700"
+                  className="w-full h-full object-cover transition-all duration-700 object-top"
                 />
               </div>
 
@@ -108,11 +108,11 @@ export default function Page() {
             <div
               className="
               bg-[var(--card-sandal)] rounded-2xl p-6 md:p-8 shadow-md w-full md:w-[55%] 
-              md:min-h-[280px]
-              md:absolute md:left-[0] md:top-[100px]
+              md:min-h-[330px]
+              md:absolute md:left-[0] md:top-[100px] flex flex-col justify-center
             "
             >
-              <h1 className="text-xl md:text-2xl font-regular md:mt-[40px] mb-3">{sec.title}</h1>
+              <h1 className="text-xl md:text-2xl font-regular mb-3">{sec.title}</h1>
               <p className="text-sm text-[var(--foreground)]/70 leading-relaxed mb-4 md:w-3/4 w-full">{sec.desc}</p>
               <GlobalArrowButton className="hover:!bg-[var(--background)]">Know More</GlobalArrowButton>
             </div>
@@ -120,11 +120,11 @@ export default function Page() {
             <div
               className="
               bg-[var(--button-red)] text-white rounded-2xl p-6 md:p-8 shadow-md 
-              w-full md:w-[55%] md:min-h-[280px]
-              md:absolute md:right-[0px] md:top-[100px]
+              w-full md:w-[55%] md:min-h-[330px]
+              md:absolute md:right-[0px] md:top-[100px] flex flex-col justify-center
             "
             >
-              <h2 className="text-xl md:text-2xl font-regular mb-3 md:mt-8 md:pl-[140px]">
+              <h2 className="text-xl md:text-2xl font-regular mb-3 md:pl-[140px]">
                 {sec.title}
               </h2>
               <p className="text-sm leading-relaxed mb-4 md:pl-[140px] w-full">

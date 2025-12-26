@@ -1,4 +1,5 @@
 "use client"
+import { useEffect } from "react";
 import PublicationGrid from "../components/research/publication-grid";
 import UGCLogo from "../components/research/ugc_logo";
 import UpcomingConference from "../components/research/upcoming_conference";
@@ -21,19 +22,21 @@ import Partner from "../components/ccrc/partner";
 // Breadcrumb configuration
 const breadcrumbData = {
   heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-banner.webp",
+  imageposition: "object-center",
   pageTitle: "Placements",
   customBreadcrumbs: [
     { label: 'Home', href: '/' },
     { label: 'Placements', href: '/placements' }
   ]
 };
-// Register breadcrumb data globally
-if (typeof window !== 'undefined') {
-  window.__breadcrumbData = breadcrumbData;
-}
 
 
 export default function Research() {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);
   
   const blueItems = [
     {

@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -109,13 +109,18 @@ export default function WhyStudy({
             </div>
             <div className="relative">
               <Swiper
-                modules={[Navigation]}
+                modules={[Navigation, Autoplay]}
                 spaceBetween={20}
                 slidesPerView={1}
                 breakpoints={{
                   768: { slidesPerView: 2 },
                   1280: { slidesPerView: 2 },
                 }}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }}
+                speed={1000}
                 navigation={{
                   nextEl: '.why-study-next',
                   prevEl: '.why-study-prev',

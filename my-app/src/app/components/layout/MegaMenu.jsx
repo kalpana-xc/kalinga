@@ -17,7 +17,7 @@ const MegaMenu = ({ sections }) => {
                   <li key={linkIdx}>
                     <Link
                       href={link.href}
-                      className="block text-sm text-gray-600 hover:text-red-600 hover:pl-2 transition-all duration-200"
+                      className="block text-sm text-gray-600 hover:text-red-600 hover:pl-2 transition-all duration-200 normal-case"
                     >
                       {link.label}
                     </Link>

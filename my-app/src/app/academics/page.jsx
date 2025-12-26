@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SectionHeading from '../components/general/SectionHeading'
 import { renderProgramCard } from '../components/general/program-cards-slider'
 import AdmissionCareer from '../components/general/admission_cta'
@@ -16,12 +16,12 @@ const breadcrumbData = {
   ]
 };
 
-// Register breadcrumb data globally
-if (typeof window !== 'undefined') {
-  window.__breadcrumbData = breadcrumbData;
-}
-
 export default function Academics() {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);
   const [searchQuery, setSearchQuery] = useState('')
 
   // Academics content - 9 faculty cards

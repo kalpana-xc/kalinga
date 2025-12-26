@@ -1,24 +1,24 @@
-import React from 'react'
+'use client';
+
+import React, { useEffect } from 'react'
 import SectionHeading from '../components/general/SectionHeading'
-
-
-// Model breradcrumb
 
 const breadcrumbData = {
   heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/about-banner.webp",
   pageTitle: "Privacy Policy",
   customBreadcrumbs: [
     { label: 'Home', href: '/' },
-    { label: 'privacy-policy', href: '/privacy-policy' }
+    { label: 'Privacy Policy', href: '/privacy-policy' }
   ]
 };
 
-// Register it globally (no import needed - this pattern works automatically)
-if (typeof window !== 'undefined') {
-  window.__breadcrumbData = breadcrumbData;
-}
-
 export default function PrivacyPolicyPage() {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);
+
   return (
       <section className='container mx-auto px-6 py-16'>
         <div className='text-center'>

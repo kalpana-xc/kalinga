@@ -24,10 +24,47 @@ const scholarships = [
   },
   {
     id: 3,
-    title: "Social Scholarships",
+    title: "Entrance Exam Scholarships",
     description: "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
     icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/social.svg",
   },
+  {
+    id: 4,
+    title: "Culture & Achievers Scholarships",
+    description: "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
+    icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship/scholarship-2.png",
+  },
+  {
+    id: 5,
+    title: "Siblings Scholarships",
+    description: "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
+    icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship/scholarship-3.png",
+  },
+  {
+    id: 6,
+    title: "Sports Scholarships",
+    description: "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
+    icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship/sports-bg.png",
+  },
+  {
+    id: 7,
+    title: "Social Media Scholarships",
+    description: "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
+    icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship/social_media-bg.png",
+  },
+  {
+    id: 8,
+    title: "Innovation & Research Scholarships",
+    description: "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
+    icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship/research-bg.png",
+  },
+  {
+    id: 9,
+    title: "Other Scholarships",
+    description: "With KU, you don’t have to worry about the tuition fee as we’ve got you covered. Our scholarships are designed to help bright minds succeed in their career.",
+    icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship/scholarship-10bg.png",
+  },
+  
 ];
 
 export default function ScholarshipsSlider({

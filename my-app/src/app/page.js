@@ -28,7 +28,7 @@ const quickLinks = [
   },
   {
     title: "Campus Life",
-    href: "/students/campus-life",
+    href: "/campuslife",
     icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/campus+life.svg"
   },
   {

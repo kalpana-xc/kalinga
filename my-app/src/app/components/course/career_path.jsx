@@ -1,6 +1,6 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import CareerCard from "../general/career-card";
@@ -52,7 +52,7 @@ export default function CareerPath({
         {/* Slider Section */}
         <div className="relative px-2">
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             spaceBetween={24}
             slidesPerView={1}
             breakpoints={{
@@ -69,6 +69,11 @@ export default function CareerPath({
                 spaceBetween: 24,
               },
             }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            speed={1000}
             navigation={{
               nextEl: ".career-swiper-button-next",
               prevEl: ".career-swiper-button-prev",

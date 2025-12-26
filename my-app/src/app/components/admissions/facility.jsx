@@ -1,6 +1,6 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
@@ -64,7 +64,8 @@ export default function Facility({
         {/* Slider Section */}
         <div className="relative overflow-visible">
           <Swiper 
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
+            loop={true}
             spaceBetween={24}
             slidesPerView={1}
             breakpoints={{
@@ -85,12 +86,16 @@ export default function Facility({
                 spaceBetween: 24,
               },
             }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            speed={1000}
             navigation={{
               nextEl: ".facility-swiper-button-next",
               prevEl: ".facility-swiper-button-prev",
             }}
             className="facility-swiper !pb-5 pt-5 [&_.swiper-wrapper]:!flex [&_.swiper-wrapper]:items-stretch [&_.swiper-wrapper]:overflow-visible [&_.swiper-slide]:!h-auto [&_.swiper-slide]:!flex [&_.swiper-slide]:overflow-visible p-5"
-            loop={false}
             autoHeight={false}
           >
             {facilities.map((facility) => (

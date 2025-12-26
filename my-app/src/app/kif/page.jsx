@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import ImageContent from "@/app/components/ccrc/imagecontent";
 import VisionMission from "@/app/components/about/vision-mission";
@@ -44,6 +45,12 @@ export default function KIFPage({
     organogram: organogramProp,
     centres: centresProp,
 } = {}) {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);
+  
     const visionMissionData = visionMissionDataProp ?? [{
         visionTitle: "Vision",
         missionTitle: "Mission",

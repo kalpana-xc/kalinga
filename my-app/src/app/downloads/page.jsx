@@ -1,6 +1,6 @@
 "use client";
 
-
+import { useEffect } from "react";
 import ResearchSixGridButtons from "../components/research/research_six_grid-buttons";
 import GlobalArrowButton from "../components/general/global-arrow_button";
 
@@ -14,11 +14,6 @@ const breadcrumbData = {
   ]
 };
 
-// Register it globally (no import needed - this pattern works automatically)
-if (typeof window !== 'undefined') {
-  window.__breadcrumbData = breadcrumbData;
-}
-
 const downloadsreport = [
   {
     id: 0,
@@ -28,6 +23,11 @@ const downloadsreport = [
 ];
 
 export default function Page() {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);
   return (
     <>
     

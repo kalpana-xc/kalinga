@@ -69,7 +69,7 @@ export default function CareerApplicationForm({
   const submitAlignClass = hideTabs ? "justify-center" : "justify-end";
 
   return (
-    <section className={`w-[calc(100%-1rem)] ${backgroundClass} py-16 rounded-xl mx-2`}>
+    <section id="careerform" className={`w-[calc(100%-1rem)] ${backgroundClass} py-16 rounded-xl mx-2`}>
       <div className="container mx-auto">
       <h2 className="text-[var(--background)] text-center text-3xl sm:text-[40px] font-light">
         {heading}

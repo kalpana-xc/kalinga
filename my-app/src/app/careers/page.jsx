@@ -16,12 +16,13 @@ const breadcrumbData = {
   ]
 };
 
-// Register breadcrumb data globally
-if (typeof window !== 'undefined') {
-  window.__breadcrumbData = breadcrumbData;
-}
-
 export default function Careers() {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);
+  
   useEffect(() => {
     // Enable scrolling but hide scrollbar - works on all devices including mobile
     const body = document.body;

@@ -362,7 +362,7 @@ const Header = () => {
                       type="text"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      placeholder="Search courses..."
+                      placeholder="Search Courses..."
                       className="flex-1 border border-gray-200 rounded px-2 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-[var(--red)] focus:border-[var(--red)]"
                     />
                     <button
@@ -390,7 +390,7 @@ const Header = () => {
                     </div>
                   ) : (
                     <div className="px-1 py-1 text-xs text-gray-500">
-                      No courses found
+                      No Courses Found
                     </div>
                   )}
                 </form>

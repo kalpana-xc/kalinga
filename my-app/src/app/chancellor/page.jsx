@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import ChairmanMessage from "../components/leadership/chairman_message";
 
 // Breadcrumb configuration
@@ -14,12 +14,12 @@ const breadcrumbData = {
   ],
 };
 
-// Register breadcrumb data globally
-if (typeof window !== "undefined") {
-  window.__breadcrumbData = breadcrumbData;
-}
-
 export default function Leadership() {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);
   return (
     <>
       <ChairmanMessage

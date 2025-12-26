@@ -4,7 +4,7 @@ import React, { useState, useRef } from 'react'
 import Image from 'next/image'
 import SectionHeading from '../general/SectionHeading'    
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
@@ -245,7 +245,7 @@ export default function FeatureCards({
             <div className="relative">
               {/* Swiper Slider */}
               <Swiper
-                modules={[Navigation]}
+                modules={[Navigation, Autoplay]}
                 spaceBetween={16}
                 slidesPerView={1}
                 breakpoints={{
@@ -254,6 +254,11 @@ export default function FeatureCards({
                     spaceBetween: 24,
                   },
                 }}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }}
+                speed={1000}
                 navigation={{
                   nextEl: '.feature-cards-swiper-button-next',
                   prevEl: '.feature-cards-swiper-button-prev',

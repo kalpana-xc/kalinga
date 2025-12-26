@@ -44,7 +44,7 @@ export default function EligibilityCriteria({
           <div className="flex flex-col gap-6 justify-between h-full order-3 lg:order-2">
             {/* Duration Box */}
             <div className="bg-[var(--card-skin)] rounded-lg px-2 py-5 text-center">
-              <h3 className="">Duration : {duration}</h3>
+              <h3 className="text-[18px] md:text-[24px]">Duration : {duration}</h3>
             </div>
             
             {/* Eligibility Criteria Section */}

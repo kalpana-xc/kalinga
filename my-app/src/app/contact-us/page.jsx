@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import GetInTouch from "@/app/components/contact_us/get_in_touch";
 import AdmissionCareer from "@/app/components/general/admission_cta";
 import FollowUs from "@/app/components/contact_us/follow_us";
@@ -16,12 +16,12 @@ const breadcrumbData = {
   ]
 };
 
-// Register breadcrumb data globally
-if (typeof window !== 'undefined') {
-  window.__breadcrumbData = breadcrumbData;
-}
-
 const ContactUs = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);
   return (
     <>
       <GetInTouch />

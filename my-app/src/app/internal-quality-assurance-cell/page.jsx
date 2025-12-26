@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import MainIntro from '../components/about/main_intro'
 import PublicationGrid from '../components/research/publication-grid'
 import DeptHeadIntro from '../components/department/dept_head_intro'
@@ -19,12 +19,12 @@ const breadcrumbData = {
   ]
 };
 
-// Register breadcrumb data globally
-if (typeof window !== 'undefined') {
-  window.__breadcrumbData = breadcrumbData;
-}
-
 const IQACPage = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);
 
   const MentorIntroProps = [
     {

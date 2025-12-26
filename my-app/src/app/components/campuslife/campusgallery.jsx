@@ -9,11 +9,11 @@ export default function Gallery() {
     { id: 3, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery3.webp", alt: "Gallery Image 3" },
     { id: 4, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/Infrastructure2.webp", alt: "Gallery Image 4" },
     { id: 5, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery4.webp", alt: "Gallery Image 5" },
-    { id: 6, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery3.webp", alt: "Gallery Image 6" },
+    { id: 6, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/student-dance.webp", alt: "Gallery Image 6" },
     { id: 7, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery1.webp", alt: "Gallery Image 7" },
-    { id: 8, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery2.webp", alt: "Gallery Image 8" },
-    { id: 9, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery4.webp", alt: "Gallery Image 9" },
-    { id: 10, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery1.webp", alt: "Gallery Image 10" },
+    // { id: 8, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/student-rangoli.webp", alt: "Gallery Image 8" },
+    { id: 9, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/student-grppic.webp", alt: "Gallery Image 9" },
+    // { id: 10, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery1.webp", alt: "Gallery Image 10" },
   ];
 
   // Duplicate images for seamless loop

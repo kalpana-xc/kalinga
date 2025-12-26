@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import GlobalArrowButton from "../general/global-arrow_button";
 import SectionHeading from "../general/SectionHeading";
-
+import Link from "next/link";
 export default function OpenPositions({
   title = "Discover opportunities that match your passion and expertise.",
   subtitle = "Open Positions",
@@ -151,12 +151,14 @@ export default function OpenPositions({
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-
+                <Link href="#careerform">
                  <GlobalArrowButton className="!bg-[var(--dark-orange-red)] hover:!bg-[var(--background)] hover:!text-[var(--dark-orange-red)]">
                    Check Eligibility
                  </GlobalArrowButton>
-
+                 </Link>
+                 <Link href="#careerform">
                 <GlobalArrowButton>Apply Now</GlobalArrowButton>
+                </Link>
                 </div>
 
               </div>
