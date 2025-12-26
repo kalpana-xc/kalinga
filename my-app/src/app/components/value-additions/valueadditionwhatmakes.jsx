@@ -82,7 +82,7 @@ function Valueadditionwhatmakes() {
                 "With 250+ recruitment partners, we offer placement opportunities to students from different backgrounds so that they can secure their dream job.",
             variant: "gray",
             image:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png", // Image - 32
+                "https://kalinga-university.s3.ap-south-1.amazonaws.com/common  /placeholder-img.png", // Image - 32
         },
     ];
 

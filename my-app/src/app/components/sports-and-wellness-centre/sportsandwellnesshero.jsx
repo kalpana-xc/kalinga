@@ -8,7 +8,7 @@ function SportsAndWellnessHero() {
       id: 1,
       title: "Expert Training & Professional Guidance",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "",
       icon: (
         <Image
           src="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png"
@@ -22,7 +22,7 @@ function SportsAndWellnessHero() {
       id: 2,
       title: "Avail Exclusive Sports Scholarship",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "",
       icon: (
         <Image
           src="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png"
@@ -36,7 +36,7 @@ function SportsAndWellnessHero() {
       id: 3,
       title: "Develop a Winning Mindset",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "",
       icon: (
         <Image
           src="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png"
