@@ -82,17 +82,36 @@ export default function MainIntro({
                 </ul>
               )}
 
-              {showKnowMore && descriptionArray.length > initialVisibleParagraphs && (
+              {showKnowMore && (descriptionArray.length > initialVisibleParagraphs || (knowMoreHref && knowMoreHref !== "#")) && (
                 <div className="pt-2">
-                  <GlobalArrowButton
-                    className="w-fit !bg-white !text-white gap-2 !px-0 !py-0"
-                    textClassName="!text-[var(--button-red)] !font-semibold !px-0"
-                    arrowClassName="p-[3px] !px-1 mr-2 !py-1 !bg-[var(--button-red)]"
-                    arrowIconClassName="!text-white"
-                    onClick={() => setShowAll(!showAll)}
-                  >
-                    {showAll ? "Show Less" : knowMoreLabel}
-                  </GlobalArrowButton>
+                  {knowMoreHref && knowMoreHref !== "#" ? (
+                    <a
+                      href={knowMoreHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={onKnowMore}
+                      className="inline-block"
+                    >
+                      <GlobalArrowButton
+                        className="w-fit !bg-white !text-white gap-2 !px-0 !py-0"
+                        textClassName="!text-[var(--button-red)] !font-semibold !px-0"
+                        arrowClassName="p-[3px] !px-1 mr-2 !py-1 !bg-[var(--button-red)]"
+                        arrowIconClassName="!text-white"
+                      >
+                        {knowMoreLabel}
+                      </GlobalArrowButton>
+                    </a>
+                  ) : (
+                    <GlobalArrowButton
+                      className="w-fit !bg-white !text-white gap-2 !px-0 !py-0"
+                      textClassName="!text-[var(--button-red)] !font-semibold !px-0"
+                      arrowClassName="p-[3px] !px-1 mr-2 !py-1 !bg-[var(--button-red)]"
+                      arrowIconClassName="!text-white"
+                      onClick={() => setShowAll(!showAll)}
+                    >
+                      {showAll ? "Show Less" : knowMoreLabel}
+                    </GlobalArrowButton>
+                  )}
                 </div>
               )}
             </div>
