@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import SectionHeading from "../general/SectionHeading";
 import GlobalArrowButton from "../general/global-arrow_button";
@@ -19,50 +19,33 @@ export default function StudentCell({
   subtitleTextColor = "text-[var(--dark-orange-red)]",
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [needsReadMore, setNeedsReadMore] = useState(false);
-  const textRef = useRef(null);
-  const measureRef = useRef(null);
 
-  useEffect(() => {
-    const checkIfNeedsReadMore = () => {
-      if (!textRef.current || !measureRef.current || isExpanded) return;
-      
-      const visibleWidth = textRef.current.offsetWidth;
-      if (measureRef.current.style.width !== `${visibleWidth}px`) {
-        measureRef.current.style.width = `${visibleWidth}px`;
-      }
-      
-      const styles = window.getComputedStyle(textRef.current);
-      const fontSize = parseFloat(styles.fontSize);
-      const lineHeightValue = styles.lineHeight;
-      
-      let lineHeight;
-      if (lineHeightValue === 'normal') {
-        lineHeight = fontSize * 1.5;
-      } else if (lineHeightValue.includes('px')) {
-        lineHeight = parseFloat(lineHeightValue);
-      } else {
-        lineHeight = fontSize * parseFloat(lineHeightValue);
-      }
-      
-      const fourLinesHeight = lineHeight * 4;
-      const fullTextHeight = measureRef.current.scrollHeight;
-      
-      setNeedsReadMore(fullTextHeight > fourLinesHeight);
-    };
+  // Split description into paragraphs by splitting on periods followed by space and capital letter
+  const paragraphs = useMemo(() => {
+    // Split by periods followed by space and capital letter, but keep the period
+    const sentences = description.match(/[^.!?]+[.!?]+/g) || [description];
     
-    const rafId = requestAnimationFrame(() => {
-      checkIfNeedsReadMore();
-      setTimeout(checkIfNeedsReadMore, 100);
+    // Group sentences into paragraphs (2 sentences per paragraph, or logical breaks)
+    const paras = [];
+    let currentPara = '';
+    
+    sentences.forEach((sentence, index) => {
+      currentPara += sentence.trim() + ' ';
+      
+      // Create a paragraph after every 2 sentences, or if it's the last sentence
+      if ((index + 1) % 2 === 0 || index === sentences.length - 1) {
+        if (currentPara.trim()) {
+          paras.push(currentPara.trim());
+          currentPara = '';
+        }
+      }
     });
     
-    window.addEventListener('resize', checkIfNeedsReadMore);
-    
-    return () => {
-      cancelAnimationFrame(rafId);
-      window.removeEventListener('resize', checkIfNeedsReadMore);
-    };
-  }, [description, isExpanded]);
+    return paras;
+  }, [description]);
+
+  const hasMoreThanTwoParagraphs = paragraphs.length > 2;
+  const visibleParagraphs = isExpanded ? paragraphs : paragraphs.slice(0, 2);
 
   return (
     <section className="mx-2">
@@ -88,37 +71,17 @@ export default function StudentCell({
                 titleClassName={titleClassName}
                 subtitleTextColor={subtitleTextColor}
               />
-              <div className="relative">
-                {/* Hidden element to measure full text height */}
-                <p 
-                  ref={measureRef}
-                  className="text-sm md:text-base text-white/80 leading-relaxed"
-                  style={{ 
-                    position: 'absolute',
-                    visibility: 'hidden',
-                    opacity: 0,
-                    pointerEvents: 'none',
-                    top: 0,
-                    left: 0,
-                    zIndex: -1,
-                    whiteSpace: 'normal',
-                    wordWrap: 'break-word'
-                  }}
-                >
-                  {description}
-                </p>
-                
-                {/* Visible text */}
-                <p 
-                  ref={textRef}
-                  className={`text-sm md:text-base text-white/80 leading-relaxed ${
-                    !isExpanded && needsReadMore ? 'line-clamp-4' : ''
-                  }`}
-                >
-                  {description}
-                </p>
+              <div className="space-y-4">
+                {visibleParagraphs.map((para, index) => (
+                  <p 
+                    key={index}
+                    className="text-sm md:text-base text-white/80 leading-relaxed"
+                  >
+                    {para}
+                  </p>
+                ))}
               </div>
-              {needsReadMore && (
+              {hasMoreThanTwoParagraphs && (
                 <GlobalArrowButton
                   className="!bg-[var(--dark-blue)] !text-white shadow-none !p-0 mt-2"
                   arrowClassName="!bg-[var(--button-red)]"

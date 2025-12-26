@@ -21,7 +21,7 @@ import Partner from "../components/ccrc/partner";
 
 // Breadcrumb configuration
 const breadcrumbData = {
-  heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-banner.webp",
+  heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/alumini/alumini.webp",
   imageposition: "object-center",
   pageTitle: "Placements",
   customBreadcrumbs: [
@@ -230,39 +230,39 @@ export default function Research() {
   const links = [
     {
       id: 1,
-      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/Entrepreneurial+Thinking.svg",
-      title: "Entrepreneurial Thinking ",
-      description: "We’re here to put your entrepreneurial ideas into action. Here, you will not just dream but build something real that solves people's problems.",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Industrial+Visits.svg",
+      title: "Training & Placement Cell",
+      description: "Our dedicated Training & Placement Cell provides comprehensive career guidance, skill development programs, and placement assistance to ensure students are industry-ready.",
     },
     {
       id: 2,
-      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/Backed+By+Powerful+Resources.svg",
-      title: "Backed By Powerful Resources",
-      description: "You won’t need to hassle anywhere to build your company; get complete support under one roof. From brainstorming ideas to product selling, you are free to utilise our in-house resources at any time.",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/elgbility.svg",
+      title: "Career & Corporate Resource Centre",
+      description: "The CCRC connects students with top recruiters and provides training in essential skills, helping them achieve their personal and professional goals.",
     },
     {
       id: 3,
-      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/Build+Networks.svg",
-      title: "Build Networks",
-      description: "We organise industrial visits, seminars, guest lectures, and industrial talks every week, which help our young minds build new connections and clarity in launching their businesses.",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/academics/icons/Events.svg",
+      title: "Campus Placement Drives",
+      description: "Regular on-campus placement drives with leading companies provide students with direct opportunities to secure their dream jobs right after graduation.",
     },
     {
       id: 4,
-      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/Trainings+%26+Workshops.svg",
-      title: "Trainings & Workshops",
-      description: "To develop an entrepreneurial spirit among young students, we organise various hands-on training programs where they learn to build a plan, product, learn selling and marketing tactics, and lead like a true leader. ",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/Value+addition.svg",
+      title: "Skill Development Programs",
+      description: "Industry-aligned training programs and workshops enhance students' technical and soft skills, making them more employable and competitive in the job market.",
     },
     {
       id: 5,
-      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/Fundraising.svg",
-      title: "Fundraising",
-      description: "At Kalinga, you’ll not just learn to raise money but also to pitch ideas with power and purpose in our fundraising master class sessions. ",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/academics/icons/Curriculum.svg",
+      title: "Industry Partnerships",
+      description: "Strong partnerships with 400+ leading companies ensure diverse placement opportunities across various sectors and industries.",
     },
     {
       id: 6,
-      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/Business+Plan+Development.svg",
-      title: "Business Plan Development",
-      description: "We will guide you in building a strategic business plan from the idea stage to the launch stage, helping you grow the right way.",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship.svg",
+      title: "Placement Statistics",
+      description: "Track record of excellent placements with competitive salary packages, with highest package of 12L+ and average package of 4 LPA.",
     },
   ]
   const links2 = [
@@ -358,22 +358,31 @@ export default function Research() {
         milestones={milestones}
         description="Maintaining the track record of providing students with the best job opportunities and rewarding salary packages at top companies."
         footerText="Trusted by 500+ Global Recruiters"
+        noContainer={true}
       />
-      <QuickLinks links={links} title="Placement Overview" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid"
-       backgroundColor="bg-white" textColorClassName="text-black" showReadMore={false} />
+      <QuickLinks 
+        links={links} 
+        title="Placement Overview" 
+        description="Kalinga University's placement program bridges academia and industry with 400+ recruitment partners, comprehensive training, and dedicated support to prepare students for successful careers in top companies."
+        backgroundColor="bg-white" 
+        textColorClassName="text-black" 
+        showReadMore={false} 
+      />
       <Placements hideMarquee={true} hideMilestones={true} bgColor="bg-[var(--light-gray)] mx-2 rounded-xl" marginClassName="mb-0"/>
       <MediaCardSlider
         categoryTitle="Video Interviews"
-        title="Lorem ipsum dolor sit amet, consectetur"
+        title="Hear From Our Success Stories"
         videoItems={videoItems}
         cardBgClass="bg-white"
         nameTextClass="text-[var(--button-red)]"
         descriptionTextClass=""
         swiperClassName="ccrc-video-slider"
       />
-      <QuickLinks titleClassName="text-white" links={links2} />
+      <QuickLinks titleClassName="text-white" links={links2} description="We're here to put your entrepreneurial ideas into action. Here, you will not just dream but build something real that solves people's problems."/>
       <FAQ 
+        title="Placement Records"
         variant="button"
+        subtitle=""
         buttons={[
           {
             id: 1,

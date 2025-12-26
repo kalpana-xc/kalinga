@@ -24,8 +24,8 @@ export default function Leadership() {
     <>
       <ChairmanMessage
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/about/Leadership/Sandeep+Arora.png"
-        imageAlt="Dr. Rajeev Kumar"
-        name="Dr. Rajeev Kumar"
+        imageAlt="Dr. Sandeep Arora"
+        name="Dr. Sandeep Arora"
         title="Chancellor"
        
         quote="Education is not merely about degrees, but about shaping character, leadership, and purpose for a better tomorrow."

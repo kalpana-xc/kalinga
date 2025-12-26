@@ -321,7 +321,7 @@ export default function Map({ backgroundColor = "", textColor = "", subtitleText
         </div>
         
         {/* Legend - Horizontal under image */}
-        <div className="w-full rounded-[20px] bg-[#D9D9D975] backdrop-blur-md overflow-hidden">
+        <div className="w-full rounded-[20px] bg-[#D9D9D975] backdrop-blur-md overflow-hidden relative top-[-35px]">
           <GlowingBox borderColor="var(--button-red)" className="p-6 rounded-[20px]">
             {/* Marquee Slider using LogoLoop */}
             <div className="relative z-20" style={{ pointerEvents: 'auto' }}>

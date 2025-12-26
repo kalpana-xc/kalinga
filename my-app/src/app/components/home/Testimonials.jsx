@@ -44,7 +44,11 @@ export default function     Testimonials({ testimonials = [], className = "", su
     const [activeIndex, setActiveIndex] = useState(1);
     const [isMobile, setIsMobile] = useState(false);
     const [sliderHeight, setSliderHeight] = useState(500);
+    const [expandedQuotes, setExpandedQuotes] = useState({});
+    const [isHovered, setIsHovered] = useState(false);
     const cardRefs = useRef({});
+    const quoteRefs = useRef({});
+    const autoplayIntervalRef = useRef(null);
 
     useEffect(() => {
         const checkMobile = () => {
@@ -87,16 +91,34 @@ export default function     Testimonials({ testimonials = [], className = "", su
         };
     }, [activeIndex, isMobile]);
 
-    // Autoplay functionality
+    // Reset expanded quotes when active index changes
     useEffect(() => {
-        const autoplayInterval = setInterval(() => {
+        setExpandedQuotes({});
+    }, [activeIndex]);
+
+    // Autoplay functionality - pauses on hover
+    useEffect(() => {
+        // Clear any existing interval
+        if (autoplayIntervalRef.current) {
+            clearInterval(autoplayIntervalRef.current);
+            autoplayIntervalRef.current = null;
+        }
+
+        // Don't start autoplay if hovered
+        if (isHovered) return;
+
+        // Start autoplay
+        autoplayIntervalRef.current = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % testimonialsData.length);
         }, 4000); // Change slide every 4 seconds
 
         return () => {
-            clearInterval(autoplayInterval);
+            if (autoplayIntervalRef.current) {
+                clearInterval(autoplayIntervalRef.current);
+                autoplayIntervalRef.current = null;
+            }
         };
-    }, [testimonialsData.length]);
+    }, [testimonialsData.length, isHovered]);
 
     const getSlideStyles = (index) => {
         const total = testimonialsData.length;
@@ -165,8 +187,27 @@ export default function     Testimonials({ testimonials = [], className = "", su
         setActiveIndex(index);
     };
 
+    const toggleQuote = (itemId) => {
+        setExpandedQuotes(prev => ({
+            ...prev,
+            [itemId]: !prev[itemId]
+        }));
+        // Recalculate height after expanding/collapsing
+        setTimeout(recalculateHeight, 100);
+    };
+
+    const checkIfNeedsReadMore = (quote) => {
+        // Approximate check: if quote has more than ~200 characters, it likely needs more than 4 lines
+        // This is a rough estimate - actual line count depends on container width
+        return quote && quote.length > 200;
+    };
+
     return (
-        <div className={`flex flex-col items-center justify-center overflow-x-hidden selection:bg-orange-100 selection:text-orange-900 py-16 rounded-xl mx-2 ${className}`}>
+        <div 
+            className={`flex flex-col items-center justify-center overflow-x-hidden selection:bg-orange-100 selection:text-orange-900 py-16 rounded-xl mx-2 ${className}`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
             <style jsx>{`
                 ::-webkit-scrollbar { display: none; }
             `}</style>
@@ -185,7 +226,7 @@ export default function     Testimonials({ testimonials = [], className = "", su
                 </div>
                 {/* Slider Track */}
                 <div 
-                    className="relative w-full flex items-center justify-center" 
+                    className="mt-15 md:mt-5 relative w-full flex items-center justify-center lg:!min-h-[450px] lg:!h-[450px] !h-[600px] !min-h-[620px]" 
                     style={{ 
                         perspective: '1000px',
                         minHeight: `${sliderHeight}px`,
@@ -221,7 +262,7 @@ export default function     Testimonials({ testimonials = [], className = "", su
                                     }}
                                 >
                                     <div
-                                        className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-12 p-4 sm:p-6 md:p-10 pb-4 transition-opacity  rounded-xl sm:rounded-2xl duration-500 border-2 border-gray-300"
+                                        className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-12 p-4 sm:p-6 md:p-10 pb-4 transition-opacity rounded-xl sm:rounded-2xl duration-500 border-2 border-gray-300 items-center"
                                         style={{ opacity: styles.contentOpacity }}
                                     >
                                         {/* Image */}
@@ -229,7 +270,7 @@ export default function     Testimonials({ testimonials = [], className = "", su
                                             <div className="aspect-[3/3] sm:aspect-[3/3] w-full bg-white rounded-xl sm:rounded-2xl border-2 sm:border-4 md:border-[6px] border-white relative overflow-hidden">
                                                 <img 
                                                     src={item.image} 
-                                                    className="w-full h-full object-cover" 
+                                                    className="w-full h-full object-cover object-top" 
                                                     alt={item.name}
                                                     onLoad={() => {
                                                         // Recalculate height when image loads
@@ -251,9 +292,31 @@ export default function     Testimonials({ testimonials = [], className = "", su
                                                     </svg>
                                                 </div>
                                             </div>
-                                            <p className="text-slate-800 leading-relaxed md:leading-loose font-normal">
-                                                {item.quote}
-                                            </p>
+                                            <div className="relative">
+                                                <p 
+                                                    ref={(el) => {
+                                                        if (el) quoteRefs.current[`quote-${item.id}`] = el;
+                                                    }}
+                                                    className={`text-slate-800 leading-relaxed md:leading-loose font-normal ${
+                                                        !expandedQuotes[item.id] && checkIfNeedsReadMore(item.quote) 
+                                                            ? 'line-clamp-4' 
+                                                            : ''
+                                                    }`}
+                                                >
+                                                    {item.quote}
+                                                </p>
+                                                {checkIfNeedsReadMore(item.quote) && (
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            toggleQuote(item.id);
+                                                        }}
+                                                        className="mt-2 text-[var(--button-red)] hover:text-[var(--button-red)]/80 text-sm font-medium transition-colors"
+                                                    >
+                                                        {expandedQuotes[item.id] ? 'Read Less' : 'Read More'}
+                                                    </button>
+                                                )}
+                                            </div>
                                             <div className="mt-6 sm:mt-8 md:mt-auto pt-4 sm:pt-6">
                                                 <h4 className="text-[var(--red)] text-xl sm:text-2xl font-medium">{item.name}</h4>
                                                 <p className="text-xs sm:text-sm mt-1 max-w-[80%]">{item.role}</p>
@@ -275,7 +338,7 @@ export default function     Testimonials({ testimonials = [], className = "", su
         </div>
 
                 {/* Navigation Controls (Bottom) */}
-                <div className="md:-mt-6 flex items-center justify-center gap-3 sm:gap-4 z-50 relative top-[-50px]">
+                <div className="flex items-center justify-center gap-3 sm:gap-4 z-50 relative lg:top-[-30px] top-[20px]">
                 <button
                   type="button"
                   onClick={prevSlide}

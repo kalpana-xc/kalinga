@@ -48,22 +48,18 @@ function Courses() {
     {
       title: "Publications",
       value: "1250 +",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
     },
     {
       title: "Startups",
       value: "12 +",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
     },
     {
       title: "Awards",
       value: "63 +",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
     },
     {
       title: "Conferences",
       value: "78 +",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
     },
   ];
 
@@ -179,28 +175,38 @@ function Courses() {
     items: [
       {
         id: 1,
-        question: "What is the admission process?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+        question: "What is the admission process for Bachelor of Animation and Visual Effects?",
+        answer: "The admission process for B.An & VFX involves completing your 12th standard with a minimum of 45% aggregate marks, followed by appearing for the KALSEE (Kalinga University Entrance Examination). Based on your performance in the entrance test, you will be eligible for admission. You can apply online through the university's admission portal or visit the campus for direct admission assistance.",
       },
       {
         id: 2,
-        question: "What are the eligibility criteria?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+        question: "What are the eligibility criteria for this program?",
+        answer: "To be eligible for the Bachelor of Animation and Visual Effects program, candidates must have completed their 12th standard (10+2) from a recognized board with a minimum of 45% aggregate marks. There is no specific stream requirement, so students from Science, Commerce, or Arts backgrounds can apply. Additionally, candidates need to appear for and qualify in the KALSEE entrance examination.",
       },
       {
         id: 3,
-        question: "What documents are required?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+        question: "What documents are required for admission?",
+        answer: "The required documents include: 10th and 12th standard mark sheets and certificates, transfer certificate (TC) from the previous institution, migration certificate (if applicable), character certificate, passport-size photographs, identity proof (Aadhaar card, passport, etc.), caste certificate (if applicable), and income certificate (for scholarship applications). All documents should be self-attested copies along with originals for verification.",
       },
       {
         id: 4,
         question: "How can I apply for scholarships?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+        answer: "Kalinga University offers various scholarship programs for deserving students. You can apply for scholarships based on merit (academic performance), financial need, or specific categories (SC/ST/OBC). To apply, submit your scholarship application along with the required documents such as income certificate, previous academic records, and any other supporting documents. Visit the admissions office or check the university website for detailed scholarship criteria and application procedures.",
       },
       {
         id: 5,
-        question: "What is the fee structure?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+        question: "What is the fee structure and duration of the program?",
+        answer: "The Bachelor of Animation and Visual Effects is a 3-year undergraduate program divided into 6 semesters. The fee structure includes tuition fees, laboratory fees, and other academic charges. For detailed and current fee information, please contact the admissions office or visit the university website. The university also offers flexible payment options and financial assistance programs for eligible students.",
+      },
+      {
+        id: 6,
+        question: "What software and tools will I learn during the program?",
+        answer: "The program covers industry-standard software and tools including Adobe Creative Suite (After Effects, Premiere Pro, Photoshop, Illustrator), Autodesk Maya for 3D animation, Blender, Cinema 4D, Nuke for compositing, and various other VFX and animation software. Students will also learn traditional animation techniques, storyboarding, character design, and motion graphics principles.",
+      },
+      {
+        id: 7,
+        question: "What career opportunities are available after completing this program?",
+        answer: "Graduates can pursue careers as 3D Animators, VFX Artists, Storyboard Artists, Motion Graphics Designers, Character Designers, Video Editors, Game Animators, Compositing Artists, and Texturing Artists. The entertainment industry, gaming companies, advertising agencies, and digital media companies actively recruit animation and VFX professionals. The program prepares students for both freelance opportunities and full-time positions in leading studios.",
       },
     ],
   };
@@ -292,7 +298,7 @@ function Courses() {
           arrowIconClassName="!text-white"
           textClassName="!text-black"
           cardBackgroundColor="bg-[var(--button-red)]"
-          useContainer={false}
+          useContainer={true}
         />
       </div>
       <div id="facilities">
@@ -303,6 +309,7 @@ function Courses() {
         description={quickLinksContent.description}
         links={quickLinksContent.links}
         titleClassName="text-white"
+        showReadMore={false}
       />
       <FAQ 
         title={faqContent.title}

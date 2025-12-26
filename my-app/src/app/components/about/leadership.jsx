@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import LeadershipCard from "../general/leadership-card";
 import SectionHeading from "../general/SectionHeading";
+import Link from "next/link";
 
 const leadership = [
   {
@@ -12,36 +13,42 @@ const leadership = [
     name: "Dr. Rajeev Kumar",
     title: "Chairman",
     image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/Leadership/Rajeev+Kumar.png",
+    link: "/chairman",
   },
   {
     id: 2,
     name: "Dr. Sandeep Arora",
     title: "Chancellor",
     image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/Leadership/Sandeep+Arora.png",
+    link: "/chancellor",
   },
   {
     id: 3,
     name: "Mr. Sajjan Singh",
     title: "Pro-Chancellor",
     image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/Leadership/Sajjan+Singh.png",
+    link: "/pro-chancellor",
   },
   {
     id: 4,
     name: "Dr. R. Shridhar",
     title: "Vice-Chancellor",
     image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/Leadership/Shridhar.png",
+    link: "/vice-chancellor",
   },
   {
     id: 5,
     name: "Dr. Byju John",
     title: "Director General",
     image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/Leadership/Byju+John.png",
+    link: "/director-general",
   },
   {
     id: 6,
     name: "Dr. Sandeep Gandhi",
     title: "Registrar",
     image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/Leadership/Sandeep+Gandhi.png",
+    link: "/registrar",
   },
 ];
 
@@ -102,21 +109,23 @@ export default function Leadership() {
                     />
                     {/* Button - Positioned at bottom right */}
                     <div className="absolute bottom-6 right-6">
-                      <button className="w-8 h-8 bg-[var(--button-red)] hover:bg-[#c41e3a] rounded-lg flex items-center justify-center transition-colors shadow-md">
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="white"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M7 17L17 7" />
-                          <path d="M7 7h10v10" />
-                        </svg>
-                      </button>
+                      <Link href={person.link || "#"}>
+                        <button className="w-8 h-8 bg-[var(--button-red)] hover:bg-[#c41e3a] rounded-lg flex items-center justify-center transition-colors shadow-md">
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="white"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M7 17L17 7" />
+                            <path d="M7 7h10v10" />
+                          </svg>
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

@@ -104,7 +104,7 @@ function VideoCardSlider({
 export default function SustainableSlider({ 
     videos = defaultVideoInterviews,
     subtitle = "Video Interviews",
-    title = "Lorem ipsum dolor sit amet, consectetur",
+    title = "Alumni Talk",
     description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed",
     backgroundColor = "bg-[var(--light-gray)]",
     showPagination = true,
@@ -134,7 +134,7 @@ export default function SustainableSlider({
                     )}
                 </div>
 
-                <div className="swiper-container h-[450px] md:h-[600px] relative !m-0 p-0 !-mt-8 md:!-mt-15">
+                <div className="swiper-container h-[350px] md:h-[600px] relative !m-0 p-0 !-mt-8 md:!-mt-15">
                     <Swiper
                         spaceBetween={16}
                         slidesPerView={1}

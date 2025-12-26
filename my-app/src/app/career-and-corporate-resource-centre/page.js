@@ -365,7 +365,7 @@ export default function CCRCPage() {
     <Hearfrom items={sliderItems  } title="Hear From Our Clients" />
     <MediaCardSlider
         categoryTitle="Video Interviews"
-        title="Lorem ipsum dolor sit amet, consectetur"
+        title="Alumni Talk"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed"
         videoItems={videoItems}
         cardBgClass="bg-white"

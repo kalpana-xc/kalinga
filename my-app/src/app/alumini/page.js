@@ -327,7 +327,7 @@ shining on the horizons of high-quality education."
 
    <MediaCardSlider
         categoryTitle="Video Interviews"
-        title="Lorem ipsum dolor sit amet, consectetur"
+        title="Hear From Our Alumni"
         videoItems={videoItems}
         cardBgClass="bg-white"
         nameTextClass="text-[var(--button-red)]"

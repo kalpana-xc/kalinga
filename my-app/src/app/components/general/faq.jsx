@@ -91,21 +91,18 @@ const FAQ = ({
   )
 
   const toggleItem = (id) => {
-    console.log('FAQ toggle clicked for id:', id)
     setOpenItems(prev => {
-      console.log('Previous openItems:', Array.from(prev))
       const newSet = new Set(prev)
       if (newSet.has(id)) {
+        // If clicking the same item, close it
         newSet.delete(id)
-        console.log('Closing item:', id)
       } else {
+        // If opening a new item, close all others first (unless allowMultipleOpen is true)
         if (!allowMultipleOpen) {
           newSet.clear()
         }
         newSet.add(id)
-        console.log('Opening item:', id)
       }
-      console.log('New openItems:', Array.from(newSet))
       return newSet
     })
   }
@@ -177,8 +174,28 @@ const FAQ = ({
     setCollapsedSections(prev => {
       const newSet = new Set(prev)
       if (newSet.has(id)) {
+        // Section is currently closed, so open it
         newSet.delete(id)
+        // If not allowing multiple open, close all others
+        if (!allowMultipleOpen) {
+          // Get all section IDs based on variant
+          let allSectionIds = []
+          if (variant === "button") {
+            const buttonItems = buttons.length > 0 ? buttons : items
+            allSectionIds = buttonItems.map((item, idx) => `button-section-${item.id || idx}`)
+          } else if (variant === "table-display") {
+            const sections = tableSections.length > 0 ? tableSections : items
+            allSectionIds = sections.map((section, idx) => `section-${section.id || idx}`)
+          }
+          // Close all other sections
+          allSectionIds.forEach(sectionId => {
+            if (sectionId !== id) {
+              newSet.add(sectionId)
+            }
+          })
+        }
       } else {
+        // Section is currently open, so close it
         newSet.add(id)
       }
       return newSet

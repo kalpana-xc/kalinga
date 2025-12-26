@@ -225,9 +225,15 @@ export default function AdmissionSteps({
                             <div className={`flex gap-4 flex-1 pt-4 ${itemsAlignment === "center" ? "items-center" : "items-end"}`}>
                               {/* Icon Image */}
                               {showIcon && (
-                                <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center text-[var(--button-red)]">
+                                <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center text-[var(--button-red)] flex-shrink-0">
                                   {step.icon ? (
-                                    step.icon
+                                    <Image
+                                      src={step.icon}
+                                      alt={step.title || "Step icon"}
+                                      width={56}
+                                      height={56}
+                                      className="w-full h-full object-contain"
+                                    />
                                   ) : (
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"

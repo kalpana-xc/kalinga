@@ -32,6 +32,7 @@ export default function Admissions() {
     steps: [
       {
         id: 1,
+        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-1.svg",
         stepNumber: "01",
         title: "Step 1",
         description: "Visit Website",
@@ -39,6 +40,7 @@ export default function Admissions() {
       },
       {
         id: 2,
+        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-2.svg",
         stepNumber: "02",
         title: "Step 2",
         description: "Register for the entrance exam",
@@ -46,6 +48,7 @@ export default function Admissions() {
       },
       {
         id: 3,
+        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-3.svg",
         stepNumber: "03",
         title: "Step 3",
         description: "Take the computer-based exam and get shortlisted",
@@ -53,6 +56,7 @@ export default function Admissions() {
       },
       {
         id: 4,
+        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-4.svg",
         stepNumber: "04",
         title: "Step 4",
         description: "Offer letter",
@@ -60,6 +64,7 @@ export default function Admissions() {
       },
       {
         id: 5,
+        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-5.svg",
         stepNumber: "05",
         title: "Step 5",
         description: "Admission letter",

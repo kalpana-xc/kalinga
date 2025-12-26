@@ -69,7 +69,7 @@ function MentorCard({
     <>
       <div className={`grid grid-cols-1 lg:grid-cols-12 items-center gap-5 lg:gap-0 ${cardClassName}`}>
         <div className="lg:col-span-4 z-20 h-full">
-          <div className="relative z-20 bg-[var(--lite-sand)] rounded-2xl p-2 w-full">
+          <div className="relative z-20 bg-[var(--lite-sand)] rounded-2xl p-2 w-full h-[450px]">
             <Image
               src={imageSrc}
               alt={title}
@@ -169,7 +169,7 @@ function MentorCard({
       {/* Popup Modal */}
       {isPopupOpen && message && (
         <div
-          className="fixed inset-0 bg-black/60  backdrop-blur-sm bg-opacity-50 z-50 flex items-end justify-center p-4"
+          className="fixed inset-0 bg-black/60  backdrop-blur-sm bg-opacity-50 z-50 flex items-center justify-center p-4"
           onClick={() => setIsPopupOpen(false)}
         >
           <div

@@ -1,29 +1,41 @@
 "use client";
 
 import Image from "next/image";
+import SectionHeading from "../general/SectionHeading";
 
-export default function Gallery() {
-  const images = [
-    { id: 1, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/Infrastructure1.webp", alt: "Gallery Image 1" },
-    { id: 2, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery2.webp", alt: "Gallery Image 2" },
-    { id: 3, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery3.webp", alt: "Gallery Image 3" },
-    { id: 4, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/Infrastructure2.webp", alt: "Gallery Image 4" },
-    { id: 5, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery4.webp", alt: "Gallery Image 5" },
-    { id: 6, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/student-dance.webp", alt: "Gallery Image 6" },
-    { id: 7, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery1.webp", alt: "Gallery Image 7" },
-    // { id: 8, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/student-rangoli.webp", alt: "Gallery Image 8" },
-    { id: 9, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/student-grppic.webp", alt: "Gallery Image 9" },
-    // { id: 10, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery1.webp", alt: "Gallery Image 10" },
-  ];
+const defaultImages = [
+  { id: 1, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/Infrastructure1.webp", alt: "Gallery Image 1" },
+  { id: 2, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery2.webp", alt: "Gallery Image 2" },
+  { id: 3, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery3.webp", alt: "Gallery Image 3" },
+  { id: 4, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/Infrastructure2.webp", alt: "Gallery Image 4" },
+  { id: 5, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery4.webp", alt: "Gallery Image 5" },
+  { id: 6, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/student-dance.webp", alt: "Gallery Image 6" },
+  { id: 7, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/gallery1.webp", alt: "Gallery Image 7" },
+  { id: 9, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/student-grppic.webp", alt: "Gallery Image 9" },
+];
 
+export default function Gallery({ 
+  title = "Collage of life @KU",
+  images = defaultImages,
+  description = null
+}) {
   // Duplicate images for seamless loop
   const duplicatedImages = [...images, ...images];
  
   return (
     <section className="w-full px-2 py-16 overflow-hidden">
-      <h2 className="font-stix text-4xl sm:text-[50px] text-[var(--foreground)] text-center mb-12">
-      Collage of life @KU
-      </h2>
+      <div className="">
+        <div className="text-center mb-12">
+          <SectionHeading 
+            title={title}
+            titleClassName="text-4xl sm:text-[50px] text-[var(--foreground)]"
+          />
+          {description && (
+            <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed max-w-6xl mx-auto">
+              {description}
+            </p>
+          )}
+        </div>
 
       <div className="relative overflow-hidden">
         <div className="flex animate-marquee gap-4">
@@ -45,6 +57,7 @@ export default function Gallery() {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

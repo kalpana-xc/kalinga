@@ -35,7 +35,7 @@ export default function AppreciationLetterLayout({
               src={imageSrc}
               alt={imageAlt}
               fill
-              className="object-contain"
+              className="object-contain rounded-2xl"
               sizes="(min-width: 768px) 50vw, 100vw"
               priority
             />

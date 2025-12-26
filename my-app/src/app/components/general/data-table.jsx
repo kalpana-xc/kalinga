@@ -55,7 +55,7 @@ const DataTable = ({
   const tableData = data || []
 
   return (
-    <div className={`${overflowX ? '' : 'container mx-auto'} rounded-lg overflow-hidden shadow-md bg-white ${className}`}>
+    <div className={`${overflowX ? '' : 'container mx-auto'} rounded-lg  ${className}`}>
       <div className={overflowX ? "overflow-x-auto rounded-lg" : "rounded-lg overflow-hidden"}>
         <table className={`${overflowX ? "min-w-full w-max" : "w-full"}`} style={{ borderSpacing: 0, borderCollapse: 'separate' }}>
           <thead>

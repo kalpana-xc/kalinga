@@ -191,7 +191,7 @@ export default function MediaCardSlider({
                     <div className="flex-1 flex flex-col items-center text-center">
                       {/* Name/Title */}
                       {item.name && (
-                       <SectionHeading subtitle={item.name} subtitleClassName="!py-2" />
+                       <SectionHeading subtitle={item.name} subtitleClassName="!mb-2" />
                       )}
                       
                       {/* Description */}

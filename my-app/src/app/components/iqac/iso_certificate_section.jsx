@@ -11,12 +11,12 @@ import "swiper/css/navigation";
 const certificates = [
   {
     id: 1,
-    src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/iso-certifcate.webp",
+    src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/certificate-1.webp",
     alt: "Kalinga University ISO 9001:2015 Certificate",
   },
   {
     id: 2,
-    src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/iso-certifcate.webp",
+    src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/certificate-2.webp",
     alt: "Kalinga University ISO 9001:2015 Certificate",
   },
 ];
@@ -138,7 +138,7 @@ export default function ISOCertificateSection() {
                     src={certificate.src}
                     alt={certificate.alt}
                     fill
-                    className="object-contain"
+                    className="object-cover rounded-2xl border-4 border-[var(--button-red)]"
                     sizes="400px"
                     priority={certificate.id === 1}
                   />

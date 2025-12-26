@@ -46,7 +46,7 @@ const buttons = [
   {
     id: 9,
     text: "Ph.D. Admissions",
-    href: "/admissions/phd",
+    href: "/admissions",
   },
   {
     id: 10,

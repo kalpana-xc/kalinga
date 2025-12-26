@@ -1,9 +1,20 @@
+"use client"
+import { useEffect } from 'react'
 import EventCalendar from "../components/news_and_events/event_calendar";
 import ThreeCardSider from "../components/general/three_card_sider";
 import UpcomingEvents from "../components/admissions/upcoming_events";
 import UpcomingConferences from "../components/research/upcoming_conference";
 import Gallery from "../components/general/gallery";
 import AdmissionCareer from "../components/general/admission_cta";
+
+const breadcrumbData = {
+  pageTitle: "News & Events",
+  heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/news-and-events/news-and-event.jpg",
+  customBreadcrumbs: [
+    { label: 'Home', href: '/' },
+    { label: 'News & Events', href: '/news-and-events' }
+  ]
+}
 
 const newsConferences = [
   {
@@ -39,13 +50,18 @@ const newsConferences = [
 ];
 
 function NewsAndEvents() {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);
   return (
     <div>
       <EventCalendar />
       <UpcomingEvents />
       <UpcomingConferences 
         conferences={newsConferences}
-        title="Upcoming Conferences & Events"
+        title="Newly Adds"
         backgroundColor="bg-white"
         backgroundColorcard="bg-[var(--light-gray)]"
       />

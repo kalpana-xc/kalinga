@@ -24,7 +24,7 @@ function Valueadditionvideointerview() {
         <>
             <MediaCardSlider
                 categoryTitle="Video Interviews"
-                title="Lorem ipsum dolor sit amet, consectetur"
+                title="Alumni Talk"
                 videoItems={videoItems}
                 cardBgClass="bg-white"
                 nameTextClass="text-[var(--button-red)]"

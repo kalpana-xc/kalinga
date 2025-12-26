@@ -464,9 +464,10 @@ const CentralInstrumentationFacilityPage = () => {
     <CifYoutubeCallSection videoUrl="https://youtu.be/BrpxFN8iZeQ?si=_lm5M6SYKZjxVRvV" />
     <QuickLinks 
     title="What Do We Offer?"
-    description=""
+    description="The Central Instrumentation Facility at Kalinga University provides state-of-the-art research infrastructure and comprehensive support services. We offer access to advanced instruments like X-Ray Diffractometer (XRD), 3D Printers, Bio-Chemistry Analysers, SEM, HPLC, and more. Our facility delivers hands-on training programs, certification courses, and workshops across multiple disciplines. We support researchers with sample testing, data analysis, and technical guidance, while fostering industry-academia collaborations. Whether you're a student, faculty member, research scholar, or industry professional, CIF provides the tools and expertise needed to advance your research and innovation goals."
     links={quickLinks}
     titleClassName="text-white"
+    showReadMore={false}
     />
     <SampleTesting />
     <ProgramsTabs />

@@ -131,6 +131,12 @@ const newsItems = [
     title: "Lorem ipsum dolor sit amet, consectetur",
     image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/image+15.png",
   },
+  {
+    id: 6,
+    date: "37 August 2023",
+    title: "Lorem ipsum dolor sit amet, consectetur",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/image+15.png",
+  },
 ];
 
 export default function EventCalendar() {
@@ -138,7 +144,7 @@ export default function EventCalendar() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  // Extract unique dates from events and get the latest 6
+  // Extract unique dates from events
   const extractDates = () => {
     const uniqueDates = [];
     const seenDates = new Set();
@@ -159,8 +165,8 @@ export default function EventCalendar() {
       return b.day - a.day;
     });
     
-    // Return latest 6 dates
-    return uniqueDates.slice(0, 6);
+    // Return all dates
+    return uniqueDates;
   };
 
   const dates = extractDates();
@@ -215,7 +221,7 @@ export default function EventCalendar() {
   return (
     <section className="py-16 pb-0 mx-auto container">
       {/* Header Section */}
-      <div className="bg-[var(--dark-blue)] py-4 sm:py-5 md:py-6 rounded-xl">
+      <div className="bg-[var(--dark-blue)] py-4 sm:py-5 md:py-6 rounded-xl px-3">
         <div className="container mx-auto px-2">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 flex-wrap">
             {/* Event Calendar Title */}
@@ -270,6 +276,7 @@ export default function EventCalendar() {
                     prevEl: ".date-nav-prev",
                   }}
                   className="date-swiper"
+                  allowTouchMove={true}
                 >
                   {dates.map((date, index) => (
                     <SwiperSlide key={index}>
@@ -349,7 +356,7 @@ export default function EventCalendar() {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-6 pt-8">
+      <div className="container mx-auto pt-8">
         <div className="flex flex-col">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch mb-8">
             {/* Latest Events - Left Column (2/3 width) */}

@@ -16,7 +16,7 @@ export default function ProgramCard({
 }) {
   const [selectedSpecialization, setSelectedSpecialization] = useState("");
   return (
-    <div className="bg-white flex items-center justify-between rounded-xl p-4 md:p-4 relative overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+    <div className="bg-white flex items-center justify-between rounded-xl p-4 md:p-6 relative overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
       {/* Background UG Text - Top Right */}
       <div className="absolute top-2 right-2 md:top-4 md:right-4 text-6xl md:text-8xl !font-bold text-gray-200 leading-none opacity-50 z-0 font-stix">
         {program.type}
@@ -25,7 +25,7 @@ export default function ProgramCard({
       {/* Program Content */}
       <div className="relative z-10">
         {/* Program Title - Dark Red */}
-        <h3 className="text-[var(--button-red)] text-xl md:text-2xl lg:text-3xl !font-bold mb-2 font-plus-jakarta-sans normal-case">
+        <h3 className="text-[var(--button-red)] text-xl md:text-2xl lg:text-3xl !font-medium mb-2 font-plus-jakarta-sans normal-case">
           {program.title}
         </h3>
 

@@ -194,50 +194,50 @@ const FEEDBACK_ANALYSIS = {
   "2021-22": [
     { title: "Student Feedback Report 2021-22", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/Student-Feedback-Report-2021-22.pdf" },
     { title: "Faculty Feedback 2021-22", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/Faculty-Feedback-2021-22.pdf" },
-    { title: "EMPLOYER FEEDBACK updated 2021-22", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER-FEEDBACK-updated-2021-22.pdf" },
-    { title: "ALUMNI FEEDBACK REPORT 2021-22", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMNI-FEEDBACK-REPORT-2021-22.pdf" },
+    { title: "Employer Feedback 2021-22", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER-FEEDBACK-updated-2021-22.pdf" },
+    { title: "Alumni Feedback Report 2021-22", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMNI-FEEDBACK-REPORT-2021-22.pdf" },
   ],
   "2020-21": [
-    { title: "1.4.1 STUDENT 2020-2021", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/1.4.1-STUDENT-2020-2021.pdf" },
-    { title: "1.4.1 FACULTY 2020-2021", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/1.4.1-FACULTY-2020-2021.pdf" },
-    { title: "1.4.1 EMPLOYER 2020-2021", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/1.4.1-EMPLOYER-2020-2021.pdf" },
-    { title: "1.4.1 ALUMNI 2020-2021", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/1.4.1-ALUMNI-2020-2021.pdf" },
+    { title: "Student 2020-2021", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/1.4.1-STUDENT-2020-2021.pdf" },
+    { title: "Faculty 2020-2021", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/1.4.1-FACULTY-2020-2021.pdf" },
+    { title: "Employer 2020-2021", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/1.4.1-EMPLOYER-2020-2021.pdf" },
+    { title: "Alumni 2020-2021", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/1.4.1-ALUMNI-2020-2021.pdf" },
   ],
   "2019-20": [
     { title: "Student Feedback Report 2019-20", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/Student-Feedback-Report-2019-20.pdf" },
     { title: "Faculty Feedback 2019-20", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/Faculty-Feedback-2019-20.pdf" },
-    { title: "EMPLOYER FEEDBACK updated 2019-20", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER-FEEDBACK-updated-2019-20.pdf" },
-    { title: "ALUMNI FEEDBACK REPORT 2019-20", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMNI-FEEDBACK-REPORT-2019-20.pdf" },
+    { title: "Employer Feedback 2019-20", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER-FEEDBACK-updated-2019-20.pdf" },
+    { title: "Alumni Feedback Report 2019-20", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMNI-FEEDBACK-REPORT-2019-20.pdf" },
   ],
   "2018-19": [
-    { title: "STUDENT 2018-19", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/STUDENT2018-19.pdf" },
-    { title: "FACULTY 2018-19", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/FACULTY2018-19.pdf" },
-    { title: "EMPLOYER 2018-19", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER2018-19.pdf" },
-    { title: "ALUMNI 2018-19", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMNI-2018-19.pdf" },
+    { title: "Student 2018-19", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/STUDENT2018-19.pdf" },
+    { title: "Faculty 2018-19", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/FACULTY2018-19.pdf" },
+    { title: "Employer 2018-19", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER2018-19.pdf" },
+    { title: "Alumni 2018-19", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMNI-2018-19.pdf" },
   ],
   "2017-18": [
-    { title: "STUDENT 2017-18", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/STUDENT-2017-18.pdf" },
-    { title: "FACULTY 2017-18", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/FACULTY-2017-18.pdf" },
-    { title: "EMPLOYER 2017-18", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER-2017-18.pdf" },
-    { title: "ALUMNI 2017-18", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMNI-2017-18.pdf" },
+    { title: "Student 2017-18", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/STUDENT-2017-18.pdf" },
+    { title: "Faculty 2017-18", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/FACULTY-2017-18.pdf" },
+    { title: "Employer 2017-18", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER-2017-18.pdf" },
+    { title: "Alumni 2017-18", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMNI-2017-18.pdf" },
   ],
   "2016-17": [
-    { title: "STUDENT 2016-17", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/STUDENT2016-17-2-5.pdf" },
-    { title: "FACULTY 2016-17", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/FACULTY-2016-17.pdf" },
-    { title: "EMPLOYER 2016-17", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER-2016-17-7-16.pdf" },
-    { title: "ALUMNI 2016-17", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMNI-2016-17-17-18.pdf" },
+    { title: "Student 2016-17", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/STUDENT2016-17-2-5.pdf" },
+    { title: "Faculty 2016-17", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/FACULTY-2016-17.pdf" },
+    { title: "Employer 2016-17", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER-2016-17-7-16.pdf" },
+    { title: "Alumni 2016-17", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMNI-2016-17-17-18.pdf" },
   ],
   "2015-16": [
-    { title: "STUDENT 2015-16", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/STUDENT-2015-16.pdf" },
+    { title: "Student 2015-16", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/STUDENT-2015-16.pdf" },
     { title: "Faculty 2015-16", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/Faculty-2015-16.pdf" },
-    { title: "EMPLOYER 2015-16", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER-2015-16.pdf" },
-    { title: "ALUMNI 2015-16", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMNI-2015-16.pdf" },
+    { title: "Employer 2015-16", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER-2015-16.pdf" },
+    { title: "Alumni 2015-16", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMNI-2015-16.pdf" },
   ],
   "2014-15": [
-    { title: "STUDENT 2014-15", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/STUDENT-14-15.pdf" },
-    { title: "FACULTY 2014-15", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/FACULTY-2014-15-4.pdf" },
-    { title: "EMPLOYER 2014-15", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER-2014-15-5-14.pdf" },
-    { title: "ALUMANI 2014-15", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMANI-2014-15-15.pdf" },
+    { title: "Student 2014-15", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/STUDENT-14-15.pdf" },
+    { title: "Faculty 2014-15", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/FACULTY-2014-15-4.pdf" },
+    { title: "Employer 2014-15", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/EMPLOYER-2014-15-5-14.pdf" },
+    { title: "Alumani 2014-15", url: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/ALUMANI-2014-15-15.pdf" },
   ],
 };
 
@@ -266,10 +266,24 @@ export default function IqacTabSection() {
   };
 
   const toggleYear = (year) => {
-    setExpandedYears((prev) => ({
-      ...prev,
-      [year]: !prev[year],
-    }));
+    setExpandedYears((prev) => {
+      // If the clicked year is already expanded, close it
+      if (prev[year]) {
+        // Close all years
+        const newState = {};
+        Object.keys(prev).forEach((y) => {
+          newState[y] = false;
+        });
+        return newState;
+      } else {
+        // Close all years and open only the clicked year
+        const newState = {};
+        Object.keys(prev).forEach((y) => {
+          newState[y] = y === year;
+        });
+        return newState;
+      }
+    });
   };
 
   // Get available years based on active tab
@@ -309,7 +323,7 @@ export default function IqacTabSection() {
                       onClick={() => handleTabClick(tab.id)}
                       className={`
                         flex-shrink-0 lg:w-full text-left px-4 py-5 rounded-[8px] 
-                        font-plus-jakarta-sans text-sm md:text-base whitespace-nowrap
+                        font-plus-jakarta-sans text-sm md:text-base font-semibold
                         transition-all duration-200
                         ${
                           isActive

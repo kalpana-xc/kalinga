@@ -126,27 +126,27 @@ export default function CareerApplicationForm({
         <div className="grid sm:grid-cols-2 gap-10">
 
           <div>
-            <label className="text-[var(--background)] text-xl">Full Name</label>
+            <label className="text-[var(--background)] text-lg">Full Name</label>
             <input className="w-full mt-2 bg-transparent border-b border-[var(--background)]/40 text-[var(--background)] py-2 focus:border-[var(--dark-orange-red-light)]" />
           </div>
 
           <div>
-            <label className="text-[var(--background)] text-xl">Email Address</label>
+            <label className="text-[var(--background)] text-lg">Email Address</label>
             <input className="w-full mt-2 bg-transparent border-b border-[var(--background)]/40 text-[var(--background)] py-2 focus:border-[var(--dark-orange-red-light)]" />
           </div>
 
           <div>
-            <label className="text-[var(--background)] text-xl">Mobile Number</label>
+            <label className="text-[var(--background)] text-lg">Mobile Number</label>
             <input className="w-full mt-2 bg-transparent border-b border-[var(--background)]/40 text-[var(--background)] py-2 focus:border-[var(--dark-orange-red-light)]" />
           </div>
 
           <div>
-            <label className="text-[var(--background)] text-xl">Date of Birth</label>
+            <label className="text-[var(--background)] text-lg">Date of Birth</label>
             <input type="date" className="w-full mt-2 bg-transparent border-b border-[var(--background)]/40 text-[var(--background)] py-2 focus:border-[var(--dark-orange-red-light)]" />
           </div>
 
           <div>
-            <label className="text-[var(--background)] text-xl">Gender</label>
+            <label className="text-[var(--background)] text-lg">Gender</label>
             <select className="w-full mt-2 bg-transparent border-b border-[var(--background)]/40 text-[var(--background)] py-2 focus:border-[var(--dark-orange-red-light)]">
               <option className="text-[var(--foreground)]">Select</option>
               <option className="text-[var(--foreground)]">Male</option>
@@ -155,7 +155,7 @@ export default function CareerApplicationForm({
           </div>
 
           <div>
-            <label className="text-[var(--background)] text-xl">Nationality</label>
+            <label className="text-[var(--background)] text-lg">Nationality</label>
             <input className="w-full mt-2 bg-transparent border-b border-[var(--background)]/40 text-[var(--background)] py-2 focus:border-[var(--dark-orange-red-light)]" />
           </div>
 

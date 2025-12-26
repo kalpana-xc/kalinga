@@ -175,7 +175,7 @@ export default function FeatureCards({
   }
 
   // Dynamically calculate truncated and hidden text from fullText
-  const truncateLimit = 300
+  const truncateLimit = 400
   const truncatedText = effectiveFullText?.length > truncateLimit ? effectiveFullText.slice(0, truncateLimit) : effectiveFullText
   const hiddenText = effectiveFullText?.length > truncateLimit ? effectiveFullText.slice(truncateLimit) : ''
   const displayText = isExpanded ? effectiveFullText : truncatedText

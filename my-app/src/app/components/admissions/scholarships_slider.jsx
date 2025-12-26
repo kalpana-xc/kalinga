@@ -72,7 +72,7 @@ export default function ScholarshipsSlider({
   description = "Explore scholarship opportunities available at Kalinga University.",
   ctaText = "Explore Now",
   ctaHref = "/admissions",
-  items = [scholarships],
+  items = scholarships,
   navId = "scholarships", // ✅ unique id if you reuse this component multiple times in same page
 }) {
   return (

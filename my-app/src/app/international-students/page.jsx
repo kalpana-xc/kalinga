@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react'   
+import React, { useEffect } from 'react'   
 import MainIntro from '../components/about/main_intro'
 import PublicationGrid from '../components/research/publication-grid'
 import AccreditationRanking from '../components/home/AccreditationRanking'
@@ -27,12 +27,14 @@ const breadcrumbData = {
   ]
 };
 
-// Register breadcrumb data globally
-if (typeof window !== 'undefined') {
-  window.__breadcrumbData = breadcrumbData;
-}
+
 
 export default function InternationalStudents() {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);
   const newsConferences = [
     {
       id: 1,
@@ -99,33 +101,43 @@ export default function InternationalStudents() {
   const boxItems = [
     {
       id: 1,
-      title: "Global Exposure",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Warm & Welcoming Society",
+      description: "Indian people offer outstanding hospitality and a safe, welcoming, and respectful environment to their international students.",
     },
     {
       id: 2,
-      title: "Global Exposure",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Affordable Quality Education",
+      description: "From tuition fees to living expenses, India offers world-class education and excellent academic standards at a significantly lower cost compared to Western countries.",
     },
     {
       id: 3,
-      title: "Global Exposure",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "English-Taught Programs",
+      description: "Academic Programs in Indian Universities are mostly taught in English, enabling every international student prepare for global careers.",
     },
     {
       id: 4,
-      title: "Global Exposure",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Diverse Programs",
+      description: "With a strong focus on a practical learning approach, Indian Universities offer a wide range of programs in Engineering, Technology, IT, Science, Pharmacy, commerce, management, Law, and more.",
     },
     {
       id: 5,
-      title: "Global Exposure",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Tech & Innovation Hub",
+      description: "With strong government policies, booming startup culture, a tech-savvy workforce, and the establishment of MNCs, India is setting new benchmarks on the global tech map.",
     },
     {
       id: 6,
-      title: "Global Exposure",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      title: "Globally Recognised Institutions",
+      description: "Indian Universities are recognised by National and International Accreditation Bodies, and degrees are respected worldwide.",
+    },
+    {
+      id: 7,
+      title: "Rich Cultural Experience",
+      description: "Studying in India means experiencing different cultures & traditions, festivals, cuisines, languages, and historical landmarks.",
+    },
+    {
+      id: 8,
+      title: "Holistic Student Development",
+      description: "Beyond academics, Indian Universities emphasise students' all-around growth and make them confident individuals.",
     },
   ]
   const internationalStudentsFeatureCards = [
@@ -285,6 +297,7 @@ export default function InternationalStudents() {
   const internationalAdmissionSteps = [
     {
       id: 1,
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-2.svg",
       stepNumber: "01",
       title: "Step 1",
       description: "Document Verification",
@@ -292,6 +305,7 @@ export default function InternationalStudents() {
     },
     {
       id: 2,
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-4.svg",
       stepNumber: "02",
       title: "Step 2",
       description: "Offer letter",
@@ -299,6 +313,7 @@ export default function InternationalStudents() {
     },
     {
       id: 3,
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-1.svg",
       stepNumber: "03",
       title: "Step 3",
       description: "Registration fee",
@@ -306,6 +321,7 @@ export default function InternationalStudents() {
     },
     {
       id: 4,
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-5.svg",
       stepNumber: "04",
       title: "Step 4",
       description: "Admission and Visa Letter",
@@ -355,6 +371,7 @@ export default function InternationalStudents() {
          cardBackgroundColor="bg-[var(--button-red)]"
          cardTitleClassName="text-white"
          listItemTextClassName="text-white"
+         hideIcons={true}
        /> 
       <StudentCell />
       <VisaFrofrroGuidelines />
@@ -422,8 +439,8 @@ export default function InternationalStudents() {
       />
       <MediaCardSlider
         categoryTitle="Video Interviews"
-        title="Lorem ipsum dolor sit amet, consectetur"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed"
+        title="Hear From Our International Students"
+        description="Discover firsthand experiences from our international students as they share their journey at Kalinga University. From academic excellence to campus life, cultural integration, and career aspirations, listen to their inspiring stories and learn why they chose Kalinga University for their higher education."
         videoItems={videoItems}
         cardBgClass="bg-white"
         nameTextClass="text-[var(--button-red)]"
@@ -438,7 +455,20 @@ export default function InternationalStudents() {
         showCategory={false}
         showDate={false}
       />
-      <Gallery title="International Students Glimpse" /> 
+      <Gallery 
+        title="Glimpse" 
+        description="Explore the vibrant life of our international students at Kalinga University. From cultural celebrations to academic achievements, witness the diverse experiences that make our campus a global community."
+        images={[
+          { id: 1, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/int-g-1.webp", alt: "International Students Introduction" },
+          { id: 2, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/int-g-2.webp", alt: "Why Choose Kalinga University" },
+          { id: 3, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/int-g-3.webp", alt: "International Students Group" },
+          { id: 4, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/int-g-4.webp", alt: "Campus Safety and Security" },
+          { id: 5, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/int-g-5.webp", alt: "International Students Banner" },
+          { id: 6, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/int-g-6.webp", alt: "International Students Banner" },
+          { id: 7, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/int-g-7.webp", alt: "International Students Banner" },
+          { id: 8, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/int-g-8.webp", alt: "International Students Banner" },
+        ]}
+      /> 
       <AdmissionCareer />
     </>
   )

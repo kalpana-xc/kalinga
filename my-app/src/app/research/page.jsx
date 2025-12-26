@@ -94,6 +94,7 @@ export default function Research() {
   const breadcrumbData = {
     heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/research/reserarch-banner.webp",
     pageTitle: "Research",
+    imageposition: "object-center",
     customBreadcrumbs: [
       { label: 'Home', href: '/' },
       { label: 'Research', href: '/research' }
@@ -120,7 +121,7 @@ export default function Research() {
         title="Apply Now for Ph.D. Admissions"
         description="Begin your research journey with world-class faculty, advanced labs, and a structured research ecosystem."
         buttonLabel="Apply Now"
-        href="/about-us"
+        href="/admissions"
         useContainer={true}
       
       />
@@ -128,42 +129,48 @@ export default function Research() {
       <QuickLinks 
         title="Research Facilities and Resources"
         titleClassName="text-white"
+        description="We provide a conducive environment for research work through our advanced laboratories, IPR cell, CIF labs, and library."
         links={[
           {
             id: 1,
+            href: "/ipr-cell",
             icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
             title: "IPR Cell",
             description: "Whether you are developing an app or a gadget, our IPR cell will always guide you in protecting your unique work, providing patents, and launching them on different platforms.",
           },
           {
             id: 2,
+            href: "/laboratories",
             icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
             title: "Laboratories",
             description: "Our laboratories offer all-around facilities with modern machines, helping young researchers acquire complete practical knowledge and support in their research pursuits.",
           },
           {
             id: 3,
+            href: "/cif-labs",
             icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
             title: "CIF Labs",
             description: "Convert your bold ideas into a great discovery! Our CIF Labs are packed with high-end instruments like an X-Ray Diffractometer, 3D Printer, Bio-Chemistry Analyser, Scanning Electron Microscope, and more.",
           },
           {
             id: 4,
+            href: "/library",
             icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
             title: "Library",
             description: "Curious minds, get ready to explore the pool of resources! Our library houses vast academic materials in both physical and digital forms, where students gain new knowledge at every stage of their research journey.",
           },
           {
             id: 5,
+            href: "#",
             icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
             title: "Seed Money",
             description: "We promote a research culture that supports faculty members and researchers in real-time research, innovation, and product development by providing seed funding of up to 100,000/- and, in exceptional cases, up to 300,000/-.",
           },
         ]}
-        showReadMore={false}
+        showReadMore={true}
       />
       
-      <MentorIntro   imageSrc = "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/oprakash.png"
+      <MentorIntro   imageSrc = "https://kalinga-university.s3.ap-south-1.amazonaws.com/research/chart-1.webp"
   title = "Dr. Harsha Patil"
   subtitle = "HoD – Research"
   department = "Research Department"

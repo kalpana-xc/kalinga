@@ -45,22 +45,27 @@ const defaultQuickLinks = [
 const QuickLinks = ({
   links = defaultQuickLinks,
   title = "Quick Links",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid",
+  description,
   backgroundColor = "bg-[var(--dark-blue)]",
   cardBackgroundColor = "bg-[var(--lite-sand)]",
   textColorClassName = "text-white/80",
   showReadMore = true,
   titleClassName = "",
 }) => {
+  // Default description only if not provided
+  const displayDescription = description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid";
+  
   return (
     <section className={`${backgroundColor} py-16 rounded-xl md:mx-2`}>
       <div className="container mx-auto px-2">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
        <SectionHeading title={title} titleClassName={titleClassName} />
-          <p className={`text-sm  max-w-4xl mx-auto font-plus-jakarta-sans ${textColorClassName}`}>
-            {description}
-          </p>
+          {displayDescription && (
+            <p className={`text-sm md:text-base max-w-6xl mx-auto font-plus-jakarta-sans mt-4 ${textColorClassName}`}>
+              {displayDescription}
+            </p>
+          )}
         </div>
 
         {/* Cards Grid */}
@@ -73,6 +78,7 @@ const QuickLinks = ({
               description={link.description}
               cardBackgroundColor={cardBackgroundColor}
               showReadMore={showReadMore}
+              href={link.href}
             />
           ))}
         </div>

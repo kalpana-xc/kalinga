@@ -45,26 +45,23 @@ const IQACPage = () => {
     {
         id: 1,
         title: "Publications",
-        value: 100,
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        value: "100+",
+
     },
     {
       id: 2,
       title: "Journals",
-      value: 50,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      value: "50+",
     },
     {   
       id: 3,
       title: "Books",
-      value: 30,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      value: "30+",
     },
     {
       id: 4,
       title: "Patents",
-      value: 10,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      value: "10+",
     },
   ]
   return (

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../general/tab";
 import SectionHeading from "../general/SectionHeading";
@@ -39,6 +40,12 @@ function Bullet({ children }) {
 }
 
 export default function VisaFroFrroGuidelines({ viewAllHref = "#" }) {
+  const [openAccordion, setOpenAccordion] = useState("visa");
+
+  const toggleAccordion = (value) => {
+    setOpenAccordion(openAccordion === value ? null : value);
+  };
+
   return (
     <section className="w-full py-16">
       <div className="mx-auto w-full container px-4">
@@ -48,30 +55,105 @@ export default function VisaFroFrroGuidelines({ viewAllHref = "#" }) {
         />
 
         <div className="mt-8 rounded-2xl bg-[var(--card-gray)] p-5 md:p-7">
-          <Tabs defaultValue="visa">
-            <TabsList className="gap-0">
-              <TabsTrigger value="visa">Guidelines For a Visa</TabsTrigger>
-              <TabsTrigger value="ext">Guidelines For Visa Extension And FRO/FRRO</TabsTrigger>
-            </TabsList>
+          {/* Mobile Accordion */}
+          <div className="block md:hidden space-y-4">
+            {/* Visa Accordion Item */}
+            <div className="border border-gray-200 rounded-lg overflow-hidden">
+              <button
+                onClick={() => toggleAccordion("visa")}
+                className={`w-full flex items-center justify-between p-4 transition-colors text-left ${
+                  openAccordion === "visa"
+                    ? "bg-[var(--button-red)] text-white"
+                    : "bg-white text-[var(--foreground)] hover:bg-gray-50"
+                }`}
+              >
+                <h3 className="font-stix text-base font-semibold">
+                  Guidelines For a Visa
+                </h3>
+                <svg
+                  className={`w-5 h-5 transition-transform ${
+                    openAccordion === "visa" ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {openAccordion === "visa" && (
+                <div className="p-4 bg-white">
+                  <ul className="space-y-4">
+                    {visaPoints.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
+                  </ul>
+                </div>
+              )}
+            </div>
 
-            <TabsContent value="visa" className="pt-7">
-              <h3 className="font-stix text-[var(--foreground)]">
-                Guidelines For a Visa
-              </h3>
-              <ul className="mt-5 space-y-4">
-                {visaPoints.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
-              </ul>
-            </TabsContent>
+            {/* Extension Accordion Item */}
+            <div className="border border-gray-200 rounded-lg overflow-hidden">
+              <button
+                onClick={() => toggleAccordion("ext")}
+                className={`w-full flex items-center justify-between p-4 transition-colors text-left ${
+                  openAccordion === "ext"
+                    ? "bg-[var(--button-red)] text-white"
+                    : "bg-white text-[var(--foreground)] hover:bg-gray-50"
+                }`}
+              >
+                <h3 className="font-stix text-base font-semibold">
+                  Guidelines For Visa Extension And FRO/FRRO
+                </h3>
+                <svg
+                  className={`w-5 h-5 transition-transform ${
+                    openAccordion === "ext" ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {openAccordion === "ext" && (
+                <div className="p-4 bg-white">
+                  <h3 className="font-stix text-xl text-[var(--foreground)] mb-5">
+                    Guidelines For Visa Extension And FRO/FRRO
+                  </h3>
+                  <ul className="space-y-4">
+                    {extensionPoints.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
 
-            <TabsContent value="ext" className="pt-7">
-              <h3 className="font-stix text-2xl font-bold text-[var(--foreground)]">
-                Guidelines For Visa Extension And FRO/FRRO
-              </h3>
-              <ul className="mt-5 space-y-4">
-                {extensionPoints.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
-              </ul>
-            </TabsContent>
-          </Tabs>
+          {/* Desktop Tabs */}
+          <div className="hidden md:block">
+            <Tabs defaultValue="visa">
+              <TabsList className="gap-0">
+                <TabsTrigger value="visa">Guidelines For a Visa</TabsTrigger>
+                <TabsTrigger value="ext">Guidelines For Visa Extension And FRO/FRRO</TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="visa" className="pt-7">
+                <h3 className="font-stix text-[var(--foreground)]">
+                  Guidelines For a Visa
+                </h3>
+                <ul className="mt-5 space-y-4">
+                  {visaPoints.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
+                </ul>
+              </TabsContent>
+
+              <TabsContent value="ext" className="pt-7">
+                <h3 className="font-stix text-2xl text-[var(--foreground)]">
+                  Guidelines For Visa Extension And FRO/FRRO
+                </h3>
+                <ul className="mt-5 space-y-4">
+                  {extensionPoints.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
+                </ul>
+              </TabsContent>
+            </Tabs>
+          </div>
         </div>
 
         <div className="mt-6 flex justify-center">

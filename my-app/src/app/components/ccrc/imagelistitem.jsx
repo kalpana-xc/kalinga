@@ -19,6 +19,7 @@ export default function ImageListItem({
   cardBackgroundColor = "bg-[var(--card-sandal)]",
   cardTitleClassName = "text-[var(--red)]",
   listItemTextClassName = "",
+  hideIcons = false,
 }) {
   return (
     <section
@@ -107,23 +108,25 @@ export default function ImageListItem({
                 {boxItems.map((item, idx) => (
                   <li
                     key={idx}
-                    className={`flex items-center space-x-3 rounded-lg  p-3 ${cardBackgroundColor}`}
+                    className={`flex items-center space-x-3 rounded-lg  p-5 ${cardBackgroundColor}`}
                   >
-                    <div className="mt-1 flex h-16 w-16 items-center justify-center rounded text-[var(--dark-blue)]">
-                      {item.icon ? (
-                        item.icon
-                      ) : (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          className="h-10 w-10"
-                          fill="currentColor"
-                        >
-                          <path d="M4.75 6A2.75 2.75 0 0 1 7.5 3.25h9A2.75 2.75 0 0 1 19.25 6v12A2.75 2.75 0 0 1 16.5 20.75h-9A2.75 2.75 0 0 1 4.75 18zM7.5 4.75A1.25 1.25 0 0 0 6.25 6v12A1.25 1.25 0 0 0 7.5 19.25h9A1.25 1.25 0 0 0 17.75 18V6A1.25 1.25 0 0 0 16.5 4.75z" />
-                          <path d="M9 8.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 9 8.25M9 11.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 9 11.25M9 14.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5A.75.75 0 0 1 9 14.25" />
-                        </svg>
-                      )}
-                    </div>
+                    {!hideIcons && (
+                      <div className="mt-1 flex h-16 w-16 items-center justify-center rounded">
+                        {item.icon ? (
+                          item.icon
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            className="h-10 w-10"
+                            fill="currentColor"
+                          >
+                            <path d="M4.75 6A2.75 2.75 0 0 1 7.5 3.25h9A2.75 2.75 0 0 1 19.25 6v12A2.75 2.75 0 0 1 16.5 20.75h-9A2.75 2.75 0 0 1 4.75 18zM7.5 4.75A1.25 1.25 0 0 0 6.25 6v12A1.25 1.25 0 0 0 7.5 19.25h9A1.25 1.25 0 0 0 17.75 18V6A1.25 1.25 0 0 0 16.5 4.75z" />
+                            <path d="M9 8.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 9 8.25M9 11.25a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 9 11.25M9 14.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5A.75.75 0 0 1 9 14.25" />
+                          </svg>
+                        )}
+                      </div>
+                    )}
                     <div className="flex-1 space-y-1">
                       {item.title && (
                         <h4 className={`text-xl ${cardTitleClassName}`}>

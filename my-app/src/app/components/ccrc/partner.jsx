@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect, useRef } from "react";
 import SectionHeading from "../general/SectionHeading";
 import Image from "next/image";
 
@@ -13,6 +14,7 @@ export default function Partner({
     milestones = null,
     description = "Organizations that have participated in skill development and professional training initiatives",
     footerText = null,
+    noContainer = false,
 }) {
   // Duplicate items for seamless scrolling
   const duplicatedBlueItems = blueItems.length > 0 ? [...blueItems, ...blueItems] : [];
@@ -20,6 +22,67 @@ export default function Partner({
   
   // Combine items for single column layout
   const combinedItems = singleColumn ? [...blueItems, ...redItems] : [];
+
+  // Count-up animation for milestones
+  const [countedValues, setCountedValues] = useState([]);
+  const milestonesRef = useRef(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (!milestones || milestones.length === 0 || hasAnimated) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            
+            // Extract numeric values from milestone.value strings (e.g., "4 LPA" -> 4, "12L +" -> 12)
+            const targetValues = milestones.map((milestone) => {
+              const valueStr = milestone.value.toString();
+              // Extract first number from string
+              const match = valueStr.match(/\d+/);
+              return match ? parseInt(match[0], 10) : 0;
+            });
+
+            // Animate counting up
+            const duration = 2000; // 2 seconds
+            const steps = 60;
+            const stepDuration = duration / steps;
+            let currentStep = 0;
+
+            const interval = setInterval(() => {
+              currentStep++;
+              const progress = currentStep / steps;
+              const easedProgress = 1 - Math.pow(1 - progress, 3); // Ease out cubic
+
+              const newValues = targetValues.map((target) => {
+                return Math.floor(target * easedProgress);
+              });
+
+              setCountedValues(newValues);
+
+              if (currentStep >= steps) {
+                clearInterval(interval);
+                setCountedValues(targetValues);
+              }
+            }, stepDuration);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (milestonesRef.current) {
+      observer.observe(milestonesRef.current);
+    }
+
+    return () => {
+      if (milestonesRef.current) {
+        observer.unobserve(milestonesRef.current);
+      }
+    };
+  }, [milestones, hasAnimated]);
 
   // Render partner grid
   const renderPartnerGrid = (items, isBlue = true, isSingleColumn = false) => {
@@ -122,23 +185,38 @@ export default function Partner({
                 {/* Title */}
                 <div className="flex flex-col items-center text-center">
                   <SectionHeading title={blueTitle} titleClassName="!py-2 text-white text-center" />
-                  <p className="text-white text-center text-sm mt-2 max-w-md mx-auto">{description}</p>
+                  <p className={`text-white text-center text-sm mt-2  ${noContainer ? '' : 'max-w-md mx-auto'}`}>{description}</p>
                 </div>
                 
                 {/* Milestones */}
                 {milestones && (
-                  <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 text-white">
-                    {milestones.map((milestone, idx) => (
-                      <div key={idx} className="flex-1 flex items-center justify-center w-full md:w-auto">
-                        <div className="flex-1 text-center">
-                          <h3 className="!text-3xl sm:!text-[35px] md:!text-[40px] text-white mb-1 sm:mb-2">{milestone.value} +</h3>
-                          <h6 className="text-sm sm:text-base text-white font-stix">{milestone.label}</h6>
+                  <div ref={milestonesRef} className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 text-white">
+                    {milestones.map((milestone, idx) => {
+                      // Get the numeric part and suffix from milestone.value
+                      const valueStr = milestone.value.toString();
+                      const match = valueStr.match(/(\d+)(.*)/);
+                      const numericValue = match ? parseInt(match[1], 10) : 0;
+                      const suffix = match ? match[2] : '';
+                      
+                      // Use counted value if available, otherwise show 0
+                      const displayValue = countedValues[idx] !== undefined 
+                        ? countedValues[idx] 
+                        : (hasAnimated ? numericValue : 0);
+                      
+                      return (
+                        <div key={idx} className="flex-1 flex items-center justify-center w-full md:w-auto">
+                          <div className="flex-1 text-center">
+                            <h3 className="!text-3xl sm:!text-[35px] md:!text-[40px] text-white mb-1 sm:mb-2">
+                              {displayValue}{suffix} +
+                            </h3>
+                            <h6 className="text-sm sm:text-base text-white font-stix">{milestone.label}</h6>
+                          </div>
+                          {idx < milestones.length - 1 && (
+                            <div className="hidden md:block self-stretch w-px bg-white/30 mx-3 lg:mx-5" />
+                          )}
                         </div>
-                        {idx < milestones.length - 1 && (
-                          <div className="hidden md:block self-stretch w-px bg-white/30 mx-3 lg:mx-5" />
-                        )}
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 )}
               </div>
