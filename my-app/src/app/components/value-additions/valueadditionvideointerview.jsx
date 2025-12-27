@@ -34,12 +34,8 @@ function Valueadditionvideointerview() {
     return (
         <>
             <MediaCardSlider
-                categoryTitle="Video Interviews"
-<<<<<<< Updated upstream
-                title="Alumni Talk"
-=======
-                title=""
->>>>>>> Stashed changes
+                categoryTitle=""
+                title="Their Experience Can Become Your Inspiration"
                 videoItems={videoItems}
                 cardBgClass="bg-white"
                 nameTextClass="text-[var(--button-red)]"
