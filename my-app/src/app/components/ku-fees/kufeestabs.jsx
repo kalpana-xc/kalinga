@@ -1124,49 +1124,49 @@ const VALUE_ADDED_PDFS = {
     "2024-25": [
         {
             label: "Value Added Courses (2024–25)",
-            href: "https://drive.google.com/file/d/1hzWus_AFpBqKlt0690QQG6BetaF7YsHy/view?usp=drive_link",
+            href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/Value+Added+Courses+-+2024-25-new.pdf",
         },
     ],
 
     "2023-24": [
         {
             label: "Value Added Courses (2023–24)",
-            href: "https://drive.google.com/file/d/14fS-akX1vEaPDN9H-jye8Diqga2saUtW/view?usp=drive_link",
+            href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/Value+Added+Courses+-+2023-24-new.pdf",
         },
     ],
 
     "2022-23": [
         {
             label: "Value Added Courses (2022–23)",
-            href: "https://drive.google.com/file/d/1DzWDuZjX_fOYAqKxRXntojpontCQ30bi/view?usp=drive_link",
+            href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/Value+Added+Courses+-+2022-23_new.pdf",
         },
     ],
 
     "2021-22": [
         {
             label: "Value Added Courses (2021–22)",
-            href: "https://drive.google.com/file/d/1wlPqGITz3lUEht4kjdST-laCXVFhBnnp/view?usp=drive_link",
+            href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/Value+Added+Courses+-+2021-22-new.pdf",
         },
     ],
 
     "2020-21": [
         {
             label: "Value Added Courses (2020–21)",
-            href: "https://drive.google.com/file/d/1Ro4cpsnCXRELtjt6babs0n0w5Oku5Q0v/view?usp=drive_link",
+            href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VAC+Brochure+20-21.pdf",
         },
     ],
 
     "2019-20": [
         {
             label: "Value Added Courses (2019–20)",
-            href: "https://drive.google.com/file/d/10-HYRf1d5PN3MLF7OVCF_cmoSr0A00k_/view?usp=drive_link",
+            href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VAC-Brochure-19-20.pdf",
         },
     ],
 
     "2018-19": [
         {
             label: "Value Added Courses (2018–19)",
-            href: "https://drive.google.com/file/d/1gtbTx22Bh89psbX21cjqGtDiDvtXDOX0/view?usp=drive_link",
+            href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VAC+Brochure+18-19.pdf",
         },
     ],
 };
