@@ -6,13 +6,13 @@ import GlobalArrowButton from "../general/global-arrow_button";
 export default function CanteenMess() {
   const imageSets = [
     [
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/canteen-and-mess/canteen-mess-2.webp",
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/canteen-and-mess/canteen-mess-3.webp",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/canteen-and-mess/cafeteria-mess-img1.webp",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/canteen-and-mess/cafeteria-mess-img2.webp",
     ],
     [
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/canteen-and-mess/canteen-mess-4.webp",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/canteen-and-mess/cafeteria-mess-img.webp",
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/canteen-and-mess/canteen-mess-5.webp",
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/canteen-and-mess/canteen-mess-6.webp",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/canteen-and-mess/canteen-mess-4.webp",
     ],
   ];
 

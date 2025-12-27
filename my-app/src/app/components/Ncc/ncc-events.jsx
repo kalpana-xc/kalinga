@@ -2,75 +2,55 @@
 
 import StudentActivities from "../department/student_activities";
 
-const nccEvents = [
+const nccActivities = [
   {
     id: 1,
     imageSrc:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/ncc/Ncc-img-1.webp",
     imageAlt: "NCC Annual Training Camp",
     title: "Annual Training Camp (ATC)",
-    description: null,
+    description:
+      "Cadets undergo structured training focused on drill physical fitness weapon training basics map reading fieldcraft leadership activities and teamwork to build discipline and confidence.",
     buttonText: "Read More",
-    date: "January 2025",
   },
   {
     id: 2,
     imageSrc:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/ncc/Ncc-3.webp",
     imageAlt: "NCC Parade & Drill",
-    title: "Parade & Drill Training",
-    description: null,
+    title: "Parade, Drill & Ceremonial Practice",
+    description:
+      "Regular parade and drill sessions help cadets develop impeccable turnout coordination time management and command response while strengthening esprit de corps.",
     buttonText: "Read More",
-    date: "Ongoing",
   },
   {
     id: 3,
     imageSrc:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png",
-    imageAlt: "NCC Adventure Camp",
-    title: "Adventure & Trekking Camp",
-    description: null,
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/ncc/Ncc-img-2.webp",
+    imageAlt: "NCC National Events",
+    title: "National & Inter-University NCC Events",
+    description:
+      "Cadets represent the institution at national and inter-university NCC events enhancing leadership communication skills and national integration.",
     buttonText: "Read More",
-    date: "March 2025",
-  },
-  {
-    id: 4,
-    imageSrc:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png",
-    imageAlt: "NCC Social Service",
-    title: "Social Service & Community Outreach",
-    description: null,
-    buttonText: "Read More",
-    date: "July 2025",
-  },
-  {
-    id: 5,
-    imageSrc:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png",
-    imageAlt: "NCC National Level Camp",
-    title: "National-Level Camps & Competitions",
-    description: null,
-    buttonText: "Read More",
-    date: "August 2025",
-  },
-  {
-    id: 6,
-    imageSrc:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png",
-    imageAlt: "NCC Leadership Workshop",
-    title: "Leadership & Personality Development Workshop",
-    description: null,
-    buttonText: "Read More",
-    date: "September 2025",
   },
 ];
 
 export default function NccEvents() {
   return (
-    <StudentActivities
-      title="NCC Events & Activities"
-      subtitle="Training, leadership, service, and adventure opportunities for KU cadets"
-      activities={nccEvents}
-    />
+    <div className="ncc-events-wrapper">
+      {/* ✅ Adds spacing below heading by increasing the content block top margin */}
+      <style jsx global>{`
+        .ncc-events-wrapper .container.mt-5 {
+          margin-top: 32px !important;
+        }
+      `}</style>
+
+      <StudentActivities
+        title="Events & Activities"
+        subtitle="National Cadet Corps (NCC)"
+        activities={nccActivities}
+        paddingClassName="py-16"
+      />
+    </div>
   );
 }

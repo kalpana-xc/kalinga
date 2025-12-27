@@ -92,7 +92,7 @@ export default function LibraryResource() {
     const wrapper = document.querySelector(".library-e-resources-wrapper");
     if (!wrapper) return;
 
-    // 1) Change "Register Now" text to "Open Link" (without editing UpcomingConference)
+    // 1) Change "Register Now" text to "Open Link"
     const replaceButtonText = () => {
       const all = wrapper.querySelectorAll("*");
       all.forEach((el) => {
@@ -139,70 +139,55 @@ export default function LibraryResource() {
 
     wrapper.addEventListener("click", clickHandler, true);
 
-    // 3) Read more / Read less (no content change, purely visual toggle)
+    // ✅ Read More / Read Less for the description paragraph inside UpcomingConference
     const initReadMore = () => {
-  const slides = wrapper.querySelectorAll(".swiper-slide");
+      const slides = wrapper.querySelectorAll(".swiper-slide");
 
-  slides.forEach((slide) => {
-    // Find the description paragraph
-    const desc = slide.querySelector("p");
-    if (!desc) return;
+      slides.forEach((slide) => {
+        // The description in your UpcomingConference:
+        // <p class="text-[var(--light-text-gray)] text-sm">{conf.description}</p>
+        const desc = slide.querySelector("p.text-\\[var\\(--light-text-gray\\)\\]");
+        if (!desc) return;
 
-    // Avoid duplicate button creation
-    if (slide.dataset.readmoreInit === "1") return;
+        // Remove previous button if any
+        const oldBtn = slide.querySelector(".ku-readmore-btn");
+        if (oldBtn) oldBtn.remove();
 
-    // Apply clamp styles (your CSS uses this class)
-    desc.classList.add("ku-readmore-text");
-    desc.classList.remove("is-expanded");
+        // Reset to collapsed on rerender
+        desc.classList.remove("is-expanded");
+        desc.classList.add("ku-readmore-text");
 
-    // Remove old button if any (safe)
-    const oldBtn = slide.querySelector(".ku-readmore-btn");
-    if (oldBtn) oldBtn.remove();
+        requestAnimationFrame(() => {
+          const cs = window.getComputedStyle(desc);
+          let lineHeight = parseFloat(cs.lineHeight);
+          if (Number.isNaN(lineHeight)) {
+            const fontSize = parseFloat(cs.fontSize) || 16;
+            lineHeight = fontSize * 1.4;
+          }
 
-    // Wait for DOM + styles
-    requestAnimationFrame(() => {
-      const styles = window.getComputedStyle(desc);
-      const lhRaw = styles.lineHeight;
+          const maxLines = 3;
+          const maxHeight = Math.ceil(lineHeight * maxLines);
 
-      // line-height might be "normal", handle fallback
-      let lineHeight = parseFloat(lhRaw);
-      if (Number.isNaN(lineHeight)) {
-        const fontSize = parseFloat(styles.fontSize) || 16;
-        lineHeight = fontSize * 1.4;
-      }
+          // If doesn't exceed 3 lines, no Read More
+          if (desc.scrollHeight <= maxHeight + 2) return;
 
-      const maxLines = 3;
-      const maxHeight = Math.ceil(lineHeight * maxLines);
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "ku-readmore-btn";
+          btn.textContent = "Read More";
 
-      // Force clamp effect to be applied before measuring
-      // (desc already has class; this ensures scrollHeight is meaningful)
-      const fullHeight = desc.scrollHeight;
+          btn.addEventListener("click", (ev) => {
+            ev.preventDefault();
+            ev.stopPropagation();
 
-      // Show button only if actual content exceeds 3 lines
-      const shouldShow = fullHeight > maxHeight + 2;
-      if (!shouldShow) {
-        slide.dataset.readmoreInit = "1";
-        return;
-      }
+            const expanded = desc.classList.toggle("is-expanded");
+            btn.textContent = expanded ? "Read Less" : "Read More";
+          });
 
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "ku-readmore-btn";
-      btn.textContent = "Read More";
-
-      btn.addEventListener("click", (ev) => {
-        ev.preventDefault();
-        ev.stopPropagation();
-        const expanded = desc.classList.toggle("is-expanded");
-        btn.textContent = expanded ? "Read Less" : "Read More";
+          desc.insertAdjacentElement("afterend", btn);
+        });
       });
-
-      desc.insertAdjacentElement("afterend", btn);
-      slide.dataset.readmoreInit = "1";
-    });
-  });
-};
-
+    };
 
     initReadMore();
     const mo2 = new MutationObserver(() => initReadMore());
@@ -217,77 +202,93 @@ export default function LibraryResource() {
 
   return (
     <div className="library-e-resources-wrapper py-12 md:py-16">
-      {/* ✅ Image size + uniform images + Read More via wrapper CSS only */}
-  <style jsx global>{`
-  /* =============================
-     1) Reduce IMAGE-SIDE column width
-     (Assumes card uses a 2-column flex/grid where image is the first block)
-     ============================= */
+      <style jsx global>{`
+        /* =============================
+           IMAGE WIDTH FIX (your existing)
+           ============================= */
+        .library-e-resources-wrapper :global(.swiper-slide > div > div) {
+          align-items: flex-start !important;
+        }
 
-  /* Most common structure: slide -> card -> inner wrapper (flex) */
-  .library-e-resources-wrapper :global(.swiper-slide > div > div) {
-    align-items: flex-start !important;
-  }
+        .library-e-resources-wrapper
+          :global(.swiper-slide .overflow-hidden.rounded-xl) {
+          flex: 0 0 34% !important;
+          max-width: 34% !important;
+          height: 170px !important;
+          background: transparent !important;
 
-  /* Target the image box (the element with overflow-hidden + rounded-xl)
-     and make it a smaller fixed column */
-  .library-e-resources-wrapper :global(.swiper-slide .overflow-hidden.rounded-xl) {
-    flex: 0 0 34% !important;      /* ⬅ reduce image-side width */
-    max-width: 34% !important;     /* ⬅ reduce image-side width */
-    height: 170px !important;      /* keep your height */
-    background: transparent !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
 
-    display: flex !important;      /* center contents */
-    justify-content: center !important;
-    align-items: center !important;
+          padding: 0 !important;
+          margin: 0 auto !important;
+        }
 
-    padding: 0 !important;
-    margin: 0 auto !important;     /* keep it centered within its column */
-  }
+        .library-e-resources-wrapper
+          :global(.swiper-slide .overflow-hidden.rounded-xl > span),
+        .library-e-resources-wrapper
+          :global(.swiper-slide .overflow-hidden.rounded-xl > div) {
+          width: 100% !important;
+          height: 100% !important;
 
-  /* If Next/Image wrapper exists */
-  .library-e-resources-wrapper :global(.swiper-slide .overflow-hidden.rounded-xl > span),
-  .library-e-resources-wrapper :global(.swiper-slide .overflow-hidden.rounded-xl > div) {
-    width: 100% !important;
-    height: 100% !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+        }
 
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
+        .library-e-resources-wrapper :global(.swiper-slide img.object-cover) {
+          width: auto !important;
+          max-width: 85% !important;
+          max-height: 95% !important;
+          object-fit: contain !important;
+          object-position: center !important;
+          display: block !important;
+          margin: 0 auto !important;
+        }
 
-  /* =============================
-     2) Force the image itself centered + controlled width
-     ============================= */
-  .library-e-resources-wrapper :global(.swiper-slide img.object-cover) {
-    width: auto !important;
-    max-width: 85% !important;     /* image bigger, but column is smaller now */
-    max-height: 95% !important;
+        .library-e-resources-wrapper :global(.swiper-slide > div) {
+          padding-top: 32px !important;
+        }
 
-    object-fit: contain !important;
-    object-position: center !important;
+        /* =============================
+           ✅ READ MORE (works with your UpcomingConference markup)
+           ============================= */
+        .library-e-resources-wrapper :global(.ku-readmore-text) {
+          display: -webkit-box !important;
+          -webkit-box-orient: vertical !important;
+          -webkit-line-clamp: 3 !important;
+          overflow: hidden !important;
 
-    display: block !important;
-    margin: 0 auto !important;
-  }
+          /* keep consistent measurement */
+          line-height: 1.5 !important;
+        }
 
-  /* =============================
-     3) Increase top padding inside card (your request)
-     ============================= */
-  .library-e-resources-wrapper :global(.swiper-slide > div) {
-    padding-top: 32px !important;
-  }
-  .library-e-resources-wrapper :global(.ku-readmore-text) {
-  line-height: 1.5 !important;
-  }
+        .library-e-resources-wrapper :global(.ku-readmore-text.is-expanded) {
+          -webkit-line-clamp: unset !important;
+          overflow: visible !important;
+          display: block !important;
+        }
 
-`}</style>
+        .library-e-resources-wrapper :global(.ku-readmore-btn) {
+          margin-top: 6px !important;
 
+          /* ✅ match component font automatically */
+          font: inherit !important;
+          font-size: inherit !important;
+          line-height: inherit !important;
 
+          font-weight: 600 !important;
+          color: #7b4b2a !important; /* ✅ brown */
 
-
-
-
+          background: transparent !important;
+          border: 0 !important;
+          padding: 0 !important;
+          cursor: pointer !important;
+          text-decoration: underline !important;
+          width: fit-content !important;
+        }
+      `}</style>
 
       <UpcomingConference
         conferences={eResources}
@@ -296,7 +297,7 @@ export default function LibraryResource() {
         backgroundColorcard="bg-white"
         showCategory={false}
         showDate={false}
-        imageHeight={170} // ✅ reduced
+        imageHeight={170}
       />
     </div>
   );

@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 import AboutCafeteria from '../components/cafeteria-mess/about-cafeteria-mess'
 import AdmissionCareer from '../components/general/admission_cta';
@@ -17,6 +18,17 @@ const page = () => {
     };
   return (
     <>
+      <style jsx global>{`
+      .absolute.inset-0 > img {
+        object-position: center 40% !important;
+      }
+    
+      @media (max-width: 768px) {
+        .absolute.inset-0 > img {
+          object-position: center 5% !important;
+        }
+      }
+    `}</style>
     <AutoBreadcrumb data={breadcrumbData} />
     <AboutCafeteria/>
     <CanteenMess/>
