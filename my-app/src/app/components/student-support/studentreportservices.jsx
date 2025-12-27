@@ -1,48 +1,27 @@
-import React from 'react'
-import ImageListItem from '../ccrc/imagelistitem';
+import React from "react";
+import ImageListItem from "../ccrc/imagelistitem";
 
 function Studentreportservices() {
-
     const Items = [
-        {
-            id: 1,
-            text: "Get better career opportunities",
-        },
-        {
-            id: 2,
-            text: "Choose from different academic programs",
-        },
-        {
-            id: 3,
-            text: "Become job-ready",
-        },
-        {
-            id: 4,
-            text: "Improve confidence level",
-        },
-        {
-            id: 5,
-            text: "Build a resume with additional skills and an internship",
-        },
-        {
-            id: 6,
-            text: "Enjoy a vibrant campus life",
-        },
-        {
-            id: 7,
-            text: "Receive guidance and mentorship",
-        },
-        {
-            id: 8,
-            text: "Explore beyond traditional classroom learning",
-        },
+        { id: 1, text: "Get better career opportunities" },
+        { id: 2, text: "Choose from different academic programs" },
+        { id: 3, text: "Become job-ready" },
+        { id: 4, text: "Improve confidence level" },
+        { id: 5, text: "Build a resume with additional skills and an internship" },
+        { id: 6, text: "Enjoy a vibrant campus life" },
+        { id: 7, text: "Receive guidance and mentorship" },
+        { id: 8, text: "Explore beyond traditional classroom learning" },
     ];
 
     return (
-        <>
-            <ImageListItem items={Items} imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/ccrc.webp" title="Our services can help you:" />
-        </>
-    )
+        <section className="py-12 md:py-16 px-4 md:px-6">
+            <ImageListItem
+                items={Items}
+                imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/ccrc.webp"
+                title="Our services can help you:"
+            />
+        </section>
+    );
 }
 
-export default Studentreportservices
+export default Studentreportservices;

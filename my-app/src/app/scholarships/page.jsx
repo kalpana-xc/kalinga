@@ -10,28 +10,38 @@ import AdmissionCareer from "../components/general/admission_cta";
 import AutoBreadcrumb from "../components/layout/BreadcrumbData";
 
 export default function ScholarshipsPage() {
-  // ✅ Loop-behaviour for WhyStudy WITHOUT changing WhyStudy component
-  // Note: true seamless loop needs loop:true inside WhyStudy Swiper.
-  // This wraps instantly at end/beginning (speed 0) so it feels continuous.
-  const whyStudySwiperRef = useRef(null);
-
   useEffect(() => {
-    const root = document.querySelector(".why-study-swiper");
-    if (!root) return;
+    // Get the swiper instance created inside WhyStudy (adjust selector if needed)
+    const el = document.querySelector(".why-study-swiper .swiper");
+    const sw = el?.swiper;
 
-    const sw = root.swiper || null;
     if (!sw) return;
 
-    whyStudySwiperRef.current = sw;
+    let isJumping = false;
+
+    const safeJump = (index) => {
+      if (isJumping) return;
+      isJumping = true;
+
+      // jump without triggering reach events again
+      sw.slideTo(index, 0, false);
+
+      // release guard on next frame
+      requestAnimationFrame(() => {
+        isJumping = false;
+      });
+    };
 
     const onReachEnd = () => {
-      // jump instantly to first
-      sw.slideTo(0, 0);
+      // ✅ if loop isn't enabled, simulate loop: jump to first "real" slide
+      // If your swiper has duplicated slides, use 1 instead of 0.
+      safeJump(0);
     };
 
     const onReachBeginning = () => {
-      // jump instantly to last
-      sw.slideTo(sw.slides.length - 1, 0);
+      // ✅ jump to last "real" slide
+      // If you have duplicated slides, use sw.slides.length - 2 instead.
+      safeJump(sw.slides.length - 1);
     };
 
     sw.on("reachEnd", onReachEnd);
@@ -345,7 +355,6 @@ export default function ScholarshipsPage() {
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/scholarships/scholarship-about.webp"
       />
 
-      {/* ✅ WhyStudy wrapped only to reduce height safely, WITHOUT changing component */}
       <div className="whyStudyWrapper">
         <WhyStudy
           items={whyStudyItems}
@@ -379,8 +388,6 @@ export default function ScholarshipsPage() {
     align-self: flex-start !important;
   }
 `}</style>
-
-
 
 
       {/* ✅ Slider cards */}

@@ -35,7 +35,7 @@ function Objectives() {
     return (
         <>
             {/* //change image */}
-            <ImageListItem items={Items} imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png" title="Objectives of New Raipur" />
+            <ImageListItem items={Items} imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/entrance-exam/entrance-1.webp" title="Objectives of New Raipur" />
         </>
     )
 }

@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import AutoBreadcrumb from '../components/layout/BreadcrumbData'
 import SportsWellnessOverview from '@/app/components/sports-and-wellness-centre/sportsandwellnesshero'
@@ -20,10 +21,23 @@ function Sportsandwellnesscentre() {
 
     return (
         <>
+            <style jsx global>{`
+  .absolute.inset-0 > img {
+    object-position: center 60% !important;
+  }
+
+  @media (max-width: 768px) {
+    .absolute.inset-0 > img {
+      object-position: center 5% !important;
+    }
+  }
+`}</style>
             <AutoBreadcrumb data={breadcrumbData} />
             <SportsandwellnessMainIntro />
-            <SportsWellnessOverview />
-            <SportsFacilitiesTabs />
+            <SportsWellnessOverview />  
+            <div className="container py-10">
+                <SportsFacilitiesTabs />
+            </div>
             <Sportsandwellnessevents />
             <AdmissionCareer />
         </>

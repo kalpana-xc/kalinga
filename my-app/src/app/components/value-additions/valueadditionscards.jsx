@@ -1,3 +1,6 @@
+// ✅ 1) VALUE ADDITION CARDS (Modal + Link Navigation)
+// File: valueadditioncards.jsx
+
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -14,51 +17,46 @@ function Valueadditioncards() {
             title: "Incubation Center",
             description:
                 "Kalinga Incubation Foundation supports students’ innovative business ideas and turns them into successful business ventures.",
-            imageSrc:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/kif.png", // Image - 2
-            logoSrc:
-                "",
+            imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/kif.png",
+            logoSrc: "",
             subtitle: "EXPLORE MORE THAN JUST ACADEMICS",
+            // link: "/incubation-centre",
         },
         {
             title: "CTCD",
             description:
                 "Our Corporate Training and Consultancy Division (CTCD) provides customised training to organisations using experiential learning methods.",
-            imageSrc:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png", // Image - 3
-            logoSrc:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png",
+            imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/ctcd/training-projects.webp",
+            logoSrc: "",
             subtitle: "EXPLORE MORE THAN JUST ACADEMICS",
+            link: "/ctcd", // ✅ example navigation
         },
         {
             title: "CIF Labs",
             description:
                 "Facilitating researchers and students with high-end instruments in basic, applied, and life sciences.",
-            imageSrc:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/academic-facilities/modernlabrotary.webp", // Image - 4
-            logoSrc:
-                "",
+            imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/academic-facilities/modernlabrotary.webp",
+            logoSrc: "",
             subtitle: "EXPLORE MORE THAN JUST ACADEMICS",
+            // link: "/cif-labs",
         },
         {
             title: "CoEs",
             description:
                 "Our Centres of Excellence include: Electric Vehicles (Godawari Electric Motors Pvt. Ltd. - Eblu), IIoT (Technoviz Automation), Robotics, Coding, & Drones (BDS Education), AI-ML (IBM Innovation Centre for Education - ICE), MSME (IamSMEofIndia), BRIDGE Courses (BOSCH), Automobile Training Centre (JustAuto Solutions).",
-            imageSrc:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png", // Image - 5
-            logoSrc:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png",
+            imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/accerdation/Group+1000002977.png",
+            logoSrc: "",
             subtitle: "EXPLORE MORE THAN JUST ACADEMICS",
+            link: "/centres-of-excellence", // ✅ example navigation
         },
         {
             title: "New Age Programs",
             description:
                 "Our next-gen programs will prepare you for future career roles in the tech and creative world.",
-            imageSrc:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png", // Image - 6
-            logoSrc:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png",
+            imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/career.webp",
+            logoSrc: "",
             subtitle: "EXPLORE MORE THAN JUST ACADEMICS",
+            // link: "/new-age-programs",
         },
     ];
 
@@ -84,13 +82,21 @@ function Valueadditioncards() {
         const root = wrapperRef.current;
         if (!root) return;
 
-        const knowMoreButtons = Array.from(root.querySelectorAll("button, a")).filter(
-            (el) => (el.textContent || "").trim().toLowerCase().includes("know more")
+        const knowMoreButtons = Array.from(root.querySelectorAll("button, a")).filter((el) =>
+            (el.textContent || "").trim().toLowerCase().includes("know more")
         );
 
         const idx = knowMoreButtons.indexOf(btn);
-        const picked = cards[idx] || cards[0];
+        const picked = cards[idx];
+        if (!picked) return;
 
+        // ✅ Navigate if link exists
+        if (picked.link) {
+            window.location.assign(picked.link);
+            return;
+        }
+
+        // ✅ Else modal
         setModalData({
             title: picked?.title || "Details",
             description: picked?.description || "",
@@ -101,18 +107,19 @@ function Valueadditioncards() {
     return (
         <>
             <style jsx global>{`
-        .academic-cards-wrapper img {
+        .valueadd-cards-wrapper img {
           width: 100% !important;
-          height: 340px !important; /* control card image height */
+          height: 340px !important;
           object-fit: cover !important;
         }
 
-        .academic-cards-wrapper img[src=""],
-        .academic-cards-wrapper img:not([src]) {
+        .valueadd-cards-wrapper img[src=""],
+        .valueadd-cards-wrapper img:not([src]) {
           display: none !important;
         }
       `}</style>
-            <div ref={wrapperRef} onClickCapture={handleClickCapture} className="academic-cards-wrapper">
+
+            <div ref={wrapperRef} onClickCapture={handleClickCapture} className="valueadd-cards-wrapper">
                 <Cards cards={cards} />
             </div>
 
