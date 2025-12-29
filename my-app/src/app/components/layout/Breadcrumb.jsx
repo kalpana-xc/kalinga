@@ -149,7 +149,7 @@ const Breadcrumb = ({ customBreadcrumbs, heroImage, pageTitle }) => {
             </h1> 
           </div>
           {/* Breadcrumb positioned next to the title card - horizontally aligned with blue box */}
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center h-auto min-h-[40px] md:min-h-[50px] gap-1 md:pl-0 pl-4 mb-4 md:mb-0 MD:-translate-y-1/2">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center h-auto min-h-[40px] md:min-h-[50px] gap-1 md:pl-0 pl-4 md:mb-0 MD:-translate-y-1/2 mt-3 mb-15">
             {breadcrumbs.map((crumb, index) => {
               const isLast = index === breadcrumbs.length - 1;
               

@@ -378,7 +378,7 @@ function DepartmentCard({ program }) {
               className="mt-0.5"
             />
             <span className="text-gray-800">
-              <span className="font-stix text-[20px] text-black">Scholarships :</span>{' '}
+              <span className="font-stix md:text-[20px] text-[16px] text-black">Scholarships :</span>{' '}
               <Link href="/scholarships" className=" cursor-pointer text-[var(--button-red)] font-semibold ml-1 hover:underline inline !text-[16px]">
                 {program.scholarships}
               </Link>

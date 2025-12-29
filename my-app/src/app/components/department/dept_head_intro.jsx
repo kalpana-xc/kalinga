@@ -17,6 +17,8 @@ function MentorCard({
   department = DEFAULT_DEPARTMENT,
   quote = DEFAULT_QUOTE,
   message = "",
+  logos = null,
+  contentWrapperClassName = "",
 }) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isQuoteExpanded, setIsQuoteExpanded] = useState(false);
@@ -106,8 +108,23 @@ function MentorCard({
           </div>
         </div>
 
-      <div className="lg:col-span-8 flex flex-col gap-6 relative lg:left-[-25px] lg:pt-20 lg:pt-0 z-10">
+      <div className={`lg:col-span-8 flex flex-col gap-6 relative lg:left-[-25px] lg:pt-20 lg:pt-0 z-10 ${contentWrapperClassName}`}>
         <div className="md:pl-14 pl-0">
+          {logos && logos.length > 0 && (
+            <div className="bg-[var(--card-sandal)] rounded-xl p-4 mb-6 flex flex-wrap gap-4 justify-center items-center md:w-[40%] w-full">
+              {logos.map((logo, idx) => (
+                <div key={idx} className="flex items-center justify-center">
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt || logo.name}
+                    width={logo.width || 120}
+                    height={logo.height || 80}
+                    className="object-contain rounded-lg"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
           <SectionHeading title={title} subtitle={subtitle} titleClassName="!py-2" />
           <p className="text-gray-700 text-xl">
             {department}

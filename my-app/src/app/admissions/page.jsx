@@ -100,9 +100,9 @@ export default function Admissions() {
 
   // OrganogramOfKalinga content (second instance - without image)
   const admissionOrganogramContent = {
-    title: "Admission Process Overview",
+    title: "Proposed Fee Structure 2025-26 (For Indian Students)",
     description: [
-      "Kalinga University follows a streamlined admission process designed to identify and welcome talented students from diverse backgrounds. Our admission team works diligently to ensure a smooth and transparent process from application to enrollment.",
+      "Kalinga University follows a well-structured governance model to ensure smooth administration and institutional integrity. It begins with the Chancellor, followed by the Vice-Chancellor and Director General. Their roles and responsibilities are well-defined, enabling proper decision-making across all the departments of the university. ",
     ],
     buttonLabel: "Learn More",
     cardBackgroundColor: "bg-[var(--dark-blue)]",
@@ -113,7 +113,7 @@ export default function Admissions() {
     arrowClassName: "!bg-[var(--dark-orange-red)]",
     arrowIconClassName: "!text-white",
     textClassName: "!text-black",
-    href: "/admissions",
+    href: "/ku-fees",
   };
 
   // Facility content
@@ -164,7 +164,7 @@ export default function Admissions() {
         icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
         title: "How to Apply",
         description: "Learn about the step-by-step admission process and apply easily for your preferred program through our online portal.",
-        href: "/admissions"
+        href: "/admissions#admission-steps"
       },
       {
         id: 2,
@@ -199,7 +199,7 @@ export default function Admissions() {
         icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/admission+procedure.svg",
         title: "Admission Procedure",
         description: "Understand the complete admission process, document checklist, and important deadlines to ensure a smooth enrollment experience.",
-        href: "/admissions"
+        href: "/admissions#admission-steps"
       },
     ],
   };
@@ -270,16 +270,18 @@ export default function Admissions() {
         href={entranceExamContent.href}
       />
       {/* <EntranceExam /> */}
-      <AdmissionSteps
-        steps={admissionStepsContent.steps}
-        subtitle={admissionStepsContent.subtitle}
-        title={admissionStepsContent.title}
-        showHeaderButton={admissionStepsContent.showHeaderButton}
-        ctaLabel={admissionStepsContent.ctaLabel}
-        showReadMore={admissionStepsContent.showReadMore}
-        showIcon={admissionStepsContent.showIcon}
-        ctaHref="/admissions"
-      />
+      <div id="admission-steps">
+        <AdmissionSteps
+          steps={admissionStepsContent.steps}
+          subtitle={admissionStepsContent.subtitle}
+          title={admissionStepsContent.title}
+          showHeaderButton={admissionStepsContent.showHeaderButton}
+          ctaLabel={admissionStepsContent.ctaLabel}
+          showReadMore={admissionStepsContent.showReadMore}
+          showIcon={admissionStepsContent.showIcon}
+          ctaHref="/admissions"
+        />
+      </div>
       <OrganogramOfKalinga
         title={admissionOrganogramContent.title}
         description={admissionOrganogramContent.description}

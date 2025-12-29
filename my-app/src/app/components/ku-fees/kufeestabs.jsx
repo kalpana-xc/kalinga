@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 /** -----------------------------
  *  TABS
@@ -1251,7 +1252,16 @@ function Notes({ items = [] }) {
  *  MAIN COMPONENT
  *  ----------------------------*/
 export default function FeesTabSection() {
+    const searchParams = useSearchParams();
     const [activeTab, setActiveTab] = useState("commerce");
+
+    // Check for tab query parameter on mount and when searchParams change
+    useEffect(() => {
+        const tabParam = searchParams?.get('tab');
+        if (tabParam && IQAC_TABS.some(tab => tab.id === tabParam)) {
+            setActiveTab(tabParam);
+        }
+    }, [searchParams]);
 
     const faculty = useMemo(() => {
         // ✅ Paste your existing mapping exactly (keeping same ids)

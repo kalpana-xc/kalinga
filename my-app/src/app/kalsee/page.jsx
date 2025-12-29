@@ -141,45 +141,72 @@ export default function KalseePage() {
     {
       id: 1,
       stepNumber: "01",
-      title: "Step 1: Apply",
+      title: "Visit Admissions Portal",
       description: "",
-      backDescription: "Apply for KALSEE by filling out the application form online.",
+      backDescription: "Visit https://admissions.kalingauniversity.ac.in/ to start your application process.",
       icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/exam+(2).png",
       image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/entrance-exam/entrance-exam-banner.webp"
     },
     {
       id: 2,
       stepNumber: "02",
-      title: "Step 2: Prepare",
+      title: "Apply for KALSEE Exam",
       description: "",
-      backDescription: "Prepare for KALSEE by studying the exam pattern and syllabus.",
+      backDescription: "Apply for the KALSEE Exam through the online portal.",
       icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/exam-preparation.png",
       image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/entrance-exam/entrance-exam-banner.webp"
     },
     {
       id: 3,
       stepNumber: "03",
-      title: "Step 3: Take the Exam",
+      title: "Fill Application Form",
       description: "",
-      backDescription: "Take the KALSEE exam by attending the exam center on the scheduled date.",
+      backDescription: "Fill out the online application form with all required details.",
       icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/exam+(3).png",
       image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/entrance-exam/entrance-exam-banner.webp"
     },  
     {
       id: 4,
       stepNumber: "04",
-      title: "Step 4: Get the Result",
+      title: "Pay Application Fees",
       description: "",
-      backDescription: "Get the result of KALSEE by checking the result online.",
+      backDescription: "Pay the application fees through the secure payment gateway.",
       icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/medical-result.png",
       image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/entrance-exam/entrance-exam-banner.webp"
     },
     {
       id: 5,
       stepNumber: "05",
-      title: "Step 5: Get the Admission",
+      title: "Get Login Details",
       description: "",
-      backDescription: "Get the admission for KALSEE by attending the admission center on the scheduled date.",
+      backDescription: "Get login details & scheduling link within 24 hours after payment confirmation.",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/college-student.png",
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/entrance-exam/entrance-exam-banner.webp"
+    },
+    {
+      id: 6,
+      stepNumber: "06",
+      title: "Take the CBT",
+      description: "",
+      backDescription: "Take the Computer-Based Test (CBT) on your scheduled date and time.",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/exam+(3).png",
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/entrance-exam/entrance-exam-banner.webp"
+    },
+    {
+      id: 7,
+      stepNumber: "07",
+      title: "Check Results",
+      description: "",
+      backDescription: "Check your final results online through the admissions portal.",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/medical-result.png",
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/entrance-exam/entrance-exam-banner.webp"
+    },
+    {
+      id: 8,
+      stepNumber: "08",
+      title: "Welcome to Kalinga University!",
+      description: "",
+      backDescription: "Welcome to Kalinga University! Complete your admission process and begin your academic journey.",
       icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/college-student.png",
       image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/entrance-exam/entrance-exam-banner.webp"
     },
@@ -291,6 +318,7 @@ export default function KalseePage() {
         bgColor="bg-white"
       />
       <MediaCardSlider
+        title="KALSEE Testimonials"
         videoItems={testimonials}
         items={testimonials}
         cardBgClass="bg-white"

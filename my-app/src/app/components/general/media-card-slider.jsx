@@ -13,7 +13,7 @@ import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 export default function MediaCardSlider({
-  title = "Media Gallery",
+  title = "Testimonials",
   categoryTitle = "",
   description = "",
   imageItems = [],

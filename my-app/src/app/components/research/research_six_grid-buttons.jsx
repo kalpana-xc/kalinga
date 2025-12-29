@@ -11,7 +11,7 @@ const defaultButtons = [
   {
     id: 1,
     text: "Research, Consultancy & IPR Policy",
-    href: "#",
+    href: "/ipr-cell",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const defaultButtons = [
   {
     id: 3,
     text: "Software used for Plagiarism",
-    href: "#",
+    href: "/research-resources",
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const defaultButtons = [
   {
     id: 6,
     text: "Research Facilities and Resources",
-    href: "#",
+    href: "/research-facilities",
   },
   // Right Column
   {
@@ -47,12 +47,12 @@ const defaultButtons = [
   {
     id: 8,
     text: "Plagiarism Policy",
-    href: "#",
+    href: "/research-resources",
   },
   {
     id: 9,
     text: "Ph.D. Admissions",
-    href: "/admissions",
+    href: "/phd",
   },
   {
     id: 10,
@@ -67,7 +67,7 @@ const defaultButtons = [
   {
     id: 12,
     text: "Doctoral Research Committee",
-    href: "#",
+    href: "/phd",
   },
 ];
 

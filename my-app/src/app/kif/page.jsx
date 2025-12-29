@@ -483,7 +483,14 @@ export default function KIFPage({
 
       <Testimonials testimonials={testimonials} />
 
-      
+      <OrganogramOfKalinga
+        title="Join Us on Your Entrepreneurial Journey"
+        description="We transform young innovators' ideas into scalable and profitable ventures."
+        buttonLabel="Download Form"
+        href="https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/stratup_reg_form.pdf"
+        cardBackgroundColor="bg-[var(--button-red)]"
+        useContainer = {true}
+      />
       <CenterOfExcellence
         centres={centres}
         title="Startup Partners"
