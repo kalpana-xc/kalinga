@@ -323,7 +323,7 @@ const Header = () => {
     <header className="relative z-[10040] w-full overflow-visible">
       {/* Top Bar */}
       <div className="text-xs w-full">
-        <div className="container mx-auto px-2 pt-3 pb-2">
+        <div className="container mx-auto px-2 pt-3 pb-2 border-b border-gray-200">
             <div className="flex justify-between font-medium gap-2 text-[var(--dark-gray)] flex-wrap">
             <a href={getEmail('admissions').href} className="flex items-center gap-1.5 text-[var(--red)]">
                 <FlatIcon name="email" />

@@ -25,13 +25,13 @@ export default function ChairmanMessage({
   const hasMoreContent = message.length > 2;
 
   return (
-    <section className="bg-white pt-8 md:pt-20 lg:pt-50 pb-8 md:pb-16">
+    <section className="bg-white pt-8 md:pt-20 lg:pt-50 pb-8 md:pb-16 mt-10 md:mt-0">
       <div className="px-2">
-        <div className="bg-[var(--dark-blue)] rounded-xl p-4 md:p-6 lg:p-8 xl:p-10 relative overflow-visible pb-8 md:pb-6 lg:pb-10">
+        <div className="bg-[var(--dark-blue)] rounded-xl px-4 py-4 md:py-0 md:px-6 lg:px-8 xl:p-10 relative overflow-visible">
           {/* Top Section - Portrait, Name, and Quote */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 relative lg:top-[-170px] md:top-[-125px] top-4 md:top-0 z-30">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-0 md:gap-6 relative z-30 md:h-[350px] h-[600px]">
             {/* Left - Portrait */}
-            <div className="md:col-span-4 order-1 md:order-1 mb-4 md:mb-0">
+            <div className="md:col-span-4 order-1 md:order-1 mb-4 md:mb-0 md:transform md:-translate-y-[35%]">
               <div className="bg-[var(--lite-sand)] rounded-2xl p-3 md:p-4 w-full max-w-[280px] md:max-w-[450px] mx-auto">
                 <div className="relative w-full aspect-square rounded-xl overflow-hidden">
                   <Image
@@ -46,7 +46,7 @@ export default function ChairmanMessage({
             </div>
 
             {/* Right - Name, Title, and Quote Box */}
-            <div className="md:col-span-8 flex flex-col gap-3 md:gap-4 lg:gap-3 order-2 md:order-2">
+            <div className="md:col-span-8 flex flex-col gap-0 md:gap-4 lg:gap-3 order-2 md:order-2 md:transform md:-translate-y-[35%]">
               {/* Name and Title */}
               <div className="text-center md:text-left pl-0 md:pl-[45px] mb-2 md:mb-0">
                 {name && (
@@ -108,8 +108,8 @@ export default function ChairmanMessage({
               </div>
             </div>
           </div>
-          {/* Bottom Section - Message */}
-          <div className="bg-white rounded-lg p-4 md:p-6 lg:p-10 relative lg:top-[-140px] md:top-[-60px] top-6 md:top-0 mt-4 md:mt-0 z-20">
+           {/* Bottom Section - Message */}
+           <div className="bg-white rounded-lg p-4 md:p-6 lg:p-10 relative mt-2 md:mt-0 z-20">
               <h2 className="font-stix text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-[var(--foreground)] mb-3 md:mb-4 lg:mb-6 xl:mb-8">
                 {messageHeading}
               </h2>

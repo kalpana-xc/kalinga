@@ -35,37 +35,37 @@ const CentralInstrumentationFacilityPage = () => {
   const quickLinks = [
     {
       id: 1,
-      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/facility-management.svg",
       title: "Advanced Instrumentation Access",
       description: "CIF at KU offers access to modern instruments that support advanced research work that needs high precision across multiple disciplines.",
     },
     {
       id: 2,
-      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Extensive+Research+Facilities.svg",
       title: "Quick And Reliable Results",
       description: "Our time-tested machines minimise the time in delivering outcomes while maintaining accuracy and consistency in every analysis.",
     },
     {
       id: 3,
-      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/academics/icons/Curriculum.svg",
       title: "Customised Research Solutions",
       description: "To help researchers with diverse academic and industry needs, we provide personalised research support and guidance in complex data analysis and sample testing.",
     },
     {
       id: 4,
-      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/Trainings+%26+Workshops.svg",
       title: "Skill Development Programs",
       description: "We conduct workshops, certification courses, and training programs to promote research culture apart from offering access to instruments.",
     },
     {
       id: 5,
-      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Experienced+Faculties.svg",
       title: "Dedicated CIF Experts",
       description: "Our committed research faculty members and coordinators work rigorously to provide researchers with complete guidance and support.",
     },
     {
       id: 6,
-      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
+      icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/Build+Networks.svg",
       title: "Collaborative Research Partnerships",
       description: "We partner with researchers across various industries to work on a joint project and produce impactful research results.",
     },

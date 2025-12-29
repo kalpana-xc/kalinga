@@ -237,7 +237,7 @@ export default function VisionMission({
           : "order-1 lg:order-1";
         const missionCol = showImg
           ? "order-2 lg:order-3 lg:col-span-5"
-          : "order-2 lg:order-2 pb-5";
+          : "order-2 lg:order-2";
 
         // Helper function to render text with 4-line Read More
         const renderText = (text) => {
@@ -254,7 +254,7 @@ export default function VisionMission({
                 <div className={`${visionCol} flex`}>
                   {/* Filter Wrapper for Drop Shadow */}
                   <div 
-                    className="relative group w-full max-w-[900px] h-full transition-transform duration-500" 
+                    className="relative group w-full max-w-[900px] h-full transition-transform duration-500 pb-5" 
                     style={{ filter: 'drop-shadow(0 25px 25px rgba(0,0,0,0.08))' }}
                   >
                     {/* The Clipped Card - Inverted */}
@@ -301,7 +301,7 @@ export default function VisionMission({
                 <div className={`${missionCol} flex`}>
                   {/* Filter Wrapper for Drop Shadow */}
                   <div 
-                    className="relative group w-full max-w-[900px] h-full transition-transform duration-500" 
+                    className="relative group w-full max-w-[900px] h-full transition-transform duration-500 pb-5" 
                     style={{ filter: 'drop-shadow(0 25px 25px rgba(0,0,0,0.08))' }}
                   >
                     {/* The Clipped Card */}
