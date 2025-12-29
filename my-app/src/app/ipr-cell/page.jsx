@@ -31,7 +31,7 @@ const MentorIntroProps = [
     subtitle: "Dr R Udaya Kumar",
     department: "Dean/HoD - IPR Cell",
     imageSrc:
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png",
     imageAlt: "Dean - IPR Cell",
     quote:
       "We understand that creativity and innovation are part of academic excellence and national progress. KU believes that your powerful ideas need to be recognised and protected. Our IPR cell works towards protecting the creations of students, researchers, and faculty members. Whether you’re working on a research paper, app design, or other research-related work, we’re here to protect your work, file patents, trademarks, copyrights, or any other IP. We want every research scholar to feel confident about their rights and valuable work. Through workshops and seminars, we encourage legal empowerment, encouraging all innovators to discover new horizons in their field of study.",
@@ -97,7 +97,6 @@ export default function IPRCellPage() {
         readmore={false}
       />
 
-      {/* ✅ Reduce the big gap below ImageContent */}
       <div className="-mt-16 md:-mt-20">
         <MentorIntro items={MentorIntroProps} />
       </div>

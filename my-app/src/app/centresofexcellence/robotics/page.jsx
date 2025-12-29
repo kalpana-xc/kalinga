@@ -3,8 +3,8 @@
 import { useLayoutEffect } from "react";
 import ImageContent from "@/app/components/ccrc/imagecontent";
 import CareerPath from "@/app/components/course/career_path";
-import StudentActivities from "@/app/components/department/student_activities";
 import AdmissionCareer from "@/app/components/general/admission_cta";
+import Gallery from "@/app/components/general/gallery";
 
 const breadcrumbData = {
   heroImage:
@@ -30,37 +30,43 @@ const learnCards = [
     id: 1,
     title: "",
     description: "Programming languages used in robotics & automation tasks",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-1.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-1.svg",
   },
   {
     id: 2,
     title: "",
     description: "Robotics mechanisms & control systems",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-2.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-2.svg",
   },
   {
     id: 3,
     title: "",
     description: "Drone mechanisms & safe flying practices",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-3.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-3.svg",
   },
   {
     id: 4,
     title: "",
     description: "Artificial Intelligence principles used in smart gadgets",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-4.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-4.svg",
   },
   {
     id: 5,
     title: "",
     description: "Project-based learning & experimentation",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-5.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-5.svg",
   },
   {
     id: 6,
     title: "",
     description: "Develop and prototype your own tech-based ideas",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-6.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-6.svg",
   },
 ];
 
@@ -69,30 +75,30 @@ const glimpses = [
     id: 1,
     imageSrc:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-glimpse1.webp",
-    imageAlt: "Robotics & Drones Glimpse",
+    imageAlt: "Robotics & Drones Glimpse - Training Session",
     title: "Training Session Glimpse",
-    buttonText: "Read More",
-    date: "August 25 - 2025",
   },
   {
     id: 2,
     imageSrc:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-glimpse2.webp",
-    imageAlt: "Robotics & Drones Glimpse",
+    imageAlt: "Robotics & Drones Glimpse - Project Demonstration",
     title: "Project Demonstration",
-    buttonText: "Read More",
-    date: "September 10 - 2025",
   },
   {
     id: 3,
     imageSrc:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/robotics/robotics-glimpse3.webp",
-    imageAlt: "Robotics & Drones Glimpse",
+    imageAlt: "Robotics & Drones Glimpse - Drone Practice",
     title: "Drone Practice Glimpse",
-    buttonText: "Read More",
-    date: "October 05 - 2025",
   },
 ];
+
+const galleryImages = glimpses.map((g) => ({
+  id: g.id,
+  image: g.imageSrc,
+  alt: g.imageAlt || g.title || "Gallery image",
+}));
 
 export default function RoboticsCodingDronesTrainingCentrePage() {
   useLayoutEffect(() => {
@@ -104,17 +110,6 @@ export default function RoboticsCodingDronesTrainingCentrePage() {
 
   return (
     <main className="bg-white">
-      <section className="pt-10 pb-6">
-        <div className="container mx-auto px-4">
-          <h1 className="text-2xl md:text-4xl font-semibold text-[var(--title-color)]">
-            Robotics, Coding, &amp; Drones Training Centre
-          </h1>
-          <p className="mt-2 text-base md:text-lg text-gray-600">
-            In collaboration with BDS Education
-          </p>
-        </div>
-      </section>
-
       <ImageContent
         title="Robotics, Coding, & Drones Training Centre"
         subtitle="In collaboration with BDS Education"
@@ -126,7 +121,10 @@ export default function RoboticsCodingDronesTrainingCentrePage() {
 
       <CareerPath careers={learnCards} title="What You’ll Learn" description="" />
 
-      {/* <StudentActivities title="Glimpses" subtitle="" activities={glimpses} /> */}
+      <Gallery
+        images={galleryImages}
+        title="Glimpses of Robotics, Coding & Drones Centre Activities"
+      />
 
       <AdmissionCareer />
     </main>

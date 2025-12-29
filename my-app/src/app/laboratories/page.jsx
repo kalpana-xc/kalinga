@@ -8,7 +8,7 @@ import AdmissionCareer from "@/app/components/general/admission_cta";
 
 const breadcrumbData = {
   heroImage:
-    "https://kalinga-university.s3.ap-south-1.amazonaws.com/laboratories/laboratories-heroimage.webp", // (Cover Image - 1)
+    "https://kalinga-university.s3.ap-south-1.amazonaws.com/laboratories/laboratories-heroimage.webp",
   pageTitle: "Laboratories",
   customBreadcrumbs: [
     { label: "Home", href: "/" },
@@ -218,9 +218,6 @@ export default function LaboratoriesPage() {
 
   return (
     <main className="bg-white">
-
-
-      {/* 1) Main Intro */}
       <MainIntro
         title="About Our Cutting-Edge Laboratories"
         description={[aboutP1, aboutP2]}
@@ -231,7 +228,6 @@ export default function LaboratoriesPage() {
         initialVisibleParagraphs={1}
       />
 
-      {/* 2) FAQ dropdown */}
       <FAQ
         title="Introducing Our Labs"
         subtitle=""
@@ -241,10 +237,9 @@ export default function LaboratoriesPage() {
         titleClassName="text-center"
       />
 
-      {/* Glimpses */}
-      <Gallery 
-        title="Glimpses" 
-        images={galleryImages} 
+      <Gallery
+        title="Glimpses"
+        images={galleryImages}
       />
 
       <AdmissionCareer />

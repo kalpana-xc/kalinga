@@ -3,8 +3,8 @@
 import { useLayoutEffect } from "react";
 import ImageContent from "@/app/components/ccrc/imagecontent";
 import CareerPath from "@/app/components/course/career_path";
-import StudentActivities from "@/app/components/department/student_activities";
 import AdmissionCareer from "@/app/components/general/admission_cta";
+import Gallery from "@/app/components/general/gallery";
 
 const breadcrumbData = {
   heroImage:
@@ -13,7 +13,10 @@ const breadcrumbData = {
   customBreadcrumbs: [
     { label: "Home", href: "/" },
     { label: "Centres of Excellence", href: "/centres-of-excellence" },
-    { label: "BRIDGE Courses Training Centre", href: "/centres-of-excellence/bridge" },
+    {
+      label: "BRIDGE Courses Training Centre",
+      href: "/centres-of-excellence/bridge",
+    },
   ],
 };
 
@@ -27,37 +30,43 @@ const learnCards = [
     id: 1,
     title: "",
     description: "Automotive & manufacturing fundamentals",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-1.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-1.svg",
   },
   {
     id: 2,
     title: "",
     description: "Problem identification & troubleshooting",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-2.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-2.svg",
   },
   {
     id: 3,
     title: "",
     description: "Industry-relevant vocational training",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-3.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-3.svg",
   },
   {
     id: 4,
     title: "",
     description: "Hands-on technical training",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-4.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-4.svg",
   },
   {
     id: 5,
     title: "",
     description: "Analytical & problem-solving skills",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-5.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-5.svg",
   },
   {
     id: 6,
     title: "",
     description: "Workplace & communication skills",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-6.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-6.svg",
   },
 ];
 
@@ -68,8 +77,6 @@ const glimpses = [
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-glimpse1.webp",
     imageAlt: "BRIDGE Training Glimpse",
     title: "Training Session Glimpse",
-    buttonText: "Read More",
-    date: "August 25 - 2025",
   },
   {
     id: 2,
@@ -77,8 +84,6 @@ const glimpses = [
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-glimpse2.webp",
     imageAlt: "BRIDGE Training Glimpse",
     title: "Skill Development Activity",
-    buttonText: "Read More",
-    date: "September 10 - 2025",
   },
   {
     id: 3,
@@ -86,10 +91,14 @@ const glimpses = [
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/bosch/bosch-glimpse3.webp",
     imageAlt: "BRIDGE Training Glimpse",
     title: "Practical Lab Glimpse",
-    buttonText: "Read More",
-    date: "October 05 - 2025",
   },
 ];
+
+const galleryImages = glimpses.map((g) => ({
+  id: g.id,
+  image: g.imageSrc,
+  alt: g.imageAlt || g.title || "Gallery image",
+}));
 
 export default function BridgeCentrePage() {
   useLayoutEffect(() => {
@@ -101,17 +110,6 @@ export default function BridgeCentrePage() {
 
   return (
     <main className="bg-white">
-      <section className="pt-10 pb-6">
-        <div className="container mx-auto px-4">
-          <h1 className="text-2xl md:text-4xl font-semibold text-[var(--title-color)]">
-            BRIDGE Courses Training Centre
-          </h1>
-          <p className="mt-2 text-base md:text-lg text-gray-600">
-            In collaboration with BOSCH
-          </p>
-        </div>
-      </section>
-
       <ImageContent
         title="BRIDGE Courses Training Centre"
         subtitle="In collaboration with BOSCH"
@@ -123,7 +121,10 @@ export default function BridgeCentrePage() {
 
       <CareerPath careers={learnCards} title="What You’ll Learn" description="" />
 
-      {/* <StudentActivities title="Glimpses" subtitle="" activities={glimpses} /> */}
+      <Gallery
+        images={galleryImages}
+        title="Glimpses of BRIDGE Courses Training Centre"
+      />
 
       <AdmissionCareer />
     </main>

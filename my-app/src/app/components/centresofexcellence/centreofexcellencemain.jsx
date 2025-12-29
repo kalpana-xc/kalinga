@@ -65,15 +65,10 @@ export default function CenterOfExcellenceMain({
   description = "At Kalinga, we'll not just build your future with only classroom-based studies, but there's something more to it that will make your learning experience fun and exciting. Presenting to you our Centres of Excellence that will introduce you to the future of technologies.",
   nameOnly = false,
   showDescription = true,
-
-  // ✅ pass breadcrumbData from the page
   breadcrumbData = null,
-
-  // ✅ QC: only make the TOP TEXT area wider, not cards
   headerTextMaxWidthClass = "max-w-screen-xl"
 ,
 }) {
-  // ✅ Breadcrumb setter (same pattern as other pages)
   useLayoutEffect(() => {
     if (!breadcrumbData) return;
 
@@ -105,7 +100,6 @@ export default function CenterOfExcellenceMain({
         </div>
       </div>
 
-      {/* Slider Section - keep cards horizontal (do NOT change) */}
       <div className="relative pl-0 md:pl-[50px] overflow-visible">
         <style
           dangerouslySetInnerHTML={{
@@ -230,8 +224,6 @@ export default function CenterOfExcellenceMain({
           ))}
         </Swiper>
       </div>
-
-      {/* Navigation Buttons */}
       <div className="container mx-auto px-2">
         <div className="flex justify-end items-center gap-3">
           <button className="centres-swiper-button-prev w-12 h-12 rounded-lg bg-[var(--button-red)] hover:bg-[#A2A2A2] flex items-center justify-center hover:opacity-90 transition-opacity shadow-md">

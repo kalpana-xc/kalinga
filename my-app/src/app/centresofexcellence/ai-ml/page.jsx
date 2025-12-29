@@ -3,8 +3,8 @@
 import { useLayoutEffect } from "react";
 import ImageContent from "@/app/components/ccrc/imagecontent";
 import CareerPath from "@/app/components/course/career_path";
-import StudentActivities from "@/app/components/department/student_activities";
 import AdmissionCareer from "@/app/components/general/admission_cta";
+import Gallery from "@/app/components/general/gallery";
 
 const breadcrumbData = {
   heroImage:
@@ -68,8 +68,6 @@ const glimpses = [
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/aiml/aiml-glimpse1.webp",
     imageAlt: "AI & ML Glimpse",
     title: "Lab Session Glimpse",
-    buttonText: "Read More",
-    date: "August 25 - 2025",
   },
   {
     id: 2,
@@ -77,8 +75,6 @@ const glimpses = [
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/aiml/aiml-glimpse2.webp",
     imageAlt: "AI & ML Glimpse",
     title: "Project Showcase",
-    buttonText: "Read More",
-    date: "September 10 - 2025",
   },
   {
     id: 3,
@@ -86,10 +82,14 @@ const glimpses = [
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/aiml/aiml-glimpse3.webp",
     imageAlt: "AI & ML Glimpse",
     title: "Expert-led Workshop",
-    buttonText: "Read More",
-    date: "October 05 - 2025",
   },
 ];
+
+const galleryImages = glimpses.map((g) => ({
+  id: g.id,
+  image: g.imageSrc,
+  alt: g.imageAlt || g.title || "Gallery image",
+}));
 
 export default function AIMLCentrePage() {
   useLayoutEffect(() => {
@@ -101,17 +101,6 @@ export default function AIMLCentrePage() {
 
   return (
     <>
-      <section className="pt-10 pb-6">
-        <div className="container mx-auto px-4">
-          <h1 className="text-2xl md:text-4xl font-semibold text-[var(--title-color)]">
-            AI &amp; ML Courses Training Centre
-          </h1>
-          <p className="mt-2 text-base md:text-lg text-gray-600">
-            In collaboration with the IBM Innovation Centre for Education
-          </p>
-        </div>
-      </section>
-
       <ImageContent
         title="AI & ML Courses Training Centre"
         subtitle="In collaboration with the IBM Innovation Centre for Education"
@@ -123,7 +112,7 @@ export default function AIMLCentrePage() {
 
       <CareerPath careers={learnCards} title="What You’ll Learn" description="" />
 
-      {/* <StudentActivities title="Glimpses" subtitle="" activities={glimpses} /> */}
+      <Gallery images={galleryImages} title="Glimpses of AI & ML Centre Activities" />
 
       <AdmissionCareer />
     </>

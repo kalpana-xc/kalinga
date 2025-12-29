@@ -133,17 +133,6 @@ export default function ConferencesAndEventsPage() {
 
   return (
     <>
-      {/* <section className="pt-10 pb-6">
-        <div className="container mx-auto px-4">
-          <h1 className="text-2xl md:text-4xl font-semibold text-[var(--title-color)]">
-            Conferences &amp; Events
-          </h1>
-          <p className="mt-2 text-base md:text-lg text-gray-600">
-            Learn More than Just a Degree
-          </p>
-        </div>
-      </section> */}
-
       <section className="pt-10 pb-6">
         <ImageListItem
           items={whyAttendItems}

@@ -57,19 +57,17 @@ const benefitsItems = [
   { id: 8, text: "Get more preference in job interviews" },
 ];
 
-// ✅ Your 8 icons (mapped to 8 benefits)
 const benefitIconMap = {
   1: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nss-icon-1.svg",
   2: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nss-icon-2.svg",
   3: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nss-icon-3.svg",
-  4: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nss-icon-4.svg",
+  4: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nss-icon-new.svg",
   5: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nss-icon-5.svg",
   6: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nss-icon-6.svg",
   7: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nss-icon-7.svg",
   8: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nss-icon-8.svg",
 };
 
-// ✅ Box items WITH icons (ImageListItem expects item.icon as JSX)
 const benefitsBoxItems = benefitsItems.map((b) => ({
   id: b.id,
   title: b.text,
@@ -107,7 +105,6 @@ export default function NSSPage() {
 
   return (
     <>
-      {/* About NSS */}
       <MainIntro
         title="About NSS At KU"
         description={[aboutP1, aboutP2]}
@@ -118,33 +115,27 @@ export default function NSSPage() {
         initialVisibleParagraphs={1}
       />
 
-      {/* Objectives */}
       <ImageListItem
         title="Objectives"
         items={objectiveItems}
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nss-objectives.webp"
       />
 
-      {/* Vision & Mission */}
       <VisionMission data={visionMissionData} />
 
-      {/* Benefits (✅ now with your 8 custom icons) */}
       <div className="nss-benefits-equal-height">
         <ImageListItem
           title="Benefits Of Joining Our NSS Team"
-          imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nss-benefits.webp"
+          imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nss-benefits-new.webp"
           boxItems={benefitsBoxItems}
         />
       </div>
 
 
-      {/* Learning Outcomes */}
       <WeStandOut title="Learning Outcomes" cards={learningOutcomeCards} />
 
-      {/* CTA */}
       <AdmissionCareer />
       <style jsx global>{`
-  /* NSS Benefits – force equal height for image & content */
   .nss-benefits-equal-height .grid {
     align-items: stretch !important;
   }

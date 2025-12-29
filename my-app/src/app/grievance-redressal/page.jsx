@@ -17,7 +17,6 @@ const breadcrumbData = {
   ],
 };
 
-// ====== CONTENT PLACEHOLDERS (you’ll replace with doc content later) ======
 const aboutP1 =
   "The Grievance Redressal Cell is established at KU as per the UGC guidelines to record the complaints of students and staff members regarding academic, administrative, discrimination, harassment, examination, finance, facilities, and infrastructure-related issues.";
 
@@ -35,7 +34,6 @@ const functionsList = [
   { id: 8, text: "To maintain the confidentiality of the complaints, if needed" },
 ];
 
-// Committee table (from your screenshot)
 const committeeMembers = [
   { sno: 1, name: "Dr. Rahul Mishra", position: "Dean, Academic Affairs – Chairperson of the Committee" },
   { sno: 2, name: "Dr. Sandeep Gandhi", position: "Registrar" },
@@ -68,20 +66,19 @@ function GrievanceFormCard() {
   const onChange = (key) => (e) => setForm((p) => ({ ...p, [key]: e.target.value }));
 
   const onSubmit = () => {
-    // You can wire API later. For now, just console.
     console.log("Grievance Submitted:", form);
   };
 
   return (
     <section className="py-14">
       <div className="container mx-auto px-4">
-        {/* Red card like your screenshot */}
+
         <div className="bg-[var(--button-red)] rounded-2xl px-6 sm:px-12 py-14">
           <h2 className="text-white text-center text-3xl sm:text-[40px] font-light">
             Kalinga University Grievance Cell
           </h2>
 
-          {/* form grid */}
+
           <div className="mt-12 max-w-4xl mx-auto grid sm:grid-cols-2 gap-x-14 gap-y-10">
             <div>
               <label className="text-white text-sm sm:text-base">Student Name</label>
@@ -143,7 +140,6 @@ function GrievanceFormCard() {
               />
             </div>
 
-            {/* grievance full width */}
             <div className="sm:col-span-2">
               <label className="text-white text-sm sm:text-base">Grievance</label>
               <input
@@ -155,7 +151,7 @@ function GrievanceFormCard() {
             </div>
           </div>
 
-          {/* centered arrow submit */}
+
           <div className="flex justify-center mt-12">
             <GlobalArrowButton variant="white" onClick={onSubmit}>
               Submit
@@ -175,7 +171,6 @@ export default function GrievanceRedressalPage() {
     };
   }, []);
 
-  // DataTable config
   const columns = [
     { key: "sno", label: "S. No.", width: "w-24" },
     { key: "name", label: "Name Of Member", width: "flex-1" },
@@ -190,9 +185,6 @@ export default function GrievanceRedressalPage() {
 
   return (
     <main className="bg-white">
-     
-
-      {/* Main Intro (About) */}
       <MainIntro
         title="Grievance Redressal Cell"
         description={[aboutP1, aboutP2]}
@@ -202,7 +194,6 @@ export default function GrievanceRedressalPage() {
         initialVisibleParagraphs={1}
       />
 
-      {/* Functions (List layout with image) */}
       <ImageListItem
         title="Functions"
         subtitle=""
@@ -210,7 +201,7 @@ export default function GrievanceRedressalPage() {
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/grievance/grievance-functions.webp"
       />
 
-    <section className="py-12">
+      <section className="py-12">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-semibold text-[var(--title-color)]">
             Grievance Redressal Committee
@@ -221,12 +212,7 @@ export default function GrievanceRedressalPage() {
           </div>
         </div>
       </section>
-      {/* Form */}
       <GrievanceFormCard />
-
-      {/* Committee */}
-      
-
       <AdmissionCareer />
     </main>
   );

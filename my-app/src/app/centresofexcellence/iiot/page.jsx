@@ -3,8 +3,8 @@
 import { useLayoutEffect } from "react";
 import ImageContent from "@/app/components/ccrc/imagecontent";
 import CareerPath from "@/app/components/course/career_path";
-import StudentActivities from "@/app/components/department/student_activities";
 import AdmissionCareer from "@/app/components/general/admission_cta";
+import Gallery from "@/app/components/general/gallery";
 
 const breadcrumbData = {
   heroImage:
@@ -13,7 +13,10 @@ const breadcrumbData = {
   customBreadcrumbs: [
     { label: "Home", href: "/" },
     { label: "Centres of Excellence", href: "/centres-of-excellence" },
-    { label: "IIoT Training Centre", href: "/centres-of-excellence/iiot-training-centre" },
+    {
+      label: "IIoT Training Centre",
+      href: "/centres-of-excellence/iiot-training-centre",
+    },
   ],
 };
 
@@ -27,37 +30,43 @@ const learnCards = [
     id: 1,
     title: "",
     description: "Understanding of industrial IoT architecture",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com//iiot/iiot-1.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/iiot/iiot-1.svg",
   },
   {
     id: 2,
     title: "",
     description: "Working of industrial sensors & devices",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com//iiot/iiot-2.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/iiot/iiot-2.svg",
   },
   {
     id: 3,
     title: "",
     description: "Real-time data monitoring & analysis",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com//iiot/iiot-3.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/iiot/iiot-3.svg",
   },
   {
     id: 4,
     title: "",
     description: "Cloud connectivity & data integration",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com//iiot/iiot-4.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/iiot/iiot-4.svg",
   },
   {
     id: 5,
     title: "",
     description: "IIoT communication protocols",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com//iiot/iiot-5.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/iiot/iiot-5.svg",
   },
   {
     id: 6,
     title: "",
     description: "Dashboard & visualization tools",
-    imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/iiot/iiot-6.svg",
+    imageUrl:
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/iiot/iiot-6.svg",
   },
 ];
 
@@ -66,30 +75,30 @@ const glimpses = [
     id: 1,
     imageSrc:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/iiot/iiot-glimpse1.webp",
-    imageAlt: "IIoT Glimpse",
+    imageAlt: "IIoT Training Session",
     title: "Training Session Glimpse",
-    buttonText: "Read More",
-    date: "August 25 - 2025",
   },
   {
     id: 2,
     imageSrc:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/iiot/iiot-glimpse2.webp",
-    imageAlt: "IIoT Glimpse",
+    imageAlt: "IIoT Live Dashboard",
     title: "Live Dashboard Demo",
-    buttonText: "Read More",
-    date: "September 10 - 2025",
   },
   {
     id: 3,
     imageSrc:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/iiot/iiot-glimpse3.webp",
-    imageAlt: "IIoT Glimpse",
+    imageAlt: "IIoT Industry Interaction",
     title: "Industry Expert Interaction",
-    buttonText: "Read More",
-    date: "October 05 - 2025",
   },
 ];
+
+const galleryImages = glimpses.map((g) => ({
+  id: g.id,
+  image: g.imageSrc,
+  alt: g.imageAlt || g.title || "Gallery image",
+}));
 
 export default function IIoTTrainingCentrePage() {
   useLayoutEffect(() => {
@@ -101,17 +110,6 @@ export default function IIoTTrainingCentrePage() {
 
   return (
     <main className="bg-white">
-      <section className="pt-10 pb-6">
-        <div className="container mx-auto px-4">
-          <h1 className="text-2xl md:text-4xl font-semibold text-[var(--title-color)]">
-            IIoT Training Centre
-          </h1>
-          <p className="mt-2 text-base md:text-lg text-gray-600">
-            In collaboration with Technoviz Automation
-          </p>
-        </div>
-      </section>
-
       <ImageContent
         title="IIoT Training Centre"
         subtitle="In collaboration with Technoviz Automation"
@@ -123,7 +121,10 @@ export default function IIoTTrainingCentrePage() {
 
       <CareerPath careers={learnCards} title="What You’ll Learn" description="" />
 
-      {/* <StudentActivities title="Glimpses" subtitle="" activities={glimpses} /> */}
+      <Gallery
+        images={galleryImages}
+        title="Glimpses of IIoT Training Centre Activities"
+      />
 
       <AdmissionCareer />
     </main>
