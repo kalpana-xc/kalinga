@@ -4,7 +4,7 @@ export default function ScholarshipCard({ title, description, icon }) {
   return (
     <div className="bg-[var(--lite-sand)] rounded-xl p-5 pt-14 h-full min-h-[280px] flex flex-col relative overflow-visible">
       {/* Icon - Positioned outside top */}
-      <div className="absolute -top-12 left-25 transform -translate-x-1/2 z-20">
+      <div className="absolute -top-15 left-25 transform -translate-x-1/2 z-20">
         {icon || (
           <Image
             src="https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/book-logo.png"

@@ -125,6 +125,24 @@ export default function AdmissionSteps({
         .admission-steps-swiper .flip-face.back {
           transform: rotateY(180deg);
         }
+        .admission-steps-swiper .flip-face.back .step-card-inner {
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
+        .admission-steps-swiper .step-card-inner::-webkit-scrollbar {
+          width: 6px;
+        }
+        .admission-steps-swiper .step-card-inner::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+        }
+        .admission-steps-swiper .step-card-inner::-webkit-scrollbar-thumb {
+          background: rgba(0, 0, 0, 0.3);
+          border-radius: 10px;
+        }
+        .admission-steps-swiper .step-card-inner::-webkit-scrollbar-thumb:hover {
+          background: rgba(0, 0, 0, 0.5);
+        }
       `}} />
       <div className="container mx-auto px-2">
         {/* Header Section */}
@@ -192,6 +210,7 @@ export default function AdmissionSteps({
               setTimeout(() => bindNavigation(swiper), 0);
             }}
             className="admission-steps-swiper !pb-8 !px-3 md:!px-5 [&_.swiper-wrapper]:!flex [&_.swiper-wrapper]:!items-stretch [&_.swiper-slide]:!h-auto [&_.swiper-slide]:!w-auto"
+            autoHeight={true}
           >
             {steps.map((step, index) => (
               <SwiperSlide key={step.id} className="!h-auto !w-auto">
@@ -202,7 +221,7 @@ export default function AdmissionSteps({
                   )}
                   
                   {/* Step Card */}
-                  <div className={`card-wrapper w-[320px] md:w-[360px] h-[180px] md:h-[180px] flex flex-col ${showReadMore ? "hoverable" : ""}`}>
+                  <div className={`card-wrapper w-[320px] md:w-[360px] min-h-[180px] md:min-h-[200px] max-h-[400px] flex flex-col ${showReadMore ? "hoverable" : ""}`}>
                     <div className="flip-inner h-full">
                       {/* Front Face */}
                       <div className="flip-face front bg-white rounded-xl p-1 h-full flex flex-col">
@@ -249,14 +268,14 @@ export default function AdmissionSteps({
                               )}
 
                               {/* Title and Description */}
-                              <div className="flex-1">
+                              <div className="flex-1 min-w-0">
                                 {/* Title */}
-                                <h4 className="step-title text-lg md:text-xl mb-1 font-plus-jakarta-sans  ">
+                                <h4 className="step-title text-lg md:text-xl mb-1 font-plus-jakarta-sans">
                                   {step.title}
                                 </h4>
 
                                 {/* Description */}
-                                <p className="step-description text-sm md:text-base">
+                                <p className="step-description text-sm md:text-base break-words overflow-wrap-anywhere">
                                   {step.description}
                                 </p>
                               </div>
@@ -288,15 +307,15 @@ export default function AdmissionSteps({
 
                       {/* Back Face */}
                       <div className="flip-face back bg-white rounded-xl p-1 h-full flex flex-col">
-                        <div className="step-card-inner h-full flex flex-col rounded-xl relative overflow-hidden bg-[var(--lite-sand)] p-4">
+                        <div className="step-card-inner h-full flex flex-col rounded-xl relative bg-[var(--lite-sand)] p-4">
                           {/* Background Number */}
-                          <div className="step-number absolute top-4 right-4 text-7xl md:text-8xl font-bold leading-none font-stix text-gray-400">
+                          <div className="step-number absolute top-4 right-4 text-7xl md:text-8xl font-bold leading-none font-stix text-gray-400 pointer-events-none z-0">
                             {step.stepNumber}
                           </div>
-                          <div className="relative z-10 flex flex-col h-full justify-center items-center gap-3">
-                            <p className="text-sm md:text-base text-center text-[var(--text-gray-card)]">
+                          <div className={`relative z-10 flex flex-col h-full ${step.id === 5 ? 'items-start justify-center' : 'items-center justify-center'} gap-3 py-2 min-h-0`}>
+                            <div className={`${step.id === 5 ? 'text-xs md:text-sm text-left' : 'text-sm md:text-base text-center'} text-[var(--text-gray-card)] break-words overflow-wrap-anywhere leading-relaxed whitespace-pre-line w-full`}>
                               {step.backDescription ?? step.description}
-                            </p>
+                            </div>
                           </div>
                         </div>
                       </div>

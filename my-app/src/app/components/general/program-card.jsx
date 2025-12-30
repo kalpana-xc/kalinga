@@ -161,7 +161,7 @@ export default function ProgramCard({
           </a>
 
           {/* Apply Now Button - Dark Red with white arrow in white square */}
-          <a href={href}>
+          <a href="https://admissions.kalingauniversity.ac.in/" target="_blank" rel="noopener noreferrer">
           <GlobalArrowButton
             className="!bg-[var(--button-red)] !text-[var(--background)] whitespace-nowrap !text-xs md:!text-sm lg:!text-base !h-[38px] md:!h-[40px] !rounded-lg !px-1"
             arrowClassName="!bg-[var(--background)] !px-1 !text-white"

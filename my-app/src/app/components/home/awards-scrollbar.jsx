@@ -39,6 +39,13 @@ const defaultAwards = [
     subtitle: "Inter Departmental Lead Agency",
     active: true,
   },
+  {
+    id: 5,
+    year: "2024",
+    title: "Appreciation Award",
+    subtitle: "IPGA Chhattisgarh State Branch, Raipur",
+    active: true,
+  },
   // {
   //   id: 5,
   //   year: "2023-24",

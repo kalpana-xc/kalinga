@@ -34,41 +34,57 @@ export default function Admissions() {
         id: 1,
         icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-1.svg",
         stepNumber: "01",
-        title: "Step 1",
-        description: "Visit Website",
-        backDescription: "Navigate to our official website and explore the admission section to understand the process and requirements.",
+        title: "Step Ⅰ",
+        description: "Visit https://admissions.kalingauniversity.ac.in/",
+        backDescription: "Visit https://admissions.kalingauniversity.ac.in/ to begin your admission process.",
       },
       {
         id: 2,
         icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-2.svg",
         stepNumber: "02",
-        title: "Step 2",
-        description: "Register for the entrance exam",
-        backDescription: "Create your account and complete the registration form for the entrance examination. Ensure all personal details are accurate.",
+        title: "Step Ⅱ",
+        description: "Register for the entrance exam (KALSEE/KAL-MAT)",
+        backDescription: "Register for the entrance exam (KALSEE/KAL-MAT) by completing the registration form with accurate personal details.",
       },
       {
         id: 3,
         icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-3.svg",
         stepNumber: "03",
-        title: "Step 3",
+        title: "Step Ⅲ",
         description: "Take the computer-based exam and get shortlisted",
-        backDescription: "Appear for the computer-based entrance exam on the scheduled date. Results will be announced, and shortlisted candidates will be notified.",
+        backDescription: "Take the computer-based exam on the scheduled date. Results will be announced, and shortlisted candidates will be notified.",
       },
       {
         id: 4,
         icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-4.svg",
         stepNumber: "04",
-        title: "Step 4",
-        description: "Offer letter",
-        backDescription: "Receive your offer letter based on your performance. Review the terms and conditions carefully before accepting.",
+        title: "Step Ⅳ",
+        description: "Fill out the online admission form after selection",
+        backDescription: "Fill out the online admission form after selection with all required information.",
       },
       {
         id: 5,
         icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-5.svg",
         stepNumber: "05",
-        title: "Step 5",
-        description: "Admission letter",
-        backDescription: "Complete the admission formalities, submit required documents, and receive your official admission letter to begin your journey at Kalinga University.",
+        title: "Step Ⅴ",
+        description: "Attach self-attested copies with the admission form",
+        backDescription: "Attach the following self-attested copies with the admission form:\n• Xerox copies of mark sheets (Class X, XII, UG/PG depending on your course)\n• Original Copies of TC, CC, Migration Certificate, and Gap Certificate (if any)\n• Proof of employment or self-employment (if working)",
+      },
+      {
+        id: 6,
+        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-3.svg",
+        stepNumber: "06",
+        title: "Step Ⅵ",
+        description: "Pay your program fee within 10 days",
+        backDescription: "Pay your program fee within 10 days after receiving the offer letter. Online/Offline payment options are available.",
+      },
+      {
+        id: 7,
+        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/step-4.svg",
+        stepNumber: "07",
+        title: "Step Ⅶ",
+        description: "Welcome to Kalinga University!",
+        backDescription: "Welcome to Kalinga University! Begin your journey with us.",
       },
     ],
     subtitle: "Admission Procedure",
@@ -102,7 +118,7 @@ export default function Admissions() {
   const admissionOrganogramContent = {
     title: "Proposed Fee Structure 2025-26 (For Indian Students)",
     description: [
-      "Kalinga University follows a well-structured governance model to ensure smooth administration and institutional integrity. It begins with the Chancellor, followed by the Vice-Chancellor and Director General. Their roles and responsibilities are well-defined, enabling proper decision-making across all the departments of the university. ",
+      "Kalinga University offers a transparent fee structure for 2025-26, including tuition, examination, prospectus, caution money, and uniform fees. Flexible payment options and detailed breakdowns for all programs are available.",
     ],
     buttonLabel: "Learn More",
     cardBackgroundColor: "bg-[var(--dark-blue)]",
@@ -210,33 +226,43 @@ export default function Admissions() {
     items: [
       {
         id: 1,
-        question: "What is the admission process at Kalinga University?",
-        answer: "The admission process involves online registration, appearing for the entrance examination, document verification, and final admission confirmation. Detailed steps are available on our website and admission portal.",
+        question: "Am I eligible to take admission in Kalinga University?",
+        answer: "It depends on the eligibility criteria of our academic programs. You need to meet the minimum eligibility criteria and clear the entrance exam of our University.",
       },
       {
         id: 2,
-        question: "What are the eligibility criteria for admission?",
-        answer: "Eligibility criteria vary by program. Generally, candidates need to have completed their 10+2 or equivalent examination with minimum required marks. Specific requirements for each program are listed in our admission brochure.",
+        question: "What is the admission procedure of Kalinga University?",
+        answer: "Getting admission to our University is simple, transparent, and completely online. First, you need to register for the entrance exam, appear for the test, and complete the admission formalities after selection. Visit the admission procedure for more details.",
       },
       {
         id: 3,
-        question: "What documents are required for admission?",
-        answer: "Required documents typically include mark sheets, certificates, identity proof, passport-size photographs, and category certificates (if applicable). A complete list is provided in the admission form.",
+        question: "Do I need to appear for the entrance exam before taking admission?",
+        answer: "Yes, if you want to appear for BBA or MBA, then you need to take KAL-MAT - Kalinga Management Aptitude Test. If you want to pursue any other program apart from BBA or MBA, then you need to take KALSEE - Kalinga Scholastic Entrance Examination.",
       },
       {
         id: 4,
-        question: "How can I apply for scholarships?",
-        answer: "Scholarship applications can be submitted along with your admission application. We offer merit-based, need-based, and special category scholarships. Details and application forms are available on our website.",
+        question: "I am from another state. Can I still apply to Kalinga University?",
+        answer: "Yes, it doesn't matter from which state or country you are; you'll be eligible to enrol in our academic programs once you meet the eligibility criteria of the program of your choice.",
       },
       {
         id: 5,
-        question: "What is the fee structure and payment options?",
-        answer: "The fee structure varies by program and includes tuition fees, examination fees, and other charges. We offer flexible payment options including installments and various payment methods. Detailed fee structure is available in the admission brochure.",
+        question: "Will I get the hostel facility or accommodation?",
+        answer: "Yes, we have separate boys' and girls' hostels at our campus, which offer all the basic amenities, a separate mess facility, and ensure the safety and privacy of all students with CCTV cameras and security.",
       },
       {
         id: 6,
-        question: "When does the admission process start?",
-        answer: "Admission processes typically begin in the months leading up to the academic session. Important dates including registration deadlines, exam dates, and admission confirmation dates are published on our website and communicated through official channels.",
+        question: "Am I eligible for a scholarship?",
+        answer: "We offer a wide range of scholarships to our students, but our admission counsellors will check your eligibility, and if you are found eligible, you can claim a scholarship on your tuition fee.",
+      },
+      {
+        id: 7,
+        question: "How can I pay my tuition fees?",
+        answer: "Students can pay their fees via cash, UPI, Bank Transfer, or by cheque.",
+      },
+      {
+        id: 8,
+        question: "Are the programs of your University approved and recognised?",
+        answer: "Yes, all our academic programs are approved and recognised by the relevant statutory and regulatory bodies.",
       },
     ],
   };
@@ -279,7 +305,7 @@ export default function Admissions() {
           ctaLabel={admissionStepsContent.ctaLabel}
           showReadMore={admissionStepsContent.showReadMore}
           showIcon={admissionStepsContent.showIcon}
-          ctaHref="/admissions"
+          ctaHref="https://admissions.kalingauniversity.ac.in/"
         />
       </div>
       <OrganogramOfKalinga

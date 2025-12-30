@@ -347,9 +347,7 @@ export default function Research() {
       <MainIntro 
         title="Placement Overview" 
         description={[
-          "The Career and Corporate Centre of Kalinga University is a hub for career guidance and training, and corporate partnerships. With modern infrastructure and resources, the centre meets industry standards and has even received appreciation from top organisations. The Kalinga University campus placements support cell introduces you to the professional world. We don't just prepare you for the corporate world, but give you a 360-degree training so that you can turn out to be a confident individual who is ready to tackle any challenge in life.",
-          "With our personalised training programs, expert-led sessions, and interview preparation, you will be well-prepared to clear any job interview according to your skill set. Our expert mentors go beyond and guide you with skills that companies are looking for in the current job market, and even update the training modules accordingly. Apart from this, we also keep the database of job openings in various companies up-to-date, so that our students don't miss out on any opportunities. With our strong industry connections, we conduct campus drives each year, ensuring that our graduates are placed in leading companies with competitive salary packages."
-        ]}
+          "Your journey from the classroom to the corporate world begins at Kalinga University. KU offers personalised training and conducts campus drives each year so that you can begin your professional journey right after you graduate. We just don’t teach you the curriculum, but we train, guide, and connect you with industry leaders. We help students build confidence to clear any interview by securing top positions and packages in leading companies."        ]}
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-intro.jpg" 
         imageAlt="Kalinga University Research"
         initialVisibleParagraphs={1}
