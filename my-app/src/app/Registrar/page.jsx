@@ -27,6 +27,7 @@ export default function Leadership() {
         imageAlt="Dr. Sandeep Gandhi"
         name="Dr. Sandeep Gandhi"
         title="Registrar"
+        messageHeading="Registrar's Message"
         quote="Education is not merely about degrees, but about shaping character, leadership, and purpose for a better tomorrow."
         message={[
   "With great honour and pleasure, I welcome you to Kalinga University.",

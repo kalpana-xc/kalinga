@@ -37,7 +37,7 @@ const FAQ = ({
   title = "Frequently Asked Questions",
   subtitle = "FAQ",
   backgroundColor = "bg-white",
-  allowMultipleOpen = false,
+  allowMultipleOpen = false, // Always false - only one accordion can be open at a time
   subtitleClassName = "",
   showHeading = true, // Optional prop to enable/disable heading
   titleClassName = "text-center", // Optional prop for title styling
@@ -57,15 +57,30 @@ const FAQ = ({
   // For button variant
   buttons = []
 }) => {
-  const [openItems, setOpenItems] = useState(new Set())
+  // Initialize with first item open for default variant
+  const [openItems, setOpenItems] = useState(() => {
+    if (variant === "default" && items.length > 0) {
+      return new Set([items[0].id !== undefined ? items[0].id : 1])
+    }
+    return new Set()
+  })
   const [faqItems, setFaqItems] = useState(items)
-  // Initialize with all sections collapsed except the first one for button variant
+  // Initialize with all sections collapsed except the first one for button variant and table-display variant
   const [collapsedSections, setCollapsedSections] = useState(() => {
     if (variant === "button" && buttons.length > 0) {
       const initialSet = new Set()
       buttons.forEach((item, index) => {
         if (index > 0) { // Skip first item (index 0) - keep it open
           initialSet.add(`button-section-${item.id || index}`)
+        }
+      })
+      return initialSet
+    }
+    if (variant === "table-display" && tableSections.length > 0) {
+      const initialSet = new Set()
+      tableSections.forEach((section, index) => {
+        if (index > 0) { // Skip first section (index 0) - keep it open
+          initialSet.add(`section-${section.id || index}`)
         }
       })
       return initialSet
@@ -98,10 +113,8 @@ const FAQ = ({
         // If clicking the same item, close it
         newSet.delete(id)
       } else {
-        // If opening a new item, close all others first (unless allowMultipleOpen is true)
-        if (!allowMultipleOpen) {
-          newSet.clear()
-        }
+        // Always close all others first (single open mode)
+        newSet.clear()
         newSet.add(id)
       }
       return newSet
@@ -171,30 +184,28 @@ const FAQ = ({
   }
 
   // Toggle section collapse for table-display and button variants
+  // Always close other sections when opening a new one (single open mode)
   const toggleSection = (id) => {
     setCollapsedSections(prev => {
       const newSet = new Set(prev)
       if (newSet.has(id)) {
         // Section is currently closed, so open it
         newSet.delete(id)
-        // If not allowing multiple open, close all others
-        if (!allowMultipleOpen) {
-          // Get all section IDs based on variant
-          let allSectionIds = []
-          if (variant === "button") {
-            const buttonItems = buttons.length > 0 ? buttons : items
-            allSectionIds = buttonItems.map((item, idx) => `button-section-${item.id || idx}`)
-          } else if (variant === "table-display") {
-            const sections = tableSections.length > 0 ? tableSections : items
-            allSectionIds = sections.map((section, idx) => `section-${section.id || idx}`)
-          }
-          // Close all other sections
-          allSectionIds.forEach(sectionId => {
-            if (sectionId !== id) {
-              newSet.add(sectionId)
-            }
-          })
+        // Always close all other sections (single open mode)
+        let allSectionIds = []
+        if (variant === "button") {
+          const buttonItems = buttons.length > 0 ? buttons : items
+          allSectionIds = buttonItems.map((item, idx) => `button-section-${item.id || idx}`)
+        } else if (variant === "table-display") {
+          const sections = tableSections.length > 0 ? tableSections : items
+          allSectionIds = sections.map((section, idx) => `section-${section.id || idx}`)
         }
+        // Close all other sections
+        allSectionIds.forEach(sectionId => {
+          if (sectionId !== id) {
+            newSet.add(sectionId)
+          }
+        })
       } else {
         // Section is currently open, so close it
         newSet.add(id)
@@ -208,6 +219,193 @@ const FAQ = ({
     ...item,
     id: item.id !== undefined ? item.id : index + 1
   }))
+
+  // Helper function to convert text with phone numbers, emails, and URLs to clickable links
+  const renderTextWithLinks = (text) => {
+    if (!text || typeof text !== 'string') return text
+    
+    // Pattern for phone numbers - more specific to avoid matching years
+    // Must have at least 10 digits total and not be a standalone 4-digit year
+    // Supports formats like +91-9303097012, +91 9303097012, 9303097012
+    const phonePattern = /(\+?\d{1,4}[-.\s]?)?\(?\d{2,4}\)?[-.\s]?\d{3,4}[-.\s]?\d{3,4}[-.\s]?\d{3,4}/g
+    // Pattern for email addresses
+    const emailPattern = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/g
+    // Pattern for URLs (http/https)
+    const urlPattern = /(https?:\/\/[^\s]+)/g
+    
+    let result = text
+    const parts = []
+    let lastIndex = 0
+    
+    // Find all matches (phones, emails, URLs)
+    const matches = []
+    
+    // Find phone numbers - exclude if it's a 4-digit year (like 2013, 2015)
+    let match
+    while ((match = phonePattern.exec(text)) !== null) {
+      const phoneText = match[0].replace(/[-.\s()]/g, '')
+      // Skip if it's just a 4-digit number (likely a year) or less than 10 digits
+      if (phoneText.length >= 10 && phoneText.length !== 4) {
+        matches.push({
+          type: 'phone',
+          text: match[0],
+          index: match.index,
+          length: match[0].length
+        })
+      }
+    }
+    
+    // Find email addresses
+    emailPattern.lastIndex = 0
+    while ((match = emailPattern.exec(text)) !== null) {
+      matches.push({
+        type: 'email',
+        text: match[0],
+        index: match.index,
+        length: match[0].length
+      })
+    }
+    
+    // Find URLs
+    urlPattern.lastIndex = 0
+    while ((match = urlPattern.exec(text)) !== null) {
+      matches.push({
+        type: 'url',
+        text: match[0],
+        index: match.index,
+        length: match[0].length
+      })
+    }
+    
+    // Sort matches by index
+    matches.sort((a, b) => a.index - b.index)
+    
+    // Remove overlapping matches (prioritize URLs > emails > phones)
+    const filteredMatches = []
+    for (let i = 0; i < matches.length; i++) {
+      const current = matches[i]
+      let overlap = false
+      for (let j = 0; j < filteredMatches.length; j++) {
+        const existing = filteredMatches[j]
+        if (
+          (current.index >= existing.index && current.index < existing.index + existing.length) ||
+          (existing.index >= current.index && existing.index < current.index + current.length)
+        ) {
+          overlap = true
+          // Prioritize: URL > Email > Phone
+          if (
+            (current.type === 'url' && existing.type !== 'url') ||
+            (current.type === 'email' && existing.type === 'phone')
+          ) {
+            filteredMatches[j] = current
+          }
+          break
+        }
+      }
+      if (!overlap) {
+        filteredMatches.push(current)
+      }
+    }
+    
+    // Build the result with links
+    filteredMatches.forEach((match) => {
+      if (match.index > lastIndex) {
+        const textBeforeMatch = text.substring(lastIndex, match.index)
+        
+        // Check if URL comes after a colon (pattern: "Text: https://...")
+        if (match.type === 'url' && textBeforeMatch.trim().endsWith(':')) {
+          // Find the start of the label (text before the colon)
+          const colonIndex = textBeforeMatch.lastIndexOf(':')
+          const labelText = textBeforeMatch.substring(0, colonIndex).trim()
+          
+          // Add text before the label if any (shouldn't happen in this case, but just in case)
+          const beforeLabel = text.substring(lastIndex, lastIndex + colonIndex - labelText.length)
+          if (beforeLabel) {
+            parts.push(beforeLabel)
+          }
+          
+          // Make the label clickable, hide the URL
+          parts.push(
+            <a
+              key={`${match.type}-${match.index}`}
+              href={match.text}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              {labelText}
+            </a>
+          )
+          
+          lastIndex = match.index + match.length
+        } else {
+          // Normal handling - show the match text
+          parts.push(textBeforeMatch)
+          
+          let href, linkText
+          if (match.type === 'phone') {
+            const phoneNumber = match.text.replace(/[-.\s()]/g, '')
+            href = `tel:${phoneNumber}`
+            linkText = match.text
+          } else if (match.type === 'email') {
+            href = `mailto:${match.text}`
+            linkText = match.text
+          } else if (match.type === 'url') {
+            href = match.text
+            linkText = match.text
+          }
+          
+          parts.push(
+            <a
+              key={`${match.type}-${match.index}`}
+              href={href}
+              target={match.type === 'url' ? '_blank' : undefined}
+              rel={match.type === 'url' ? 'noopener noreferrer' : undefined}
+              className="text-blue-600 hover:text-blue-800 underline break-all"
+            >
+              {linkText}
+            </a>
+          )
+          
+          lastIndex = match.index + match.length
+        }
+      } else {
+        // Match starts right after previous match
+        let href, linkText
+        if (match.type === 'phone') {
+          const phoneNumber = match.text.replace(/[-.\s()]/g, '')
+          href = `tel:${phoneNumber}`
+          linkText = match.text
+        } else if (match.type === 'email') {
+          href = `mailto:${match.text}`
+          linkText = match.text
+        } else if (match.type === 'url') {
+          href = match.text
+          linkText = match.text
+        }
+        
+        parts.push(
+          <a
+            key={`${match.type}-${match.index}`}
+            href={href}
+            target={match.type === 'url' ? '_blank' : undefined}
+            rel={match.type === 'url' ? 'noopener noreferrer' : undefined}
+            className="text-blue-600 hover:text-blue-800 underline break-all"
+          >
+            {linkText}
+          </a>
+        )
+        
+        lastIndex = match.index + match.length
+      }
+    })
+    
+    if (lastIndex < text.length) {
+      parts.push(text.substring(lastIndex))
+    }
+    
+    return parts.length > 0 ? <>{parts}</> : text
+  }
 
   // Wrapper component that conditionally renders with or without section
   const Wrapper = ({ children, className = "" }) => {
@@ -244,6 +442,24 @@ const FAQ = ({
         id: item.id !== undefined ? item.id : index + 1
       }))
     
+    // Unified state for both regular items and table sections
+    // Use a single state to track which accordion is open
+    const [unifiedOpenId, setUnifiedOpenId] = useState(() => {
+      // Determine which should be open first: table sections come first, then regular items
+      if (tableSectionsList.length > 0) {
+        return `table-${tableSectionsList[0].id || 0}`
+      } else if (regularItems.length > 0) {
+        return `regular-${regularItems[0].id}`
+      }
+      return null
+    })
+    
+    // Unified toggle function for both types - only one can be open at a time
+    const toggleUnified = (id, type) => {
+      const fullId = `${type}-${id}`
+      setUnifiedOpenId(prev => prev === fullId ? null : fullId)
+    }
+    
     return (
       <Wrapper className={`${backgroundColor} ${pyClassName}`}>
         <div className="container mx-auto px-2">
@@ -258,112 +474,106 @@ const FAQ = ({
             </div>
           )}
           
-          {/* Regular FAQ Items (lists, etc.) */}
-          {regularItems.length > 0 && (
-            <div className="w-full max-w-6xl mx-auto space-y-4 mb-8">
-              {regularItems.map((item) => {
-                const isOpen = openItems.has(item.id)
-                return (
-                  <div
-                    key={item.id}
-                    className="border border-gray-200 rounded-lg overflow-hidden shadow-sm"
+          {/* Combined: Table Sections first, then Regular FAQ Items - Single Accordion System */}
+          <div className="w-full max-w-6xl mx-auto space-y-4">
+            {/* Table Sections */}
+            {tableSectionsList.map((section, index) => {
+              const sectionId = section.id || index
+              const fullId = `table-${sectionId}`
+              const isOpen = unifiedOpenId === fullId
+              
+              return (
+                <div key={section.id || index} className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                  <button
+                    onClick={() => toggleUnified(sectionId, 'table')}
+                    className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors"
                   >
-                    <button
-                      onClick={() => toggleItem(item.id)}
-                      className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors"
-                    >
-                      <h3 className="text-left text-lg font-plus-jakarta-sans font-semibold text-gray-800">
-                        {item.question}
-                      </h3>
-                      <svg
-                        className={`w-5 h-5 text-gray-600 transition-transform duration-300 ${
-                          isOpen ? 'rotate-180' : ''
-                        }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
-                      }`}
-                    >
-                      <div className="p-4 sm:p-5 md:p-6 bg-[var(--lite-sand)]">
-                        {Array.isArray(item.answer) ? (
-                          <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm leading-relaxed font-plus-jakarta-sans">
-                            {item.answer.map((listItem, idx) => (
-                              <li key={idx}>{listItem}</li>
-                            ))}
-                          </ul>
-                        ) : (
-                          <p className="text-gray-700 text-sm leading-relaxed font-plus-jakarta-sans">
-                            {item.answer}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          )}
-          
-          {/* Table Sections */}
-          {tableSectionsList.map((section, index) => {
-            const sectionId = `section-${section.id || index}`
-            const isCollapsed = collapsedSections.has(sectionId)
-            
-            return (
-              <div key={section.id || index} className="w-full max-w-6xl mx-auto mb-6 rounded-lg overflow-hidden shadow-md">
-                <button
-                  onClick={() => toggleSection(sectionId)}
-                  className={`w-full flex items-center justify-between p-4 rounded-t-lg transition-colors ${
-                    isCollapsed
-                      ? 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                      : 'bg-[var(--button-red)] text-white hover:bg-[var(--button-red)]/90'
-                  }`}
-                >
-                  <h3 className="text-lg font-plus-jakarta-sans font-semibold">
-                    {section.title}
-                  </h3>
-                  <div className={`rounded-lg p-2 transition-transform duration-300 ${
-                    isCollapsed ? 'bg-white' : 'bg-white'
-                  }`}>
+                    <h3 className="text-left text-lg font-plus-jakarta-sans font-semibold text-gray-800">
+                      {section.title}
+                    </h3>
                     <svg
-                      className={`w-5 h-5 transition-transform duration-300 ${
-                        isCollapsed 
-                          ? 'text-[var(--button-red)] rotate-180' 
-                          : 'text-[var(--button-red)]'
+                      className={`w-5 h-5 text-gray-600 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180' : ''
                       }`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
-                  </div>
-                </button>
-                
-                <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    isCollapsed ? 'max-h-0' : 'max-h-[600px]'
-                  }`}
-                >
-                  <div className="bg-[var(--lite-sand)] p-4 max-h-[600px] overflow-y-auto overflow-x-auto">
-                    <DataTable
-                      columns={section.columns || tableColumns}
-                      data={section.data}
-                      overflowX={true}
-                      className="shadow-none"
-                    />
+                  </button>
+                  
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ${
+                      isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="p-4 sm:p-5 md:p-6 bg-[var(--lite-sand)]">
+                      <div className="overflow-x-auto">
+                        <DataTable
+                          columns={section.columns || tableColumns}
+                          data={section.data}
+                          overflowX={true}
+                          className="shadow-none"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )
-          })}
+              )
+            })}
+            
+            {/* Regular FAQ Items */}
+            {regularItems.map((item) => {
+              const fullId = `regular-${item.id}`
+              const isOpen = unifiedOpenId === fullId
+              
+              return (
+                <div
+                  key={item.id}
+                  className="border border-gray-200 rounded-lg overflow-hidden shadow-sm"
+                >
+                  <button
+                    onClick={() => toggleUnified(item.id, 'regular')}
+                    className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors"
+                  >
+                    <h3 className="text-left text-lg font-plus-jakarta-sans font-semibold text-gray-800">
+                      {item.question}
+                    </h3>
+                    <svg
+                      className={`w-5 h-5 text-gray-600 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180' : ''
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ${
+                      isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="p-4 sm:p-5 md:p-6 bg-[var(--lite-sand)]">
+                      {Array.isArray(item.answer) ? (
+                        <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm leading-relaxed font-plus-jakarta-sans">
+                          {item.answer.map((listItem, idx) => (
+                            <li key={idx}>{renderTextWithLinks(listItem)}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-gray-700 text-sm leading-relaxed font-plus-jakarta-sans">
+                          {renderTextWithLinks(item.answer)}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </Wrapper>
     )
@@ -725,12 +935,12 @@ const FAQ = ({
                     ) : Array.isArray(item.answer) ? (
                       <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm leading-relaxed font-plus-jakarta-sans">
                         {item.answer.map((listItem, idx) => (
-                          <li key={idx}>{listItem}</li>
+                          <li key={idx}>{renderTextWithLinks(listItem)}</li>
                         ))}
                       </ul>
                     ) : (
                       <p className="text-gray-700 text-sm leading-relaxed font-plus-jakarta-sans">
-                        {item.answer}
+                        {renderTextWithLinks(item.answer)}
                       </p>
                     )}
                   </div>

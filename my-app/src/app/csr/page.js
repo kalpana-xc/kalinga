@@ -219,6 +219,26 @@ export default function KIFPage({
                },
             ]
           }
+        },
+        {
+          id: 4,
+          question: "CSR at Kalinga University",
+          answer: [
+            "Corporate Social Responsibility (CSR) at Kalinga University aims to make a positive social and environmental impact beyond academics. Over the years, our students and faculty members have actively participated in various programs that contribute to the welfare of society. It includes healthcare camps, blood donation camps, environmental initiatives, sustainable initiatives, community-based projects, conducting educational camps or providing employment opportunities in nearby villages, maintaining a fair student policy, promoting social equality, and much more. We ensure that our students and staff members become responsible citizens and inspire others.",
+            "Our Initiatives",
+            "The transport fees provided to the students (who avail the facility) are at subsidised rates. The bus route covers distances of up to 70 KM (one way) to facilitate students who live far from the university.",
+            "The university provides scholarships under different categories. Click to know more: https://kalinga-university.s3.ap-south-1.amazonaws.com/csr/SCHOLARSHIP_25-26+(4).pdf",
+            "Absorption of fees or providing appropriate sponsor(s) to those students who are discontinuing or leaving their education midway due to financial difficulties (on a case-by-case basis).",
+            "Taking environmental initiatives from time to time by planting 1000+ plants and trees on and around the campus.",
+            "We have installed Rooftop Solar Power Panels that convert sunlight into electricity, which reduces the usage of traditional power sources. LED lights have been installed throughout the campus, which minimises energy consumption and enhances lighting quality.",
+            "An MoU has been signed with certified vendors, which ensures that waste materials have been carefully disposed of and recycled.",
+            "Every building on our campus is equipped with a rainwater harvesting system that is linked to recharge wells. We have also planted less water-consuming plants on our campus to minimise water usage and to improve biodiversity.",
+            "Kalinga's green campus promotes sustainable practices through vermicomposting, apiculture, organic farming, nursery, greenhouse, and electric vehicles.",
+            "The University's Life Science and Pharmacy Departments undertake various Blood Donation camps that conduct periodic visits to villages in the state for free medical consultations.",
+            "The University's Law Department consists of the Legal Aid Cell that provides free legal consultancy to needy people.",
+            "The University's Fashion Design and Interior Design departments have taken various initiatives to promote Khadi within the state of Chhattisgarh.",
+            "Our various departments conduct free Faculty Development Programs (FDP), Management Development Programs (MDP) and knowledge dissemination programs at various schools, colleges, government departments, corporate and defence institutions.",
+          ],
         }
       ]
 
