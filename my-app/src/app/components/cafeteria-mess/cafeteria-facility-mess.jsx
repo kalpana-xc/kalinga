@@ -38,8 +38,7 @@ export default function CanteenMess() {
     {
       type: "red",
       title: "Canteen and Cafeterias",
-      desc: "Apart from the mess food, you can also explore some other options in our canteen and cafeterias. Check out regular food and fast food items on the menu of our canteen, and if you are looking for fresh juices, snacks, or ice-creams, then our campus has cafeterias that remain open till late hours.",
-      full:
+      desc:
         "Apart from the mess food, you can also explore some other options in our canteen and cafeterias. Check out regular food and fast food items on the menu of our canteen, and if you are looking for fresh juices, snacks, or ice-creams, then our campus has cafeterias that remain open till late hours. Our students love to hang out in cafes with their friends and enjoy delicious snacks at affordable prices. So, if you are taking a study break, these will ensure that you never go hungry.",
     },
   ];
@@ -49,14 +48,10 @@ export default function CanteenMess() {
 
   return (
     <div className="container mx-auto py-16 md:pb-25 px-2 flex flex-col md:gap-20 gap-12 items-stretch">
-
       {/* ✅ TITLE ADDED (ONLY ADDITION) */}
-     <h2 className="flex flex-col items-center text-center">
-
+      <h2 className="flex flex-col items-center text-center">
         Explore KU’s Food Corners
       </h2>
-
-
 
       {sections.map((sec, index) => (
         <div
@@ -77,10 +72,11 @@ export default function CanteenMess() {
                 {imageSets[index].map((_, i) => (
                   <div
                     key={i}
-                    className={`h-2 rounded-full ${i === indexes[index]
+                    className={`h-2 rounded-full ${
+                      i === indexes[index]
                         ? "bg-[var(--dark-orange-red-light)] w-12"
                         : "bg-[var(--light-gray)] w-4"
-                      }`}
+                    }`}
                   />
                 ))}
               </div>
@@ -99,10 +95,11 @@ export default function CanteenMess() {
                 {imageSets[index].map((_, i) => (
                   <div
                     key={i}
-                    className={`h-2 rounded-full ${i === indexes[index]
+                    className={`h-2 rounded-full ${
+                      i === indexes[index]
                         ? "bg-[var(--dark-orange-red-light)] w-12"
                         : "bg-[var(--light-gray)] w-4"
-                      }`}
+                    }`}
                   />
                 ))}
               </div>
@@ -118,6 +115,8 @@ export default function CanteenMess() {
               <p className="text-sm text-[var(--foreground)]/70 leading-relaxed mb-4 md:w-3/4 w-full">
                 {sec.desc}
               </p>
+
+              {/* ✅ KEEP Read More ONLY FOR MESS */}
               <GlobalArrowButton
                 onClick={() => {
                   setActiveIndex(index);
@@ -136,24 +135,13 @@ export default function CanteenMess() {
                 {sec.desc}
               </p>
 
-              <div className="md:pl-[140px] flex flex-wrap">
-                <GlobalArrowButton
-                  className="!bg-white !text-[var(--foreground)]"
-                  variant="transparent"
-                  arrowClassName="bg-[var(--brown)]"
-                  onClick={() => {
-                    setActiveIndex(index);
-                    setPopupOpen(true);
-                  }}
-                >
-                    Read More
-                </GlobalArrowButton>
-              </div>
+              {/* ❌ REMOVED Read More FOR CANTEEN/CAFETERIAS */}
             </div>
           )}
         </div>
       ))}
 
+      {/* ✅ Popup should open only for Mess */}
       {popupOpen && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center px-4">
           <div

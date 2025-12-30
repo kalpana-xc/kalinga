@@ -23,10 +23,11 @@ export default function MiniMarketFacility() {
         facilities={miniMarketFacilities}
       />
 
-      {/* ✅ Scoped override for Facility's description width */}
+      {/* ✅ Make description FULL WIDTH */}
       <style jsx global>{`
-        .mini-market-facility p.text-center.text-gray-600.max-w-3xl {
-          max-width: 80rem; /* same as Tailwind max-w-7xl */
+        .mini-market-facility section p {
+          max-width: 100% !important;
+          width: 100% !important;
         }
       `}</style>
     </div>
