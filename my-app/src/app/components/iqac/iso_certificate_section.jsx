@@ -21,7 +21,7 @@ const certificates = [
   },
 ];
 
-export default function ISOCertificateSection() {
+export default function ISOCertificateSection({ description = "" }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -34,9 +34,11 @@ export default function ISOCertificateSection() {
             title="ISO Certificate"
             titleClassName="text-3xl md:text-4xl lg:text-5xl mb-6"
           />
-          <p className="max-w-4xl mx-auto leading-relaxed">
-            The CIF at Kalinga University is well-equipped with advanced research facilities that produce accurate measurements in the biological, physical, and chemical sciences.
-          </p>
+          {description && (
+            <p className="max-w-4xl mx-auto leading-relaxed">
+              {description}
+            </p>
+          )}
         </div>
 
         {/* Certificates - Swiper for Mobile, Grid for Desktop */}

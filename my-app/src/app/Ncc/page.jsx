@@ -1,10 +1,10 @@
 "use client";
 import React,{useEffect}from 'react'
-import NccIntro from '../components/ncc/ncc-intro'
-import NccBenefits from '../components/ncc/ncc-benefits'
-import NccHeadMessage from '../components/ncc/ncc-coordinator-message'
-import NccVisionMission from '../components/ncc/ncc-visionmission'
-import NccEvents from '../components/ncc/ncc-events'
+import NccIntro from '../components/Ncc/ncc-intro'
+import NccBenefits from '../components/Ncc/ncc-benefits'
+import NccHeadMessage from '../components/Ncc/ncc-coordinator-message'
+import NccVisionMission from '../components/Ncc/ncc-visionmission'
+import NccEvents from '../components/Ncc/ncc-events'
 import AdmissionCareer from '../components/general/admission_cta';
 const breadcrumbData = {
         heroImage:

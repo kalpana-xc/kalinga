@@ -45,6 +45,7 @@ export default function     Testimonials({ testimonials = [], className = "", su
     const [isMobile, setIsMobile] = useState(false);
     const [sliderHeight, setSliderHeight] = useState(500);
     const [expandedQuotes, setExpandedQuotes] = useState({});
+    const [needsReadMore, setNeedsReadMore] = useState({});
     const [isHovered, setIsHovered] = useState(false);
     const cardRefs = useRef({});
     const quoteRefs = useRef({});
@@ -95,6 +96,60 @@ export default function     Testimonials({ testimonials = [], className = "", su
     useEffect(() => {
         setExpandedQuotes({});
     }, [activeIndex]);
+
+    // Check if quotes need "Read More" by measuring actual text height
+    useEffect(() => {
+        const checkQuotes = () => {
+            const newNeedsReadMore = {};
+            Object.keys(quoteRefs.current).forEach((key) => {
+                const element = quoteRefs.current[key];
+                if (element) {
+                    // Store original state
+                    const originalClasses = element.className;
+                    const originalStyle = element.style.cssText;
+                    const originalDisplay = element.style.display;
+                    
+                    // Get computed styles before making changes
+                    const computedStyle = window.getComputedStyle(element);
+                    const lineHeight = parseFloat(computedStyle.lineHeight) || parseFloat(computedStyle.fontSize) * 1.5;
+                    const width = element.offsetWidth || element.clientWidth;
+                    
+                    // Create a temporary hidden clone to measure full height
+                    const clone = element.cloneNode(true);
+                    clone.style.position = 'absolute';
+                    clone.style.visibility = 'hidden';
+                    clone.style.height = 'auto';
+                    clone.style.width = width + 'px';
+                    clone.style.overflow = 'visible';
+                    clone.className = originalClasses.replace('line-clamp-4', '').trim();
+                    
+                    // Temporarily append to parent to measure
+                    if (element.parentElement) {
+                        element.parentElement.appendChild(clone);
+                        const fullHeight = clone.scrollHeight;
+                        element.parentElement.removeChild(clone);
+                        
+                        // Calculate expected height for 4 lines
+                        const expectedHeight = lineHeight * 4;
+                        
+                        // If full height exceeds expected 4-line height, show "Read More"
+                        const itemId = key.replace('quote-', '');
+                        newNeedsReadMore[itemId] = fullHeight > expectedHeight + 5; // 5px tolerance for spacing
+                    }
+                }
+            });
+            setNeedsReadMore(newNeedsReadMore);
+        };
+
+        // Check after a delay to ensure DOM is rendered and styles are applied
+        const timer = setTimeout(checkQuotes, 200);
+        window.addEventListener('resize', checkQuotes);
+        
+        return () => {
+            clearTimeout(timer);
+            window.removeEventListener('resize', checkQuotes);
+        };
+    }, [activeIndex, testimonialsData]);
 
     // Autoplay functionality - pauses on hover
     useEffect(() => {
@@ -196,12 +251,6 @@ export default function     Testimonials({ testimonials = [], className = "", su
         setTimeout(recalculateHeight, 100);
     };
 
-    const checkIfNeedsReadMore = (quote) => {
-        // Approximate check: if quote has more than ~200 characters, it likely needs more than 4 lines
-        // This is a rough estimate - actual line count depends on container width
-        return quote && quote.length > 200;
-    };
-
     return (
         <div 
             className={`flex flex-col items-center justify-center overflow-x-hidden selection:bg-orange-100 selection:text-orange-900 py-16 rounded-xl mx-2 ${className}`}
@@ -298,14 +347,14 @@ export default function     Testimonials({ testimonials = [], className = "", su
                                                         if (el) quoteRefs.current[`quote-${item.id}`] = el;
                                                     }}
                                                     className={`text-slate-800 leading-relaxed md:leading-loose font-normal ${
-                                                        !expandedQuotes[item.id] && checkIfNeedsReadMore(item.quote) 
+                                                        !expandedQuotes[item.id] && needsReadMore[item.id] 
                                                             ? 'line-clamp-4' 
                                                             : ''
                                                     }`}
                                                 >
                                                     {item.quote}
                                                 </p>
-                                                {checkIfNeedsReadMore(item.quote) && (
+                                                {needsReadMore[item.id] && (
                                                     <button
                                                         onClick={(e) => {
                                                             e.stopPropagation();

@@ -486,15 +486,15 @@ const CentralInstrumentationFacilityPage = () => {
     <SampleTesting />
     <ProgramsTabs />
     <ContactSection />
-    <CareerApplicationForm
-          heading="Application Form"
-          description="Share your details to stay connected with Kalinga University, receive updates, and participate in alumni activities and events."
-          backgroundClass="bg-[var(--button-red)]"
-          hideTabs={true}
-          submitLabel="Submit Alumni Details"
-          useArrowSubmitButton={true}
-          arrowSubmitVariant="white"
-        />
+      <CareerApplicationForm
+            heading="Application Form"
+            description="Share your details to stay connected with Kalinga University, receive updates, and participate in alumni activities and events."
+            backgroundClass="bg-[var(--button-red)]"
+            hideTabs={true}
+            submitLabel="Submit Alumni Details"
+            useArrowSubmitButton={true}
+            arrowSubmitVariant="white"
+          />
     <Testimonials
         testimonials={cifTestimonials}
         className="bg-[var(--light-gray)] mt-16"

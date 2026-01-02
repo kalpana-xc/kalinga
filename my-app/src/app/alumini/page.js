@@ -132,7 +132,7 @@ export default function Alumini() {
   id: 3,
   name: "Kajal Pandey",
   role: "Awarded the Golden Globe Eminence Award for Holding 13 World Records ",
-  quote: "Golden Globe Eminence Awardee for Holding 13 World Records",
+  quote: "Kajal was always known for her unstoppable determination. During her time at the University, she explored new ideas and took up challenges that helped her achieve the Golden Globe Eminence Award for holding 13 World Records. She created history with her hard work, confidence, and self-belief, and set a benchmark for other students. We proudly celebrate her success and wish her all the best in her career.",
   image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/alumini/Kajal+Pandey_01.webp",
   theme: "orange"
 },
@@ -148,7 +148,7 @@ export default function Alumini() {
   id: 5,
   name: "Prateek Singh Thakur",
   role: "International Medalist in Wushu & Kickboxing (National and European Championships) ",
-  quote: "Prateek Singh Thakur, an MBA alumnus of Kalinga University, has won various medals in National and International competitions. With years of hard work and training, he proved that nothing is impossible and conquered every challenge. His commitment and strong willpower turned into an incredible achievement and an inspiration to young athletes.",
+  quote: "Prateek Singh Thakur, an MBA alumnus of Kalinga University, has won various medals in National and International competitions. His achievements include: Silver medal in Wako Senior National Kick Boxing Championship, Visakhapatnam (AP) 2017; Gold medal in the European International Wushu Championship at Yerevan, Armenia, 2017; Silver Medal in All India University Wushu Championship at Patiala (Punjab), 2016. With years of hard work and training, he proved that nothing is impossible and conquered every challenge. His commitment and strong willpower turned into an incredible achievement and an inspiration to young athletes.",
   image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/alumini/PRATEEK+SINGH+THAKUR.webp",
   theme: "orange"
 },

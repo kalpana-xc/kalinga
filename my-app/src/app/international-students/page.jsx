@@ -333,13 +333,11 @@ export default function InternationalStudents() {
       <MainIntro
         title="International Students At KU"
         description={[
-          "Our international collaborations are with different nationalities, including Afghanistan, Angola, Bangladesh, Burundi, Cameroon, Congo, Gambia, Ghana, Ivory Coast, Lesotho, Liberia, Malawi, Mozambique, Namibia, Nepal, Nigeria, PNG, Rwanda, Somalia, South Korea, South Sudan, Sudan, Swaziland, Syria, Tanzania, Zambia, Zimbabwe, ⁠Singapore, ⁠South Africa.",
-          "We offer our global students a vibrant platform where they can all express their views and share their country's culture and values.",
-          "From pre-arrival to post-arrival, we're here to support them at every step of their academic journey.",
-          "We conduct one-on-one counselling sessions for every student, helping them select the programs of their interest.",
-          "Our highly experienced faculty members provide unparalleled mentorship to our international students in academics and personal growth.",
-          "Explore Diploma, UG, PG, and Doctorate programs designed to meet your academic aspirations.",
-          "At Kalinga, you're not just another student but a part of a global community where IDEAS are nurtured and DREAMS are fulfilled."
+          "Kalinga University, established in 2013, stands out as one of the leading private universities strategically located in the Smart City of New Raipur, Chhattisgarh. The University has consistently ranked among the top 101–150 universities in India under the NIRF Rankings 2025 for the fourth consecutive year and has also received a NAAC B+ accreditation, continuously shining on the horizons of high-quality education with equal opportunities to its international students.",
+          "Our international collaborations are with different nationalities, including Afghanistan, Angola, Bangladesh, Burundi, Cameroon, Congo, Gambia, Ghana, Ivory Coast, Lesotho, Liberia, Malawi, Mozambique, Namibia, Nepal, Nigeria, PNG, Rwanda, Somalia, South Korea, South Sudan, Sudan, Swaziland, Syria, Tanzania, Zambia, Zimbabwe, ⁠Singapore, ⁠South Africa. We offer our global students a vibrant platform where they can all express their views and share their country's culture and values.",
+          "From pre-arrival to post-arrival, we're here to support them at every step of their academic journey. We conduct one-on-one counselling sessions for every student, helping them select the programs of their interest.",
+          "Our highly experienced faculty members provide unparalleled mentorship to our international students in academics and personal growth. Explore Diploma, UG, PG, and Doctorate programs designed to meet your academic aspirations.",
+          "At Kalinga, you're not just another student but a part of a global community where IDEAS are nurtured, and DREAMS are fulfilled."
         ]}
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/international-students-intro.jpg"
         imageAlt="International Students"
@@ -352,9 +350,9 @@ export default function InternationalStudents() {
         secondHeading=""
       />
       <FeatureCards 
-        title="Why is Kalinga University the Right Choice?"
+        title="Why International Students Choose Kalinga University?"
         subtitle=""
-        description="At Kalinga University, our international students benefit from complete support and guidance, world-class infrastructure, and unmatched campus facilities. With our quality education system, our global students will be well-prepared for the professional world. Here, we just don't value your academic journey, but care about your emotional well-being too."
+        description="At Kalinga University, international students discover an education hub designed for global success. From academic excellence to an inclusive learning environment, every step of their journey is thoughtfully designed so that they can focus on fulfilling their aspirations."
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/int-why.jpg"
         imageAlt="International Students"
         cards={internationalStudentsFeatureCards}
@@ -384,7 +382,6 @@ export default function InternationalStudents() {
         subtitle="Faith and Worship Facility"
         title="Honouring Every Faith and Religion"
         description={[
-          "Kalinga University, established in 2013, stands out as one of the leading private universities strategically located in the Smart City of New Raipur, Chhattisgarh. The University has consistently ranked among the top 101–150 universities in India under the NIRF Rankings 2025 for the fourth consecutive year and has also received a NAAC B+ accreditation, continuously shining on the horizons of high-quality education with equal opportunities to its international students.",
           "At Kalinga University, you'll find the world in one place. With students from 29+ countries, we celebrate their cultures, faiths, and beliefs. We offer an inclusive environment to all our students where they can freely practice their religion and stay connected with their roots."
         ]}
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/international-students-group.webp"
@@ -423,7 +420,7 @@ export default function InternationalStudents() {
           },
           {
             title: "Common Topics (Technical & Non-Technical)",
-            description: "English & Soft Skills, Language Communications (Hindi), Indian Culture & Lifestyle, IT Skills",
+            description: "English & Soft Skills, Language Communications (Hindi), Indian Culture & Lifestyle, IT Skills,Grooming & Personality Development, GD & PI, Hobby Class (Music & Dance / Painting & Other Fine Arts / Modelling & Fashion Style / Library Arts / Book Club)",
             checkEligibilityLink: "/contact-us",
             applyNowLink: "/contact-us"
           }

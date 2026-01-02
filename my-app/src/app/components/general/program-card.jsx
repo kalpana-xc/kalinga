@@ -13,6 +13,7 @@ export default function ProgramCard({
   specializationOptions = [],
   specializationPlaceholder = "Select Specialisation",
   href = "/admissions",
+  applyNowLink = "https://admissions.kalingauniversity.ac.in/",
   titleClassName = ""
 }) {
   const [selectedSpecialization, setSelectedSpecialization] = useState("");
@@ -161,13 +162,25 @@ export default function ProgramCard({
           </a>
 
           {/* Apply Now Button - Dark Red with white arrow in white square */}
-          <a href="https://admissions.kalingauniversity.ac.in/" target="_blank" rel="noopener noreferrer">
+          <a 
+            href={applyNowLink} 
+            {...(applyNowLink.startsWith('#') ? {} : { target: "_blank", rel: "noopener noreferrer" })}
+            onClick={(e) => {
+              if (applyNowLink.startsWith('#')) {
+                e.preventDefault();
+                const element = document.querySelector(applyNowLink);
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }
+              if (onApplyNow) onApplyNow(program);
+            }}
+          >
           <GlobalArrowButton
             className="!bg-[var(--button-red)] !text-[var(--background)] whitespace-nowrap !text-xs md:!text-sm lg:!text-base !h-[38px] md:!h-[40px] !rounded-lg !px-1"
             arrowClassName="!bg-[var(--background)] !px-1 !text-white"
             arrowIconClassName="!text-[var(--button-red)]"
             textClassName="!text-[12px] md:!text-[14px] !px-2 md:!px-3"
-            onClick={() => onApplyNow && onApplyNow(program)}
           >
             Apply Now
           </GlobalArrowButton>

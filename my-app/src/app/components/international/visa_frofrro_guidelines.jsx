@@ -13,11 +13,14 @@ const visaPoints = [
 ];
 
 const extensionPoints = [
-  "All international students should check visa validity and apply for extension well in advance.",
-  "Students staying in India for more than 180 days must register with FRRO/FRO as per applicable rules.",
-  "Keep passport, visa, admission letter, and required documents ready for FRRO/FRO processes.",
-  "Update address/passport renewal/visa updates through FRRO/FRO portal as applicable.",
-  "Stay in touch with the International Student Coordinator for guidance during extension/registration.",
+  "It is mandatory for all International students except those from Nepal and Bhutan to get their student visa registered at the nearest FRRO/FRO within 14 days of arrival in India.",
+  "The ISC Department of Kalinga University will guide and assist students with all the required processes needed for FRO/FRRO Registration.",
+  "All international students except those from Nepal and Bhutan have to fill out an online application for Registration Certificate (RC) & Residential Permit (RP) on arrival in India.",
+  "In case the initial visa is not endorsed for the complete duration of the program or the student has to extend the stay because he/she is not able to complete the program in the stipulated time, then the student should apply for the extension of the visa before it expires.",
+  "A visa extension can be applied for only when the student is present at the University.",
+  "Government charges may apply for a visa extension, which differs from country to country.",
+  "Students travelling outside India must carry NOC approval from the local FRRO or a valid exit permit.",
+  "Students travelling within India have to carry original documents like a Passport, RP, Stay VISA, etc., and the reason for travel has to be informed to the local FRRO.",
 ];
 
 function Bullet({ children }) {
@@ -202,34 +205,43 @@ export default function VisaFroFrroGuidelines({ viewAllHref = "#" }) {
 
       {/* Modal */}
       {isModalOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
-          onClick={closeModal}
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center px-4"
+          role="dialog"
+          aria-modal="true"
+          onMouseDown={closeModal}
         >
-          <div 
-            className="bg-white rounded-lg max-w-4xl w-full max-h-[70vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+
+          <div
+            className="relative w-full max-w-4xl rounded-2xl bg-white p-6 md:p-8 shadow-2xl max-h-[85vh] overflow-y-auto"
+            onMouseDown={(e) => e.stopPropagation()}
           >
-            <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
-              <h2 className="text-2xl font-bold text-[var(--button-red)]">Pre-Arrival & Post-Arrival Guidelines</h2>
+            <div className="flex items-start justify-between gap-4 mb-6">
+              <h2 className="font-stix text-2xl md:text-3xl text-[var(--button-red)]">
+                Pre-Arrival & Post-Arrival Guidelines
+              </h2>
+
               <button
+                type="button"
                 onClick={closeModal}
-                className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
+                className="rounded-full border border-black/10 px-3 py-1 text-sm hover:bg-black/5 flex-shrink-0"
+                aria-label="Close"
               >
-                ×
+                ✕
               </button>
             </div>
-            
-            <div className="p-6 space-y-8">
+
+            <div className="space-y-8">
               {/* Pre-Arrival Guidelines */}
               <div>
-                <h3 className="text-xl font-bold text-[var(--foreground)] mb-4">
+                <h3 className="font-stix text-xl md:text-2xl text-[var(--foreground)] mb-4">
                   Pre-Arrival Guidelines
                 </h3>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-[var(--light-text-gray)] mb-4 leading-relaxed">
                   Students are advised to take care of the following points before leaving their home country:
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {preArrivalGuidelines.map((guideline, index) => (
                     <Bullet key={index}>{guideline}</Bullet>
                   ))}
@@ -238,18 +250,28 @@ export default function VisaFroFrroGuidelines({ viewAllHref = "#" }) {
 
               {/* Post-Arrival Guidelines */}
               <div>
-                <h3 className="text-xl font-bold text-[var(--foreground)] mb-4">
+                <h3 className="font-stix text-xl md:text-2xl text-[var(--foreground)] mb-4">
                   Post-Arrival Guidelines
                 </h3>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-[var(--light-text-gray)] mb-4 leading-relaxed">
                   Students need to take care of the following points after they arrive in the country and upon joining the University:
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {postArrivalGuidelines.map((guideline, index) => (
                     <Bullet key={index}>{guideline}</Bullet>
                   ))}
                 </ul>
               </div>
+            </div>
+
+            <div className="mt-6 flex justify-end">
+              <button
+                type="button"
+                onClick={closeModal}
+                className="rounded-lg bg-[var(--button-red)] px-5 py-2 text-sm font-medium text-white hover:bg-[var(--button-red)]/90 transition-colors"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>

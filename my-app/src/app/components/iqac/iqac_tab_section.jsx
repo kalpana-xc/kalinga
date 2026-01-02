@@ -559,14 +559,13 @@ export default function IqacTabSection() {
                   <h2 className="font-plus-jakarta-sans text-xl md:text-3xl text-[var(--foreground)] mb-4 text-center mt-3">
                     Strategic Plan & Deployment
                   </h2>
-                  <div className="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {/* Placeholder for 3 images */}
+                  {/* <div className="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
                     {[1, 2, 3].map((num) => (
                       <div key={num} className="bg-gray-200 rounded-lg aspect-video flex items-center justify-center">
                         <span className="text-gray-400 text-sm">Image {num}</span>
                       </div>
                     ))}
-                  </div>
+                  </div> */}
                   <div className="text-left space-y-4">
                     {STRATEGIC_PLAN_CONTENT.split('\n\n').map((paragraph, idx) => (
                       <p key={idx} className="text-[var(--foreground)] font-plus-jakarta-sans text-sm md:text-base leading-relaxed">

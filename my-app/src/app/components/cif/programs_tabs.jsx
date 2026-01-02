@@ -8,29 +8,29 @@ export default function ProgramsTabs() {
   const [activeTab, setActiveTab] = useState("45Days");
 
   const programs45Days = [
-    { id: 1, title: "Biotech Tools & Techniques", specialization: "Start Date: May | End Date: July", duration: "45 Days" },
-    { id: 2, title: "Zoological Tools & Techniques", specialization: "Start Date: May | End Date: July", duration: "45 Days" },
-    { id: 3, title: "Physics Tools & Techniques", specialization: "Start Date: May | End Date: July", duration: "45 Days" },
-    { id: 4, title: "Pharmaceutical Techniques", specialization: "Start Date: May | End Date: July", duration: "45 Days" },
-    { id: 5, title: "Applied Business Management", specialization: "Start Date: May | End Date: July", duration: "45 Days" },
-    { id: 6, title: "Botany & Microbiology Tools & Techniques", specialization: "Start Date: May | End Date: July", duration: "45 Days" },
-    { id: 7, title: "Chemistry Tools & Techniques", specialization: "Start Date: May | End Date: July", duration: "45 Days" },
-    { id: 8, title: "Artificial Intelligence & Machine Learning (AI & ML)", specialization: "Start Date: May | End Date: July", duration: "45 Days" },
-    { id: 9, title: "Python and R Programming", specialization: "Start Date: May | End Date: July", duration: "45 Days" },
-    { id: 10, title: "E-Vehicle", specialization: "Start Date: May | End Date: July", duration: "45 Days" },
-    { id: 11, title: "Forensic Science", specialization: "Start Date: May | End Date: July", duration: "45 Days" }
+    { id: 1, title: "Biotech Tools & Techniques", specialization: "Start Date: May | End Date: July", duration: "45 Days", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 2, title: "Zoological Tools & Techniques", specialization: "Start Date: May | End Date: July", duration: "45 Days", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 3, title: "Physics Tools & Techniques", specialization: "Start Date: May | End Date: July", duration: "45 Days", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 4, title: "Pharmaceutical Techniques", specialization: "Start Date: May | End Date: July", duration: "45 Days", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 5, title: "Applied Business Management", specialization: "Start Date: May | End Date: July", duration: "45 Days", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 6, title: "Botany & Microbiology Tools & Techniques", specialization: "Start Date: May | End Date: July", duration: "45 Days", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 7, title: "Chemistry Tools & Techniques", specialization: "Start Date: May | End Date: July", duration: "45 Days", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 8, title: "Artificial Intelligence & Machine Learning (AI & ML)", specialization: "Start Date: May | End Date: July", duration: "45 Days", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 9, title: "Python and R Programming", specialization: "Start Date: May | End Date: July", duration: "45 Days", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 10, title: "E-Vehicle", specialization: "Start Date: May | End Date: July", duration: "45 Days", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 11, title: "Forensic Science", specialization: "Start Date: May | End Date: July", duration: "45 Days", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" }
   ];
 
   const programs6Months = [
-    { id: 1, title: "Zoological Techniques", specialization: "Start Date: Jan | End Date: June", duration: "6 Months" },
-    { id: 2, title: "Physics", specialization: "Start Date: Jan | End Date: June", duration: "6 Months" },
-    { id: 3, title: "Pharmaceutical Sciences", specialization: "Start Date: Jan | End Date: June", duration: "6 Months" },
-    { id: 4, title: "Interior Design", specialization: "Start Date: Jan | End Date: June", duration: "6 Months" },
-    { id: 5, title: "Fashion Design", specialization: "Start Date: Jan | End Date: June", duration: "6 Months" },
-    { id: 6, title: "Data Science Using R Programming", specialization: "Start Date: Jan | End Date: June", duration: "6 Months" },
-    { id: 7, title: "Chemistry", specialization: "Start Date: Jan | End Date: June", duration: "6 Months" },
-    { id: 8, title: "Botany & Microbiology", specialization: "Start Date: Jan | End Date: June", duration: "6 Months" },
-    { id: 9, title: "Biotechnology", specialization: "Start Date: Jan | End Date: June", duration: "6 Months" }
+    { id: 1, title: "Zoological Techniques", specialization: "Start Date: Jan | End Date: June", duration: "6 Months", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 2, title: "Physics", specialization: "Start Date: Jan | End Date: June", duration: "6 Months", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 3, title: "Pharmaceutical Sciences", specialization: "Start Date: Jan | End Date: June", duration: "6 Months", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 4, title: "Interior Design", specialization: "Start Date: Jan | End Date: June", duration: "6 Months", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 5, title: "Fashion Design", specialization: "Start Date: Jan | End Date: June", duration: "6 Months", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 6, title: "Data Science Using R Programming", specialization: "Start Date: Jan | End Date: June", duration: "6 Months", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 7, title: "Chemistry", specialization: "Start Date: Jan | End Date: June", duration: "6 Months", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 8, title: "Botany & Microbiology", specialization: "Start Date: Jan | End Date: June", duration: "6 Months", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" },
+    { id: 9, title: "Biotechnology", specialization: "Start Date: Jan | End Date: June", duration: "6 Months", checkEligibilityLink: "/contact-us", applyNowLink: "#careerform" }
   ];
 
   return (
@@ -56,6 +56,8 @@ export default function ProgramsTabs() {
                   <ProgramCard
                     key={program.id}
                     program={program}
+                    href={program.checkEligibilityLink || "/admissions"}
+                    applyNowLink={program.applyNowLink || "#cif-application-form"}
                     onCheckEligibility={(program) => console.log('Check Eligibility', program)}
                     onApplyNow={(program) => console.log('Apply Now', program)}
                     onScholarshipsClick={(program) => console.log('Scholarships', program)}
@@ -71,6 +73,8 @@ export default function ProgramsTabs() {
                   <ProgramCard
                     key={program.id}
                     program={program}
+                    href={program.checkEligibilityLink || "/admissions"}
+                    applyNowLink={program.applyNowLink || "#cif-application-form"}
                     onCheckEligibility={(program) => console.log('Check Eligibility', program)}
                     onApplyNow={(program) => console.log('Apply Now', program)}
                     onScholarshipsClick={(program) => console.log('Scholarships', program)}
