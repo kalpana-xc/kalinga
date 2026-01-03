@@ -25,6 +25,7 @@ import WeStandOut from "@/app/components/department/we_stand_out";
 import UpcomingConference from "@/app/components/research/upcoming_conference";
 import Testimonials from "@/app/components/home/Testimonials";
 import DataTable from "@/app/components/general/data-table";
+import SectionHeading from "@/app/components/general/SectionHeading";
 import { fetchAllDepartments, fetchDepartmentCompleteDetail, fetchAllDepartmentsCourses, parseHtmlToParagraphs, parseHtmlToText } from "@/app/lib/api";
 import { useBreadcrumbData } from "@/app/components/layout/BreadcrumbContext";
 
@@ -444,8 +445,8 @@ export default function DynamicDepartmentPage() {
           message={deptHeadIntroContent.message}
         />
       )}
-     
-      <Placements placementData={placementData} />
+      <Placements placementData={placementData} bgColor="bg-white" />
+      <Facility />
       {whyStudyContent && whyStudyContent.items && whyStudyContent.items.length > 0 && (
         <WhyStudy 
           sectionTitle={whyStudyContent.sectionTitle}
@@ -465,7 +466,6 @@ export default function DynamicDepartmentPage() {
         <UpcomingConference
           title="Student Clubs"
           registerButtonText="Join Now"
-          imageContainerClass="w-full md:w-1/5 flex justify-center"
           conferences={departmentData.clubs
             .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
             .map(club => ({
@@ -485,9 +485,12 @@ export default function DynamicDepartmentPage() {
       {boardOfStudiesData && boardOfStudiesData.length > 0 && (
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-[var(--button-red)]">
-              Board of Studies
-            </h2>
+            <div className="mb-8 text-center">
+              <SectionHeading
+                title="Board of Studies"
+                titleClassName=""
+              />
+            </div>
             <DataTable
               columns={[
                 { key: "number", label: "S. No", width: "w-20" },
@@ -514,14 +517,13 @@ export default function DynamicDepartmentPage() {
         />
       )}
       {/* Testimonials Section - Using video interviews data */}
-      {testimonialsData && testimonialsData.length > 0 && (
+      {/* {testimonialsData && testimonialsData.length > 0 && (
         <Testimonials
           testimonials={testimonialsData}
           subtitle="Real Stories. Real Success."
           title="Stories that define our Kalinga spirit."
         />
-      )}
-      <Facility />
+      )} */}
       <StudentActivities />
       {faqItems && faqItems.length > 0 && (
         <FAQ 

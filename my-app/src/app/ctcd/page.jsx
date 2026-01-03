@@ -8,7 +8,7 @@ const breadcrumbData = {
   pageTitle: "Corporate Training And Consultancy Division (CTCD)",
   customBreadcrumbs: [
     { label: "Home", href: "/" },
-    { label: "CTCD", href: "/ctcd" },
+    { label: "CTCD", href: "/corporate-training-and-consultancy-division" },
   ],
 };
 

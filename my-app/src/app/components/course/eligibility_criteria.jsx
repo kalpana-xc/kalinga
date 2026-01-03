@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import GlobalArrowButton from "../general/global-arrow_button";
+import SectionHeading from "../general/SectionHeading";
 
 const defaultContent = {
   imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/course/course_page.webp",
@@ -49,7 +50,12 @@ export default function EligibilityCriteria({
             
             {/* Eligibility Criteria Section */}
             <div>
-              <h2 className="text-white mb-6">{title}</h2>
+              <div className="mb-6">
+                <SectionHeading
+                  title={title}
+                  titleClassName="!text-white !mb-0"
+                />
+              </div>
               <ul className="space-y-4">
                 {criteria.map((criterion, index) => (
                   <li key={index} className="flex items-center gap-3">
@@ -85,8 +91,8 @@ export default function EligibilityCriteria({
               {href ? (
                 <Link href={href} className="inline-flex">
                   <GlobalArrowButton
-                    className="!bg-white !text-[var(--button-red)] hover:!bg-gray-100 !shadow-none hover:!shadow-none"
-                    arrowClassName="!bg-[var(--dark-orange-red)]"
+                    className="!bg-white !text-[var(--foreground)] hover:!bg-gray-100 !shadow-none hover:!shadow-none"
+                    arrowClassName="!bg-[var(--button-red)]"
                     arrowIconClassName="!text-white"
                     textClassName="!font-semibold"
                   >
@@ -95,8 +101,8 @@ export default function EligibilityCriteria({
                 </Link>
               ) : (
                 <GlobalArrowButton
-                  className="!bg-white !text-[var(--button-red)] hover:!bg-gray-100 !shadow-none hover:!shadow-none"
-                  arrowClassName="!bg-[var(--dark-orange-red)]"
+                  className="!bg-white !text-[var(--foreground)] hover:!bg-gray-100 !shadow-none hover:!shadow-none"
+                  arrowClassName="!bg-[var(--button-red)]"
                   arrowIconClassName="!text-white"
                   textClassName="!font-semibold"
                 >

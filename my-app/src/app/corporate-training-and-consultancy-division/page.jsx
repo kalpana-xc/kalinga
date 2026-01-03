@@ -350,7 +350,7 @@ export default function CorporateTrainingAndConsultancyDivision() {
         showHeaderButton={false}
         itemsAlignment="center"
       />
-      <ImageListItem items={Items} imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ctcd/ctcd-banner-updated.jpg" title="Benefits for Organisations"  />
+      <ImageListItem items={Items} description="" imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ctcd/ctcd-banner-updated.jpg" title="Benefits for Organisations"  />
       <MainIntro 
         title="Training Benefits"
         description={[

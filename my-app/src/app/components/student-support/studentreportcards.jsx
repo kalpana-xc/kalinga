@@ -48,7 +48,7 @@ export default function Studentreportcards() {
                 "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/ctcd.png",
             logoSrc: "",
             subtitle: "INDUSTRY EXPOSURE",
-            link: "/ctcd",
+            link: "/corporate-training-and-consultancy-division",
         },
         {
             title: "Academic & Non-Academic Clubs",

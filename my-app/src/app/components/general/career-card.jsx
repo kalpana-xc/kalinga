@@ -30,7 +30,7 @@ export default function CareerCard({ title, description, icon, imageUrl }) {
       <h3 className="mb-3 !text-[22px]">{title}</h3>
 
       {/* Description */}
-      <p className="text-[var(--light-text-gray)] text-sm flex-grow">
+      <p className="text-[var(--foreground)] text-sm flex-grow">
         {description}
       </p>
     </div>

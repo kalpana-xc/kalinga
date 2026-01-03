@@ -368,7 +368,7 @@ export default function CCRCPage() {
         "With skill-based training programs, workshops, guest lectures, corporate mentorship, industrial visits, soft skill trainings, personality development workshops, internships, industrial training, campus placement drives, and industry-certified programs, we're able to maximise the output and save the time of students and working professionals, and build a future-ready workforce. The Centre features state-of-the-art infrastructure and resources that meet industry standards and has earned high appreciation from leading organisations across India and abroad. With experiential learning strategies and an updated curriculum, our students are placed at top companies, and corporate professionals have learned to deliver maximum output and maintain consistent performance."
       ]}
     />
-    <ImageListItem items={Items} imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-intro.jpg" title="Benefits for Organisations"  />
+    <ImageListItem items={Items} description="" imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-intro.jpg" title="Benefits for Organisations"  />
     <DeptHeadIntro items={MentorIntroProps} />
 
     <Cards cards={cards} />

@@ -70,9 +70,9 @@ export default function ProgramsOffered({
   return (
     <section className="bg-[var(--dark-blue)] relative mx-2 rounded-xl pt-16">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-15">
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-15">
           {/* Left Column */}
-          <div className="flex flex-col gap-6 order-2 lg:order-1">
+          <div className="flex flex-col gap-6 order-1 lg:order-1">
             <div className="md:pt-20 pt-10">
               <h2 className="text-white mb-4">{title}</h2>
               <p className="text-white leading-relaxed pr-10">
@@ -91,18 +91,18 @@ export default function ProgramsOffered({
           </div>
 
           {/* Right Column */}
-          <div className="flex flex-col justify-start order-1 lg:order-2">
+          <div className="flex flex-col justify-start order-2 lg:order-2">
             {/* Search Bar */}
-            <div className="relative p-4 md:px-4">
+            <div className="relative pb-4">
               <input
                 type="text"
                 placeholder="Search Programs...."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-[var(--button-red)] text-white placeholder-white px-4 py-3 pr-12 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="w-full bg-[var(--button-red)] text-white placeholder-white px-4 py-5 pr-12 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"
               />
               <svg
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white mr-5"
+                className="absolute right-4 top-[42%] transform -translate-y-1/2 w-7 h-7 text-white mr-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -117,7 +117,7 @@ export default function ProgramsOffered({
             </div>
 
             {/* Program List */}
-            <div className="max-h-[620px] overflow-y-auto custom-scrollbar pr-2">
+            <div className="max-h-[620px] overflow-y-auto custom-scrollbar">
               {filteredPrograms.map((program) => (
                 <div
                   key={program.id}
@@ -133,7 +133,7 @@ export default function ProgramsOffered({
                   {/* Content */}
                   <div className="relative z-10 flex items-center justify-between">
                     <div className="flex-1">
-                      <h3 className="text-[var(--button-red)] font-semibold mb-2 text-lg font-plus-jakarta-sans">
+                      <h3 className="text-[var(--button-red)] mb-2 text-2xl font-plus-jakarta-sans">
                         {program.title}
                       </h3>
                       <div className="flex items-center gap-2 flex-wrap">
@@ -142,7 +142,7 @@ export default function ProgramsOffered({
                       </p>
                       <Link
                       href={program.slug ? `/courses/${program.slug}` : "/admissions"}
-                      className="font-[500] flex items-center gap-1 hover:gap-2 transition-all md:ml-4 text-[var(--button-red)] hover:text-[var(--button-red)]/80"
+                      className="font-[500] flex items-center gap-1 hover:gap-2 transition-all md:ml-4 text-[var(--foreground)] hover:text-[var(--button-red)]/80"
                     >
                       Explore Program
                       <svg

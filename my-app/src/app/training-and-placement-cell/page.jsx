@@ -348,7 +348,7 @@ const TrainingAndPlacementCell = () => {
     initialVisibleParagraphs={1}
     showKnowMore={true}
     />
-    <ImageListItem items={items} imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-training-cell/placement-intro-2.webp" title="Training And Placement Cell" />
+    <ImageListItem items={items} description="" imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-training-cell/placement-intro-2.webp" title="Training And Placement Cell" />
     <ImageContent
     title="Our Career And Corporate Resource Centre"
     description="The Career and Corporate Resource Centre (CCRC) of Kalinga University bridges academic learning and industrial knowledge through collaborations and customised solutions. Our services include: Corporate Trainings & Psychometric Analysis, Consultancy Services: 360 Degree PMS & HRIS, Corporate Social Responsibility, Training and Placements, and Incubation support."

@@ -52,27 +52,8 @@ export default function GetInTouch() {
                       Naya Raipur - 492101, Chhattisgarh, India
                     </p>
                   </li>
-                  <li className="flex items-center gap-2">
-                     <span className="text-[var(--button-red)]">
-                       {/* phone icon from footer */}
-                       <svg
-                         className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--icons)] flex-shrink-0"
-                         fill="currentColor"
-                         viewBox="0 0 24 24"
-                         xmlns="http://www.w3.org/2000/svg"
-                       >
-                         <path
-                           strokeLinecap="round"
-                           strokeLinejoin="round"
-                           strokeWidth="2"
-                           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                         />
-                       </svg>
-                    </span>
-                    <a href="tel:+91-9109917911" className="text-[var(--foreground)]">+91-9109917911</a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-[var(--button-red)]">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-0.5 text-[var(--button-red)]">
                       {/* email icon from footer */}
                       <svg
                         className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--icons)] flex-shrink-0"
@@ -84,12 +65,16 @@ export default function GetInTouch() {
                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                       </svg>
                     </span>
-                    <a
-                      href="mailto:registrar@kalingauniversity.ac.in"
-                      className="text-[var(--foreground)]"
-                    >
-                      registrar@kalingauniversity.ac.in
-                    </a>
+                    <p className="text-[var(--foreground)] text-[13px] sm:text-sm">
+                      <a href="mailto:registrar@kalingauniversity.ac.in" className="text-[var(--button-red)] hover:underline">
+                        registrar@kalingauniversity.ac.in
+                      </a>
+                      {" or call "}
+                      <a href="tel:+91-9109199711" className="text-[var(--button-red)] hover:underline">
+                        +91-9109199711
+                      </a>
+                      {" (Between 09.00 A.M. and 06.00 P.M.)"}
+                    </p>
                   </li>
                 </ul>
               </div>
@@ -100,9 +85,10 @@ export default function GetInTouch() {
                   For Admissions
                 </h3>
                 <ul className="space-y-3 text-[13px] sm:text-sm text-[var(--light-text-gray)]">
-                  {/* <li className="flex items-start gap-2">
-                     <span className="mt-0.5 text-[var(--button-red)]">
-                       <svg
+                  <li className="flex items-center gap-2">
+                    <span className="text-[var(--button-red)]">
+                      {/* phone icon from footer */}
+                      <svg
                         className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--icons)] flex-shrink-0"
                         fill="currentColor"
                         viewBox="0 0 24 24"
@@ -116,70 +102,9 @@ export default function GetInTouch() {
                         />
                       </svg>
                     </span>
-                    <p className="text-[var(--foreground)]">
-                    <a href="tel:+91-9907252100" className="text-[var(--foreground)]">+91-9907252100</a> 
-                    </p>
-                  </li> */}
-                  <li className="flex items-start gap-2">
-                    <span className="mt-0.5 text-[var(--button-red)]">
-                      <svg
-                        className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--icons)] flex-shrink-0"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                      </svg>
-                    </span>
-                    <p className="text-[var(--foreground)] text-[13px] sm:text-sm">
-                      {" "}
-                      <a href="mailto:registrar@kalingauniversity.ac.in" className="text-[var(--button-red)] hover:underline">
-                        registrar@kalingauniversity.ac.in
-                      </a>{" "}
-                    </p>
-                  </li>
-                  <li className="flex items-center gap-2">
-                  <span className="text-[var(--button-red)]">
-                       {/* phone icon from footer */}
-                       <svg
-                         className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--icons)] flex-shrink-0"
-                         fill="currentColor"
-                         viewBox="0 0 24 24"
-                         xmlns="http://www.w3.org/2000/svg"
-                       >
-                         <path
-                           strokeLinecap="round"
-                           strokeLinejoin="round"
-                           strokeWidth="2"
-                           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                         />
-                       </svg>
-                    </span>
-                      <a href="tel:+91-9109199711" className="text-[var(--button-red)] hover:underline">
-                        +91-9109199711
-                      </a>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-0.5 text-[var(--button-red)]">
-                      <svg
-                        className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--icons)] flex-shrink-0"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </span>
-                    <p className="text-[var(--foreground)] text-[13px] sm:text-sm">
-                      Between 09.00 A.M. and 06.00 P.M.
-                    </p>
+                    <a href="tel:+91-9907252100" className="text-[var(--button-red)] hover:underline">
+                      +91-9907252100
+                    </a>
                   </li>
                   {/* <li className="flex items-center gap-2">
                     <span className="text-[var(--button-red)]">

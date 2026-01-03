@@ -205,10 +205,10 @@ export default function KIFPage({
                   'Follow the strict guidelines and ethical practices of the government',
                 ]
                },
-              { id: 10, program: 'Cultural Preservation', description: 'Documenting and promoting local culture' },
-              { id: 11, program: 'Disaster Relief', description: 'Emergency response and rehabilitation' },
-              { id: 12, program: 'Elderly Care', description: 'Support for senior citizens' },
-              { id: 13, program: 'Youth Development', description: 'Leadership and career guidance',
+              { id: 10, program: 'Animal Welfare', description: 'We assist companies in actively contributing towards animal welfare initiatives. Our projects under this CSR will focus on building animal shelters, organising vaccination drives, running rescue operations, and other awareness campaigns.' },
+              { id: 11, program: 'Gender Equality, Women\'s Empowerment', description: 'Although several NGOs and self-help groups are working for women empowerment, corporates too can work in this area and uplift women and remove discrimination from society. We will provide livelihood opportunities to women in rural areas by organising various skill-based training programs that will uplift them in terms of communication, confidence, self-esteem, and personality development. This will help them develop an entrepreneurial mindset or take up jobs in handloom weaving, pottery designing, painting, candle making, eco-friendly product designing, product packaging and labelling, and more.' },
+              { id: 12, program: 'Old Age Home', description: 'From planning to infrastructure design, we encourage corporates in undertaking sustainable old-age home projects so that every senior citizen who doesn\'t have shelter, food, and other basic necessities of life feels cared for and valued.' },
+              { id: 13, program: 'Safe Drinking Water', description: 'This is one of the major challenges, especially in rural areas, where water usually contains harmful and toxic chemicals. This leads to poor health conditions of those who cannot even afford proper healthcare facilities. Under this CSR initiative, we perform the following activities:',
                 listItems: [
                   'Plan and implement safe drinking water supply projects in rural areas',
                   'Conduct awareness campaigns on water hygiene and conservation',
@@ -275,7 +275,7 @@ export default function KIFPage({
       showImage={true}
       />
       <VisionMission data={visionMissionData} showImg={false} />
-      <ImageListItem items={Items} imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/ccrc.webp" title="Objectives of the Organisation"  />
+      <ImageListItem items={Items} description="" imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/ccrc.webp" title="Objectives of the Organisation"  />
 
       <ImageContent hasImage={true} imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/ccrclogo.webp" className="items-center justify-center" title="Career and Corporate Resource Centre" subtitleclassName="hidden" description="It is a philanthropic organisation that is primarily involved in education and social welfare activities. The society works towards uplifting the underprivileged communities by offering them inclusive educational opportunities, healthcare facilities, and engaging in charitable activities. The society operates educational institutions, healthcare camps, scholarship programs, and other social welfare initiatives." buttonLink="/career-and-corporate-resource-centre" />
       <FAQ 

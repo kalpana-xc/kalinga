@@ -90,6 +90,9 @@ export default function StudentActivities({
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
+  const mobilePrevRef = useRef(null);
+  const mobileNextRef = useRef(null);
+  const mobileSwiperRef = useRef(null);
 
   const [expandedId, setExpandedId] = useState(null);
 
@@ -232,18 +235,71 @@ export default function StudentActivities({
               ))}
             </Swiper>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
-              {activities.map((activity) => (
-                <div
-                  key={activity.id}
-                  className="w-full max-w-md h-full flex"
+            <>
+              {/* Mobile Slider - Hidden on desktop */}
+              <div className="block md:hidden">
+                <Swiper
+                  modules={[Navigation, Autoplay]}
+                  spaceBetween={24}
+                  slidesPerView={1}
+                  autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                  }}
+                  loop={activities.length > 1}
+                  navigation={{
+                    prevEl: mobilePrevRef.current,
+                    nextEl: mobileNextRef.current,
+                  }}
+                  onBeforeInit={(swiper) => {
+                    swiper.params.navigation.prevEl = mobilePrevRef.current;
+                    swiper.params.navigation.nextEl = mobileNextRef.current;
+                  }}
+                  onSwiper={(swiper) => {
+                    mobileSwiperRef.current = swiper;
+                    setTimeout(() => {
+                      if (swiper && mobilePrevRef.current && mobileNextRef.current) {
+                        swiper.params.navigation.prevEl = mobilePrevRef.current;
+                        swiper.params.navigation.nextEl = mobileNextRef.current;
+                        if (swiper.navigation) {
+                          swiper.navigation.destroy();
+                          swiper.navigation.init();
+                          swiper.navigation.update();
+                        }
+                      }
+                    }, 0);
+                  }}
+                  onInit={(swiper) => {
+                    swiper.navigation.init();
+                    swiper.navigation.update();
+                  }}
+                  className="student-activities-swiper [&_.swiper-wrapper]:!flex [&_.swiper-wrapper]:items-stretch [&_.swiper-slide]:!h-auto [&_.swiper-slide]:!flex"
                 >
-                  <ActivityCard activity={activity} />
-                </div>
-              ))}
-            </div>
+                  {activities.map((activity) => (
+                    <SwiperSlide key={activity.id}>
+                      <div className="w-full h-full flex">
+                        <ActivityCard activity={activity} />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+              
+              {/* Desktop Grid - Hidden on mobile */}
+              <div className="hidden md:grid grid-cols-3 gap-6 justify-items-center">
+                {activities.map((activity) => (
+                  <div
+                    key={activity.id}
+                    className="w-full max-w-md h-full flex"
+                  >
+                    <ActivityCard activity={activity} />
+                  </div>
+                ))}
+              </div>
+            </>
           )}
 
+          {/* Navigation buttons - show for slider mode */}
           {showAsSlider && (
             <div className="flex justify-center items-center gap-3 mt-8">
               <button
@@ -270,6 +326,55 @@ export default function StudentActivities({
 
               <button
                 ref={nextRef}
+                className="student-activities-swiper-button-next w-12 h-12 rounded-lg bg-[var(--button-red)] hover:bg-[#A2A2A2] flex items-center justify-center hover:opacity-90 transition-opacity shadow-md"
+              >
+                <svg
+                  width="25"
+                  height="25"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="text-white hover:text-[var(--button-red)] transition-colors"
+                >
+                  <path
+                    d="M6 4L10 8L6 12"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          )}
+          
+          {/* Navigation buttons - show for mobile slider only */}
+          {!showAsSlider && activities.length > 1 && (
+            <div className="flex justify-center items-center gap-3 mt-8 md:hidden">
+              <button
+                ref={mobilePrevRef}
+                className="student-activities-swiper-button-prev w-12 h-12 rounded-lg bg-[var(--button-red)] hover:bg-[#A2A2A2] flex items-center justify-center hover:opacity-90 transition-opacity shadow-md"
+              >
+                <svg
+                  width="25"
+                  height="25"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="text-white hover:text-[var(--button-red)] transition-colors"
+                >
+                  <path
+                    d="M10 12L6 8L10 4"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <button
+                ref={mobileNextRef}
                 className="student-activities-swiper-button-next w-12 h-12 rounded-lg bg-[var(--button-red)] hover:bg-[#A2A2A2] flex items-center justify-center hover:opacity-90 transition-opacity shadow-md"
               >
                 <svg

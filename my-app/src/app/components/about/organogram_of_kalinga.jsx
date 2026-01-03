@@ -51,7 +51,7 @@ const OrganogramOfKalinga = ({
         >
           <div className={`flex flex-col   ${showImage ? 'lg:flex-row' : ''} items-center gap-6 lg:gap-0`}>
             {/* Left Content */}
-            <div className={`flex-1 p-5 md:p-8 ${showImage ? 'lg:w-1/2' : 'w-full'}`}>
+            <div className={`flex-1 p-8 md:p-8 ${showImage ? 'lg:w-1/2' : 'w-full'}`}>
               {/* Title */}
               <SectionHeading
                 title={title}

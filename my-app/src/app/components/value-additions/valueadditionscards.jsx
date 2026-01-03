@@ -51,7 +51,7 @@ function Valueadditioncards() {
                 "https://kalinga-university.s3.ap-south-1.amazonaws.com/ctcd/training-projects.webp",
             logoSrc: "",
             subtitle: "EXPLORE MORE THAN JUST ACADEMICS",
-            link: "/ctcd", // ✅ will show Know More
+            link: "/corporate-training-and-consultancy-division", // ✅ will show Know More
         },
         {
             title: "CIF Labs",

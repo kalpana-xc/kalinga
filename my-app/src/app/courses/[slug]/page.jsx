@@ -596,7 +596,7 @@ export default function DynamicCoursePage() {
       {
         id: 2,
         title: "Corporate Training And Consultancy Division (CTCD)",
-        href: "/ctcd",
+        href: "/corporate-training-and-consultancy-division",
         description: "CTCD offers customised training programs to junior, middle, and senior levels of management of different companies.",
       },
       {
