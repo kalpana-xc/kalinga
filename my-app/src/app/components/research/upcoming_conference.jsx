@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
@@ -82,16 +83,19 @@ export default function UpcomingConference({
                 <div 
                   className={`${imageContainerClass} rounded-xl overflow-hidden relative`}
                   style={{
-                    backgroundImage: `url(${conf.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
                     height: `${imageHeight}px`,
                     width: `${imageWidth}%`,
                   }}
-                  role="img"
-                  aria-label={conf.title}
-                />
+                >
+                  <Image
+                    src={conf.image}
+                    alt={conf.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    unoptimized
+                  />
+                </div>
 
                 <div className="w-full md:w-3/5 flex flex-col gap-6 md:px-0 px-5 h-full justify-around pb-5">
                   {/* Badges positioned at top right */}
