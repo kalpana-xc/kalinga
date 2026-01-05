@@ -57,7 +57,6 @@ export default function SportsFacilitiesTabs({
     setActiveTab((prev) => (prev === id ? "indoor" : id));
   };
 
-
   const renderTabContent = (tabId) => {
     if (tabId === "indoor") {
       return (
@@ -146,8 +145,12 @@ export default function SportsFacilitiesTabs({
 
             {/* White inner panel */}
             <div className="mt-[16px] rounded-[18px] bg-white px-3 py-[22px] md:px-[36px] md:py-[28px]">
-              <TabsContent value="indoor">{renderTabContent("indoor")}</TabsContent>
-              <TabsContent value="outdoor">{renderTabContent("outdoor")}</TabsContent>
+              <TabsContent value="indoor">
+                {renderTabContent("indoor")}
+              </TabsContent>
+              <TabsContent value="outdoor">
+                {renderTabContent("outdoor")}
+              </TabsContent>
               <TabsContent value="gym">{renderTabContent("gym")}</TabsContent>
               <TabsContent value="yoga">{renderTabContent("yoga")}</TabsContent>
             </div>
@@ -215,20 +218,38 @@ export default function SportsFacilitiesTabs({
 
 /* -------------------- SECTIONS -------------------- */
 
-function IndoorGames({ caromImageSrc, chessImageSrc, tableTennisImageSrc, snookerImageSrc }) {
+function IndoorGames({
+  caromImageSrc,
+  chessImageSrc,
+  tableTennisImageSrc,
+  snookerImageSrc,
+}) {
   const indoorGames = [
     { name: "Carom", sub: "(12 Carom Board Sets)", image: caromImageSrc },
     { name: "Chess", sub: "(12 Chess Board Sets)", image: chessImageSrc },
-    { name: "Table Tennis", sub: "(24 Bats, 12 Boxes of Balls, 6 Net Sets)", image: tableTennisImageSrc },
-    { name: "Snooker", sub: "(2 Pool Tables, 6 Sets of Balls, 20 Pool Sticks)", image: snookerImageSrc },
+    {
+      name: "Table Tennis",
+      sub: "(24 Bats, 12 Boxes of Balls, 6 Net Sets)",
+      image: tableTennisImageSrc,
+    },
+    {
+      name: "Snooker",
+      sub: "(2 Pool Tables, 6 Sets of Balls, 20 Pool Sticks)",
+      image: snookerImageSrc,
+    },
   ];
 
   return (
     <div>
-      <h2 className="font-stix text-3xl md:text-4xl text-[var(--foreground)]">Indoor Games</h2>
+      {/* ✅ Reduced on mobile only */}
+      <h2 className="font-stix text-2xl md:text-4xl text-[var(--foreground)]">
+        Indoor Games
+      </h2>
 
       <p className="mt-3 text-[var(--light-text-gray)] leading-relaxed">
-        It is a great hangout place for students and a hub for recreational activities. The 1500 sqft. Hall provides opportunities for leisure activities where students can connect and play friendly matches.
+        It is a great hangout place for students and a hub for recreational
+        activities. The 1500 sqft. Hall provides opportunities for leisure
+        activities where students can connect and play friendly matches.
       </p>
 
       <h5 className="mt-6 font-plus-jakarta-sans font-semibold text-[var(--foreground)]">
@@ -237,17 +258,28 @@ function IndoorGames({ caromImageSrc, chessImageSrc, tableTennisImageSrc, snooke
 
       <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
         {indoorGames.map((g, idx) => (
-          <div key={idx} className="overflow-hidden rounded-xl border border-black/10 bg-black/5">
+          <div
+            key={idx}
+            className="overflow-hidden rounded-xl border border-black/10 bg-black/5"
+          >
             <div className="relative w-full aspect-[4/3]">
               {g.image ? (
-                <Image src={g.image} alt={g.name} fill className="object-cover" sizes="(min-width: 1024px) 220px, 50vw" />
+                <Image
+                  src={g.image}
+                  alt={g.name}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 220px, 50vw"
+                />
               ) : (
                 <div className="absolute inset-0" />
               )}
             </div>
 
             <div className="px-3 py-2">
-              <p className="font-plus-jakarta-sans font-medium text-[var(--foreground)]">{g.name}</p>
+              <p className="font-plus-jakarta-sans font-medium text-[var(--foreground)]">
+                {g.name}
+              </p>
               <p className="text-xs text-[var(--light-text-gray)]">{g.sub}</p>
             </div>
           </div>
@@ -292,16 +324,54 @@ function OutdoorGames({
 
   // ✅ SAME DATA (not removed)
   const facilitiesRows = [
-    { sno: "01", game: "Cricket Ground Turf Wicket", material: "Cricket Kit 12, Bat 25, Ball 30, Wickets 30, Cricket mat 1, T Shirt, Marking Cone 80, Flag 90, Cap" },
-    { sno: "02", game: "Football Ground", material: "Football 30, Football Net 4 Set, T Shirt, Air Pump 2, Pole 1 Set, Whistle, Cap" },
-    { sno: "03", game: "Badminton Court", material: "Racket 12, Shuttle Cock 10 Box, Badminton Net 4 Set, T Shirt, Pole 4 Set, Cap" },
-    { sno: "04", game: "Basketball Ground", material: "Basketball 20, Basketball Net 20 Set, T Shirt, Pole 2 Set, Whistle, Cap" },
-    { sno: "05", game: "Volleyball Ground", material: "Volleyball 20, Volleyball Net 10, Antenna 4, T Shirt, Volleyball Pole 2 Set, Whistle, Cap" },
-    { sno: "06", game: "Kabaddi Ground", material: "Kabaddi Mat, T Shirt, Marking Tape, T Shirt, Whistle, Cap" },
+    {
+      sno: "01",
+      game: "Cricket Ground Turf Wicket",
+      material:
+        "Cricket Kit 12, Bat 25, Ball 30, Wickets 30, Cricket mat 1, T Shirt, Marking Cone 80, Flag 90, Cap",
+    },
+    {
+      sno: "02",
+      game: "Football Ground",
+      material:
+        "Football 30, Football Net 4 Set, T Shirt, Air Pump 2, Pole 1 Set, Whistle, Cap",
+    },
+    {
+      sno: "03",
+      game: "Badminton Court",
+      material:
+        "Racket 12, Shuttle Cock 10 Box, Badminton Net 4 Set, T Shirt, Pole 4 Set, Cap",
+    },
+    {
+      sno: "04",
+      game: "Basketball Ground",
+      material:
+        "Basketball 20, Basketball Net 20 Set, T Shirt, Pole 2 Set, Whistle, Cap",
+    },
+    {
+      sno: "05",
+      game: "Volleyball Ground",
+      material:
+        "Volleyball 20, Volleyball Net 10, Antenna 4, T Shirt, Volleyball Pole 2 Set, Whistle, Cap",
+    },
+    {
+      sno: "06",
+      game: "Kabaddi Ground",
+      material:
+        "Kabaddi Mat, T Shirt, Marking Tape, T Shirt, Whistle, Cap",
+    },
     { sno: "07", game: "Kho-Kho Ground", material: "T Shirt, Marking Tape, Whistle, Cap" },
-    { sno: "08", game: "Hockey Ground", material: "Hockey Steak 24, Hockey Ball 24, Pole 1 Set, T Shirt, Cap" },
+    {
+      sno: "08",
+      game: "Hockey Ground",
+      material: "Hockey Steak 24, Hockey Ball 24, Pole 1 Set, T Shirt, Cap",
+    },
     { sno: "09", game: "Handball Ground", material: "Ball 10, Pole 2 Set, T Shirt, Cap" },
-    { sno: "10", game: "Lawn Tennis", material: "Racket 6 Set, Ball 40, Pole 1 Set, Net 2, T Shirt, Cap" },
+    {
+      sno: "10",
+      game: "Lawn Tennis",
+      material: "Racket 6 Set, Ball 40, Pole 1 Set, Net 2, T Shirt, Cap",
+    },
     { sno: "11", game: "Shot put Throw", material: "12 pieces" },
     { sno: "12", game: "Discuss Throw", material: "12 pieces" },
     { sno: "13", game: "Javelin Throw", material: "12 pieces" },
@@ -338,10 +408,17 @@ function OutdoorGames({
 
   return (
     <div>
-      <h2 className="font-stix text-3xl md:text-4xl text-[var(--foreground)]">Outdoor Games</h2>
+      {/* ✅ Reduced on mobile only */}
+      <h2 className="font-stix text-2xl md:text-4xl text-[var(--foreground)]">
+        Outdoor Games
+      </h2>
 
       <p className="mt-3 text-[var(--light-text-gray)] leading-relaxed">
-        We have a world-class outdoor sports facility on our campus that is designed to provide an exceptional sports experience for all our students. With different grounds and courts, we give them complete facilities and support so that they can represent our university at the National and International level competitions.
+        We have a world-class outdoor sports facility on our campus that is
+        designed to provide an exceptional sports experience for all our
+        students. With different grounds and courts, we give them complete
+        facilities and support so that they can represent our university at the
+        National and International level competitions.
       </p>
 
       <h5 className="mt-7 font-plus-jakarta-sans font-semibold text-[var(--foreground)]">
@@ -350,41 +427,48 @@ function OutdoorGames({
 
       <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
         {outdoorGames.map((g, idx) => (
-          <div key={idx} className="overflow-hidden rounded-xl border border-black/10 bg-black/5">
+          <div
+            key={idx}
+            className="overflow-hidden rounded-xl border border-black/10 bg-black/5"
+          >
             <div className="relative w-full aspect-[4/3]">
               {g.image ? (
-                <Image src={g.image} alt={g.name} fill className="object-cover" sizes="(min-width: 1024px) 220px, 50vw" />
+                <Image
+                  src={g.image}
+                  alt={g.name}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 220px, 50vw"
+                />
               ) : (
                 <div className="absolute inset-0" />
               )}
             </div>
             <div className="px-3 py-2">
-              <p className="font-plus-jakarta-sans font-medium text-[var(--foreground)]">{g.name}</p>
+              <p className="font-plus-jakarta-sans font-medium text-[var(--foreground)]">
+                {g.name}
+              </p>
             </div>
           </div>
         ))}
       </div>
 
       {/* ✅ TABLE 1 (DataTable) */}
-      <h5 className="mt-10 font-plus-jakarta-sans font-semibold text-[var(--foreground)]">Outdoor Game Facilities</h5>
+      <h5 className="mt-10 font-plus-jakarta-sans font-semibold text-[var(--foreground)]">
+        Outdoor Game Facilities
+      </h5>
 
       <div className="mt-4">
-        <DataTable
-          columns={facilitiesColumns}
-          data={facilitiesRows}
-          overflowX={true}
-        />
+        <DataTable columns={facilitiesColumns} data={facilitiesRows} overflowX={true} />
       </div>
 
       {/* ✅ TABLE 2 (DataTable) */}
-      <p className="mt-10 font-plus-jakarta-sans font-semibold text-[var(--foreground)]">Sports Grounds Dimension</p>
+      <p className="mt-10 font-plus-jakarta-sans font-semibold text-[var(--foreground)]">
+        Sports Grounds Dimension
+      </p>
 
       <div className="mt-4">
-        <DataTable
-          columns={groundsColumns}
-          data={groundRows}
-          overflowX={true}
-        />
+        <DataTable columns={groundsColumns} data={groundRows} overflowX={true} />
       </div>
     </div>
   );
@@ -393,13 +477,23 @@ function OutdoorGames({
 function Gymnasium({ gymImages }) {
   return (
     <div>
-      <h2 className="font-stix text-3xl md:text-4xl text-[var(--foreground)]">Gymnasium</h2>
+      {/* ✅ Reduced on mobile only */}
+      <h2 className="font-stix text-2xl md:text-4xl text-[var(--foreground)]">
+        Gymnasium
+      </h2>
 
       <p className="mt-3 text-[var(--light-text-gray)] leading-relaxed">
-        We have a fully equipped, air-conditioned separate boys’ and girls’ gym facility on our campus for students who are residing in our hostels. To maintain their physical fitness, we have all the necessary instruments and machines that can be used by our students at any time. We also have certified weight and fitness trainers who are always available to guide our students.
+        We have a fully equipped, air-conditioned separate boys’ and girls’ gym
+        facility on our campus for students who are residing in our hostels. To
+        maintain their physical fitness, we have all the necessary instruments
+        and machines that can be used by our students at any time. We also have
+        certified weight and fitness trainers who are always available to guide
+        our students.
       </p>
 
-      <p className="mt-6 font-plus-jakarta-sans font-semibold text-[var(--foreground)]">Equipment Available</p>
+      <p className="mt-6 font-plus-jakarta-sans font-semibold text-[var(--foreground)]">
+        Equipment Available
+      </p>
 
       <ul className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 text-[var(--light-text-gray)]">
         {[
@@ -436,10 +530,20 @@ function Gymnasium({ gymImages }) {
 function YogaRoom({ yogaImages }) {
   return (
     <div>
-      <h2 className="font-stix text-3xl md:text-4xl text-[var(--foreground)]">Yoga Room</h2>
+      {/* ✅ Reduced on mobile only */}
+      <h2 className="font-stix text-2xl md:text-4xl text-[var(--foreground)]">
+        Yoga Room
+      </h2>
 
       <p className="mt-3 text-[var(--light-text-gray)] leading-relaxed">
-        We have a dedicated yoga room on our campus designed to promote the physical, mental, and emotional well-being of our students. It is equipped with mats and props, enabling students to practice yoga and meditation in a tranquil ambience. It is a great way to manage stress and anxiety or take a break from studies and relax in a calm environment. We also have an experienced yoga trainer who conducts sessions from time to time. Our students and faculty celebrate the International Yoga Day every year, raising awareness among students about the importance of Yoga.
+        We have a dedicated yoga room on our campus designed to promote the
+        physical, mental, and emotional well-being of our students. It is
+        equipped with mats and props, enabling students to practice yoga and
+        meditation in a tranquil ambience. It is a great way to manage stress
+        and anxiety or take a break from studies and relax in a calm environment.
+        We also have an experienced yoga trainer who conducts sessions from time
+        to time. Our students and faculty celebrate the International Yoga Day
+        every year, raising awareness among students about the importance of Yoga.
       </p>
 
       <GlimpseGrid images={yogaImages} />
@@ -452,13 +556,25 @@ function GlimpseGrid({ images = [] }) {
 
   return (
     <div className="mt-8">
-      <p className="font-stix text-2xl md:text-3xl text-[var(--foreground)]">Training Glimpse</p>
+      {/* ✅ Reduced on mobile only */}
+      <p className="font-stix text-xl md:text-3xl text-[var(--foreground)]">
+        Training Glimpse
+      </p>
 
       <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
         {images.slice(0, 8).map((img, idx) => (
-          <div key={idx} className="overflow-hidden rounded-xl border border-black/10 bg-black/5">
+          <div
+            key={idx}
+            className="overflow-hidden rounded-xl border border-black/10 bg-black/5"
+          >
             <div className="relative w-full aspect-[4/3]">
-              <Image src={img?.src || img} alt="" fill className="object-cover" sizes="(min-width: 1024px) 220px, 50vw" />
+              <Image
+                src={img?.src || img}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 220px, 50vw"
+              />
             </div>
           </div>
         ))}

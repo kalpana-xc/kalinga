@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useRef } from "react";
+import { useEffect, useMemo, useState } from "react";
 import MainIntro from "@/app/components/about/main_intro";
 import WhyStudy from "@/app/components/department/why-study";
 import ScholarshipsSlider from "../components/admissions/scholarships_slider";
@@ -11,10 +11,8 @@ import AutoBreadcrumb from "../components/layout/BreadcrumbData";
 
 export default function ScholarshipsPage() {
   useEffect(() => {
-    // Get the swiper instance created inside WhyStudy (adjust selector if needed)
     const el = document.querySelector(".why-study-swiper .swiper");
     const sw = el?.swiper;
-
     if (!sw) return;
 
     let isJumping = false;
@@ -22,27 +20,14 @@ export default function ScholarshipsPage() {
     const safeJump = (index) => {
       if (isJumping) return;
       isJumping = true;
-
-      // jump without triggering reach events again
       sw.slideTo(index, 0, false);
-
-      // release guard on next frame
       requestAnimationFrame(() => {
         isJumping = false;
       });
     };
 
-    const onReachEnd = () => {
-      // ✅ if loop isn't enabled, simulate loop: jump to first "real" slide
-      // If your swiper has duplicated slides, use 1 instead of 0.
-      safeJump(0);
-    };
-
-    const onReachBeginning = () => {
-      // ✅ jump to last "real" slide
-      // If you have duplicated slides, use sw.slides.length - 2 instead.
-      safeJump(sw.slides.length - 1);
-    };
+    const onReachEnd = () => safeJump(0);
+    const onReachBeginning = () => safeJump(sw.slides.length - 1);
 
     sw.on("reachEnd", onReachEnd);
     sw.on("reachBeginning", onReachBeginning);
@@ -308,7 +293,9 @@ export default function ScholarshipsPage() {
       "Other Scholarships": {
         heading: "Other Scholarships",
         intro: "Additional KU scholarships (Tuition Fee waiver).",
-        points: ["Wards of Kalinga University Teaching and Non-Teaching Staff — 50%"],
+        points: [
+          "Wards of Kalinga University Teaching and Non-Teaching Staff — 50%",
+        ],
       },
     }),
     []
@@ -316,7 +303,6 @@ export default function ScholarshipsPage() {
 
   const [open, setOpen] = useState(false);
   const [activeTitle, setActiveTitle] = useState(null);
-
   const activeData = activeTitle ? scholarshipPopupData[activeTitle] : null;
 
   useEffect(() => {
@@ -329,6 +315,8 @@ export default function ScholarshipsPage() {
 
       const slides = Array.from(root.querySelectorAll(".swiper-slide"));
       const index = slides.indexOf(slide);
+
+      // guard: only map to the real items array length
       if (index < 0 || index >= scholarships.length) return;
 
       const clicked = scholarships[index];
@@ -344,17 +332,18 @@ export default function ScholarshipsPage() {
 
   return (
     <>
+      {/* Breadcrumb image position */}
       <style jsx global>{`
-  .absolute.inset-0 > img {
-    object-position: center 50% !important;
-  }
+        .absolute.inset-0 > img {
+          object-position: center 50% !important;
+        }
+        @media (max-width: 768px) {
+          .absolute.inset-0 > img {
+            object-position: center 5% !important;
+          }
+        }
+      `}</style>
 
-  @media (max-width: 768px) {
-    .absolute.inset-0 > img {
-      object-position: center 5% !important;
-    }
-  }
-`}</style>
       <AutoBreadcrumb data={breadcrumbData} />
 
       <MainIntro
@@ -373,35 +362,28 @@ export default function ScholarshipsPage() {
         />
       </div>
 
+      {/* WhyStudy alignment styles */}
       <style jsx global>{`
-  /* Keep card size exactly same, just center content block */
-  .why-study-swiper .swiper-slide > div > div {
-  min-height: 180px !important;
-    justify-content: center !important; /* vertical centering only */
-  }
+        .why-study-swiper .swiper-slide > div > div {
+          min-height: 180px !important;
+          justify-content: center !important;
+        }
+        .why-study-swiper .swiper-slide > div > div > div {
+          margin-left: auto !important;
+          margin-right: auto !important;
+          align-items: flex-start !important;
+          text-align: left !important;
+        }
+        .why-study-swiper h4,
+        .why-study-swiper p {
+          text-align: left !important;
+        }
+        .why-study-swiper button {
+          align-self: flex-start !important;
+        }
+      `}</style>
 
-  /* Center the inner content block WITHOUT resizing */
-  .why-study-swiper .swiper-slide > div > div > div {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    align-items: flex-start !important; /* left-aligned text */
-    text-align: left !important;
-  }
-
-  /* Ensure text stays left aligned */
-  .why-study-swiper h4,
-  .why-study-swiper p {
-    text-align: left !important;
-  }
-
-  /* Read More stays left aligned */
-  .why-study-swiper button {
-    align-self: flex-start !important;
-  }
-`}</style>
-
-
-      {/* ✅ Slider cards */}
+      {/* Slider cards */}
       <div className="hide-scholarship-cta">
         <ScholarshipsSlider
           items={scholarships}
@@ -413,84 +395,92 @@ export default function ScholarshipsPage() {
         />
       </div>
 
+      {/* Hide CTA only for this page */}
       <style jsx global>{`
-      /* Hide "Explore Now" CTA only for this page */
-      .hide-scholarship-cta a.inline-flex {
-        display: none !important;
-      }
-    `}</style>
+        .hide-scholarship-cta a.inline-flex {
+          display: none !important;
+        }
+      `}</style>
 
+      {/* Scholarship slider fixes (scoped ONLY to this page wrapper) */}
       <style jsx global>{`
-  /* ✅ Make each slide/card same height behavior */
-  .hide-scholarship-cta .scholarships-swiper .swiper-slide {
-    height: auto !important;
-  }
+        /* ✅ keep slide/card sizing consistent */
+        .hide-scholarship-cta .scholarships-swiper .swiper-slide {
+          height: auto !important;
+        }
 
-  /* Card root inside each slide */
-  .hide-scholarship-cta .scholarships-swiper .swiper-slide > * {
-    height: 100% !important;
-    display: flex !important;
-  }
+        .hide-scholarship-cta .scholarships-swiper .swiper-slide > * {
+          height: 100% !important;
+          display: flex !important;
+        }
 
-  /* Card inner layout */
-  .hide-scholarship-cta .scholarships-swiper .swiper-slide > * > * {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
+        .hide-scholarship-cta .scholarships-swiper .swiper-slide > * > * {
+          width: 100% !important;
+          display: flex !important;
+          flex-direction: column !important;
+        }
 
-  /* ✅ Title: reserve equal space across cards (2 lines) */
-  .hide-scholarship-cta .scholarships-swiper h3,
-  .hide-scholarship-cta .scholarships-swiper h4 {
-    min-height: 2.8em !important; /* ~2 lines */
-    line-height: 1.4 !important;
+        /* ✅ Titles: consistent 2-line clamp */
+        .hide-scholarship-cta .scholarships-swiper h3,
+        .hide-scholarship-cta .scholarships-swiper h4 {
+          min-height: 2.8em !important;
+          line-height: 1.4 !important;
+          display: -webkit-box !important;
+          -webkit-box-orient: vertical !important;
+          -webkit-line-clamp: 2 !important;
+          overflow: hidden !important;
+        }
 
-    display: -webkit-box !important;
-    -webkit-box-orient: vertical !important;
-    -webkit-line-clamp: 2 !important;
-    overflow: hidden !important;
-  }
+        /* ✅ Description spacing */
+        .hide-scholarship-cta .scholarships-swiper p {
+          margin-top: 0.75rem !important;
+        }
 
-  /* ✅ Description: keep consistent spacing */
-  .hide-scholarship-cta .scholarships-swiper p {
-    margin-top: 0.75rem !important;
-  }
+        /* ✅ Divider full width */
+        .hide-scholarship-cta .scholarships-swiper hr,
+        .hide-scholarship-cta .scholarships-swiper [role="separator"],
+        .hide-scholarship-cta .scholarships-swiper .divider,
+        .hide-scholarship-cta .scholarships-swiper [class*="divider"],
+        .hide-scholarship-cta .scholarships-swiper .border-t,
+        .hide-scholarship-cta .scholarships-swiper .border-b {
+          width: 100% !important;
+          align-self: stretch !important;
+        }
 
-  /* ✅ Divider: consistent full width */
-  .hide-scholarship-cta .scholarships-swiper hr,
-  .hide-scholarship-cta .scholarships-swiper [role="separator"],
-  .hide-scholarship-cta .scholarships-swiper .divider,
-  .hide-scholarship-cta .scholarships-swiper [class*="divider"],
-  .hide-scholarship-cta .scholarships-swiper .border-t,
-  .hide-scholarship-cta .scholarships-swiper .border-b {
-    width: 100% !important;
-    align-self: stretch !important;
-  }
+        /* ✅ Keep arrow button consistently at bottom */
+        .hide-scholarship-cta .scholarships-swiper a,
+        .hide-scholarship-cta .scholarships-swiper button {
+          margin-top: auto !important;
+          align-self: flex-end !important;
+        }
 
-  /* ✅ Push the arrow button to bottom consistently */
-  .hide-scholarship-cta .scholarships-swiper a,
-  .hide-scholarship-cta .scholarships-swiper button {
-    margin-top: auto !important;
-    align-self: flex-end !important;
-  }
+        /* ✅ CRITICAL FIX: stop icon/text overlap WITHOUT breaking the icon
+           - force icon to stay in normal flow (no absolute/translate)
+           - give consistent size + bottom spacing so text starts below */
+        .hide-scholarship-cta .scholarships-swiper img {
+          position: static !important;
+          top: auto !important;
+          left: auto !important;
+          transform: none !important;
 
-  /* ✅ Icon: keep consistent size and avoid weird offsets */
-  .hide-scholarship-cta .scholarships-swiper img {
-    width: 180px !important;  
-    height: 180px !important;
-    object-fit: contain !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+          width: 180px !important;
+          height: 180px !important;
+          object-fit: contain !important;
 
-    position: relative !important;
-    top: 0 !important;
-    transform: none !important;
-  }
-`}</style>
+          display: block !important;
+          margin: 0 auto 14px auto !important; /* space under icon */
+        }
 
+        @media (max-width: 640px) {
+          .hide-scholarship-cta .scholarships-swiper img {
+            width: 140px !important;
+            height: 140px !important;
+            margin-bottom: 12px !important;
+          }
+        }
+      `}</style>
 
-      {/* ✅ Popup Modal */}
+      {/* Popup Modal */}
       {open && activeData && (
         <div
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999] flex items-end md:items-center justify-center p-4"

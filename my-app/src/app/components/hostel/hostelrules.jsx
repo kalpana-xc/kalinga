@@ -37,12 +37,14 @@ const Answer = ({ lines = [], penalty }) => {
 // ✅ QC Note UI (clean + compact)
 function NoteBox({ children }) {
     return (
-        <div className="rounded-xl border border-black/10 bg-black/5 px-4 py-3 flex gap-3 my-2">
-            <TickIcon />
-            <div className="text-[var(--foreground)] leading-relaxed">{children}</div>
+        <div className="rounded-xl border border-black/10 bg-black/5 px-4 py-3 my-2">
+            <div className="text-[var(--foreground)] leading-relaxed">
+                {children}
+            </div>
         </div>
     );
 }
+
 
 export default function Hostelrules() {
     // ✅ Notes content (NOTE keyword bold)

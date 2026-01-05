@@ -277,7 +277,7 @@ function Academiccards() {
         }
       `}</style>
 
-            <h2 className="mb-1 text-black text-left md:text-center">
+            <h2 className="mb-1 text-black text-center">
                 Our Dynamic Academic Facilities
             </h2>
 

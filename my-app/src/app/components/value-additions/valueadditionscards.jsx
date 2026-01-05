@@ -185,7 +185,7 @@ function Valueadditioncards() {
   }
 `}</style>
 
-            <h2 className="mb-2 text-black text-left md:text-center">Explore More Than Just Academics </h2>
+            <h2 className="mb-2 text-black text-center">Explore More Than Just Academics </h2>
             <div
                 ref={wrapperRef}
                 onClickCapture={handleClickCapture}
