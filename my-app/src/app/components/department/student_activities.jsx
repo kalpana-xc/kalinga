@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import GlobalArrowButton from "../general/global-arrow_button";
 import SectionHeading from "../general/SectionHeading";
@@ -8,6 +9,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useRef, useEffect, useMemo, useState } from "react";
+import { fetchNewsEvents, parseHtmlToText } from "@/app/lib/api";
 
 const defaultActivities = [
   {
@@ -46,46 +48,22 @@ const defaultActivities = [
 ];
 
 function getPreviewText(desc) {
-  if (Array.isArray(desc)) {
-    // preview = first line
-    return (desc[0] || "").trim();
-  }
-
-  const text = (desc || "").toString().trim();
-  if (!text) return "";
-
-  // preview = text before first comma (your requirement)
-  const commaIndex = text.indexOf(",");
-  if (commaIndex === -1) return text;
-
-  return text.slice(0, commaIndex).trim();
-}
-
-function hasMoreContent(desc) {
-  if (Array.isArray(desc)) return desc.length > 1;
-  const text = (desc || "").toString().trim();
-  if (!text) return false;
-  return text.includes(","); // if comma exists, there is "after comma" content
-}
-
-function renderFullDescription(desc) {
-  // If array, join into ONE sentence/paragraph (no next line)
-  if (Array.isArray(desc)) {
-    const joined = desc.filter(Boolean).map(s => s.trim()).join(" ");
-    return <p className="m-0 inline">{joined}</p>;
-  }
-
-  // If string, show as-is
-  return <p className="m-0 inline">{(desc || "").toString()}</p>;
+  const text = Array.isArray(desc) ? desc.join(" ") : (desc || "").toString();
+  const words = text.trim().split(/\s+/);
+  if (words.length <= 20) return text;
+  return words.slice(0, 20).join(" ") + "...";
 }
 
 
 export default function StudentActivities({
   title = "Student Activities",
   subtitle = "Lorem ipsum dolor sit amet, consectetur",
-  activities = defaultActivities,
+  activities: providedActivities,
+  departmentId,
+  categoryId,
+  limit,
   paddingClassName = "py-16",
-  cardHeightClass = "h-full",
+  cardHeightClass = "h-full w-full",
 }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -94,7 +72,62 @@ export default function StudentActivities({
   const mobileNextRef = useRef(null);
   const mobileSwiperRef = useRef(null);
 
-  const [expandedId, setExpandedId] = useState(null);
+  const [activities, setActivities] = useState(providedActivities || defaultActivities);
+  const [loading, setLoading] = useState(!providedActivities);
+
+  useEffect(() => {
+    // If activities are provided via props, use them and don't fetch
+    if (providedActivities) {
+      setActivities(providedActivities);
+      setLoading(false);
+      return;
+    }
+
+    const loadActivities = async () => {
+      try {
+        setLoading(true);
+        const params = {};
+        if (departmentId) params.department = departmentId;
+        if (categoryId) params.category = categoryId;
+
+        // If limit is provided, we might need to handle slice here 
+        // as the API might not support limit directly in list endpoint
+        // based on previous analysis of api.js
+
+        const data = await fetchNewsEvents(params);
+
+        if (data && data.results) {
+          let mappedActivities = data.results.map(item => ({
+            id: item.id,
+            title: item.heading,
+            description: parseHtmlToText(item.content),
+            imageSrc: item.primary_image?.image || item.images?.[0]?.image || "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/image+15.png",
+            imageAlt: item.primary_image?.alt || item.images?.[0]?.alt || item.heading || "Student Activity",
+            date: item.date,
+            buttonText: "Read More",
+            slug: item.slug
+          }));
+
+          if (limit && limit > 0) {
+            mappedActivities = mappedActivities.slice(0, limit);
+          }
+
+          setActivities(mappedActivities);
+        }
+      } catch (err) {
+        console.error("Failed to load student activities:", err);
+        // Fallback to default activities if fetch fails? 
+        // Or keep empty/error state? 
+        // For now, if fetch fails, we might just show nothing or keep defaults if we want
+        // But safer to show nothing or error message to avoid misleading UI
+        setActivities([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadActivities();
+  }, [departmentId, categoryId, providedActivities, limit]);
 
   const showAsSlider = activities && activities.length > 3;
 
@@ -110,38 +143,28 @@ export default function StudentActivities({
   };
 
   useEffect(() => {
-    bindNavigation(swiperRef.current);
+    if (swiperRef.current) {
+      bindNavigation(swiperRef.current);
+    }
   }, [activities]);
 
-  const toggleReadMore = (id, e) => {
-    e?.preventDefault?.();
-    e?.stopPropagation?.();
-    setExpandedId((prev) => (prev === id ? null : id));
-  };
-
   const ActivityCard = ({ activity }) => {
-    const isExpanded = expandedId === activity.id;
     const preview = useMemo(
       () => getPreviewText(activity.description),
-      [activity.description]
-    );
-    const more = useMemo(
-      () => hasMoreContent(activity.description),
       [activity.description]
     );
 
     return (
       <div className={`bg-[var(--light-gray)] rounded-lg p-5 ${cardHeightClass} flex flex-col`}>
-        <div className="relative">
+        <div className="relative w-full h-[250px]">
           <Image
             src={activity.imageSrc}
             alt={activity.imageAlt}
-            width={500}
-            height={500}
-            className="rounded-lg object-cover w-full h-[250px]"
+            fill
+            className="rounded-lg object-cover"
           />
           {activity.date && (
-            <div className="absolute bottom-3 right-3 bg-[var(--dark-orange-red-light)] px-3 py-1.5 rounded text-[#000] text-[11px] font-medium">
+            <div className="absolute bottom-3 right-3 bg-[var(--dark-orange-red-light)] px-3 py-1.5 rounded text-[#000] text-[11px] font-medium z-10">
               {activity.date}
             </div>
           )}
@@ -152,31 +175,34 @@ export default function StudentActivities({
         </h3>
 
         <div className="text-left flex-grow text-neutral-800">
-          {!isExpanded ? (
-            <p className="m-0">
-              {preview}
-              {more ? "..." : ""}
-            </p>
-
-          ) : (
-            <div className="space-y-2">{renderFullDescription(activity.description)}</div>
-          )}
+          <p className="m-0">
+            {preview}
+          </p>
         </div>
 
-        {more && (
-          <GlobalArrowButton
-            onClick={(e) => toggleReadMore(activity.id, e)}
-            className="w-fit mt-2 !bg-[var(--light-gray)] !shadow-none hover:!shadow-none gap-3 !px-0"
-            textClassName="!text-[var(--button-red)] !px-0"
-            arrowClassName="p-[3px] !px-1 mr-2 !py-1 !bg-[var(--button-red)]"
-            arrowIconClassName="!text-white"
-          >
-            {isExpanded ? "Read Less" : activity.buttonText || "Read More"}
-          </GlobalArrowButton>
-        )}
+        <div className="mt-2">
+          <Link href={activity.slug ? `/news-and-events/${activity.slug}` : "#"} passHref className="inline-block">
+            <GlobalArrowButton
+              className="w-fit !bg-[var(--light-gray)] !shadow-none hover:!shadow-none gap-3 !px-0"
+              textClassName="!text-[var(--button-red)] !px-0"
+              arrowClassName="p-[3px] !px-1 mr-2 !py-1 !bg-[var(--button-red)]"
+              arrowIconClassName="!text-white"
+            >
+              {activity.buttonText || "Read More"}
+            </GlobalArrowButton>
+          </Link>
+        </div>
       </div>
     );
   };
+
+  if (loading) {
+    return <div className="py-16 text-center">Loading activities...</div>;
+  }
+
+  if (!activities || activities.length === 0) {
+    return null; // Or return a "No activities found" message
+  }
 
   return (
     <section className={`bg-white ${paddingClassName}`}>
@@ -284,7 +310,7 @@ export default function StudentActivities({
                   ))}
                 </Swiper>
               </div>
-              
+
               {/* Desktop Grid - Hidden on mobile */}
               <div className="hidden md:grid grid-cols-3 gap-6 justify-items-center">
                 {activities.map((activity) => (
@@ -347,7 +373,7 @@ export default function StudentActivities({
               </button>
             </div>
           )}
-          
+
           {/* Navigation buttons - show for mobile slider only */}
           {!showAsSlider && activities.length > 1 && (
             <div className="flex justify-center items-center gap-3 mt-8 md:hidden">

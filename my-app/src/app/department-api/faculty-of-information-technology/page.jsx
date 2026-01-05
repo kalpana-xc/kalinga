@@ -71,7 +71,7 @@ export default function FacultyOfInformationTechnology() {
   const [departmentData, setDepartmentData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   // Department ID - can be made dynamic based on route or props
   const departmentId = 1;
 
@@ -101,7 +101,7 @@ export default function FacultyOfInformationTechnology() {
     // Helper function to update or create meta tags
     const updateMetaTag = (name, content, attribute = 'name') => {
       if (!content) return;
-      
+
       let element = document.querySelector(`meta[${attribute}="${name}"]`);
       if (!element) {
         element = document.createElement('meta');
@@ -136,10 +136,10 @@ export default function FacultyOfInformationTechnology() {
     }
 
     // Get banner image for SEO (prioritize banner, then og_image, then department image)
-    const seoImage = departmentData?.banners?.[0]?.image || 
-                     departmentData?.banners?.[0]?.image_url || 
-                     departmentData?.og_image || 
-                     departmentData?.image;
+    const seoImage = departmentData?.banners?.[0]?.image ||
+      departmentData?.banners?.[0]?.image_url ||
+      departmentData?.og_image ||
+      departmentData?.image;
 
     // Open Graph tags
     updateMetaTag('og:title', departmentData?.og_title || departmentData?.meta_title || departmentData?.name, 'property');
@@ -170,8 +170,8 @@ export default function FacultyOfInformationTechnology() {
       }
       try {
         // Handle both string and object formats
-        const schemaContent = typeof departmentData.schema_json === 'string' 
-          ? departmentData.schema_json 
+        const schemaContent = typeof departmentData.schema_json === 'string'
+          ? departmentData.schema_json
           : JSON.stringify(departmentData.schema_json);
         schemaScript.textContent = schemaContent;
       } catch (e) {
@@ -185,13 +185,13 @@ export default function FacultyOfInformationTechnology() {
   const mainIntroContent = departmentData?.about_sections?.[0] ? (() => {
     const apiParagraphs = parseHtmlToParagraphs(departmentData.about_sections[0].content);
     // Mock second paragraph for "read more" section
-    const mockSecondParagraph = "The Faculty of Computer Science and Information Technology is a department of skilled professionals who combine theoretical and practical knowledge and prepare students with the trending IT skills that will keep them ahead in the digital world.";
-    
+    const mockSecondParagraph = "";
+
     // Combine: first paragraph from API, mock second paragraph, then rest from API
-    const description = apiParagraphs.length > 0 
+    const description = apiParagraphs.length > 0
       ? [apiParagraphs[0], mockSecondParagraph, ...apiParagraphs.slice(1)]
       : [mockSecondParagraph];
-    
+
     return {
       title: departmentData.about_sections[0].heading,
       subtitle: departmentData.about_sections[0].heading,
@@ -207,39 +207,39 @@ export default function FacultyOfInformationTechnology() {
   // Map API data to DeptHeadIntro - Only if data exists
   const mentorIntroProps = departmentData?.department_faculty_details && departmentData.department_faculty_details.length > 0
     ? departmentData.department_faculty_details.map(faculty => ({
-        cardClassName: "",
-        imageSrc: faculty.image,
-        title: faculty.name,
-        subtitle: faculty.qualification || "Dean of Faculty",
-        department: departmentData.name || "Faculty of Information Technology",
-        message: parseHtmlToParagraphs(faculty.about),
-        quote: faculty.quote_description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      }))
+      cardClassName: "",
+      imageSrc: faculty.image,
+      title: faculty.name,
+      subtitle: faculty.qualification || "Dean of Faculty",
+      department: departmentData.name || "Faculty of Information Technology",
+      message: parseHtmlToParagraphs(faculty.about),
+      quote: faculty.quote_description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    }))
     : null;
 
   // Map API data to publicationStats for PublicationGrid from milestones - Only if data exists
   const publicationStats = departmentData?.milestones && departmentData.milestones.length > 0
     ? departmentData.milestones
-        .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
-        .map(milestone => ({
-          title: milestone.heading || "",
-          value: `${milestone.number || ""}${milestone.suffix ? ` ${milestone.suffix}` : ""}`.trim(),
-          description: milestone.description || "", // Use description from milestones
-        }))
+      .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
+      .map(milestone => ({
+        title: milestone.heading || "",
+        value: `${milestone.number || ""}${milestone.suffix ? ` ${milestone.suffix}` : ""}`.trim(),
+        description: milestone.description || "", // Use description from milestones
+      }))
     : null;
 
   // Prepare breadcrumb data - Only set when departmentData is fully loaded
   const breadcrumbData = (departmentData?.name && !loading) ? {
     heroImage: departmentData?.banners?.[0]?.image || departmentData?.banners?.[0]?.image_url || departmentData.image || "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/student-gathered.webp",
     pageTitle: departmentData.name,
-  customBreadcrumbs: [
-    { label: 'Home', href: '/' },
-    { label: 'Departments', href: '/departments' },
-      { 
-        label: departmentData.name, 
-        href: `/departments/${departmentData.slug || generateSlug(departmentData.name)}` 
+    customBreadcrumbs: [
+      { label: 'Home', href: '/' },
+      { label: 'Departments', href: '/departments' },
+      {
+        label: departmentData.name,
+        href: `/departments/${departmentData.slug || generateSlug(departmentData.name)}`
       }
-  ]
+    ]
   } : loading ? {
     // During loading, set empty breadcrumbs to hide breadcrumb component
     customBreadcrumbs: []
@@ -251,25 +251,25 @@ export default function FacultyOfInformationTechnology() {
   // Map API data to videoItems for MediaCardSlider - Only if data exists
   const videoItems = departmentData?.video_interviews && departmentData.video_interviews.length > 0
     ? departmentData.video_interviews.map(video => ({
-        id: video.id,
-        name: video.heading,
-        description: parseHtmlToText(video.description),
-        thumbnail: video.placeholder_image,
-        videoUrl: video.video_link,
-      }))
+      id: video.id,
+      name: video.heading,
+      description: parseHtmlToText(video.description),
+      thumbnail: video.placeholder_image,
+      videoUrl: video.video_link,
+    }))
     : null;
 
   // Map API data to whyStudyItems for WhyStudy component - Only if data exists
   const whyStudyItems = departmentData?.benefits && departmentData.benefits.length > 0
     ? departmentData.benefits
-        .sort((a, b) => (a.id || 0) - (b.id || 0)) // Sort by id to maintain order
-        .map((benefit, index) => ({
-          id: benefit.id,
-          title: benefit.heading || "",
-          body: benefit.text || "",
-          variant: index % 2 === 0 ? "gray" : "amber",
-          image: benefit.image || null,
-        }))
+      .sort((a, b) => (a.id || 0) - (b.id || 0)) // Sort by id to maintain order
+      .map((benefit, index) => ({
+        id: benefit.id,
+        title: benefit.heading || "",
+        body: benefit.text || "",
+        variant: index % 2 === 0 ? "gray" : "amber",
+        image: benefit.image || null,
+      }))
     : null;
 
   // Map API data to faqItems for FAQ component - Only if data exists
@@ -280,8 +280,8 @@ export default function FacultyOfInformationTechnology() {
     }
     return departmentData.faqs
       .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
-      .filter((item, index, self) => 
-        index === self.findIndex(t => 
+      .filter((item, index, self) =>
+        index === self.findIndex(t =>
           t.question?.toLowerCase() === item.question?.toLowerCase()
         )
       )
@@ -295,23 +295,23 @@ export default function FacultyOfInformationTechnology() {
   // Map API data to weStandOutCards for WeStandOut component - Only if data exists
   const weStandOutCards = departmentData?.how_we_stand_items && departmentData.how_we_stand_items.length > 0
     ? departmentData.how_we_stand_items
-        .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
-        .map(item => ({
-          id: item.id,
-          text: parseHtmlToText(item.description) || "",
-        }))
+      .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
+      .map(item => ({
+        id: item.id,
+        text: parseHtmlToText(item.description) || "",
+      }))
     : null;
 
   // Map API data to newsConferences for UpcomingConference component - Only if data exists
   const newsConferences = departmentData?.clubs && departmentData.clubs.length > 0
     ? departmentData.clubs.map(club => ({
-        id: club.id,
-        title: club.name || "",
-        date: "",
-        category: "Student Club",
-        description: parseHtmlToText(club.description) || "",
-        image: club.logo || null,
-      }))
+      id: club.id,
+      title: club.name || "",
+      date: "",
+      category: "Student Club",
+      description: parseHtmlToText(club.description) || "",
+      image: club.logo || null,
+    }))
     : null;
 
   // Map API data to placementData for Placements component
@@ -328,9 +328,9 @@ export default function FacultyOfInformationTechnology() {
       })),
     placement_info: departmentData.placement_info && departmentData.placement_info.length > 0
       ? departmentData.placement_info.map(info => ({
-          ...info,
-          description: parseHtmlToText(info.description) || "",
-        }))
+        ...info,
+        description: parseHtmlToText(info.description) || "",
+      }))
       : [],
     placement_student_photos: departmentData.placement_student_photos || [],
   } : null;
@@ -338,11 +338,11 @@ export default function FacultyOfInformationTechnology() {
   // Map API data to programsOffered from department_courses field
   const programsOffered = useMemo(() => {
     const coursesData = departmentData?.department_courses;
-    
+
     if (!coursesData || !Array.isArray(coursesData) || coursesData.length === 0) {
       return null;
     }
-    
+
     return coursesData.map(course => {
       // Determine level based on program_type
       let level = "UG";
@@ -358,7 +358,7 @@ export default function FacultyOfInformationTechnology() {
           level = "UG";
         }
       }
-      
+
       // Format duration
       const durationNum = typeof course.duration === 'number' ? course.duration : parseInt(course.duration);
       let duration = "3 Year";
@@ -367,7 +367,7 @@ export default function FacultyOfInformationTechnology() {
       } else if (course.duration && typeof course.duration === 'string') {
         duration = course.duration;
       }
-      
+
       return {
         id: course.id,
         title: course.name || "",
@@ -411,7 +411,7 @@ export default function FacultyOfInformationTechnology() {
   return (
     <div>
       {mainIntroContent && (
-       <MainIntro 
+        <MainIntro
           title={mainIntroContent.title}
           subtitle={mainIntroContent.subtitle}
           description={mainIntroContent.description}
@@ -426,13 +426,13 @@ export default function FacultyOfInformationTechnology() {
         <PublicationGrid stats={publicationStats} />
       )}
       {programsOffered && programsOffered.length > 0 && (
-      <ProgramsOffered 
-        programs={programsOffered}
-        title="Programs Offered"
+        <ProgramsOffered
+          programs={programsOffered}
+          title="Programs Offered"
           description={programsOverview}
           backgroundImage={programsImage || "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/programs-offered.webp"}
           imageAlt={programsImageAlt}
-      />
+        />
       )}
       {mentorIntroProps && mentorIntroProps.length > 0 && (
         <DeptHeadIntro items={mentorIntroProps} />
@@ -440,45 +440,45 @@ export default function FacultyOfInformationTechnology() {
       <DeptSyllabus />
       <Placements placementData={placementData} />
       {videoItems && videoItems.length > 0 && (
-      <MediaCardSlider
-        categoryTitle="Video Interviews"
+        <MediaCardSlider
+          categoryTitle="Video Interviews"
           title="Video Interviews"
           description="Watch interviews with our students and faculty members"
-        videoItems={videoItems}
-        cardBgClass="bg-white"
-        nameTextClass="text-[var(--button-red)]"
-        descriptionTextClass=""
-        swiperClassName="ccrc-video-slider"
-      />
+          videoItems={videoItems}
+          cardBgClass="bg-white"
+          nameTextClass="text-[var(--button-red)]"
+          descriptionTextClass=""
+          swiperClassName="ccrc-video-slider"
+        />
       )}
       <Facility />
       {whyStudyItems && whyStudyItems.length > 0 && (
-      <WhyStudy 
-        items={whyStudyItems}
-          sectionTitle={departmentData?.name 
-            ? `Why Study ${departmentData.name.replace(/^Faculty of\s+/i, '')}?` 
+        <WhyStudy
+          items={whyStudyItems}
+          sectionTitle={departmentData?.name
+            ? `Why Study ${departmentData.name.replace(/^Faculty of\s+/i, '')}?`
             : "Why Study Information Technology?"}
-      />
+        />
       )}
       {weStandOutCards && weStandOutCards.length > 0 && (
-      <WeStandOut cards={weStandOutCards} />
+        <WeStandOut cards={weStandOutCards} />
       )}
       {newsConferences && newsConferences.length > 0 && (
-      <UpcomingConference 
-        conferences={newsConferences}
-        title="Upcoming Conferences & Events"
-        backgroundColor="bg-[var(--light-gray)]"
-        backgroundColorcard="bg-white"
-        showCategory={false}
-        showDate={false}
-        imageContainerClass="w-full md:w-1/3 flex justify-center"
-      />
+        <UpcomingConference
+          conferences={newsConferences}
+          title="Upcoming Conferences & Events"
+          backgroundColor="bg-[var(--light-gray)]"
+          backgroundColorcard="bg-white"
+          showCategory={false}
+          showDate={false}
+          imageContainerClass="w-full md:w-1/3 flex justify-center"
+        />
       )}
       <StudentActivities />
       {faqItems && faqItems.length > 0 && (
-        <FAQ 
-          key={`faq-${departmentData?.id || 'default'}-${faqItems.length}-${faqItems.map(item => item.id).join('-')}`} 
-          items={faqItems} 
+        <FAQ
+          key={`faq-${departmentData?.id || 'default'}-${faqItems.length}-${faqItems.map(item => item.id).join('-')}`}
+          items={faqItems}
         />
       )}
       <AdmissionCareer />

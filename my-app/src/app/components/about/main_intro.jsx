@@ -40,6 +40,13 @@ export default function MainIntro({
   const visibleParagraphs = showAll
     ? descriptionArray
     : descriptionArray.slice(0, initialVisibleParagraphs);
+  const paragraphs = Array.isArray(description) ? description : [description];
+  const [expanded, setExpanded] = useState(false);
+
+  const visibleText = expanded
+    ? paragraphs
+    : paragraphs.slice(0, initialVisibleParagraphs);
+
 
   return (
     <section className="md:py-16 bg-white py-16 !pb-20 ">
@@ -47,13 +54,13 @@ export default function MainIntro({
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 ${showAll ? 'items-start' : 'items-center'}`}>
           {/* Left Section - Text Content */}
           <div className={`flex flex-col order-2 ${reverseLayout ? 'lg:order-2' : 'lg:order-1'} lg:pl-0 lg:pr-4`}>
-            <SectionHeading 
+            <SectionHeading
               title={title}
               subtitle={subtitle}
               titleClassName={titleClassName}
               subtitleClassName={subtitleClassName}
             />
-            
+
             <div className="space-y-4">
               {visibleParagraphs.map((paragraph, idx) => (
                 <p key={idx} className={`${descriptionClassName} leading-relaxed break-words overflow-visible`}>
@@ -66,12 +73,12 @@ export default function MainIntro({
                 <ul className="space-y-3 mt-4">
                   {points.map((point, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-[var(--light-text-gray)] leading-relaxed">
-                      <svg 
-                        fill="none" 
-                        height="24" 
-                        className="md:h-6 md:w-6 h-6 w-9 bg-[var(--card-skin)] fill-black rounded-md p-1 flex-shrink-0 mt-0.5" 
-                        viewBox="0 0 24 24" 
-                        width="24" 
+                      <svg
+                        fill="none"
+                        height="24"
+                        className="md:h-6 md:w-6 h-6 w-9 bg-[var(--card-skin)] fill-black rounded-md p-1 flex-shrink-0 mt-0.5"
+                        viewBox="0 0 24 24"
+                        width="24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path d="m19 5.50049v10.99951c0 .2761-.2239.5-.5.5s-.5-.2239-.5-.5v-9.79289l-12.14645 12.14649c-.19526.1952-.51184.1952-.7071 0-.19527-.1953-.19527-.5119 0-.7072l12.14645-12.1464h-9.7929c-.27614 0-.5-.22386-.5-.5s.22386-.5.5-.5h11c.1316 0 .2578.05186.3514.14426l.0022.00219c.0879.0879.1397.20518.1458.32876.0004.00824.0006.01699.0006.02528z"></path>
@@ -120,17 +127,17 @@ export default function MainIntro({
           {/* Right Section - Image */}
           {showImage && (
             <div className={`order-1 ${reverseLayout ? 'lg:order-1' : 'lg:order-2'} lg:pl-4 lg:pr-8`}>
-            <div className="relative w-full overflow-visible">
-              <Image
-                src={imageUrl}
-                alt={imageAlt}
-                width={500}
-                height={500}
-                className={`w-full h-full object-cover rounded-2xl ${applyTransform3dSlant ? 'transform-3d-slant' : 'transform-3d-slant-mirror'}`}
-                priority
-              />
+              <div className={`relative w-full overflow-visible ${expanded ? "min-h-[420px]" : "min-h-[360px]"}`}>
+                <Image
+                  src={imageUrl}
+                  alt={imageAlt}
+                  width={500}
+                  height={500}
+                  className={`w-full h-full object-cover rounded-2xl max-h-[400px] ${applyTransform3dSlant ? 'transform-3d-slant' : 'transform-3d-slant-mirror'}`}
+                  priority
+                />
+              </div>
             </div>
-          </div>
           )}
         </div>
       </div>

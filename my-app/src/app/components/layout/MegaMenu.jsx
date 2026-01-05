@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 const MegaMenu = ({ sections }) => {
   return (
-    <div className="fixed top-[110px] left-1/2 -translate-x-1/2 w-full z-[99999] pointer-events-auto">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="absolute pt-[25px] !w-screen left-1/2 !w-full -translate-x-1/2 z-[99999] pointer-events-auto">
+      <div className="relative max-w-7xl mx-auto px-6  ">
         <div className="bg-white rounded-xl shadow-2xl border-2 border-[var(--button-red)] p-6">
           <div className="grid grid-cols-4 gap-6">
 

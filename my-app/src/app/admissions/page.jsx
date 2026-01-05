@@ -299,7 +299,7 @@ export default function Admissions() {
   };
 
   return (
-    <div className="pt-[100px] md:pt-0">
+    <div className="pt-[100px] md:pt-0" id="course-finder">
       <Suspense fallback={
         <section className="py-16 bg-white">
           <div className="container mx-auto px-2">

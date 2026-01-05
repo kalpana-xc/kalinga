@@ -184,7 +184,7 @@ export default function DynamicDepartmentPage() {
   // Map API data to components (same logic as static page)
   const mainIntroContent = departmentData?.about_sections?.[0] ? (() => {
     const apiParagraphs = parseHtmlToParagraphs(departmentData.about_sections[0].content);
-    const mockSecondParagraph = "The Faculty of Computer Science and Information Technology is a department of skilled professionals who combine theoretical and practical knowledge and prepare students with the trending IT skills that will keep them ahead in the digital world.";
+    const mockSecondParagraph = " world.";
 
     const description = apiParagraphs.length > 0
       ? [apiParagraphs[0], mockSecondParagraph, ...apiParagraphs.slice(1)]
@@ -456,9 +456,12 @@ export default function DynamicDepartmentPage() {
       )}
       {departmentData?.how_we_stand_items && departmentData.how_we_stand_items.length > 0 && (
         <WeStandOut
-          items={departmentData.how_we_stand_items
+          cards={departmentData.how_we_stand_items
             .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
-            .map(item => parseHtmlToText(item.description))
+            .map(item => ({
+              id: item.id,
+              text: parseHtmlToText(item.description)
+            }))
           }
         />
       )}
@@ -526,7 +529,9 @@ export default function DynamicDepartmentPage() {
           title="Stories that define our Kalinga spirit."
         />
       )} */}
-      <StudentActivities />
+      <StudentActivities
+        departmentId={departmentData?.id}
+      />
       {faqItems && faqItems.length > 0 && (
         <FAQ
           title="Frequently Asked Questions"
