@@ -68,14 +68,17 @@ const FAQ = ({
   const [faqItems, setFaqItems] = useState(items)
   // Initialize with all sections collapsed except the first one for button variant and table-display variant
   const [collapsedSections, setCollapsedSections] = useState(() => {
-    if (variant === "button" && buttons.length > 0) {
-      const initialSet = new Set()
-      buttons.forEach((item, index) => {
-        if (index > 0) { // Skip first item (index 0) - keep it open
-          initialSet.add(`button-section-${item.id || index}`)
-        }
-      })
-      return initialSet
+    if (variant === "button") {
+      const buttonItems = buttons.length > 0 ? buttons : items
+      if (buttonItems.length > 0) {
+        const initialSet = new Set()
+        buttonItems.forEach((item, index) => {
+          if (index > 0) { // Skip first item (index 0) - keep it open
+            initialSet.add(`button-section-${item.id || index}`)
+          }
+        })
+        return initialSet
+      }
     }
     if (variant === "table-display" && tableSections.length > 0) {
       const initialSet = new Set()
