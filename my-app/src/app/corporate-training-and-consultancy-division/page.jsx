@@ -5,7 +5,7 @@ import OrganogramOfKalinga from '../components/about/organogram_of_kalinga';
 import AdmissionSteps from '../components/admissions/admission-steps';
 import ImageListItem from '../components/ccrc/imagelistitem';
 import AdmissionCareer from '../components/general/admission_cta';
-import CareerApplicationForm from '../components/careers/CareerApplicationForm';
+import CTCDApplicationForm from '../components/forms/CTCDApplicationForm';
 import Gallery from '../components/general/gallery';
 import CtcdTrainingTabs from '../components/ctcd/ctcd_training_tabs';
 
@@ -293,7 +293,7 @@ export default function CorporateTrainingAndConsultancyDivision() {
 
   return (
     <>
-      <HeroSectionTwo 
+      <HeroSectionTwo
         showBlackOverlay={true}
         titleTextColor="text-white"
         subtitleTextColor="text-white"
@@ -301,8 +301,9 @@ export default function CorporateTrainingAndConsultancyDivision() {
         hideBorder={true}
         subtitleImage="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/logo-ctcd.svg"
         subtitleImageAlt="CTCD Logo"
+        customForm={<CTCDApplicationForm />}
       />
-      <MainIntro 
+      <MainIntro
         title="Corporate Training And Consultancy Division (CTCD)"
         description={[
           "We offer training programs and provide one-on-one consultancy services to corporate employees using experiential methods at their location, at our campus, or through online mode, helping them upgrade their skills, boost morale, and improve productivity.",
@@ -329,7 +330,7 @@ export default function CorporateTrainingAndConsultancyDivision() {
         tab2Gallery={galleryImages2}
         tab2GalleryTitle="Annual Masterclass Calendar 2025-26 Glimpse"
       />
-      <OrganogramOfKalinga 
+      <OrganogramOfKalinga
         title="Organogram of CTCD"
         description={[
           "Our consultancy services are designed to transform organisations to reach their maximum potential. Our experts conduct one-on-one discussions with team members of companies and develop strategies that improve their organisations' workflows, HR processes, and performance management systems. ",
@@ -338,9 +339,9 @@ export default function CorporateTrainingAndConsultancyDivision() {
         buttonLabel="Explore Now"
         href="/organogram"
         cardBackgroundColor="bg-[var(--dark-blue)]"
-        useContainer = {true}
+        useContainer={true}
       />
-      <AdmissionSteps 
+      <AdmissionSteps
         title="Our Training Cycle"
         subtitle=""
         steps={admissionSteps}
@@ -350,8 +351,8 @@ export default function CorporateTrainingAndConsultancyDivision() {
         showHeaderButton={false}
         itemsAlignment="center"
       />
-      <ImageListItem items={Items} description="" imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-intro.jpg" title="Benefits for Organisations"  />
-      <MainIntro 
+      <ImageListItem items={Items} description="" imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-intro.jpg" title="Benefits for Organisations" />
+      <MainIntro
         title="Training Benefits"
         description={[
           "Training and development programs are a top priority in companies as they aim to maximise profit by eliminating low-productive tasks. But, how do they do it in the right direction?",
@@ -369,25 +370,16 @@ export default function CorporateTrainingAndConsultancyDivision() {
         initialVisibleParagraphs={1}
         hidePointsUntilExpanded={true}
       />
-      <OrganogramOfKalinga 
-      
+      <OrganogramOfKalinga
+
         title="Download Brochure 2025-26"
         description="Download our comprehensive Corporate Training and Consultancy Division (CTCD) brochure for 2025-26 to explore our training programs, consultancy services, masterclasses, and how we can help your organization enhance employee skills, boost productivity, and achieve business excellence through customized training solutions."
         buttonLabel="Explore Now"
         href="https://kalinga-university.s3.ap-south-1.amazonaws.com/ctcd/CTCD+-+Corporate+Training+and+Consultancy+Division_compressed+(1).pdf"
         cardBackgroundColor="bg-[var(--button-red)]"
-        useContainer = {true}
+        useContainer={true}
       />
-      <CareerApplicationForm
-          heading="CTCD Application Form"
-          description="Share your details to stay connected with Kalinga University, receive updates, and participate in alumni activities and events."
-          backgroundClass="bg-[var(--dark-blue)]"
-          hideTabs={true}
-          submitLabel="Submit Alumni Details"
-          useArrowSubmitButton={true}
-          arrowSubmitVariant="white"
-        />  
-        <Gallery />
+      <Gallery />
       <AdmissionCareer />
     </>
   );

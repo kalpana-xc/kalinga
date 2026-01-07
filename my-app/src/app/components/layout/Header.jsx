@@ -106,6 +106,8 @@ const Header = () => {
       label: 'About Us',
       href: '/about-us',
       megaMenu: {
+        imageUrl: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/about/about-banner.webp',
+        imageAlt: 'About Kalinga University',
         sections: [
           {
             title: 'Overview',
@@ -149,6 +151,8 @@ const Header = () => {
       label: 'Academics',
       href: '/academics',
       megaMenu: {
+        imageUrl: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/academic-facilities/valueaddedcourses.webp',
+        imageAlt: 'Academic Programs',
         sections: [
           {
             title: 'Overview',
@@ -201,6 +205,8 @@ const Header = () => {
       label: 'Admissions',
       href: '/admissions',
       megaMenu: {
+        imageUrl: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/student-gathered.webp',
+        imageAlt: 'Admissions at Kalinga',
         sections: [
           {
             title: 'Admissions',
@@ -212,7 +218,7 @@ const Header = () => {
               { label: 'Kalinga Plus', href: 'https://kalingaplus.kalingauniversity.ac.in/' },
               { label: 'B.Voc Admission', href: 'https://bvoc.kalingauniversity.ac.in/' },
               { label: 'Apply Now', href: 'https://admissions.kalingauniversity.ac.in/' },
-              
+
 
             ],
           },
@@ -233,6 +239,8 @@ const Header = () => {
       label: 'Campus life',
       href: '#',
       megaMenu: {
+        imageUrl: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/campuslife.webp',
+        imageAlt: 'Campus Life at KU',
         sections: [
           {
             title: 'Campus Life',
@@ -263,6 +271,8 @@ const Header = () => {
       label: 'Research',
       href: '/research',
       megaMenu: {
+        imageUrl: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/research/reserarch-banner.webp',
+        imageAlt: 'Research and Innovation',
         sections: [
           {
             title: 'Research',
@@ -291,6 +301,8 @@ const Header = () => {
       label: 'Placements',
       href: '/placements',
       megaMenu: {
+        imageUrl: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-intro.jpg',
+        imageAlt: 'Training and Placements',
         sections: [
           {
             title: 'Placements',
@@ -309,6 +321,8 @@ const Header = () => {
       label: 'News & Events',
       href: '/news-and-events',
       megaMenu: {
+        imageUrl: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/student-grppic.webp',
+        imageAlt: 'News and Events',
         sections: [
           {
             title: 'News & Events',
@@ -479,7 +493,11 @@ const Header = () => {
                 </Link>
 
                 {item.megaMenu && activeMenu === item.id && (
-                  <MegaMenu sections={item.megaMenu.sections} />
+                  <MegaMenu
+                    sections={item.megaMenu.sections}
+                    imageUrl={item.megaMenu.imageUrl}
+                    imageAlt={item.megaMenu.imageAlt}
+                  />
                 )}
               </div>
             ))}

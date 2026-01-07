@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 
-const MegaMenu = ({ sections }) => {
+const MegaMenu = ({ sections, imageUrl, imageAlt = "Menu Image" }) => {
   const menuRef = useRef(null);
   const [position, setPosition] = useState({ left: '50%', transform: 'translateX(-50%)' });
 
@@ -73,8 +73,8 @@ const MegaMenu = ({ sections }) => {
             className="relative rounded-lg overflow-hidden group block min-h-[220px]"
           >
             <img
-              src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/program/information.png"
-              alt="About Kalinga"
+              src={imageUrl}
+              alt={imageAlt}
               className="w-full h-full object-cover"
             />
             {/* <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-4">

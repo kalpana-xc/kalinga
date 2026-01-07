@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import MainIntro from "../components/about/main_intro";
 import OpenPositions from "../components/careers/OpenPositions"
 import EmployeeBenefits from "../components/careers/EmployeeBenefits"
-import CareerApplicationForm from "../components/careers/CareerApplicationForm"
+import CareerForm from "../components/forms/CareerForm"
 import FaqSection from "../components/general/faq"
 import Gallery from '../components/campuslife/campusgallery';
 // Breadcrumb configuration
@@ -105,7 +105,7 @@ export default function Careers() {
 
       <OpenPositions />
       <EmployeeBenefits />
-      <CareerApplicationForm />
+      <CareerForm />
       <FaqSection items={careerFAQs} title="Frequently Asked Questions" subtitle="" />
       <Gallery
         title="Gallery"

@@ -9,6 +9,7 @@ import CifYoutubeCallSection from '../components/cif/youtube_call_section'
 import QuickLinks from '../components/general/quick_links'
 import ContactSection from '../components/cif/contact_section'
 import CareerApplicationForm from '../components/careers/CareerApplicationForm'
+import EnquiryForm from '../components/forms/EnquiryForm'
 import Gallery from '../components/general/gallery'
 import AdmissionCareer from '../components/general/admission_cta'
 import Testimonials from '../components/home/Testimonials'
@@ -31,7 +32,7 @@ if (typeof window !== 'undefined') {
 }
 
 const CentralInstrumentationFacilityPage = () => {
-  
+
   const quickLinks = [
     {
       id: 1,
@@ -108,11 +109,11 @@ const CentralInstrumentationFacilityPage = () => {
       id: 1,
       name: "Sandeep Rajak",
       role: "Dr. C. V. Raman Institute of Pharmacy, Kota, Bilaspur, CG",
-      quote:"Thank you for a great training session. Great presentation style with lots of opportunities to ask questions and connect them with real-life examples, which all made for an enjoyable and informative training.",
+      quote: "Thank you for a great training session. Great presentation style with lots of opportunities to ask questions and connect them with real-life examples, which all made for an enjoyable and informative training.",
       image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/CIF/chart+(4).webp",
       theme: "orange"
     },
-    
+
     {
       id: 2,
       name: "Priya Jyoti",
@@ -141,39 +142,39 @@ const CentralInstrumentationFacilityPage = () => {
 
   return (
     <>
-    <MainIntro 
-    title="About the Central Instrumentation Facility"
-    description={[
-      "To fulfil the research needs in science and technology at a higher level, Central Instrumentation Facility labs are established at Kalinga University for students, faculty members, and research scholars. A wide range of advanced instruments, including an X-Ray Diffractometer (XRD), 3D Printer, Bio-Chemistry Analyser, and many more, are available for in-depth experimentation work under one roof. We also welcome researchers from other universities, organisations, and NGOs, promoting collaboration across different departments.",
-      "Managed by a team of technical experts, KU ensures that researchers are well-supported through hands-on training programs and workshops, which not only teach them how to operate an instrument but also ways to analyse and manage data effectively. We aim to expand our sophisticated list of machines to become a National Leader in research excellence."
-    ]}
-    imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/cif-+intro.webp"
-    imageAlt="Central Instrumentation Facility"
-    showKnowMore={true}
-    initialVisibleParagraphs={1}
-    />
-    <VisionMission
-      visionTitle="Vision"
-      missionTitle="Mission"
-      visionText="To position our Central Instrumentation Facility at the top in research standards in the field of basic and applied sciences. The aim is to facilitate researchers with high-end tools and technologies so that they can explore new horizons and address complex challenges. "
-      missionText="To build a resource-rich environment where researchers can work with modern instruments, receive technical guidance, and produce impactful research outcomes that can be published in reputed journals."
-      imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg"
-      imageAlt="Central Instrumentation Facility"
-      showImage={false}
-      className="bg-white"
-    />
-    <ImageListItem
-      items={items}
-      imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/CIF/cif-objectives+(1).webp"
-      title="Objectives Of Our CIF"
-      description="Explore state-of-the-art instruments that support advanced research across disciplines."
-      buttonText="Read More"
-      className="!bg-[var(--light-gray)]"
-      textClassName="text-[var(--foreground)]"
-      headingClassName="text-[var(--foreground)]"
-    />
-    <OpenPositions 
-        title="Hands-On Training Programs 2025-26" 
+      <MainIntro
+        title="About the Central Instrumentation Facility"
+        description={[
+          "To fulfil the research needs in science and technology at a higher level, Central Instrumentation Facility labs are established at Kalinga University for students, faculty members, and research scholars. A wide range of advanced instruments, including an X-Ray Diffractometer (XRD), 3D Printer, Bio-Chemistry Analyser, and many more, are available for in-depth experimentation work under one roof. We also welcome researchers from other universities, organisations, and NGOs, promoting collaboration across different departments.",
+          "Managed by a team of technical experts, KU ensures that researchers are well-supported through hands-on training programs and workshops, which not only teach them how to operate an instrument but also ways to analyse and manage data effectively. We aim to expand our sophisticated list of machines to become a National Leader in research excellence."
+        ]}
+        imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/cif-+intro.webp"
+        imageAlt="Central Instrumentation Facility"
+        showKnowMore={true}
+        initialVisibleParagraphs={1}
+      />
+      <VisionMission
+        visionTitle="Vision"
+        missionTitle="Mission"
+        visionText="To position our Central Instrumentation Facility at the top in research standards in the field of basic and applied sciences. The aim is to facilitate researchers with high-end tools and technologies so that they can explore new horizons and address complex challenges. "
+        missionText="To build a resource-rich environment where researchers can work with modern instruments, receive technical guidance, and produce impactful research outcomes that can be published in reputed journals."
+        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg"
+        imageAlt="Central Instrumentation Facility"
+        showImage={false}
+        className="bg-white"
+      />
+      <ImageListItem
+        items={items}
+        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/CIF/cif-objectives+(1).webp"
+        title="Objectives Of Our CIF"
+        description="Explore state-of-the-art instruments that support advanced research across disciplines."
+        buttonText="Read More"
+        className="!bg-[var(--light-gray)]"
+        textClassName="text-[var(--foreground)]"
+        headingClassName="text-[var(--foreground)]"
+      />
+      <OpenPositions
+        title="Hands-On Training Programs 2025-26"
         subtitle=""
         description=""
         useCourseCardLayout={true}
@@ -474,28 +475,22 @@ const CentralInstrumentationFacilityPage = () => {
           }
         ]}
       />
-    <OurEquipmentSlider />
-    <CifYoutubeCallSection videoUrl="https://youtu.be/BrpxFN8iZeQ?si=_lm5M6SYKZjxVRvV" />
-    <QuickLinks 
-    title="What Do We Offer?"
-    description="The Central Instrumentation Facility at Kalinga University provides state-of-the-art research infrastructure and comprehensive support services. We offer access to advanced instruments like X-Ray Diffractometer (XRD), 3D Printers, Bio-Chemistry Analysers, SEM, HPLC, and more. Our facility delivers hands-on training programs, certification courses, and workshops across multiple disciplines. We support researchers with sample testing, data analysis, and technical guidance, while fostering industry-academia collaborations. Whether you're a student, faculty member, research scholar, or industry professional, CIF provides the tools and expertise needed to advance your research and innovation goals."
-    links={quickLinks}
-    titleClassName="text-white"
-    showReadMore={false}
-    />
-    <SampleTesting />
-    <ProgramsTabs />
-    <ContactSection />
-      <CareerApplicationForm
-            heading="Registration Form"
-            description="Apply for our hands-on training programs, certification courses, sample testing services, or express your interest in accessing our advanced instrumentation facilities. Fill out the form below and our team will get back to you with details about enrollment, scheduling, and available services."
-            backgroundClass="bg-[var(--button-red)]"
-            hideTabs={true}
-            submitLabel="Submit"
-            useArrowSubmitButton={true}
-            arrowSubmitVariant="white"
-          />
-    <Testimonials
+      <OurEquipmentSlider />
+      <CifYoutubeCallSection videoUrl="https://youtu.be/BrpxFN8iZeQ?si=_lm5M6SYKZjxVRvV" />
+      <QuickLinks
+        title="What Do We Offer?"
+        description="The Central Instrumentation Facility at Kalinga University provides state-of-the-art research infrastructure and comprehensive support services. We offer access to advanced instruments like X-Ray Diffractometer (XRD), 3D Printers, Bio-Chemistry Analysers, SEM, HPLC, and more. Our facility delivers hands-on training programs, certification courses, and workshops across multiple disciplines. We support researchers with sample testing, data analysis, and technical guidance, while fostering industry-academia collaborations. Whether you're a student, faculty member, research scholar, or industry professional, CIF provides the tools and expertise needed to advance your research and innovation goals."
+        links={quickLinks}
+        titleClassName="text-white"
+        showReadMore={false}
+      />
+      <SampleTesting />
+      <ProgramsTabs />
+      <ContactSection />
+      <div id="cif-form" className="scroll-mt-24">
+        <EnquiryForm />
+      </div>
+      <Testimonials
         testimonials={cifTestimonials}
         className="bg-[var(--light-gray)] mt-16"
         subtitle="CIF Testimonials"
@@ -504,8 +499,7 @@ const CentralInstrumentationFacilityPage = () => {
         subtitleClassName="!text-[var(--button-red)]"
         subtitleTextColor="!text-[var(--button-red)]"
       />
-    <Gallery  title="Glimpse" />
-    <AdmissionCareer />
+      <Gallery title="Glimpse" />
     </>
   )
 }
