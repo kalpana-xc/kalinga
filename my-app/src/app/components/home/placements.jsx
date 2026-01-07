@@ -41,42 +41,42 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
   const stackRef = useRef(null)
   const sectionRef = useRef(null)
   const [hasAnimated, setHasAnimated] = useState(false)
-  
+
   // Extract data from placementData or use defaults - memoized to prevent recreation
   const placementInfo = useMemo(() => placementData?.placement_info?.[0] || null, [placementData?.placement_info])
   const placementStats = useMemo(() => placementData?.placement_statistics || [], [placementData?.placement_statistics])
   const placementPhotos = useMemo(() => placementData?.placement_student_photos || [], [placementData?.placement_student_photos])
-  
+
   const [studentsPlaced, setStudentsPlaced] = useState(0)
   const [recruiters, setRecruiters] = useState(0)
   const [internships, setInternships] = useState(0)
-  
+
   // Get statistics values - memoized to prevent recreation
   const getStatValue = React.useCallback((name) => {
-    const stat = placementStats.find(s => 
+    const stat = placementStats.find(s =>
       s.name?.toLowerCase().includes(name.toLowerCase())
     )
     return stat ? parseInt(stat.number) || 0 : 0
   }, [placementStats])
-  
+
   // Use API images if available, otherwise fallback to default
   const placementImages = placementPhotos.length > 0
     ? placementPhotos.map(photo => photo.image).filter(Boolean)
     : [
-        'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-slider-1.png',
-        'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement.png',
-        'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-slider-2.png'
-      ]
-  
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-slider-1.png',
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement.png',
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-slider-2.png'
+    ]
+
   // Get title and description from API or use defaults
   const title = placementInfo?.heading || "Empowering Careers, One Success Story at a Time"
   const description = placementInfo?.description || "Kalinga University has a strong placement ecosystem that bridges academic excellence with real-world opportunities. With over 400+ corporate recruiters, 8000+ students placed, and 1300+ internships offered, our graduates are shaping successful careers across industries worldwide."
-  
+
   // Convert logo URLs to image elements for LogoLoop
   const logoLoopItems = logos.map((logo, index) => ({
     node: (
-      <img 
-        src={logo} 
+      <img
+        src={logo}
         alt={`Company logo ${index + 1}`}
         className="w-full h-full object-contain"
         loading="lazy"
@@ -93,7 +93,7 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
       const progress = Math.min(elapsed / duration, 1)
       const current = Math.floor(start + (end - start) * progress)
       setter(current)
-      
+
       if (progress < 1) {
         requestAnimationFrame(animate)
       }
@@ -109,7 +109,7 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
       const studentsValue = getStatValue('students placed') || 8000
       const recruitersValue = getStatValue('corporate recruiters') || 400
       const internshipsValue = getStatValue('internships') || 1300
-      
+
       setStudentsPlaced(studentsValue)
       setRecruiters(recruitersValue)
       setInternships(internshipsValue)
@@ -129,7 +129,7 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
             const studentsValue = getStatValue('students placed') || 8000
             const recruitersValue = getStatValue('corporate recruiters') || 400
             const internshipsValue = getStatValue('internships') || 1300
-            
+
             if (studentsValue > 0) {
               animateValue(0, studentsValue, 2000, setStudentsPlaced)
             }
@@ -153,102 +153,102 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
       }
     }
   }, [hasAnimated, getStatValue])
-  
+
   return (
     <>
-    <section ref={sectionRef} className={`py-16 ${bgColor}`}>
-      <div className="container mx-auto px-2">
-        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-10 items-center md:items-center">
-          {/* Left: title + stats */}
-          <div className="w-full">
-           
-            <SectionHeading
-              subtitle="Placements"
-              title={title}
-         
-            /> 
-            <p className="text-xs sm:text-sm md:text-[15px] text-gray-600 max-w-xl mb-4 sm:mb-5 lg:mb-6 font-plus-jakarta-sans leading-relaxed sm:leading-normal lg:leading-[25px]">
-            {description}
-            </p>
+      <section ref={sectionRef} className={`py-16 ${bgColor}`}>
+        <div className="container mx-auto px-2">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 lg:gap-10 items-center md:items-center">
+            {/* Left: title + stats */}
+            <div className="w-full">
 
-            {!hideMilestones && (
-              <div className="grid grid-cols-2 sm:flex sm:flex-row items-start gap-4 sm:gap-3 lg:gap-5 text-gray-800">
-                {studentsPlaced > 0 && (
-                <>
-                  <div className="w-full sm:w-auto sm:flex-1">
-                      <h3 className="!text-3xl sm:!text-[35px] md:!text-[40px] text-[var(--button-red)] mb-1 sm:mb-2">{studentsPlaced.toLocaleString()} +</h3>
-                      <h6 className="text-sm sm:text-base text-[var(--foreground)] font-stix">Students Placed</h6>
+              <SectionHeading
+                subtitle="Student Placements"
+                title={title}
+
+              />
+              <p className="text-xs sm:text-sm md:text-[15px] text-gray-600 max-w-xl mb-4 sm:mb-5 lg:mb-6 font-plus-jakarta-sans leading-relaxed sm:leading-normal lg:leading-[25px]">
+                {description}
+              </p>
+
+              {!hideMilestones && (
+                <div className="grid grid-cols-2 sm:flex sm:flex-row items-start gap-4 sm:gap-3 lg:gap-5 text-gray-800">
+                  {studentsPlaced > 0 && (
+                    <>
+                      <div className="w-full sm:w-auto sm:flex-1">
+                        <h3 className="!text-3xl sm:!text-[35px] md:!text-[40px] text-[var(--button-red)] mb-1 sm:mb-2">{studentsPlaced.toLocaleString()} +</h3>
+                        <h6 className="text-sm sm:text-base text-[var(--foreground)] font-stix">Students Placed</h6>
+                      </div>
+                      {(recruiters > 0 || internships > 0) && <div className="hidden sm:block self-stretch border-r border-gray-500" />}
+                    </>
+                  )}
+
+                  {recruiters > 0 && (
+                    <>
+                      <div className="w-full sm:w-auto sm:flex-1">
+                        <h3 className="!text-3xl sm:!text-[35px] md:!text-[40px] text-[var(--button-red)] mb-1 sm:mb-2">{recruiters.toLocaleString()} +</h3>
+                        <h6 className="text-sm sm:text-base text-[var(--foreground)] font-stix">Corporate Recruiters</h6>
+                      </div>
+                      {internships > 0 && <div className="hidden sm:block self-stretch border-r border-gray-500" />}
+                    </>
+                  )}
+
+                  {internships > 0 && (
+                    <div className="w-full sm:w-auto sm:flex-1 col-span-2 sm:col-span-1">
+                      <h3 className="!text-3xl sm:!text-[35px] md:!text-[40px] text-[var(--button-red)] mb-1 sm:mb-2">{internships.toLocaleString()} +</h3>
+                      <h6 className="text-sm sm:text-base text-[var(--foreground)] font-stix">Internships Offered</h6>
                     </div>
-                  {(recruiters > 0 || internships > 0) && <div className="hidden sm:block self-stretch border-r border-gray-500" />}
-                </>
+                  )}
+                </div>
               )}
-
-                {recruiters > 0 && (
-                <>
-                    <div className="w-full sm:w-auto sm:flex-1">
-                      <h3 className="!text-3xl sm:!text-[35px] md:!text-[40px] text-[var(--button-red)] mb-1 sm:mb-2">{recruiters.toLocaleString()} +</h3>
-                      <h6 className="text-sm sm:text-base text-[var(--foreground)] font-stix">Corporate Recruiters</h6>
-                    </div>
-                  {internships > 0 && <div className="hidden sm:block self-stretch border-r border-gray-500" />}
-                </>
-              )}
-
-                {internships > 0 && (
-                  <div className="w-full sm:w-auto sm:flex-1 col-span-2 sm:col-span-1">
-                    <h3 className="!text-3xl sm:!text-[35px] md:!text-[40px] text-[var(--button-red)] mb-1 sm:mb-2">{internships.toLocaleString()} +</h3>
-                    <h6 className="text-sm sm:text-base text-[var(--foreground)] font-stix">Internships Offered</h6>
-                  </div>
-                )}
             </div>
-            )}
-          </div>
 
-          {/* Right: Stack card component */}
-          <div className={`flex justify-center md:justify-end mt-6 md:mt-0 z-2 ${marginClassName}`}>
-            <div className="w-full max-w-[420px]">
-              <div style={{ width: '100%', height: '480px' }}>
-                <Stack
-                  ref={stackRef}
-                  randomRotation={true}
-                  sensitivity={180}
-                  sendToBackOnClick={false}
-                  autoplay={true}
-                  cards={placementImages.map((src, i) => (
-                    <img 
-                      key={i} 
-                      src={src} 
-                      alt={`placement-${i + 1}`} 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-                    />
-                  ))}
-                />
-              </div>
-              <div className="flex justify-center gap-3 -mt-10 mb-10 z-10 relative">
-                <button
-                  type="button"
-                  onClick={() => stackRef.current?.triggerNext('left')}
-                  className="w-11 h-11 md:w-12 md:h-12 rounded-lg bg-[var(--button-red)] text-white flex items-center justify-center hover:bg-[#A2A2A2] transition-colors shadow-md"
-                  aria-label="Previous placement"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => stackRef.current?.triggerNext('right')}
-                  className="w-11 h-11 md:w-12 md:h-12 rounded-lg bg-[var(--button-red)] text-white flex items-center justify-center hover:bg-[#A2A2A2] transition-colors shadow-md"
-                  aria-label="Next placement"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
+            {/* Right: Stack card component */}
+            <div className={`flex justify-center md:justify-end mt-6 md:mt-0 z-2 ${marginClassName}`}>
+              <div className="w-full max-w-[420px]">
+                <div style={{ width: '100%', height: '480px' }}>
+                  <Stack
+                    ref={stackRef}
+                    randomRotation={true}
+                    sensitivity={180}
+                    sendToBackOnClick={false}
+                    autoplay={true}
+                    cards={placementImages.map((src, i) => (
+                      <img
+                        key={i}
+                        src={src}
+                        alt={`placement-${i + 1}`}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    ))}
+                  />
+                </div>
+                <div className="flex justify-center gap-3 -mt-10 mb-10 z-10 relative">
+                  <button
+                    type="button"
+                    onClick={() => stackRef.current?.triggerNext('left')}
+                    className="w-11 h-11 md:w-12 md:h-12 rounded-lg bg-[var(--button-red)] text-white flex items-center justify-center hover:bg-[#A2A2A2] transition-colors shadow-md"
+                    aria-label="Previous placement"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => stackRef.current?.triggerNext('right')}
+                    className="w-11 h-11 md:w-12 md:h-12 rounded-lg bg-[var(--button-red)] text-white flex items-center justify-center hover:bg-[#A2A2A2] transition-colors shadow-md"
+                    aria-label="Next placement"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
         {/* Logos strip */}
         {!hideMarquee && (
@@ -286,7 +286,7 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
             </div>
           </div>
         )}
-    </section>
+      </section>
     </>
   )
 }

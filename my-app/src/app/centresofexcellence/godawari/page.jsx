@@ -114,7 +114,7 @@ export default function ElectricVehiclesTrainingCentrePage() {
         title="Electric Vehicles Training Centre"
         subtitle="In collaboration with Godawari Electric Motors Pvt. Ltd. (Eblu)"
         description={aboutCentreDescription}
-        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/coe/coe-godawari.webp"
+        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/godawari.png"
         imageAlt="Electric Vehicles Training Centre"
         readmore={false}
       />

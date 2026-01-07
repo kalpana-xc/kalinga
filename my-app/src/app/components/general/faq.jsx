@@ -68,14 +68,17 @@ const FAQ = ({
   const [faqItems, setFaqItems] = useState(items)
   // Initialize with all sections collapsed except the first one for button variant and table-display variant
   const [collapsedSections, setCollapsedSections] = useState(() => {
-    if (variant === "button" && buttons.length > 0) {
-      const initialSet = new Set()
-      buttons.forEach((item, index) => {
-        if (index > 0) { // Skip first item (index 0) - keep it open
-          initialSet.add(`button-section-${item.id || index}`)
-        }
-      })
-      return initialSet
+    if (variant === "button") {
+      const buttonItems = buttons.length > 0 ? buttons : items
+      if (buttonItems.length > 0) {
+        const initialSet = new Set()
+        buttonItems.forEach((item, index) => {
+          if (index > 0) { // Skip first item (index 0) - keep it open
+            initialSet.add(`button-section-${item.id || index}`)
+          }
+        })
+        return initialSet
+      }
     }
     if (variant === "table-display" && tableSections.length > 0) {
       const initialSet = new Set()
@@ -499,7 +502,7 @@ const FAQ = ({
                       {section.title}
                     </h3>
                     <svg
-                      className={`w-5 h-5 text-gray-600 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''
+                      className={`w-8 h-8 flex-shrink-0 text-gray-600 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''
                         }`}
                       fill="none"
                       stroke="currentColor"
@@ -554,7 +557,7 @@ const FAQ = ({
                       {item.question}
                     </h3>
                     <svg
-                      className={`w-5 h-5 text-gray-600 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''
+                      className={`w-8 h-8 flex-shrink-0 text-gray-600 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''
                         }`}
                       fill="none"
                       stroke="currentColor"
@@ -634,8 +637,8 @@ const FAQ = ({
                 <button
                   onClick={() => toggleSection(sectionId)}
                   className={`w-full flex items-center justify-between p-4 rounded-t-lg transition-colors ${isCollapsed
-                      ? 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                      : 'bg-[var(--button-red)] text-white hover:bg-[var(--button-red)]/90'
+                    ? 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    : 'bg-[var(--button-red)] text-white hover:bg-[var(--button-red)]/90'
                     }`}
                 >
                   <h3 className="text-lg font-plus-jakarta-sans font-semibold">
@@ -645,8 +648,8 @@ const FAQ = ({
                     }`}>
                     <svg
                       className={`w-5 h-5 transition-transform duration-300 ${isCollapsed
-                          ? 'text-[var(--button-red)] rotate-180'
-                          : 'text-[var(--button-red)]'
+                        ? 'text-[var(--button-red)] rotate-180'
+                        : 'text-[var(--button-red)]'
                         }`}
                       fill="none"
                       stroke="currentColor"
@@ -846,8 +849,8 @@ const FAQ = ({
                         className="flex-shrink-0"
                       >
                         <div className={`rounded-lg p-1.5 sm:p-2 transition-all duration-300 ${isOpen
-                            ? 'bg-white'
-                            : 'bg-[var(--button-red)]'
+                          ? 'bg-white'
+                          : 'bg-[var(--button-red)]'
                           }`}>
                           <svg
                             className="w-4 h-4 sm:w-5 sm:h-5"
@@ -879,8 +882,8 @@ const FAQ = ({
                   <button
                     onClick={() => toggleItem(item.id)}
                     className={`w-full flex items-center justify-between p-4 transition-colors ${isOpen
-                        ? 'bg-[var(--button-red)] text-white'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                      ? 'bg-[var(--button-red)] text-white'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                       }`}
                     aria-expanded={isOpen}
                   >
@@ -889,8 +892,8 @@ const FAQ = ({
                     </h3>
                     <div className="flex-shrink-0">
                       <div className={`rounded-lg p-1.5 sm:p-2 transition-all duration-300 ${isOpen
-                          ? 'bg-white'
-                          : 'bg-[var(--button-red)]'
+                        ? 'bg-white'
+                        : 'bg-[var(--button-red)]'
                         }`}>
                         <svg
                           className="w-4 h-4 sm:w-6 sm:h-6"

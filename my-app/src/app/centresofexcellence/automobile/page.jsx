@@ -114,7 +114,7 @@ export default function AutomobileTrainingCentrePage() {
         title="Automobile Training Centre"
         subtitle="In collaboration with JustAuto Solutions"
         description={aboutText}
-        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/coe/coe-automobile.webp"
+        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/about/justauto.webp"
         imageAlt="Automobile Training Centre"
         readmore={false}
       />

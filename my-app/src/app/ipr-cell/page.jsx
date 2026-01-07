@@ -10,7 +10,7 @@ import AdmissionCareer from "@/app/components/general/admission_cta";
 
 const breadcrumbData = {
   heroImage:
-    "https://kalinga-university.s3.ap-south-1.amazonaws.com/ipr/IPR-banner.webp",
+    "https://kalinga-university.s3.ap-south-1.amazonaws.com/alumini/alumini.webp",
   pageTitle: "Intellectual Property Rights Cell",
   breadcrumbs: [
     { label: "Home", href: "/" },

@@ -10,7 +10,7 @@ const nccMission =
 
 export default function NccVisionMission() {
   return (
-    <div className="ncc-vm-wrap">
+    <div className="ncc-vm-wrap mt-6 mb-12 md:mt-12 md:mb-20">
       {/* ✅ MOBILE-ONLY overrides */}
       <style jsx>{`
         /* -------------------------------------- */
@@ -32,7 +32,7 @@ export default function NccVisionMission() {
         /* -------------------------------------- */
         @media (max-width: 767px) {
           .ncc-vm-wrap :global(.py-20) {
-            padding-top: 32px !important;   /* ↓ from 80px */
+            padding-top: 32px !important;
             padding-bottom: 32px !important;
           }
         }

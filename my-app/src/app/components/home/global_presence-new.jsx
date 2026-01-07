@@ -5,7 +5,7 @@ import Image from "next/image";
 import SectionHeading from "../general/SectionHeading";
 import LogoLoop from "../gsap/LogoLoop";
 
-const locations = [ 
+const locations = [
   {
     id: 1,
     name: "AFGHANISTAN",
@@ -182,31 +182,32 @@ const locations = [
   }
 ];
 
+// ... existing imports
 // GlowingBox Component
 function GlowingBox({ children, borderColor = "var(--dark-blue)", style = {}, className = "", ...props }) {
   const boxRef = useRef(null);
-  
+
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (!boxRef.current) return;
-      
+
       const box = boxRef.current;
       const rect = box.getBoundingClientRect();
       const mouseX = e.clientX - rect.left - rect.width / 2;
       const mouseY = e.clientY - rect.top - rect.height / 2;
-      
+
       let angle = Math.atan2(mouseY, mouseX) * (180 / Math.PI);
       angle = (angle + 360) % 360;
-      
+
       box.style.setProperty("--start", angle + 60);
       box.style.setProperty("--border-color", borderColor);
     };
-    
+
     const box = boxRef.current;
     if (box) {
       box.addEventListener("mousemove", handleMouseMove);
     }
-    
+
     return () => {
       if (box) {
         box.removeEventListener("mousemove", handleMouseMove);
@@ -222,15 +223,16 @@ function GlowingBox({ children, borderColor = "var(--dark-blue)", style = {}, cl
   };
 
   return (
-    <div 
-      ref={boxRef} 
+    <div
+      ref={boxRef}
       className={`glowing-box ${className}`}
       style={defaultStyle}
       {...props}
     >
       {children}
-      
-      <style dangerouslySetInnerHTML={{__html: `
+
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .glowing-box {
           --start: 0;
           --border-color: ${borderColor};
@@ -266,13 +268,25 @@ function GlowingBox({ children, borderColor = "var(--dark-blue)", style = {}, cl
   );
 }
 
-export default function Map({ backgroundColor = "", textColor = "", subtitleTextColor = "!text-[var(--button-red)]", textColorClass="text-[var(--dark-orange-red)]" }) {
+export default function Map({ backgroundColor = "", textColor = "", subtitleTextColor = "!text-[var(--button-red)]", textColorClass = "text-[var(--dark-orange-red)]" }) {
   const [activeLocation, setActiveLocation] = useState(null);
+  const [autoPlayIndex, setAutoPlayIndex] = useState(0);
+
+  useEffect(() => {
+    // Only auto-play if no location is manually selected
+    if (activeLocation !== null) return;
+
+    const interval = setInterval(() => {
+      setAutoPlayIndex((prev) => (prev + 1) % locations.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [activeLocation]);
 
   return (
     <section className={`py-16 ${backgroundColor}`}>
       <div className="container mx-auto px-4 relative">
-        <SectionHeading 
+        <SectionHeading
           subtitle="Global Scale"
           title="Expanding Horizons Through Global Partnerships"
           subtitleClassName="mb-2 text-center"
@@ -281,45 +295,51 @@ export default function Map({ backgroundColor = "", textColor = "", subtitleText
         />
         <p className={`text-center ${textColor}`}>Kalinga University is home to students from 29+ countries, fostering a truly international learning environment. Through academic exchange programs, research collaborations, and strategic global alliances, the University prepares students to become globally competent professionals and leaders.</p>
         <div className="relative flex justify-center">
-          <Image 
+          <Image
             src="https://kalinga-university.s3.ap-south-1.amazonaws.com/about/globe-new.png"
-            alt="Global Presence Map" 
-            width={900} 
-            height={600} 
+            alt="Global Presence Map"
+            width={900}
+            height={600}
             className="w-full pt-6 !w-[80%]"
             quality={100}
             priority
           />
-          
+
           {/* Location Points */}
-          {locations.map((location) => (
-            <div
-              key={location.id}
-              className={`absolute transition-all duration-300 group ${
-                activeLocation === null || activeLocation === location.id 
-                  ? 'opacity-100 scale-100' 
-                  : 'opacity-0 scale-0'
-              }`}
-              style={{
-                top: location.coordinates.top,
-                left: location.coordinates.left,
-              }}
-            >
-              <svg 
-                className={`${textColorClass} text-4xl animate-bounce w-10 h-10`} 
-                fill="currentColor" 
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+          {locations.map((location, index) => {
+            const isActive = activeLocation === location.id;
+            const isAutoPlaying = activeLocation === null && index === autoPlayIndex;
+            const isVisible = isActive || isAutoPlaying;
+
+            return (
+              <div
+                key={location.id}
+                className={`absolute group cursor-pointer transition-all duration-300 ${isVisible ? 'z-20 opacity-100 scale-100' : 'z-0 opacity-0 scale-50'
+                  }`}
+                style={{
+                  top: location.coordinates.top,
+                  left: location.coordinates.left,
+                }}
+                onClick={() => setActiveLocation(isActive ? null : location.id)}
               >
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-              </svg>
-              <span className="absolute left-1/2 -translate-x-1/2 -bottom-8 bg-white text-primary px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md">
-                {location.name}
-              </span>
-            </div>
-          ))}
+                <svg
+                  className={`${textColorClass} text-4xl animate-bounce w-8 h-8 md:w-10 md:h-10 drop-shadow-lg`}
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+                <span className={`absolute left-1/2 -translate-x-1/2 -top-10 bg-white text-primary px-3 py-1 rounded text-sm font-semibold transition-opacity whitespace-nowrap shadow-lg z-20 ${isVisible ? 'opacity-100' : 'opacity-0'
+                  }`}>
+                  {location.name}
+                  <span className="absolute left-1/2 -translate-x-1/2 bottom-[-6px] w-3 h-3 bg-white rotate-45"></span>
+                </span>
+              </div>
+            );
+          })}
         </div>
-        
+
         {/* Legend - Horizontal under image */}
         <div className="w-full rounded-[20px] bg-[#D9D9D975] backdrop-blur-md overflow-hidden relative top-6 md:top-[-35px]">
           <GlowingBox borderColor="var(--button-red)" className="p-6 rounded-[20px]">
@@ -340,23 +360,21 @@ export default function Map({ backgroundColor = "", textColor = "", subtitleText
                 ariaLabel="Global presence locations"
                 renderItem={(item, key) => (
                   <div
-                    className={`flex flex-col md:flex-row items-center gap-2 md:gap-3 cursor-pointer transition-colors py-2 px-2 ${
-                      activeLocation === item.id ? 'underline underline-offset-4' : ''
-                    } ${textColor}`}
+                    className={`flex flex-col md:flex-row items-center gap-2 md:gap-3 cursor-pointer transition-colors py-2 px-2 ${activeLocation === item.id ? 'bg-white/20 rounded-lg' : ''
+                      } ${textColor}`}
                     onClick={() => setActiveLocation(
                       activeLocation === item.id ? null : item.id
                     )}
                   >
-                    <Image 
-                      src={item.src.replace('/w40/', '/w320/')} 
-                      alt={item.alt} 
-                      width={120} 
+                    <Image
+                      src={item.src.replace('/w40/', '/w320/')}
+                      alt={item.alt}
+                      width={120}
                       height={120}
                       className="object-contain w-20 h-20 md:w-24 md:h-24"
                       quality={100}
                       unoptimized={false}
                     />
-                    {/* <span className="text-xs md:text-sm text-center whitespace-nowrap">{item.title}</span> */}
                   </div>
                 )}
               />

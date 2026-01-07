@@ -24,7 +24,7 @@ export default function EligibilityCriteria({
   criteria = defaultContent.criteria,
   admissionTitle = defaultContent.admissionTitle,
   admissionButtonLabel = defaultContent.admissionButtonLabel,
-  href = null,
+  href = "https://admissions.kalingauniversity.ac.in/",
 }) {
   return (
     <section className="bg-[var(--dark-blue)] py-16 rounded-2xl mx-2">
@@ -47,7 +47,7 @@ export default function EligibilityCriteria({
             <div className="bg-[var(--card-skin)] rounded-lg px-2 py-5 text-center">
               <h3 className="text-[18px] md:text-[24px]">Duration : {duration}</h3>
             </div>
-            
+
             {/* Eligibility Criteria Section */}
             <div>
               <div className="mb-6">
@@ -82,7 +82,7 @@ export default function EligibilityCriteria({
                 ))}
               </ul>
             </div>
-            
+
             {/* Red Box with Admission Open Button */}
             <div className="bg-[var(--button-red)] rounded-lg p-6 md:p-8 ">
               <h3 className="text-white mb-6 text-2xl md:text-3xl lg:text-[30px] leading-tight">

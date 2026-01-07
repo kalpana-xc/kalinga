@@ -39,12 +39,11 @@ const EventDetailContent = ({
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className={`inline-flex items-center px-3 py-1.5 rounded-lg text-white text-sm font-plus-jakarta-sans whitespace-nowrap ${
-                  tag.color === 'orange' ? 'bg-[var(--dark-orange-red)]' :
+                className={`inline-flex items-center px-3 py-1.5 rounded-lg text-white text-sm font-plus-jakarta-sans whitespace-nowrap ${tag.color === 'orange' ? 'bg-[var(--dark-orange-red)]' :
                   tag.color === 'blue' ? 'bg-[var(--dark-blue)]' :
-                  tag.color === 'red' ? 'bg-[var(--button-red)]' :
-                  'bg-[var(--dark-blue)]'
-                }`}
+                    tag.color === 'red' ? 'bg-[var(--button-red)]' :
+                      'bg-[var(--dark-blue)]'
+                  }`}
               >
                 {tag.label}
               </span>
@@ -80,7 +79,7 @@ const EventDetailContent = ({
                 src={selectedImage.src}
                 alt={selectedImage.alt || 'Event Gallery'}
                 fill
-                className="object-cover"
+                className="object-contain"
                 priority
               />
             </div>
@@ -117,10 +116,9 @@ const EventDetailContent = ({
                   const isSelected = selectedImage.src === image.src;
                   return (
                     <SwiperSlide key={image.id}>
-                      <div 
-                        className={`relative w-full aspect-square rounded-lg overflow-hidden cursor-pointer transition-all duration-200 ${
-                          isSelected ? 'ring-4 ring-[var(--button-red)] ring-offset-2' : 'hover:opacity-80'
-                        }`}
+                      <div
+                        className={`relative w-full aspect-square rounded-lg overflow-hidden cursor-pointer transition-all duration-200 ${isSelected ? 'ring-4 ring-[var(--button-red)] ring-offset-2' : 'hover:opacity-80'
+                          }`}
                         onClick={() => handleImageClick(image)}
                         role="button"
                         tabIndex={0}
@@ -151,9 +149,8 @@ const EventDetailContent = ({
                 return (
                   <div
                     key={image.id}
-                    className={`relative w-full aspect-square rounded-lg overflow-hidden cursor-pointer transition-all duration-200 ${
-                      isSelected ? 'ring-4 ring-[var(--button-red)] ring-offset-2' : 'hover:opacity-80'
-                    }`}
+                    className={`relative w-full aspect-square rounded-lg overflow-hidden cursor-pointer transition-all duration-200 ${isSelected ? 'ring-4 ring-[var(--button-red)] ring-offset-2' : 'hover:opacity-80'
+                      }`}
                     onClick={() => handleImageClick(image)}
                     role="button"
                     tabIndex={0}

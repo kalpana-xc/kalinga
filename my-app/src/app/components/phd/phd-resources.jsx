@@ -274,7 +274,7 @@ export default function PhdResourcesAccordion({ className = "" }) {
           <ul className="flex flex-wrap gap-3">
             <LinkItem
               label="Open Page"
-              href="https://kalingauniversity.ac.in/research/Details-Of-Currently-Enrolled-Ph.d.-Scholars-And-Details-Of-Supervisor.php"
+              href="/research"
             />
           </ul>
         ),
@@ -460,9 +460,8 @@ export default function PhdResourcesAccordion({ className = "" }) {
                 </button>
 
                 <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
-                  }`}
+                  className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+                    }`}
                 >
                   <div className="p-4 sm:p-5 md:p-6 bg-[var(--lite-sand)]">
                     {sec.body}

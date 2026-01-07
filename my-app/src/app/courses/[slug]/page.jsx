@@ -58,7 +58,7 @@ const normalizeSlug = (slug) => {
 export default function DynamicCoursePage() {
   const params = useParams();
   const slug = params?.slug;
-  
+
   const [courseData, setCourseData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -73,11 +73,11 @@ export default function DynamicCoursePage() {
         setLoading(true);
         setError(null);
         const courses = await fetchAllCourses();
-        
+
         const normalizedSlug = normalizeSlug(slug);
         console.log(`[Course Page] Looking for course with slug: "${slug}" (normalized: "${normalizedSlug}")`);
         console.log(`[Course Page] Total courses fetched: ${courses.length}`);
-        
+
         // Log first few courses for debugging
         console.log(`[Course Page] Sample courses:`, courses.slice(0, 5).map(c => ({
           id: c.id,
@@ -87,11 +87,11 @@ export default function DynamicCoursePage() {
           normalizedSlug: normalizeSlug(c.slug || generateSlug(c.name || '')),
           normalizedName: normalizeSlug(c.name || '')
         })));
-        
+
         // Try multiple matching strategies
         let course = null;
         let matchStrategy = '';
-        
+
         // Strategy 1: Exact slug match (case-insensitive)
         course = courses.find(c => {
           if (!c.slug) return false;
@@ -99,7 +99,7 @@ export default function DynamicCoursePage() {
           return cNormalized === normalizedSlug;
         });
         if (course) matchStrategy = 'exact-slug';
-        
+
         // Strategy 2: Generated slug from name
         if (!course) {
           course = courses.find(c => {
@@ -110,7 +110,7 @@ export default function DynamicCoursePage() {
           });
           if (course) matchStrategy = 'generated-slug-from-name';
         }
-        
+
         // Strategy 3: Normalized name match (direct name normalization)
         if (!course) {
           course = courses.find(c => {
@@ -120,7 +120,7 @@ export default function DynamicCoursePage() {
           });
           if (course) matchStrategy = 'normalized-name';
         }
-        
+
         // Strategy 4: Partial match on slug (contains)
         if (!course) {
           course = courses.find(c => {
@@ -130,7 +130,7 @@ export default function DynamicCoursePage() {
           });
           if (course) matchStrategy = 'partial-slug-match';
         }
-        
+
         // Strategy 5: Partial match on generated slug
         if (!course) {
           course = courses.find(c => {
@@ -141,7 +141,7 @@ export default function DynamicCoursePage() {
           });
           if (course) matchStrategy = 'partial-generated-slug';
         }
-        
+
         // Strategy 6: Match on name words (all key terms match)
         if (!course) {
           const searchTerms = normalizedSlug.split('-').filter(t => t.length > 2);
@@ -153,7 +153,7 @@ export default function DynamicCoursePage() {
           });
           if (course) matchStrategy = 'name-words-match';
         }
-        
+
         // Strategy 7: Case-insensitive name match (remove special chars)
         if (!course) {
           const searchName = slug.replace(/-/g, ' ').toLowerCase().trim();
@@ -164,40 +164,40 @@ export default function DynamicCoursePage() {
           });
           if (course) matchStrategy = 'case-insensitive-name';
         }
-        
+
         // Strategy 8: Try matching by ID if slug is numeric
         if (!course && /^\d+$/.test(slug)) {
           const courseId = parseInt(slug, 10);
           course = courses.find(c => c.id === courseId);
           if (course) matchStrategy = 'id-match';
         }
-        
+
         // Log potential matches for debugging
         if (!course) {
           const potentialMatches = courses.filter(c => {
             const cSlug = normalizeSlug(c.slug || generateSlug(c.name || ''));
             const cName = (c.name || '').toLowerCase();
             const searchName = slug.replace(/-/g, ' ').toLowerCase();
-            
-            return cSlug.includes(normalizedSlug) || 
-                   normalizedSlug.includes(cSlug) ||
-                   cName.includes(searchName) ||
-                   searchName.includes(cName);
+
+            return cSlug.includes(normalizedSlug) ||
+              normalizedSlug.includes(cSlug) ||
+              cName.includes(searchName) ||
+              searchName.includes(cName);
           });
-          
-          console.log(`[Course Page] No match found. Potential matches (${potentialMatches.length}):`, 
-            potentialMatches.slice(0, 10).map(c => ({ 
-              id: c.id, 
-              name: c.name, 
+
+          console.log(`[Course Page] No match found. Potential matches (${potentialMatches.length}):`,
+            potentialMatches.slice(0, 10).map(c => ({
+              id: c.id,
+              name: c.name,
               slug: c.slug,
               generatedSlug: generateSlug(c.name || ''),
               normalizedSlug: normalizeSlug(c.slug || generateSlug(c.name || '')),
               normalizedName: normalizeSlug(c.name || '')
             }))
           );
-          
+
           // Also log courses with similar slugs
-          console.log(`[Course Page] Courses containing "master" or "mba":`, 
+          console.log(`[Course Page] Courses containing "master" or "mba":`,
             courses.filter(c => {
               const name = (c.name || '').toLowerCase();
               const cSlug = (c.slug || '').toLowerCase();
@@ -210,11 +210,11 @@ export default function DynamicCoursePage() {
             }))
           );
         }
-        
+
         if (course) {
-          console.log(`[Course Page] Found course via ${matchStrategy}:`, { 
-            id: course.id, 
-            name: course.name, 
+          console.log(`[Course Page] Found course via ${matchStrategy}:`, {
+            id: course.id,
+            name: course.name,
             slug: course.slug,
             generatedSlug: generateSlug(course.name || ''),
             normalizedSlug: normalizeSlug(course.slug || generateSlug(course.name || '')),
@@ -237,7 +237,7 @@ export default function DynamicCoursePage() {
               setCourseId(directCourseData.id);
               setError(null);
               setMetadataLoaded(false); // Reset metadata loaded state
-              
+
               // Also fetch department data for fallbacks
               if (directCourseData.department) {
                 try {
@@ -252,7 +252,7 @@ export default function DynamicCoursePage() {
                   // Silently fail - will just not show milestones or use fallback images
                 }
               }
-              
+
               setLoading(false);
             } else {
               throw new Error('Course data structure invalid');
@@ -289,7 +289,7 @@ export default function DynamicCoursePage() {
       setLoading(false);
       return;
     }
-    
+
     if (!courseId) return;
 
     const loadCourseData = async () => {
@@ -298,12 +298,12 @@ export default function DynamicCoursePage() {
         setError(null);
         setMetadataLoaded(false); // Reset metadata loaded state
         console.log(`[Course Page] Fetching complete details for course ID: ${courseId}`);
-        
+
         const data = await fetchCourseCompleteDetail(courseId);
         console.log(`[Course Page] Successfully loaded course data for ID: ${courseId}`, { name: data.name, slug: data.slug });
         setCourseData(data);
         setError(null);
-        
+
         // Fetch department data if course milestones are not available or for image fallbacks
         if (data.department) {
           try {
@@ -336,7 +336,7 @@ export default function DynamicCoursePage() {
 
     const updateMetaTag = (name, content, attribute = 'name') => {
       if (!content) return;
-      
+
       let element = document.querySelector(`meta[${attribute}="${name}"]`);
       if (!element) {
         element = document.createElement('meta');
@@ -397,7 +397,7 @@ export default function DynamicCoursePage() {
         console.error('Error parsing schema JSON:', e);
       }
     }
-    
+
     // Mark metadata as loaded
     setMetadataLoaded(true);
   }, [courseData]);
@@ -408,25 +408,25 @@ export default function DynamicCoursePage() {
     subtitle: "About The Program",
     description: parseHtmlToParagraphs(courseData.about_sections[0].content),
     imageUrl: courseData.about_sections[0].image,
-    imageAlt: courseData.about_sections[0].alt, 
+    imageAlt: courseData.about_sections[0].alt,
   } : null;
 
   // Use course milestones if available, otherwise fallback to department milestones
   const publicationStats = (() => {
-    const courseMilestones = courseData?.milestones && courseData.milestones.length > 0 
-      ? courseData.milestones 
+    const courseMilestones = courseData?.milestones && courseData.milestones.length > 0
+      ? courseData.milestones
       : null;
-    
-    const deptMilestones = departmentData?.milestones && departmentData.milestones.length > 0 
-      ? departmentData.milestones 
+
+    const deptMilestones = departmentData?.milestones && departmentData.milestones.length > 0
+      ? departmentData.milestones
       : null;
-    
+
     const milestones = courseMilestones || deptMilestones;
-    
+
     if (!milestones || milestones.length === 0) {
       return null;
     }
-    
+
     return milestones
       .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
       .map(milestone => ({
@@ -439,13 +439,13 @@ export default function DynamicCoursePage() {
   // Helper function to parse eligibility criteria (handles both list items and paragraphs)
   const parseEligibilityCriteria = (htmlContent) => {
     if (!htmlContent) return [];
-    
+
     // First try to parse as list items
     const listItems = parseHtmlListItems(htmlContent);
     if (listItems && listItems.length > 0) {
       return listItems;
     }
-    
+
     // If no list items, try to split by paragraphs
     const paragraphMatches = htmlContent.match(/<p[^>]*>([\s\S]*?)<\/p>/gi);
     if (paragraphMatches && paragraphMatches.length > 0) {
@@ -454,30 +454,30 @@ export default function DynamicCoursePage() {
         return innerMatch && innerMatch[1] ? innerMatch[1].trim() : '';
       }).filter(item => item.length > 0);
     }
-    
+
     // If no paragraphs, return the HTML content as a single item
     return [htmlContent.trim()];
   };
 
   const eligibilityContent = courseData?.eligibility_criteria?.[0] ? {
-    imageUrl: courseData.eligibility_criteria[0].image || 
-             courseData.eligibility_criteria[0].image_url || 
-             courseData?.image ||
-             (departmentData?.program_syllabus_images?.[0]?.image || departmentData?.program_syllabus_images?.[0]?.image_url) ||
-             departmentData?.programs_image ||
-             "https://kalinga-university.s3.ap-south-1.amazonaws.com/course/course_page.webp",
-    imageAlt: courseData.eligibility_criteria[0].image_alt || 
-              courseData?.image_alt || 
-              departmentData?.programs_image_alt ||
-              "Students",
+    imageUrl: courseData.eligibility_criteria[0].image ||
+      courseData.eligibility_criteria[0].image_url ||
+      courseData?.image ||
+      (departmentData?.program_syllabus_images?.[0]?.image || departmentData?.program_syllabus_images?.[0]?.image_url) ||
+      departmentData?.programs_image ||
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/course/course_page.webp",
+    imageAlt: courseData.eligibility_criteria[0].image_alt ||
+      courseData?.image_alt ||
+      departmentData?.programs_image_alt ||
+      "Students",
     duration: formatDuration(courseData?.duration, courseData?.semester),
     title: "Eligibility Criteria",
     criteria: parseEligibilityCriteria(courseData.eligibility_criteria[0].eligibility_criteria),
     // admissionTitle: courseData.eligibility_criteria[0].cta_text || "Your Next Big Chapter Starts With One Click",
-    admissionTitle:  "Your Next Big Chapter Starts With One Click",
+    admissionTitle: "Your Next Big Chapter Starts With One Click",
 
     admissionButtonLabel: "Admission Open",
-    href: courseData.eligibility_criteria[0].cta_link || null,
+    href: courseData.eligibility_criteria[0].cta_link || "https://admissions.kalingauniversity.ac.in/",
   } : null;
 
   const breadcrumbData = (courseData?.name && !loading && metadataLoaded) ? {
@@ -485,10 +485,9 @@ export default function DynamicCoursePage() {
     pageTitle: courseData.name,
     customBreadcrumbs: [
       { label: 'Home', href: '/' },
-      { label: 'Departments', href: '/departments' },
-      { 
-        label: courseData.name, 
-        href: `/courses/${courseData.slug || generateSlug(courseData.name)}` 
+      {
+        label: courseData.name,
+        href: `/courses/${courseData.slug || generateSlug(courseData.name)}`
       }
     ]
   } : null;
@@ -497,7 +496,7 @@ export default function DynamicCoursePage() {
 
   const careerPathContent = courseData?.career_info && courseData.career_info.length > 0 ? {
     title: "Career Pathway",
-    description: "Get ready to turn your unique ideas into reality in the world of tech and design with limitless career opportunities.",
+    description: parseHtmlToText(courseData.career_pathway || ""),
     careers: courseData.career_info
       .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
       .map(career => ({
@@ -541,13 +540,13 @@ export default function DynamicCoursePage() {
     showImage: false,
     buttons: courseData?.syllabus_buttons && courseData.syllabus_buttons.length > 0
       ? courseData.syllabus_buttons
-          .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
-          .map(btn => ({
-            id: btn.id,
-            text: btn.button_text || "Download",
-            fileUrl: btn.file_url || btn.file || null,
-            displayOrder: btn.display_order || 0,
-          }))
+        .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
+        .map(btn => ({
+          id: btn.id,
+          text: btn.button_text || "Download",
+          fileUrl: btn.file_url || btn.file || null,
+          displayOrder: btn.display_order || 0,
+        }))
       : null,
   } : null;
 
@@ -555,8 +554,8 @@ export default function DynamicCoursePage() {
     title: "Frequently Asked Questions",
     items: courseData.faqs
       .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
-      .filter((item, index, self) => 
-        index === self.findIndex(t => 
+      .filter((item, index, self) =>
+        index === self.findIndex(t =>
           t.question?.toLowerCase() === item.question?.toLowerCase()
         )
       )
@@ -572,8 +571,8 @@ export default function DynamicCoursePage() {
     description: "",
     links: courseData.curriculum_btc
       .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
-      .filter((item, index, self) => 
-        index === self.findIndex(t => 
+      .filter((item, index, self) =>
+        index === self.findIndex(t =>
           t.heading?.toLowerCase() === item.heading?.toLowerCase()
         )
       )
@@ -595,16 +594,16 @@ export default function DynamicCoursePage() {
       },
       {
         id: 2,
-        title: "Corporate Training And Consultancy Division (CTCD)",
-        href: "/corporate-training-and-consultancy-division",
-        description: "CTCD offers customised training programs to junior, middle, and senior levels of management of different companies.",
+        title: "Student Clubs",
+        href: "/student-clubs",
+        description: "The vibrant clubs of KU are filled with talented and passionate students who are always ready to showcase their creative skills and develop interests in engaging activities.",
       },
       {
         id: 3,
-        title: "Career Development Centre",
-        href: "/training-and-placement-cell",
+        title: "Student Welfare Services ",
+        href: "/student-welfare",
 
-        description: "It connects students with different companies and trains them in essential skills, helping them achieve their personal and professional goals.",
+        description: "It is a student-centric department that facilitates an inspirational learning environment where they can develop their hobbies and interests and even participate in other in-house programs apart from academic learning.",
       },
     ],
   };
@@ -612,33 +611,33 @@ export default function DynamicCoursePage() {
   // Build navigation tabs based on available sections
   const navigationTabs = (() => {
     const tabs = [];
-    
+
     // About section
     if (mainIntroContent) {
       tabs.push({ id: 'about', label: 'About' });
     }
-    
+
     // Eligibility Criteria section
     if (eligibilityContent) {
       tabs.push({ id: 'eligibility', label: 'Eligibility Criteria' });
     }
-    
+
     // Career Pathways section
     if (careerPathContent && careerPathContent.careers && careerPathContent.careers.length > 0) {
       tabs.push({ id: 'career', label: 'Career Pathways' });
     }
-    
+
     // Specialization section
     if (whyStudyContent && whyStudyContent.items && whyStudyContent.items.length > 0) {
       tabs.push({ id: 'specialization', label: 'Specialization' });
     }
-    
+
     // Facilities section (always available)
     tabs.push({ id: 'facilities', label: 'Facilities' });
-    
+
     // Student Activities section (always available)
     tabs.push({ id: 'activities', label: 'Student Activities' });
-    
+
     return tabs.length > 0 ? tabs : null;
   })();
 
@@ -655,7 +654,7 @@ export default function DynamicCoursePage() {
 
   // Check if error is a "not found" error
   const isNotFound = error && (
-    error.includes('Course not found') || 
+    error.includes('Course not found') ||
     error.includes('not found') ||
     (!courseData && !loading && error)
   );
@@ -736,7 +735,7 @@ export default function DynamicCoursePage() {
       {navigationTabs && <CourseNavigation tabs={navigationTabs} />}
       {mainIntroContent && (
         <div id="about" className="scroll-mt-24 md:scroll-mt-28">
-          <MainIntro 
+          <MainIntro
             title={mainIntroContent.title}
             // subtitle={mainIntroContent.subtitle}
             description={mainIntroContent.description}
@@ -751,7 +750,7 @@ export default function DynamicCoursePage() {
       )}
       {eligibilityContent && (
         <div id="eligibility" className="scroll-mt-24 md:scroll-mt-28">
-          <EligibilityCriteria 
+          <EligibilityCriteria
             imageUrl={eligibilityContent.imageUrl}
             imageAlt={eligibilityContent.imageAlt}
             duration={eligibilityContent.duration}
@@ -765,7 +764,7 @@ export default function DynamicCoursePage() {
       )}
       {careerPathContent && careerPathContent.careers && careerPathContent.careers.length > 0 && (
         <div id="career" className="scroll-mt-24 md:scroll-mt-28">
-          <CareerPath 
+          <CareerPath
             title={careerPathContent.title}
             description={careerPathContent.description}
             careers={careerPathContent.careers}
@@ -774,7 +773,7 @@ export default function DynamicCoursePage() {
       )}
       {whyStudyContent && whyStudyContent.items && whyStudyContent.items.length > 0 && (
         <div id="specialization" className="scroll-mt-24 md:scroll-mt-28">
-          <WhyStudy 
+          <WhyStudy
             sectionTitle={whyStudyContent.sectionTitle}
             backgroundImage={whyStudyContent.backgroundImage}
             items={whyStudyContent.items}
@@ -800,18 +799,18 @@ export default function DynamicCoursePage() {
         />
       )}
       <div id="facilities" className="scroll-mt-24 md:scroll-mt-28">
-        <Facility 
-        subtitle="An Environment That Empowers Students"
+        <Facility
+          subtitle="An Environment That Empowers Students"
         />
       </div>
-      <QuickLinks 
+      <QuickLinks
         title={quickLinksContent.title}
         description={quickLinksContent.description}
         links={quickLinksContent.links}
         titleClassName="text-white"
       />
       {faqContent && faqContent.items && faqContent.items.length > 0 && (
-        <FAQ 
+        <FAQ
           title={faqContent.title}
           items={faqContent.items}
         />

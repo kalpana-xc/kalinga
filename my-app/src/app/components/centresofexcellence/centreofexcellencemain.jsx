@@ -14,7 +14,7 @@ const centresOfExcellence = [
     name: "AI & ML Courses Training Centre",
     title: "IBM Innovation Centre for Education",
     image:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/coe/coe-ibm.webp",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/ibm.webp",
     href: "/centresofexcellence/ai-ml",
   },
   {
@@ -22,7 +22,7 @@ const centresOfExcellence = [
     name: "Automobile Training Centre",
     title: "JustAuto Solutions",
     image:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/coe/coe-automobile.webp",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/justauto.webp",
     href: "/centresofexcellence/automobile",
   },
   {
@@ -30,7 +30,7 @@ const centresOfExcellence = [
     name: "BRIDGE Courses Training Centre",
     title: "In collaboration with BOSCH",
     image:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/coe/coe-bosch.webp",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/accerdation/Group+1000002989.png",
     href: "/centresofexcellence/bosch",
   },
   {
@@ -38,7 +38,7 @@ const centresOfExcellence = [
     name: "Robotics, Coding, & Drone",
     title: "BDS Education",
     image:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/coe/coe-robotics.webp",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/accerdation/Group+1000002988.png",
     href: "/centresofexcellence/robotics",
   },
   {
@@ -46,7 +46,7 @@ const centresOfExcellence = [
     name: "Electric Vehicles Training Centre",
     title: "Godawari Electric Motors Pvt. Ltd. (Eblu)",
     image:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/coe/coe-godawari.webp",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/godawari.png",
     href: "/centresofexcellence/godawari",
   },
   {
@@ -54,7 +54,7 @@ const centresOfExcellence = [
     name: "IIoT Training Centre",
     title: "Technoviz Automation",
     image:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/coe/coe-iiot.webp",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/accerdation/Group+1000002977.png",
     href: "/centresofexcellence/iiot",
   },
   {

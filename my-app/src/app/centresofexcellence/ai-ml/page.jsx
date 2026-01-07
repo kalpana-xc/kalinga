@@ -106,7 +106,7 @@ export default function AIMLCentrePage() {
         title="AI & ML Courses Training Centre"
         subtitle="In collaboration with the IBM Innovation Centre for Education"
         description={aboutCentreDescription}
-        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/coe/coe-ibm.webp"
+        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/about/ibm.webp"
         imageAlt="Centre Banner"
         readmore={false}
       />

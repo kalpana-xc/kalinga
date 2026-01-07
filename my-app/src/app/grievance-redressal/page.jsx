@@ -215,7 +215,7 @@ export default function GrievanceRedressalPage() {
       <section className="py-12">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-4xl text-[var(--title-color)] font-stix">
-            Grievance Redressal Committee
+            <center>Grievance Redressal Committee</center>
           </h2>
 
           <div className="mt-10">

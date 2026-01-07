@@ -229,20 +229,16 @@ export default function FacultyOfInformationTechnology() {
     : null;
 
   // Prepare breadcrumb data - Only set when departmentData is fully loaded
-  const breadcrumbData = (departmentData?.name && !loading) ? {
-    heroImage: departmentData?.banners?.[0]?.image || departmentData?.banners?.[0]?.image_url || departmentData.image || "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/student-gathered.webp",
+  const breadcrumbData = departmentData ? {
+    heroImage: departmentData.banners?.[0]?.image || departmentData.banners?.[0]?.image_url || departmentData.image || "https://kalinga-university.s3.ap-south-1.amazonaws.com/course/student-computer.webp",
     pageTitle: departmentData.name,
     customBreadcrumbs: [
       { label: 'Home', href: '/' },
-      { label: 'Departments', href: '/departments' },
       {
         label: departmentData.name,
-        href: `/departments/${departmentData.slug || generateSlug(departmentData.name)}`
+        href: `/department-api/faculty-of-information-technology`
       }
     ]
-  } : loading ? {
-    // During loading, set empty breadcrumbs to hide breadcrumb component
-    customBreadcrumbs: []
   } : null;
 
   // Update breadcrumb using the hook

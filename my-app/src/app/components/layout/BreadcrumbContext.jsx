@@ -21,8 +21,8 @@ export function BreadcrumbProvider({ children }) {
   }, [pathname]);
 
   // Memoize context value to prevent unnecessary re-renders
-  const contextValue = useMemo(() => ({ 
-    breadcrumbData, 
+  const contextValue = useMemo(() => ({
+    breadcrumbData,
     setBreadcrumbData,
     isLoading,
     setIsLoading
@@ -57,7 +57,7 @@ export function useBreadcrumbData(data) {
   const prevDataRef = useRef(undefined);
   const prevPathnameRef = useRef(pathname);
   const isMountedRef = useRef(true);
-  
+
   useEffect(() => {
     isMountedRef.current = true;
     return () => {
@@ -79,10 +79,10 @@ export function useBreadcrumbData(data) {
       }
     }
   }, [pathname, setBreadcrumbData, setIsLoading]);
-  
+
   useEffect(() => {
     if (!setBreadcrumbData || !isMountedRef.current) return;
-    
+
     // Compare data by serializing to JSON to avoid reference comparison issues
     // Use try-catch in case data contains non-serializable values
     let currentDataStr, prevDataStr;
@@ -101,7 +101,7 @@ export function useBreadcrumbData(data) {
       }
       return;
     }
-    
+
     // Only update if data actually changed
     if (currentDataStr !== prevDataStr) {
       setBreadcrumbData(data || null);
@@ -112,18 +112,16 @@ export function useBreadcrumbData(data) {
       }
     }
   }, [data, setBreadcrumbData, setIsLoading]);
-  
-    // Cleanup: reset when component unmounts
+
+  // Cleanup: reset when component unmounts
+  // Cleanup: reset when component unmounts - REMOVED to prevent race conditions
+  // The Breadcrumb component in layout handles clearing state on pathname change.
+  // Clearing on unmount causes issues when navigating between pages (new page mounts, old page unmounts)
   useEffect(() => {
     return () => {
-      if (setBreadcrumbData && isMountedRef.current) {
-        setBreadcrumbData(null);
-        prevDataRef.current = undefined;
-      }
-      if (setIsLoading && isMountedRef.current) {
-        setIsLoading(true);
-      }
+      // Intentionally left empty to persist data until next route change clears it
+      isMountedRef.current = false;
     };
-  }, [setBreadcrumbData, setIsLoading]);
+  }, []);
 }
 

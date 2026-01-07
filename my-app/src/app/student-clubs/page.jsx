@@ -45,7 +45,7 @@ const clubSections = [
         image:
           "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-clubs/Pharmacy.webp",
       },
-      
+
     ],
   },
   {
@@ -57,7 +57,7 @@ const clubSections = [
         image:
           "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-clubs/Educraft+Club.webp",
       },
-      
+
     ],
   },
   {
@@ -96,9 +96,9 @@ const clubSections = [
         image:
           "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-clubs/Green+Club.webp",
       },
-     
+
     ],
-    
+
   },
   {
     id: 6,
@@ -122,10 +122,10 @@ const clubSections = [
       {
         name: "Standard Club under BIS (Mechanical and Mining Engineering)",
         image:
-          "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-clubs/Standard+Club+under+BIS+(Mechanical+and+Mining+Engineering).webp",  
+          "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-clubs/Standard+Club+under+BIS+(Mechanical+and+Mining+Engineering).webp",
       }
     ],
-    
+
   },
   {
     id: 7,
@@ -136,9 +136,9 @@ const clubSections = [
         image:
           "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-clubs/Infinity+Club.webp",
       },
-     
+
     ],
-    
+
   },
   {
     id: 8,
@@ -160,9 +160,9 @@ const clubSections = [
           "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-clubs/Pro+Bono+Club.webp",
       },
     ],
-    
+
   },
- 
+
 
 ];
 
@@ -193,7 +193,7 @@ export default function Page() {
 
           </h2>
           <p className="max-w-6xl mx-auto text-[var(--light-text-gray)]">
-           Our academic clubs provide students with the resources and practical exposure that supplement their studies. We believe that knowledge should go beyond classroom studies, and students must be professionally prepared to take up any challenge in their field of study. Our academic clubs will expand their network and connect them with our faculty members. 
+            Our academic clubs provide students with the resources and practical exposure that supplement their studies. We believe that knowledge should go beyond classroom studies, and students must be professionally prepared to take up any challenge in their field of study. Our academic clubs will expand their network and connect them with our faculty members.
 
           </p>
         </div>

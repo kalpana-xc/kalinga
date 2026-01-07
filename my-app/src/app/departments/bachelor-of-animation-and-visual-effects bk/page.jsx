@@ -16,11 +16,10 @@ import QuickLinks from "@/app/components/general/quick_links";
 
 // Breadcrumb configuration
 const breadcrumbData = {
-  heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/course/student-computer.webp",
+  heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/student-computer-course.webp",
   pageTitle: "Bachelor of Animation and Visual Effects",
   customBreadcrumbs: [
     { label: 'Home', href: '/' },
-    { label: 'Departments', href: '/departments' },
     { label: 'Bachelor of Animation and Visual Effects', href: '/departments/bachelor-of-animation-and-visual-effects' }
   ]
 };
@@ -251,7 +250,7 @@ function Courses() {
     <div>
       <CourseNavigation tabs={navigationTabs} />
       <div id="about">
-        <MainIntro 
+        <MainIntro
           title={mainIntroContent.title}
           subtitle={mainIntroContent.subtitle}
           description={mainIntroContent.description}
@@ -262,7 +261,7 @@ function Courses() {
       </div>
       <PublicationGrid stats={publicationStats} />
       <div id="eligibility">
-        <EligibilityCriteria 
+        <EligibilityCriteria
           imageUrl={eligibilityContent.imageUrl}
           imageAlt={eligibilityContent.imageAlt}
           duration={eligibilityContent.duration}
@@ -274,14 +273,14 @@ function Courses() {
         />
       </div>
       <div id="career">
-        <CareerPath 
+        <CareerPath
           title={careerPathContent.title}
           description={careerPathContent.description}
           careers={careerPathContent.careers}
         />
       </div>
       <div id="specialization">
-        <WhyStudy 
+        <WhyStudy
           sectionTitle={whyStudyContent.sectionTitle}
           backgroundImage={whyStudyContent.backgroundImage}
           items={whyStudyContent.items}
@@ -304,14 +303,14 @@ function Courses() {
       <div id="facilities">
         <Facility />
       </div>
-      <QuickLinks 
+      <QuickLinks
         title={quickLinksContent.title}
         description={quickLinksContent.description}
         links={quickLinksContent.links}
         titleClassName="text-white"
         showReadMore={false}
       />
-      <FAQ 
+      <FAQ
         title={faqContent.title}
         items={faqContent.items}
       />

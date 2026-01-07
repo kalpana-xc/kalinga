@@ -31,7 +31,7 @@ function Courses() {
   const [courseData, setCourseData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   // Course ID - can be made dynamic based on route or props
   const courseId = 3;
 
@@ -70,7 +70,7 @@ function Courses() {
     // Helper function to update or create meta tags
     const updateMetaTag = (name, content, attribute = 'name') => {
       if (!content) return;
-      
+
       let element = document.querySelector(`meta[${attribute}="${name}"]`);
       if (!element) {
         element = document.createElement('meta');
@@ -145,18 +145,18 @@ function Courses() {
     subtitle: "About The Program",
     description: parseHtmlToParagraphs(courseData.about_sections[0].content),
     imageUrl: courseData.about_sections[0].image,
-    imageAlt: courseData.about_sections[0].alt, 
+    imageAlt: courseData.about_sections[0].alt,
   } : null;
 
   // PublicationGrid content - Map from API milestones - Only if data exists
   const publicationStats = courseData?.milestones && courseData.milestones.length > 0
     ? courseData.milestones
-        .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
-        .map(milestone => ({
-          title: milestone.heading || "",
-          value: `${milestone.number || ""} ${milestone.symbol || ""}`.trim(),
-          description: milestone.description || "",
-        }))
+      .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
+      .map(milestone => ({
+        title: milestone.heading || "",
+        value: `${milestone.number || ""} ${milestone.symbol || ""}`.trim(),
+        description: milestone.description || "",
+      }))
     : null;
 
   // EligibilityCriteria content - Map from API eligibility_criteria - Only if data exists
@@ -178,10 +178,9 @@ function Courses() {
     pageTitle: courseData.name,
     customBreadcrumbs: [
       { label: 'Home', href: '/' },
-      { label: 'Departments', href: '/departments' },
-      { 
-        label: courseData.name, 
-        href: `/departments/${courseData.slug || generateSlug(courseData.name)}` 
+      {
+        label: courseData.name,
+        href: `/departments/${courseData.slug || generateSlug(courseData.name)}`
       }
     ]
   } : loading ? {
@@ -238,8 +237,8 @@ function Courses() {
     title: "Frequently Asked Questions",
     items: courseData.faqs
       .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
-      .filter((item, index, self) => 
-        index === self.findIndex(t => 
+      .filter((item, index, self) =>
+        index === self.findIndex(t =>
           t.question?.toLowerCase() === item.question?.toLowerCase()
         )
       )
@@ -256,8 +255,8 @@ function Courses() {
     description: "",
     links: courseData.curriculum_btc
       .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
-      .filter((item, index, self) => 
-        index === self.findIndex(t => 
+      .filter((item, index, self) =>
+        index === self.findIndex(t =>
           t.heading?.toLowerCase() === item.heading?.toLowerCase()
         )
       )
@@ -293,22 +292,22 @@ function Courses() {
   // Course Navigation Tabs - Map from API quick_links - Only if data exists
   const navigationTabs = courseData?.quick_links && courseData.quick_links.length > 0
     ? courseData.quick_links
-        .map(link => ({
-          id: link.link,
-          label: link.name
-        }))
-        .filter((tab, index, self) => 
-          index === self.findIndex(t => t.id === tab.id)
-        )
-        .sort((a, b) => {
-          const order = ['about', 'program details', 'specialization', 'career', 'career pathway', 'eligibility', 'fees', 'syllabus'];
-          const aIndex = order.findIndex(o => a.id.toLowerCase().includes(o.toLowerCase()));
-          const bIndex = order.findIndex(o => b.id.toLowerCase().includes(o.toLowerCase()));
-          if (aIndex === -1 && bIndex === -1) return 0;
-          if (aIndex === -1) return 1;
-          if (bIndex === -1) return -1;
-          return aIndex - bIndex;
-        })
+      .map(link => ({
+        id: link.link,
+        label: link.name
+      }))
+      .filter((tab, index, self) =>
+        index === self.findIndex(t => t.id === tab.id)
+      )
+      .sort((a, b) => {
+        const order = ['about', 'program details', 'specialization', 'career', 'career pathway', 'eligibility', 'fees', 'syllabus'];
+        const aIndex = order.findIndex(o => a.id.toLowerCase().includes(o.toLowerCase()));
+        const bIndex = order.findIndex(o => b.id.toLowerCase().includes(o.toLowerCase()));
+        if (aIndex === -1 && bIndex === -1) return 0;
+        if (aIndex === -1) return 1;
+        if (bIndex === -1) return -1;
+        return aIndex - bIndex;
+      })
     : null;
 
   // Show loading state
@@ -339,82 +338,82 @@ function Courses() {
     <div>
       {navigationTabs && <CourseNavigation tabs={navigationTabs} />}
       {mainIntroContent && (
-      <div id="about">
-        <MainIntro 
-          title={mainIntroContent.title}
-          subtitle={mainIntroContent.subtitle}
-          description={mainIntroContent.description}
-          imageUrl={mainIntroContent.imageUrl}
-          imageAlt={mainIntroContent.imageAlt}
-          showKnowMore={false}
-        />
-      </div>
+        <div id="about">
+          <MainIntro
+            title={mainIntroContent.title}
+            subtitle={mainIntroContent.subtitle}
+            description={mainIntroContent.description}
+            imageUrl={mainIntroContent.imageUrl}
+            imageAlt={mainIntroContent.imageAlt}
+            showKnowMore={false}
+          />
+        </div>
       )}
       {publicationStats && publicationStats.length > 0 && (
-      <PublicationGrid stats={publicationStats} />
+        <PublicationGrid stats={publicationStats} />
       )}
       {eligibilityContent && (
-      <div id="eligibility">
-        <EligibilityCriteria 
-          imageUrl={eligibilityContent.imageUrl}
-          imageAlt={eligibilityContent.imageAlt}
-          duration={eligibilityContent.duration}
-          title={eligibilityContent.title}
-          criteria={eligibilityContent.criteria}
-          admissionTitle={eligibilityContent.admissionTitle}
-          admissionButtonLabel={eligibilityContent.admissionButtonLabel}
-        />
-      </div>
+        <div id="eligibility">
+          <EligibilityCriteria
+            imageUrl={eligibilityContent.imageUrl}
+            imageAlt={eligibilityContent.imageAlt}
+            duration={eligibilityContent.duration}
+            title={eligibilityContent.title}
+            criteria={eligibilityContent.criteria}
+            admissionTitle={eligibilityContent.admissionTitle}
+            admissionButtonLabel={eligibilityContent.admissionButtonLabel}
+          />
+        </div>
       )}
       {careerPathContent && (
-      <div id="career">
-        <CareerPath 
-          title={careerPathContent.title}
-          description={careerPathContent.description}
-          careers={careerPathContent.careers}
-        />
-      </div>
+        <div id="career">
+          <CareerPath
+            title={careerPathContent.title}
+            description={careerPathContent.description}
+            careers={careerPathContent.careers}
+          />
+        </div>
       )}
       {whyStudyContent && whyStudyContent.items && whyStudyContent.items.length > 0 && (
-      <div id="specialization">
-        <WhyStudy 
-          sectionTitle={whyStudyContent.sectionTitle}
-          backgroundImage={whyStudyContent.backgroundImage}
-          items={whyStudyContent.items}
-        />
-      </div>
+        <div id="specialization">
+          <WhyStudy
+            sectionTitle={whyStudyContent.sectionTitle}
+            backgroundImage={whyStudyContent.backgroundImage}
+            items={whyStudyContent.items}
+          />
+        </div>
       )}
       {syllabusContent && (
-      <OrganogramOfKalinga
+        <OrganogramOfKalinga
           title={syllabusContent.title}
           description={syllabusContent.description}
           buttonLabel={syllabusContent.buttonLabel}
           href={syllabusContent.href}
-        buttonClassName="!bg-white !text-black"
-        arrowClassName="!bg-[var(--dark-orange-red)]"
-        arrowIconClassName="!text-white"
-        textClassName="!text-black"
-        cardBackgroundColor="bg-[var(--button-red)]"
-        useContainer={false}
+          buttonClassName="!bg-white !text-black"
+          arrowClassName="!bg-[var(--dark-orange-red)]"
+          arrowIconClassName="!text-white"
+          textClassName="!text-black"
+          cardBackgroundColor="bg-[var(--button-red)]"
+          useContainer={false}
           showImage={false}
           imageUrl={syllabusContent.imageUrl}
           imageAlt={syllabusContent.title}
-      />
+        />
       )}
       <div id="facilities">
         <Facility />
       </div>
-      <QuickLinks 
+      <QuickLinks
         title={quickLinksContent.title}
         description={quickLinksContent.description}
         links={quickLinksContent.links}
         titleClassName="text-white"
       />
       {faqContent && faqContent.items && faqContent.items.length > 0 && (
-      <FAQ 
-        title={faqContent.title}
-        items={faqContent.items}
-      />
+        <FAQ
+          title={faqContent.title}
+          items={faqContent.items}
+        />
       )}
       {/* <BoardStudies /> */}
       <div id="activities">

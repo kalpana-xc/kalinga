@@ -153,22 +153,18 @@ export default function UpcomingConference({
               {displayConferences.map((conf) => (
                 <SwiperSlide key={conf.id}>
                   <div className={`${backgroundColorcard} rounded-2xl shadow-sm  flex flex-col md:flex-row gap-4 md:gap-8 justify-center items-center`}>
-                    <div
-                      className={`${imageContainerClass} rounded-xl overflow-hidden relative`}
+                    <Image
+                      src={conf.image}
+                      alt={conf.title}
+                      width={600}
+                      height={imageHeight}
+                      className={`${imageContainerClass} rounded-xl object-contain`}
                       style={{
                         height: `${imageHeight}px`,
                         width: `${imageWidth}%`,
                       }}
-                    >
-                      <Image
-                        src={conf.image}
-                        alt={conf.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 40vw"
-                        unoptimized
-                      />
-                    </div>
+                      unoptimized
+                    />
 
                     <div className="w-full md:w-3/5 flex flex-col gap-6 md:px-0 px-5 h-full justify-around pb-5">
                       {/* Badges positioned at top right */}
@@ -203,9 +199,7 @@ export default function UpcomingConference({
                           </GlobalArrowButton>
                         </Link>
                       ) : (
-                        <GlobalArrowButton className="w-fit mt-1 text-sm">
-                          {conf.registerButtonText || "Register Now"}
-                        </GlobalArrowButton>
+                        <></>
                       )}
                     </div>
                   </div>

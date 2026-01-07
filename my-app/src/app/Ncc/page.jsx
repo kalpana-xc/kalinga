@@ -1,32 +1,33 @@
 "use client";
-import React,{useEffect}from 'react'
+import React, { useEffect } from 'react'
 import NccIntro from '../components/Ncc/ncc-intro'
 import NccBenefits from '../components/Ncc/ncc-benefits'
 import NccHeadMessage from '../components/Ncc/ncc-coordinator-message'
 import NccVisionMission from '../components/Ncc/ncc-visionmission'
 import NccEvents from '../components/Ncc/ncc-events'
 import AdmissionCareer from '../components/general/admission_cta';
+import UpcomingConferences from '../components/research/upcoming_conference';
 const breadcrumbData = {
-        heroImage:
-            "https://kalinga-university.s3.ap-south-1.amazonaws.com/ncc/Ncc-3.webp",
-        pageTitle: "National Cadet Corps",
-        customBreadcrumbs: [
-            { label: "Home", href: "/" },
-            { label: "National Cadet Corps", href: "/Ncc" },
-        ],
-    };
+  heroImage:
+    "https://kalinga-university.s3.ap-south-1.amazonaws.com/ncc/Ncc-3.webp",
+  pageTitle: "National Cadet Corps",
+  customBreadcrumbs: [
+    { label: "Home", href: "/" },
+    { label: "National Cadet Corps", href: "/Ncc" },
+  ],
+};
 const page = () => {
 
-   
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-          window.__breadcrumbData = breadcrumbData;
-        }
-      }, []); 
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);
   return (
-    
+
     <>
-    <style jsx global>{`
+      <style jsx global>{`
       .absolute.inset-0 > img {
         object-position: center 10% !important;
       }
@@ -37,12 +38,24 @@ const page = () => {
         }
       }
     `}</style>
+<<<<<<< Updated upstream
+      <NccIntro />
+      <NccBenefits />
+      <NccVisionMission />
+      <NccHeadMessage />
+      <UpcomingConferences
+        categoryIds={['6', '7']}
+        title="Campus Events"
+        fallback="hide"
+      />
+      <AdmissionCareer />
+=======
     <NccIntro/>
     <NccBenefits/>
      <NccVisionMission/>
     <NccHeadMessage/>
-    <NccEvents/>
     <AdmissionCareer/>
+>>>>>>> Stashed changes
     </>
   )
 }

@@ -214,6 +214,20 @@ export default function AwardsScrollbar({
               hide: false,
               draggable: true,
             }}
+            onReachEnd={(swiper) => {
+              if (swiper.params.autoplay) {
+                swiper.params.autoplay.reverseDirection = true;
+                swiper.autoplay.stop();
+                swiper.autoplay.start();
+              }
+            }}
+            onReachBeginning={(swiper) => {
+              if (swiper.params.autoplay) {
+                swiper.params.autoplay.reverseDirection = false;
+                swiper.autoplay.stop();
+                swiper.autoplay.start();
+              }
+            }}
           >
             {awards.map((award) => award.active && (
               <SwiperSlide key={award.id} className="!w-auto relative z-10">

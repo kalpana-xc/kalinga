@@ -57,7 +57,7 @@ function getPreviewText(desc) {
 
 export default function StudentActivities({
   title = "Student Activities",
-  subtitle = "Lorem ipsum dolor sit amet, consectetur",
+  subtitle = "Experience Campus Life Beyond Academics",
   activities: providedActivities,
   departmentId,
   categoryId,

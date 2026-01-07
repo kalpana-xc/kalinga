@@ -478,7 +478,6 @@ export default function DynamicDepartmentPage() {
               title: club.name || "",
               description: parseHtmlToText(club.description) || "",
               image: club.logo || null,
-              href: club.join_link || null,
               category: "Clubs", // Default category from component, can be customized per club if needed
             }))
           }

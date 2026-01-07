@@ -6,6 +6,9 @@ import DataTable from "@/app/components/general/data-table";
 import StudentActivities from "@/app/components/department/student_activities";
 import AdmissionCareer from "@/app/components/general/admission_cta";
 
+import SectionHeading from "@/app/components/general/SectionHeading";
+
+
 const breadcrumbData = {
   heroImage:
     "https://kalinga-university.s3.ap-south-1.amazonaws.com/conferences/conferences-objective.webp",
@@ -143,12 +146,12 @@ export default function ConferencesAndEventsPage() {
         />
       </section>
 
-      <section className="pb-12">
+      <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl mt-15  text-[var(--title-color)] font-stix">
-            Conferences Held At KU
-          </h2>
-
+          <SectionHeading
+            title="Conferences Held At KU"
+            titleClassName="text-[var(--title-color)] text-center"
+          />
           <div className="mt-6">
             <DataTable
               overflowX

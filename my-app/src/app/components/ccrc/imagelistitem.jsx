@@ -66,7 +66,7 @@ export default function ImageListItem({
             />
           </div>
 
-          <div className="col-span-6 md:gap-5 gap-2 items-center items-start min-h-[500px] flex flex-col justify-center">
+          <div className="col-span-6 md:gap-5 gap-2 items-center items-start min-h-[400px] md:min-h-[500px] flex flex-col justify-center">
             {/* Heading not scrollable */}
             <SectionHeading
               title={title}

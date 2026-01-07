@@ -13,18 +13,18 @@ import DataTable from "@/app/components/general/data-table";
 
 const page = () => {
   const breadcrumbData = {
-  heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/alumini/alumini.webp",
-  pageTitle: "Student Welfare",
-  customBreadcrumbs: [
-    { label: 'Home', href: '/' },
-    { label: 'Student Welfare', href: '/student-welfare' }
-  ]
-};
+    heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/alumini/alumini.webp",
+    pageTitle: "Student Welfare",
+    customBreadcrumbs: [
+      { label: 'Home', href: '/' },
+      { label: 'Student Welfare', href: '/student-welfare' }
+    ]
+  };
 
-// Register breadcrumb data globally
-if (typeof window !== 'undefined') {
-  window.__breadcrumbData = breadcrumbData;
-}
+  // Register breadcrumb data globally
+  if (typeof window !== 'undefined') {
+    window.__breadcrumbData = breadcrumbData;
+  }
 
 
   const kifAdditionalContent = [
@@ -40,92 +40,92 @@ if (typeof window !== 'undefined') {
     "An opportunity to participate & get actively involved in the programmes organised by Yi at the Regional, National, and International levels.",
   ];
 
- const defaultGalleryImages = [
-  {
-    id: 5,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports5.jpg",
-    alt: "Gallery-5"
-  },
-  {
-    id: 3,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports(10).webp",
-    alt: "Gallery-3"
-  },
-  {
-    id: 12,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/activities3.jpeg",
-    alt: "Gallery-10"
-  },
-  {
-    id: 1,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/banner-std-welfare.jpg",
-    alt: "Gallery-1"
-  },
-  {
-    id: 9,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports2.jpg",
-    alt: "Gallery-8"
-  },
-  {
-    id: 14,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/activities5.jpeg",
-    alt: "Gallery-10"
-  },
-  {
-    id: 7,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports(9).webp",
-    alt: "Gallery-7"
-  },
-  {
-    id: 4,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports.jpg",
-    alt: "Gallery-4"
-  },
-  {
-    id: 11,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/activities1.jpeg",
-    alt: "Gallery-10"
-  },
-  {
-    id: 2,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports3.png",
-    alt: "Gallery-2"
-  },
-  {
-    id: 10,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports4.png",
-    alt: "Gallery-10"
-  },
-  {
-    id: 6,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/Pic3.jpeg",
-    alt: "Gallery-6"
-  },
-  {
-    id: 13,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/activities4.jpeg",
-    alt: "Gallery-10"
-  },
-  {
-    id: 8,
-    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports6.jpg",
-    alt: "Gallery-8"
-  }
-];
+  const defaultGalleryImages = [
+    {
+      id: 5,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports5.jpg",
+      alt: "Gallery-5"
+    },
+    {
+      id: 3,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports(10).webp",
+      alt: "Gallery-3"
+    },
+    {
+      id: 12,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/activities3.jpeg",
+      alt: "Gallery-10"
+    },
+    {
+      id: 1,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/banner-std-welfare.jpg",
+      alt: "Gallery-1"
+    },
+    {
+      id: 9,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports2.jpg",
+      alt: "Gallery-8"
+    },
+    {
+      id: 14,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/activities5.jpeg",
+      alt: "Gallery-10"
+    },
+    {
+      id: 7,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports(9).webp",
+      alt: "Gallery-7"
+    },
+    {
+      id: 4,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports.jpg",
+      alt: "Gallery-4"
+    },
+    {
+      id: 11,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/activities1.jpeg",
+      alt: "Gallery-10"
+    },
+    {
+      id: 2,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports3.png",
+      alt: "Gallery-2"
+    },
+    {
+      id: 10,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports4.png",
+      alt: "Gallery-10"
+    },
+    {
+      id: 6,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/Pic3.jpeg",
+      alt: "Gallery-6"
+    },
+    {
+      id: 13,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/activities4.jpeg",
+      alt: "Gallery-10"
+    },
+    {
+      id: 8,
+      image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/sports6.jpg",
+      alt: "Gallery-8"
+    }
+  ];
 
   return (
     <>
-    
+
       <StudentWelfareIntro />
       <SwdeanIntro />
       <SwCards />
-       
+
       {/* Image Content Section */}
       <ImageContent
         title="Young Indians"
         subtitle={false}
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/student-welfare/young-indian.webp"
-      
+
         imageAlt="Young Indians"
         hasImage={true}
         description="Young Indians (Yi) is an integral part of the Confederation of Indian Industry (CII), India’s premier business association, formed in the year 2002, with an objective of creating a platform for young Indians to realise the dream of a developed nation. YI has over 1300 direct members in 40 city chapters. Yi has 160 members in 3 corporate chapters and engages another 12,000 members through its district chapter, Farmer Nets, and Student Nets."
@@ -133,1094 +133,1094 @@ if (typeof window !== 'undefined') {
         certificateLink={false}
         certificateLinkText={false}
         selectionCriteria={selectionCriteria}
-      /> 
-    <SectionHeading title="Sports & Cultural Activities"
-    titleClassName="text-center" />
+      />
+      <SectionHeading title="Sports & Cultural Activities"
+        titleClassName="text-center" />
       <SportsFacilitiesTabs />
-     <FAQ
-  title="Extension activities"
-  
-  subtitleClassName="!hidden"
-  variant="table-display"
-  items={[]}
-  
+      <FAQ
+        title="Extension activities"
+
+        subtitleClassName="!hidden"
+        variant="table-display"
+        items={[]}
 
 
 
-  tableSections={[
-    {
-      id: 1,
-      title: "Academic Year 2024–25",
-      columns: [
-        { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
-        { key: "unit", label: "Organising Unit / Forum / Agency", width: "w-[25%]" },
-        { key: "year", label: "Year of the Activity", width: "w-[20%]" },
-        { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
-      ],
-      data: [
-        { activity: "Friendship Day Celebration", unit: "DSW", year: "2024–2025", students: "100" },
-        { activity: "Ratri Before Navratri", unit: "DSW", year: "2024–2025", students: "137" },
-        { activity: "Garba Night", unit: "DSW", year: "2024–2025", students: "—" },
-        { activity: "Diwali Milan Celebration", unit: "DSW", year: "2024–2025", students: "378" },
-        { activity: "Christmas Day Celebration", unit: "DSW", year: "2024–2025", students: "595" },
-        { activity: "NCC Mountaineering Expedition 2024", unit: "NCC", year: "2024–2025", students: "1" },
-        { activity: "CATC – VII Group Level TSC Selection Camp", unit: "NCC", year: "2024–2025", students: "1" },
-        { activity: "Report on ANO Duty as Committee Member for the Selection of ANO", unit: "NCC", year: "2024–2025", students: "15" },
-        { activity: "Report on Biometric Registration (For 2nd & 3rd Year Cadets)", unit: "NCC", year: "2024–2025", students: "30" },
-        { activity: "Report on ANOs & CTOs Conference (2024–25)", unit: "NCC", year: "2024–2025", students: "42" },
-        { activity: "CATC – XI CAMP", unit: "NCC", year: "2024–2025", students: "32" },
-        { activity: "Report on IGC – Best Cadet Camp", unit: "NCC", year: "2024–2025", students: "1" },
-        { activity: "NCC Selection Process Day", unit: "NCC", year: "2024–2025", students: "2" },
-        { activity: "Report on Workshop on Self-Defence Techniques", unit: "NCC", year: "2024–2025", students: "70" },
-        { activity: "Know Your Army Mela", unit: "NCC", year: "2024–2025", students: "12" },
-        { activity: "NCC Rank Ceremony 2024–24", unit: "NCC", year: "2024–2025", students: "21" },
-        { activity: "One Day State Level Women Program Officer Training Workshop", unit: "NSS", year: "2024–2025", students: "265" },
-        { activity: "Green Army, Lions Club & Unnat Bharat Abhiyan – Tree Plantation Drive", unit: "NSS", year: "2024–2025", students: "26" },
-        { activity: "Tree Plantation Drive", unit: "DSW & NSS", year: "2024–2025", students: "45" },
-        { activity: "Constitution Day Celebration", unit: "NSS", year: "2024–2025", students: "142" },
-        { activity: "Street Play on ‘Clean Chhattisgarh – Good Governance of Government’", unit: "NSS", year: "2024–2025", students: "37" },
-        { activity: "ORINA-2024 Sports Fest, AIIMS Raipur", unit: "Sports", year: "2024–2025", students: "38" },
-        { activity: "Yuva Utsav 3.0", unit: "YI & CII", year: "2024–2025", students: "193" },
-        { activity: "IDE Lectures on Startup Ideas", unit: "IEEE & YI", year: "2024–2025", students: "168" },
-        { activity: "IEEE-MOVE Outreach India – Promoting Climate Change & Sustainability", unit: "IEEE KU SB & IEEE SIGHT", year: "2024–2025", students: "40" },
-        { activity: "IEEE-MOVE Outreach India – Promoting Climate Change & Sustainability", unit: "IEEE KU SB & IEEE SIGHT", year: "2024–2025", students: "50" },
-        { activity: "IEEE-MOVE Outreach India – Promoting Climate Change & Sustainability", unit: "IEEE KU SB & IEEE SIGHT", year: "2024–2025", students: "92" },
-        { activity: "IEEE-MOVE Outreach India – Promoting Climate Change & Sustainability", unit: "IEEE KU SB & IEEE SIGHT", year: "2024–2025", students: "73" },
-        { activity: "IEEE-MOVE Outreach India – Promoting Climate Change & Sustainability", unit: "IEEE KU SB & IEEE SIGHT", year: "2024–2025", students: "45" }
-      ]
-      
-    },{
-  id: 2,
-  title: "Academic Year 2023–24",
-  columns: [
-    { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
-    { key: "unit", label: "Organising Unit / Forum / Collaborating Agency", width: "w-[25%]" },
-    { key: "year", label: "Year of the Activity", width: "w-[20%]" },
-    { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
-  ],
-  data: [
-    { activity: "CATC-XI CAMP", unit: "NCC", year: "2023–2024", students: "10" },
-    { activity: "Tree Plantation Drive", unit: "DSW", year: "2023–2024", students: "200" },
-    { activity: "Certification Training Program Jan Shikshan Sansthan (JSS)", unit: "DSW", year: "2023–2024", students: "20" },
-    { activity: "1-day Capacity Building Workshop for Educators", unit: "CCRC", year: "2023–2024", students: "120" },
-    { activity: "Report on CATC-XII CAMP", unit: "NCC", year: "2023–2024", students: "21" },
-    { activity: "Issues and Challenges of Professional Development of Teachers in Secondary School", unit: "Education", year: "2023–2024", students: "10" },
-    { activity: "Awareness and training program aimed to educate students on how to operate Electronic Voting Machines (EVMs)", unit: "DSW", year: "2023–2024", students: "57" },
-    { activity: "Inclusive Walkthon, Telibandha Talab, Raipur", unit: "DSW", year: "2023–2024", students: "99" },
-    { activity: "Training Session on CPR & Emergency Roadside Responders", unit: "YI", year: "2023–2024", students: "38" },
-    { activity: "Painting competition for school students celebrate World Ozone Day", unit: "Zoology", year: "2023–2024", students: "140" },
-    { activity: "Yuva Utsav 2.0", unit: "YI", year: "2023–2024", students: "350" },
-    { activity: "NSS Foundation Day Celebration at IGKV Raipur", unit: "NSS", year: "2023–2024", students: "25" },
-    { activity: "Free Eye Checkup Camp – World Pharmacist Day", unit: "Pharmacy", year: "2023–2024", students: "242" },
-    { activity: "G20 University Connect Event", unit: "Commerce and Management", year: "2023–2024", students: "109" },
-    { activity: "Nature camp and workshop on termites and birds identification", unit: "Zoology", year: "2023–2024", students: "40" },
-    { activity: "National Seminar Strengthening Women Entrepreneur", unit: "Arts & Humanities", year: "2023–2024", students: "150" },
-    { activity: "Smart Garbage Monitoring System in Government Schools", unit: "NSS", year: "2023–2024", students: "42" },
-    { activity: "Youth to Youth connect House to hold Connect", unit: "Engineering", year: "2023–2024", students: "156" },
-    { activity: "Anand Mela", unit: "Commerce & Management", year: "2023–2024", students: "225" },
-    { activity: "Donation Drive: Donate to Make a Difference", unit: "Arts & Humanities", year: "2023–2024", students: "13" },
-    { activity: "Cancer awareness Talk and Screening Camp", unit: "Chief Proctor", year: "2023–2024", students: "40" },
-    {
-      activity:
-        "Foundation Day Celebration – State Foundation Day where Chhattisgarhi & Haryanvi Folk Dance Represented by Kalinga University under Ek Bharat Shreshtha Bharat Programme at Rajbhawan Darbar Hall",
-      unit: "DSW",
-      year: "2023–2024",
-      students: "10"
-    },
-    {
-      activity:
-        "Foundation Day Celebration of Assam & Nagaland under G-20 Ek Bharat Shreshtha Bharat Programme at Rajbhawan Darbar Hall",
-      unit: "DSW",
-      year: "2023–2024",
-      students: "6"
-    },
-    { activity: "A Report on Workshop on Scientific Toy", unit: "IQAC", year: "2023–2024", students: "50" }
-  ]
-},{
-  id: 3,
-  title: "Academic Year 2022–23",
-  columns: [
-    { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
-    { key: "unit", label: "Organising Unit / Agency / Collaborating Agency", width: "w-[25%]" },
-    { key: "year", label: "Year of the Activity", width: "w-[20%]" },
-    { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
-  ],
-  data: [
-    { activity: "One-day workshop on survey", unit: "NSS", year: "2022–2023", students: "42" },
-    { activity: "Tree Plantation, by NSS Unit at Anganwadi School, Kotni", unit: "NSS", year: "2022–2023", students: "130" },
-    { activity: "Seminar on HIV/AIDS- Awareness", unit: "NSS", year: "2022–2023", students: "48" },
-    { activity: "Pollution awareness program", unit: "NSS", year: "2022–2023", students: "65" },
-    { activity: "Awareness program on PCOD (Polycystic ovarian disease)", unit: "NSS", year: "2022–2023", students: "84" },
-    { activity: "Traffic Safety Awareness Program and Licence Camp", unit: "NSS", year: "2022–2023", students: "177" },
-    { activity: "International Yoga Day Celebration", unit: "NSS & NCC", year: "2022–2023", students: "67" },
-    { activity: "World Population Day", unit: "NSS", year: "2022–2023", students: "20" },
-    { activity: "8-Day Camp Duty in Lakholi by the NCC Army Wing", unit: "NCC", year: "2022–2023", students: "9" },
-    { activity: "CATC Camp", unit: "NCC", year: "2022–2023", students: "9" },
-    { activity: "Free Health Care camp", unit: "NCC", year: "2022–2023", students: "171" },
-    { activity: "Poster Making Competition", unit: "NCC", year: "2022–2023", students: "15" },
-    { activity: "Essay Writing Competition", unit: "NCC", year: "2022–2023", students: "15" },
-    { activity: "Report on Basic Mountaineering Course", unit: "NCC", year: "2022–2023", students: "5" },
-    { activity: "Doctors Honoured by Kalinga University on Doctors’ Day", unit: "DSW", year: "2022–2023", students: "2" },
-    { activity: "Webinar on the Occasion of World Hepatitis Day", unit: "Pharmacy", year: "2022–2023", students: "59" },
-    { activity: "Yoga & Meditation session", unit: "Pharmacy", year: "2022–2023", students: "88" },
-    { activity: "Free of Cost Booster Dose (3rd dose) for Covid-19 Vaccination", unit: "Chief Proctor", year: "2022–2023", students: "315" },
-    {
-      activity:
-        "Celebration of International Literacy Day at Kuhera Govt. School with street play and Gifts for school children",
-      unit: "Commerce & Management",
-      year: "2022–2023",
-      students: "140"
-    },
-    { activity: "Hindi Diwas celebrations", unit: "Arts & Humanities", year: "2022–2023", students: "90" },
-    {
-      activity: "Celebration of World Ozone Day",
-      unit: "Commerce & Management, Department of Zoology & Green Club",
-      year: "2022–2023",
-      students: "266"
-    },
-    { activity: "Tree plantation with slogan (online)", unit: "Education", year: "2022–2023", students: "26" },
-    { activity: "World Pharmacist Day Celebration 2022", unit: "Pharmacy", year: "2022–2023", students: "100" },
-    {
-      activity:
-        'Guest session on "Mental Health with YPV Sadhna" on the occasion of World Mental Health Day',
-      unit: "Commerce & Management",
-      year: "2022–2023",
-      students: "228"
-    },
-    { activity: "Global Tribal Queen Contest 2022", unit: "Social Work", year: "2022–2023", students: "115" },
-    {
-      activity: "Badhte Kadam organisation for Clothes Distribution and NGO Visit",
-      unit: "Social Work",
-      year: "2022–2023",
-      students: "22"
-    },
-    {
-      activity:
-        "Rural and household survey conducted in adopted villages by Kalinga University",
-      unit: "Social Work",
-      year: "2022–2023",
-      students: "68"
-    },
-    { activity: "Road Safety Awareness", unit: "Law", year: "2022–2023", students: "134" },
-    {
-      activity:
-        "A visit to Sanjeevani Cancer Hospital on National Cancer Awareness Day",
-      unit: "Social Work",
-      year: "2022–2023",
-      students: "20"
-    },
-    { activity: "Free Health Check-up Camp", unit: "Social Work", year: "2022–2023", students: "110" },
-    {
-      activity: "Celebration of Constitution Day",
-      unit: "Pro Bono Club",
-      year: "2022–2023",
-      students: "87"
-    },
-    {
-      activity: "Extension Activity of IT Awareness (Govt. Middle School Kotni)",
-      unit: "Social Work",
-      year: "2022–2023",
-      students: "55"
-    },
-    { activity: "Bharatiya Bhasha Utsav -2022", unit: "Social Work", year: "2022–2023", students: "200" },
-    {
-      activity: "Yuva Orientation Session for Yuva Students EC Members",
-      unit: "Young Indians (YI)",
-      year: "2022–2023",
-      students: "35"
-    },
-    { activity: "74th Republic Day Celebration", unit: "DSW", year: "2022–2023", students: "300" },
-    { activity: "World Haemophilia Day", unit: "Pharmacy", year: "2022–2023", students: "58" },
-    {
-      activity:
-        "G-20 Events – Quiz Competition on the theme “One Earth, One Family, One Future”",
-      unit: "Commerce & Management",
-      year: "2022–2023",
-      students: "75"
-    },
-    { activity: "World Thalassaemia Day", unit: "Pharmacy", year: "2022–2023", students: "25" },
-    {
-      activity:
-        "A visit to Sankalp Sanskritik Samiti-Nasha Mukti Kendra for observing World No-Tobacco Day and an NGO Visit",
-      unit: "Social Work",
-      year: "2022–2023",
-      students: "15"
-    },
-    { activity: "World Anti-Tobacco Day", unit: "Yoga Department", year: "2022–2023", students: "50" },
-    {
-      activity:
-        "Two-day workshop on Aeromodelling for girl students from Government schools",
-      unit: "IEEE WIE AG Kalinga University Student Branch",
-      year: "2022–2023",
-      students: "50"
-    },
-    {
-      activity: 'Workshop on "Teaching Science holistically: Rural School Teachers"',
-      unit: "IQAC, Kalinga University",
-      year: "2022–2023",
-      students: "49"
-    },
-    {
-      activity: 'Hands-on Training on "Drone Technology"',
-      unit: "IEEE WIE AG Kalinga University Student Branch",
-      year: "2022–2023",
-      students: "50"
-    },
-    {
-      activity: 'Hands-on Training on "Robotics"',
-      unit: "IEEE KU SB",
-      year: "2022–2023",
-      students: "55"
-    },
-    {
-      activity: 'Hands-on Training on "Foldscope"',
-      unit: "Regional Science Centre (RSC) in collaboration with Kalinga University",
-      year: "2022–2023",
-      students: "52"
-    },
-    {
-      activity: 'Hands-on Training on "Best out of waste"',
-      unit: "Regional Science Centre (RSC) in collaboration with Kalinga University",
-      year: "2022–2023",
-      students: "42"
-    }
-  ]
-},{
-  id: 4,
-  title: "Academic Year 2021–22",
-  columns: [
-    { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
-    { key: "unit", label: "Organising Unit / Forum / Collaborating Agency", width: "w-[25%]" },
-    { key: "year", label: "Year of the Activity", width: "w-[20%]" },
-    { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
-  ],
-  data: [
-    { activity: "Felicitation of Doctors on Doctors' Day", unit: "NSS", year: "2021–2022", students: "12" },
-    { activity: "Celebration of South Sudan Independence Day", unit: "NSS", year: "2021–2022", students: "35" },
-    { activity: "Women's Health Awareness Program by NSS", unit: "NSS", year: "2021–2022", students: "14" },
-    { activity: "Kargil Vijay Diwas at 3CG Girls Battalion, Raipur", unit: "NSS", year: "2021–2022", students: "20" },
-    { activity: "Free Health Check-Up Camp", unit: "NSS", year: "2021–2022", students: "60" },
-    { activity: "World Tribal Day Celebration", unit: "NSS", year: "2021–2022", students: "25" },
-    { activity: "International Youth Day by NSS", unit: "NSS", year: "2021–2022", students: "22" },
-    { activity: "Celebration of 75th Independence Day", unit: "NSS", year: "2021–2022", students: "60" },
-    {
-      activity:
-        "NSS Activity - Tree Plantation at Kalinga University Campus, Mr. Rajesh Tiwari, Under Secretary, Social Welfare Department, Government of Chhattisgarh, Raipur",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "20"
-    },
-    {
-      activity:
-        'NSS Activity "Swatch Bharat Abhiyaan" to Ensure “Parthenium – Free Campus” at Kalinga University',
-      unit: "NSS",
-      year: "2021–2022",
-      students: "20"
-    },
-    { activity: "Sadbhawna Diwas Celebration", unit: "NSS", year: "2021–2022", students: "38" },
-    {
-      activity: "Polythene awareness programme at the adopted village, Paloud",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "15"
-    },
-    { activity: "Engineer's Day Celebration", unit: "NSS", year: "2021–2022", students: "101" },
-    {
-      activity:
-        "Celebration of NSS foundation day at Pt Din Dayal Upadhyaya Auditorium, Raipur, organised by the Chhattisgarh Government and Ravishankar Shukla University",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "3"
-    },
-    { activity: "Activity on Fit India run by NCC", unit: "3CG NCC", year: "2021–2022", students: "8" },
-    {
-      activity: "Yoga Awareness Program 3CG Air SQN & 8 CG Girls BN",
-      unit: "3CG NCC",
-      year: "2021–2022",
-      students: "34"
-    },
-    {
-      activity: "Inauguration of Skill India Initiative as Social Extension Activity",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "43"
-    },
-    { activity: "23rd Blood Donation Camp", unit: "NSS", year: "2021–2022", students: "15" },
-    {
-      activity: "Quiz Activity on Vaccination Awareness",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "13"
-    },
-    { activity: "YOGA SESSION FOR FACULTIES", unit: "NSS", year: "2021–2022", students: "83" },
-    {
-      activity: "The state-level NCC camp is going on the Kalinga University campus",
-      unit: "NCC",
-      year: "2021–2022",
-      students: "200 Cadets"
-    },
-    {
-      activity:
-        "Inauguration Ceremony of the Institute of Driving and Traffic Research, NSS Unit",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "74"
-    },
-    {
-      activity: "Two Days Free Medical Camp, Medical Room (NBGF 08)",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "42"
-    },
-    { activity: "Firing Practice", unit: "NCC", year: "2021–2022", students: "300" },
-    {
-      activity:
-        "Kalinga University staff members took a pledge to drive safely and follow all traffic rules diligently",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "162"
-    },
-    {
-      activity:
-        "An observational visit to Sneha Sampada Vidyalaya, Bhilai, was successfully organised by the Department of Social Work",
-      unit: "Social Work",
-      year: "2021–2022",
-      students: "13"
-    },
-    {
-      activity:
-        "Poster Presentation Competition on the Topic Green and Clean Environment",
-      unit: "Pharmacy",
-      year: "2021–2022",
-      students: "62"
-    },
-    {
-      activity:
-        "International Women's Day Celebration in collaboration with Sanjeevani CBCC USA Cancer Hospital",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "45"
-    },
-    {
-      activity: "ICT and e-learning platform at the government school Paloud",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "63"
-    },
-    {
-      activity:
-        "Essay Writing Competition on the occasion of World Health Day",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "16"
-    },
-    { activity: "Visit to NGO (Akshaya Patra)", unit: "NSS", year: "2021–2022", students: "30" },
-    {
-      activity:
-        'Blood Donation Camp on "World Hemophilia Day" in Association with Raipur Institute of Medical Sciences (RIMS), Chhattisgarh',
-      unit: "NSS",
-      year: "2021–2022",
-      students: "50"
-    },
-    {
-      activity: "Workshop on Skilling the youth of Chhattisgarh",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "10"
-    },
-    {
-      activity:
-        "State-level Yoga competition by Chhattisgarh Yoga Ayog, Raipur",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "7"
-    },
-    {
-      activity:
-        "Awareness Program on World Hypertension Day at Auditorium",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "50"
-    },
-    {
-      activity: "8 Years of Achievements (Impact on Women and Children)",
-      unit: "NCC",
-      year: "2021–2022",
-      students: "50"
-    },
-    {
-      activity: "One-day workshop on Environment Day",
-      unit: "NSS",
-      year: "2021–2022",
-      students: "20"
-    },
-    {
-      activity: "International Yoga Day 2022",
-      unit: "NCC",
-      year: "2021–2022",
-      students: "23"
-    }
-  ]
-},{
-  id: 5,
-  title: "Academic Year 2020–21",
-  columns: [
-    { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
-    { key: "unit", label: "Organising Unit / Forum / Collaborating Agency", width: "w-[25%]" },
-    { key: "year", label: "Year of the Activity", width: "w-[20%]" },
-    { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
-  ],
-  data: [
-    {
-      activity: "Fit India moment NCC Airwing",
-      unit: "NCC Airwing & Fit India Mission",
-      year: "2020–2021",
-      students: "687"
-    },
-    {
-      activity: "Online Camp Ek Bharat Shreshtha Bharat",
-      unit: "NCC Airwing",
-      year: "2020–2021",
-      students: "873"
-    },
-    {
-      activity: "NCC Constitution Day",
-      unit: "National Cadet Corps (NCC), National Service Scheme (NSS), Nehru Yuva Kendra Sangathan (NYKS)",
-      year: "2020–2021",
-      students: "852"
-    },
-    {
-      activity: "Orientation TRG of CTOS",
-      unit: "MP & CG DTE",
-      year: "2020–2021",
-      students: "780"
-    },
-    {
-      activity: "Orientation TRG for caretakers at NCC unit Rohinipuram Raipur (C.G)",
-      unit: "NCC unit Rohinipuram Raipur (C.G)",
-      year: "2020–2021",
-      students: "931"
-    },
-    {
-      activity:
-        "3 Chhattisgarh Air Squadron NCC Raipur Administrative and Joining Instructions NCC Cadre (CATC-XVI) for SD/SW Cadets",
-      unit: "NCC unit Rohinipuram Raipur (C.G)",
-      year: "2020–2021",
-      students: "454"
-    }
-  ]
-},{
-  id: 6,
-  title: "Academic Year 2019–20",
-  columns: [
-    { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
-    { key: "unit", label: "Organising Unit / Forum / Collaborating Agency", width: "w-[25%]" },
-    { key: "year", label: "Year of the Activity", width: "w-[20%]" },
-    { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
-  ],
-  data: [
-    {
-      activity: "Jal Shakti Abhiyaan 2019 by NSS, at Village Kotni",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "185"
-    },
-    {
-      activity: "Kargil Vijay Diwas, 3G Air AQN NCC Raipur, National Cadet Corps",
-      unit: "NCC Air Wing",
-      year: "2019–2020",
-      students: "219"
-    },
-    {
-      activity: "Tree Plantation by Kalinga University in the Adjoining Areas, organised by NSS",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "164"
-    },
-    {
-      activity: "NCC Air Wing Camp, Shankracharya Institution of Technology, Raipur",
-      unit: "NCC Air Wing",
-      year: "2019–2020",
-      students: "74"
-    },
-    {
-      activity: "Foundation of NSS at Din Dayal Upadhyay Auditorium, Raipur",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "175"
-    },
-    {
-      activity: "Blood Donation Camp NSS, Kalinga University",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "98"
-    },
-    {
-      activity: "NCC Camp at Shankracharya College, Raipur",
-      unit: "NCC",
-      year: "2019–2020",
-      students: "110"
-    },
-    {
-      activity:
-        "Sanrakshan Awareness rally for water augmentation at the joint event of National Service Scheme and Green Army, Raipur",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "98"
-    },
-    {
-      activity:
-        "Saksharta Mission Drive by NSS & Students of Kalinga at Village Tandul",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "68"
-    },
-    {
-      activity: "Tobacco awareness program",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "140"
-    },
-    {
-      activity: "Digital Literacy Campaign at Village Kotni by NSS",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "121"
-    },
-    {
-      activity: "Health & Hygiene awareness camp in Village Kuhera by NSS",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "135"
-    },
-    {
-      activity:
-        "Domestic Violence Against Women Awareness Program organised by NSS",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "130"
-    },
-    {
-      activity:
-        "Social Harassment at Workplace - An Analysis program conducted by NSS & students of Kalinga",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "150"
-    },
-    {
-      activity:
-        "No Alcohol Consumption Campaign at Village Kotni by NCC Kalinga & Students",
-      unit: "NCC",
-      year: "2019–2020",
-      students: "145"
-    },
-    {
-      activity: "Free Health Checkup Camp, NSS Kalinga University",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "290"
-    },
-    {
-      activity:
-        "Legal Aid Camp by Law Deptt., organised by NSS Kalinga & Students at Village Kuhera",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "88"
-    },
-    {
-      activity:
-        "Free Health Check-up Camp, NSS Office (NBGF -14) & Medical Room (NBGF -09) Kalinga University",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "355"
-    },
-    {
-      activity:
-        'Health Awareness Programme "Healthy Heart" organised by NSS Unit of Kalinga University, Auditorium Dr. Javed Ali Khan',
-      unit: "NSS",
-      year: "2019–2020",
-      students: "80"
-    },
-    {
-      activity:
-        "NSS unit of Kalinga University is organising a Blood Donation Camp, Dr. Drija Pathak, Medical Officer, In-Charge, Ramkrishan Care Hospital, Raipur",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "90"
-    },
-    {
-      activity: "Prayavaran Diwas",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "78"
-    },
-    {
-      activity: "No Plastic Drive by Kalinga University Student & NSS Team",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "95"
-    },
-    {
-      activity: "International Yoga Day Celebration by NSS & NCC",
-      unit: "NCC & NSS",
-      year: "2019–2020",
-      students: "210"
-    },
-    {
-      activity:
-        "Nutrition and Health Awareness Drive by NSS Unit of Kalinga University",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "180"
-    },
-    {
-      activity:
-        "Free Health Camp for Villagers of Kotni by Pharmacy Student & NCC Team",
-      unit: "NCC & TEAM",
-      year: "2019–2020",
-      students: "163"
-    },
-    {
-      activity:
-        "Shram Daan by NSS Unit at Village - Kotni for Swachchhata Abhiyan",
-      unit: "NSS",
-      year: "2019–2020",
-      students: "98"
-    }
-  ]
-},{
-  id: 7,
-  title: "Academic Year 2018–19",
-  columns: [
-    { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
-    { key: "unit", label: "Organising Unit / Forum / Collaborating Agency", width: "w-[25%]" },
-    { key: "year", label: "Year of the Activity", width: "w-[20%]" },
-    { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
-  ],
-  data: [
-    { activity: "Blood donation camp", unit: "NSS / RED CROSS", year: "2018–2019", students: "39" },
-    { activity: "Tobacco awareness program", unit: "NSS", year: "2018–2019", students: "32" },
-    { activity: "Prayavaran Diwas", unit: "NSS", year: "2018–2019", students: "33" },
-    { activity: "Remote Control flying plan training", unit: "NCC", year: "2018–2019", students: "45" },
-    { activity: "Safai Abhiyan", unit: "NCC", year: "2018–2019", students: "70" },
-    { activity: "Ekta Diwas", unit: "NSS", year: "2018–2019", students: "76" },
-    { activity: "Digital Literacy Campaign at Village Kotni by NSS", unit: "NSS", year: "2018–2019", students: "29" },
-    {
-      activity: "Workshop on the Topic: Building self-esteem and assertiveness at Kalinga University",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "72"
-    },
-    { activity: "Aeromodeling show at Kalinga University", unit: "NCC", year: "2018–2019", students: "73" },
-    {
-      activity: 'Workshop on the topic "Building self-esteem and assertiveness" by NSS at Kalinga University',
-      unit: "NSS",
-      year: "2018–2019",
-      students: "31"
-    },
-    {
-      activity:
-        'Regarding the 34th Inter University Central Zone Youth Festival "JUAN PARVE" at Sambalpur University, Odisha, by NSS',
-      unit: "NSS",
-      year: "2018–2019",
-      students: "30"
-    },
-    {
-      activity: "Legal Aid Camp by Students of Law and NCC at Village Kotni",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "19"
-    },
-    { activity: "Tobacco Awareness Program at our Campus conducted", unit: "NSS", year: "2018–2019", students: "61" },
-    {
-      activity: "Fire and Evacuation drill conducted by NCC at Kalinga University",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "65"
-    },
-    { activity: "Blood donation camp", unit: "NCC / RED CROSS", year: "2018–2019", students: "62" },
-    { activity: "Tobacco Awareness Camp", unit: "NSS", year: "2018–2019", students: "60" },
-    {
-      activity: "The Recent Gang Rape and the Clamour for the Change in Law (Panel Discussion)",
-      unit: "KALINGA UNIVERSITY",
-      year: "2018–2019",
-      students: "58"
-    },
-    {
-      activity: "Women's Rights and Access to the Criminal Justice System",
-      unit: "KALINGA UNIVERSITY",
-      year: "2018–2019",
-      students: "43"
-    },
-    {
-      activity: "Legal Awareness about Women-Related Law",
-      unit: "KALINGA UNIVERSITY",
-      year: "2018–2019",
-      students: "29"
-    },
-    {
-      activity: "Woman Empowerment: Rhetoric Versus Reality",
-      unit: "KALINGA UNIVERSITY",
-      year: "2018–2019",
-      students: "61"
-    },
-    { activity: "Blood donation camp", unit: "NSS / Red Cross Society", year: "2018–2019", students: "29" },
-    { activity: "Tobacco awareness program", unit: "NSS", year: "2018–2019", students: "72" },
-    { activity: "Paryavaran Diwas", unit: "NSS", year: "2018–2019", students: "64" },
-    { activity: "Swachchha Bharat Abhiyan", unit: "NCC", year: "2018–2019", students: "77" },
-    {
-      activity: "26th January Celebration of Republic Day on Campus",
-      unit: "NCC & NSS",
-      year: "2018–2019",
-      students: "57"
-    },
-    { activity: "Ekta Diwas", unit: "NSS", year: "2018–2019", students: "74" },
-    {
-      activity: "Health & Hygiene Awareness Camp in Village Kuhera by NSS",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "55"
-    },
-    {
-      activity: "Swasthya Shivir by Pharmacy Student & NSS Team at Village - Kotni",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "66"
-    },
-    {
-      activity: "Workshop on Nutrition and Health by NSS Students at Village Kuhera",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "30"
-    },
-    {
-      activity:
-        "Tobacco Awareness Program at our Campus conducted by NSS for the youths of nearby Villages",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "57"
-    },
-    {
-      activity: "International Yoga Day Celebration by NSS & NCC",
-      unit: "NCC & NSS",
-      year: "2018–2019",
-      students: "34"
-    },
-    {
-      activity:
-        "Tree Plantation by Kalinga University in the adjoining areas, organised by NSS",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "61"
-    },
-    {
-      activity: "No Alcohol Consumption Campaign at Village Kotni by NCC",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "75"
-    },
-    {
-      activity:
-        "Shram Daan by NCC Unit Kalinga & Students at Village - Kuhera for Swachchhata Abhiyan",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "57"
-    },
-    {
-      activity: "No Plastic Drive by Kalinga University Student & NSS Team",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "73"
-    },
-    {
-      activity:
-        "Health & Hygiene awareness camp in Village Kuhera by NCC, Kalinga & Students",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "76"
-    },
-    {
-      activity:
-        "No Vehicle Day Celebrated, NSS Students. Nagar Nigam Office Raipur",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "73"
-    },
-    {
-      activity:
-        "Health & Hygiene awareness camp in Village Palaud by NCC Kalinga & Students",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "61"
-    },
-    { activity: "Blood Donation Camp by the Red Cross Society", unit: "RED CROSS", year: "2018–2019", students: "29" },
-    {
-      activity:
-        "Health & Hygiene awareness camp in Village Kotni by NSS Kalinga & Students",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "67"
-    },
-    {
-      activity: "Digital Literacy Campaign at Village Kuhera by NSS",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "24"
-    },
-    {
-      activity:
-        "Shram Daan by NSS Unit of Kalinga at Village - Palaud for Swachchhata Abhiyan",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "86"
-    },
-    {
-      activity:
-        "Domestic Violence Against Women Awareness Program organised by NSS",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "21"
-    },
-    {
-      activity:
-        "Fire and Evacuation drill conducted by NSS at Kalinga University",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "89"
-    },
-    {
-      activity:
-        "Social Harassment at Workplace - An Analysis Program Conducted by NSS & Students of Kalinga",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "56"
-    },
-    {
-      activity:
-        "Workshop on Nutrition and Health by NSS Kalinga & Students at Village Kuhera",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "51"
-    },
-    {
-      activity:
-        "Swachchha Bharat Abhiyan Rally by students of Kalinga with NSS Team at Naya Raipur",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "60"
-    },
-    {
-      activity:
-        "Legal Aid Camp by Law Dept., organised by NSS at Village Kuhera",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "48"
-    },
-    {
-      activity:
-        "Legal Awareness in Vulnerable Sections of Society at Palaud Village by NCC Kalinga & Students",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "43"
-    },
-    { activity: "Blood Donation Camp by the Red Cross Society", unit: "RED CROSS", year: "2018–2019", students: "18" },
-    { activity: "Voluntary Services given at Blind School, Raipur", unit: "NSS", year: "2018–2019", students: "39" },
-    {
-      activity:
-        "Shram Daan by NSS Unit at Village - Kotni for Swachchhata Abhiyan",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "88"
-    },
-    {
-      activity:
-        "Free Health Camp for Villagers of Kotni by Pharmacy Student & NCC Team",
-      unit: "NCC & TEAM",
-      year: "2018–2019",
-      students: "58"
-    },
-    {
-      activity:
-        "No Plastic Drive by Kalinga University Students & NSS Team at Naya Raipur",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "85"
-    },
-    {
-      activity:
-        "Saksharta Mission Rally by NSS & Students of Kalinga at Village Tandul",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "55"
-    },
-    {
-      activity:
-        "NSS One-day Workshop on promoting Chhattisgarh Culture at Purkhauti Muktangan, Naya Raipur",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "66"
-    },
-    {
-      activity:
-        "Camp for Awareness on Organ Donation at Kalinga University",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "56"
-    },
-    {
-      activity:
-        "Rally for No Tobacco Usage Awareness in Naya Raipur",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "64"
-    },
-    {
-      activity:
-        "Health & Hygiene awareness rally in Naya Raipur by NSS",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "67"
-    },
-    {
-      activity:
-        "Legal Awareness Camp at Kalinga University Campus",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "69"
-    },
-    {
-      activity:
-        "15th August - Celebration of Independence Day at Kalinga University",
-      unit: "NCC & NSS with Students",
-      year: "2018–2019",
-      students: "53"
-    },
-    {
-      activity:
-        "Legal Aid Camp by Law Dept., organised by NSS Kalinga & Students at Village Kuhera",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "62"
-    },
-    {
-      activity:
-        "Digital Literacy Campaign at Village Kuhera by NSS Kalinga & Students",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "41"
-    },
-    {
-      activity:
-        "Saksharta Mission Rally by NCC & Students of Kalinga at Village Kotra Bhata",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "57"
-    },
-    {
-      activity:
-        "No Vehicle Day Celebrated, NSS Students at Kalinga University",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "58"
-    },
-    {
-      activity:
-        "Nutrition and Health Awareness drive by NSS Students at Naya Raipur Sec 27 & 29",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "59"
-    },
-    {
-      activity:
-        "Domestic Violence Against Women Rally organised by NSS Kalinga & Students in Naya Raipur",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "62"
-    },
-    {
-      activity:
-        "Sadbhavana Divas Celebration by NCC & NSS in Kalinga Campus",
-      unit: "NCC & NSS",
-      year: "2018–2019",
-      students: "74"
-    },
-    {
-      activity:
-        "Rights of Women and Children. A Violation of Human Rights awareness drive organised by NCC Kalinga & Students in Sector 27, Naya Raipur",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "56"
-    },
-    {
-      activity:
-        "No Alcohol Consumption Campaign at Village Kotni by NCC Kalinga & Students",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "66"
-    },
-    { activity: "Blood Donation Camp by the Red Cross Society", unit: "RED CROSS", year: "2018–2019", students: "23" },
-    {
-      activity:
-        "Beti Bachao - Beti Padhao Rally organised by NCC Kalinga & Students at Village Kotra Bhata",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "62"
-    },
-    {
-      activity:
-        "Tree Plantation at Kalinga University Campus by NSS Kalinga & Students",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "73"
-    },
-    {
-      activity:
-        "Rally for Energy Saving by NCC & NSS at Kalinga University Campus and Nearby Villages",
-      unit: "NCC & NSS",
-      year: "2018–2019",
-      students: "58"
-    },
-    {
-      activity:
-        "Legal Aid Camp by Law Dept., organised by NSS at Village Tandul",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "48"
-    },
-    {
-      activity:
-        "No Plastic Drive by Kalinga University Student & NSS Team",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "24"
-    },
-    {
-      activity:
-        "Plantation Drive organised by NSS at Village Kuhera",
-      unit: "NSS",
-      year: "2018–2019",
-      students: "48"
-    },
-    {
-      activity:
-        "No Alcohol Consumption Campaign at Village Kuhera by NCC Kalinga & Students",
-      unit: "NCC",
-      year: "2018–2019",
-      students: "65"
-    }
-  ]
-}
+
+        tableSections={[
+          {
+            id: 1,
+            title: "Academic Year 2024–25",
+            columns: [
+              { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
+              { key: "unit", label: "Organising Unit / Forum / Agency", width: "w-[25%]" },
+              { key: "year", label: "Year of the Activity", width: "w-[20%]" },
+              { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
+            ],
+            data: [
+              { activity: "Friendship Day Celebration", unit: "DSW", year: "2024–2025", students: "100" },
+              { activity: "Ratri Before Navratri", unit: "DSW", year: "2024–2025", students: "137" },
+              { activity: "Garba Night", unit: "DSW", year: "2024–2025", students: "—" },
+              { activity: "Diwali Milan Celebration", unit: "DSW", year: "2024–2025", students: "378" },
+              { activity: "Christmas Day Celebration", unit: "DSW", year: "2024–2025", students: "595" },
+              { activity: "NCC Mountaineering Expedition 2024", unit: "NCC", year: "2024–2025", students: "1" },
+              { activity: "CATC – VII Group Level TSC Selection Camp", unit: "NCC", year: "2024–2025", students: "1" },
+              { activity: "Report on ANO Duty as Committee Member for the Selection of ANO", unit: "NCC", year: "2024–2025", students: "15" },
+              { activity: "Report on Biometric Registration (For 2nd & 3rd Year Cadets)", unit: "NCC", year: "2024–2025", students: "30" },
+              { activity: "Report on ANOs & CTOs Conference (2024–25)", unit: "NCC", year: "2024–2025", students: "42" },
+              { activity: "CATC – XI CAMP", unit: "NCC", year: "2024–2025", students: "32" },
+              { activity: "Report on IGC – Best Cadet Camp", unit: "NCC", year: "2024–2025", students: "1" },
+              { activity: "NCC Selection Process Day", unit: "NCC", year: "2024–2025", students: "2" },
+              { activity: "Report on Workshop on Self-Defence Techniques", unit: "NCC", year: "2024–2025", students: "70" },
+              { activity: "Know Your Army Mela", unit: "NCC", year: "2024–2025", students: "12" },
+              { activity: "NCC Rank Ceremony 2024–24", unit: "NCC", year: "2024–2025", students: "21" },
+              { activity: "One Day State Level Women Program Officer Training Workshop", unit: "NSS", year: "2024–2025", students: "265" },
+              { activity: "Green Army, Lions Club & Unnat Bharat Abhiyan – Tree Plantation Drive", unit: "NSS", year: "2024–2025", students: "26" },
+              { activity: "Tree Plantation Drive", unit: "DSW & NSS", year: "2024–2025", students: "45" },
+              { activity: "Constitution Day Celebration", unit: "NSS", year: "2024–2025", students: "142" },
+              { activity: "Street Play on ‘Clean Chhattisgarh – Good Governance of Government’", unit: "NSS", year: "2024–2025", students: "37" },
+              { activity: "ORINA-2024 Sports Fest, AIIMS Raipur", unit: "Sports", year: "2024–2025", students: "38" },
+              { activity: "Yuva Utsav 3.0", unit: "YI & CII", year: "2024–2025", students: "193" },
+              { activity: "IDE Lectures on Startup Ideas", unit: "IEEE & YI", year: "2024–2025", students: "168" },
+              { activity: "IEEE-MOVE Outreach India – Promoting Climate Change & Sustainability", unit: "IEEE KU SB & IEEE SIGHT", year: "2024–2025", students: "40" },
+              { activity: "IEEE-MOVE Outreach India – Promoting Climate Change & Sustainability", unit: "IEEE KU SB & IEEE SIGHT", year: "2024–2025", students: "50" },
+              { activity: "IEEE-MOVE Outreach India – Promoting Climate Change & Sustainability", unit: "IEEE KU SB & IEEE SIGHT", year: "2024–2025", students: "92" },
+              { activity: "IEEE-MOVE Outreach India – Promoting Climate Change & Sustainability", unit: "IEEE KU SB & IEEE SIGHT", year: "2024–2025", students: "73" },
+              { activity: "IEEE-MOVE Outreach India – Promoting Climate Change & Sustainability", unit: "IEEE KU SB & IEEE SIGHT", year: "2024–2025", students: "45" }
+            ]
+
+          }, {
+            id: 2,
+            title: "Academic Year 2023–24",
+            columns: [
+              { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
+              { key: "unit", label: "Organising Unit / Forum / Collaborating Agency", width: "w-[25%]" },
+              { key: "year", label: "Year of the Activity", width: "w-[20%]" },
+              { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
+            ],
+            data: [
+              { activity: "CATC-XI CAMP", unit: "NCC", year: "2023–2024", students: "10" },
+              { activity: "Tree Plantation Drive", unit: "DSW", year: "2023–2024", students: "200" },
+              { activity: "Certification Training Program Jan Shikshan Sansthan (JSS)", unit: "DSW", year: "2023–2024", students: "20" },
+              { activity: "1-day Capacity Building Workshop for Educators", unit: "CCRC", year: "2023–2024", students: "120" },
+              { activity: "Report on CATC-XII CAMP", unit: "NCC", year: "2023–2024", students: "21" },
+              { activity: "Issues and Challenges of Professional Development of Teachers in Secondary School", unit: "Education", year: "2023–2024", students: "10" },
+              { activity: "Awareness and training program aimed to educate students on how to operate Electronic Voting Machines (EVMs)", unit: "DSW", year: "2023–2024", students: "57" },
+              { activity: "Inclusive Walkthon, Telibandha Talab, Raipur", unit: "DSW", year: "2023–2024", students: "99" },
+              { activity: "Training Session on CPR & Emergency Roadside Responders", unit: "YI", year: "2023–2024", students: "38" },
+              { activity: "Painting competition for school students celebrate World Ozone Day", unit: "Zoology", year: "2023–2024", students: "140" },
+              { activity: "Yuva Utsav 2.0", unit: "YI", year: "2023–2024", students: "350" },
+              { activity: "NSS Foundation Day Celebration at IGKV Raipur", unit: "NSS", year: "2023–2024", students: "25" },
+              { activity: "Free Eye Checkup Camp – World Pharmacist Day", unit: "Pharmacy", year: "2023–2024", students: "242" },
+              { activity: "G20 University Connect Event", unit: "Commerce and Management", year: "2023–2024", students: "109" },
+              { activity: "Nature camp and workshop on termites and birds identification", unit: "Zoology", year: "2023–2024", students: "40" },
+              { activity: "National Seminar Strengthening Women Entrepreneur", unit: "Arts & Humanities", year: "2023–2024", students: "150" },
+              { activity: "Smart Garbage Monitoring System in Government Schools", unit: "NSS", year: "2023–2024", students: "42" },
+              { activity: "Youth to Youth connect House to hold Connect", unit: "Engineering", year: "2023–2024", students: "156" },
+              { activity: "Anand Mela", unit: "Commerce & Management", year: "2023–2024", students: "225" },
+              { activity: "Donation Drive: Donate to Make a Difference", unit: "Arts & Humanities", year: "2023–2024", students: "13" },
+              { activity: "Cancer awareness Talk and Screening Camp", unit: "Chief Proctor", year: "2023–2024", students: "40" },
+              {
+                activity:
+                  "Foundation Day Celebration – State Foundation Day where Chhattisgarhi & Haryanvi Folk Dance Represented by Kalinga University under Ek Bharat Shreshtha Bharat Programme at Rajbhawan Darbar Hall",
+                unit: "DSW",
+                year: "2023–2024",
+                students: "10"
+              },
+              {
+                activity:
+                  "Foundation Day Celebration of Assam & Nagaland under G-20 Ek Bharat Shreshtha Bharat Programme at Rajbhawan Darbar Hall",
+                unit: "DSW",
+                year: "2023–2024",
+                students: "6"
+              },
+              { activity: "A Report on Workshop on Scientific Toy", unit: "IQAC", year: "2023–2024", students: "50" }
+            ]
+          }, {
+            id: 3,
+            title: "Academic Year 2022–23",
+            columns: [
+              { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
+              { key: "unit", label: "Organising Unit / Agency / Collaborating Agency", width: "w-[25%]" },
+              { key: "year", label: "Year of the Activity", width: "w-[20%]" },
+              { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
+            ],
+            data: [
+              { activity: "One-day workshop on survey", unit: "NSS", year: "2022–2023", students: "42" },
+              { activity: "Tree Plantation, by NSS Unit at Anganwadi School, Kotni", unit: "NSS", year: "2022–2023", students: "130" },
+              { activity: "Seminar on HIV/AIDS- Awareness", unit: "NSS", year: "2022–2023", students: "48" },
+              { activity: "Pollution awareness program", unit: "NSS", year: "2022–2023", students: "65" },
+              { activity: "Awareness program on PCOD (Polycystic ovarian disease)", unit: "NSS", year: "2022–2023", students: "84" },
+              { activity: "Traffic Safety Awareness Program and Licence Camp", unit: "NSS", year: "2022–2023", students: "177" },
+              { activity: "International Yoga Day Celebration", unit: "NSS & NCC", year: "2022–2023", students: "67" },
+              { activity: "World Population Day", unit: "NSS", year: "2022–2023", students: "20" },
+              { activity: "8-Day Camp Duty in Lakholi by the NCC Army Wing", unit: "NCC", year: "2022–2023", students: "9" },
+              { activity: "CATC Camp", unit: "NCC", year: "2022–2023", students: "9" },
+              { activity: "Free Health Care camp", unit: "NCC", year: "2022–2023", students: "171" },
+              { activity: "Poster Making Competition", unit: "NCC", year: "2022–2023", students: "15" },
+              { activity: "Essay Writing Competition", unit: "NCC", year: "2022–2023", students: "15" },
+              { activity: "Report on Basic Mountaineering Course", unit: "NCC", year: "2022–2023", students: "5" },
+              { activity: "Doctors Honoured by Kalinga University on Doctors’ Day", unit: "DSW", year: "2022–2023", students: "2" },
+              { activity: "Webinar on the Occasion of World Hepatitis Day", unit: "Pharmacy", year: "2022–2023", students: "59" },
+              { activity: "Yoga & Meditation session", unit: "Pharmacy", year: "2022–2023", students: "88" },
+              { activity: "Free of Cost Booster Dose (3rd dose) for Covid-19 Vaccination", unit: "Chief Proctor", year: "2022–2023", students: "315" },
+              {
+                activity:
+                  "Celebration of International Literacy Day at Kuhera Govt. School with street play and Gifts for school children",
+                unit: "Commerce & Management",
+                year: "2022–2023",
+                students: "140"
+              },
+              { activity: "Hindi Diwas celebrations", unit: "Arts & Humanities", year: "2022–2023", students: "90" },
+              {
+                activity: "Celebration of World Ozone Day",
+                unit: "Commerce & Management, Department of Zoology & Green Club",
+                year: "2022–2023",
+                students: "266"
+              },
+              { activity: "Tree plantation with slogan (online)", unit: "Education", year: "2022–2023", students: "26" },
+              { activity: "World Pharmacist Day Celebration 2022", unit: "Pharmacy", year: "2022–2023", students: "100" },
+              {
+                activity:
+                  'Guest session on "Mental Health with YPV Sadhna" on the occasion of World Mental Health Day',
+                unit: "Commerce & Management",
+                year: "2022–2023",
+                students: "228"
+              },
+              { activity: "Global Tribal Queen Contest 2022", unit: "Social Work", year: "2022–2023", students: "115" },
+              {
+                activity: "Badhte Kadam organisation for Clothes Distribution and NGO Visit",
+                unit: "Social Work",
+                year: "2022–2023",
+                students: "22"
+              },
+              {
+                activity:
+                  "Rural and household survey conducted in adopted villages by Kalinga University",
+                unit: "Social Work",
+                year: "2022–2023",
+                students: "68"
+              },
+              { activity: "Road Safety Awareness", unit: "Law", year: "2022–2023", students: "134" },
+              {
+                activity:
+                  "A visit to Sanjeevani Cancer Hospital on National Cancer Awareness Day",
+                unit: "Social Work",
+                year: "2022–2023",
+                students: "20"
+              },
+              { activity: "Free Health Check-up Camp", unit: "Social Work", year: "2022–2023", students: "110" },
+              {
+                activity: "Celebration of Constitution Day",
+                unit: "Pro Bono Club",
+                year: "2022–2023",
+                students: "87"
+              },
+              {
+                activity: "Extension Activity of IT Awareness (Govt. Middle School Kotni)",
+                unit: "Social Work",
+                year: "2022–2023",
+                students: "55"
+              },
+              { activity: "Bharatiya Bhasha Utsav -2022", unit: "Social Work", year: "2022–2023", students: "200" },
+              {
+                activity: "Yuva Orientation Session for Yuva Students EC Members",
+                unit: "Young Indians (YI)",
+                year: "2022–2023",
+                students: "35"
+              },
+              { activity: "74th Republic Day Celebration", unit: "DSW", year: "2022–2023", students: "300" },
+              { activity: "World Haemophilia Day", unit: "Pharmacy", year: "2022–2023", students: "58" },
+              {
+                activity:
+                  "G-20 Events – Quiz Competition on the theme “One Earth, One Family, One Future”",
+                unit: "Commerce & Management",
+                year: "2022–2023",
+                students: "75"
+              },
+              { activity: "World Thalassaemia Day", unit: "Pharmacy", year: "2022–2023", students: "25" },
+              {
+                activity:
+                  "A visit to Sankalp Sanskritik Samiti-Nasha Mukti Kendra for observing World No-Tobacco Day and an NGO Visit",
+                unit: "Social Work",
+                year: "2022–2023",
+                students: "15"
+              },
+              { activity: "World Anti-Tobacco Day", unit: "Yoga Department", year: "2022–2023", students: "50" },
+              {
+                activity:
+                  "Two-day workshop on Aeromodelling for girl students from Government schools",
+                unit: "IEEE WIE AG Kalinga University Student Branch",
+                year: "2022–2023",
+                students: "50"
+              },
+              {
+                activity: 'Workshop on "Teaching Science holistically: Rural School Teachers"',
+                unit: "IQAC, Kalinga University",
+                year: "2022–2023",
+                students: "49"
+              },
+              {
+                activity: 'Hands-on Training on "Drone Technology"',
+                unit: "IEEE WIE AG Kalinga University Student Branch",
+                year: "2022–2023",
+                students: "50"
+              },
+              {
+                activity: 'Hands-on Training on "Robotics"',
+                unit: "IEEE KU SB",
+                year: "2022–2023",
+                students: "55"
+              },
+              {
+                activity: 'Hands-on Training on "Foldscope"',
+                unit: "Regional Science Centre (RSC) in collaboration with Kalinga University",
+                year: "2022–2023",
+                students: "52"
+              },
+              {
+                activity: 'Hands-on Training on "Best out of waste"',
+                unit: "Regional Science Centre (RSC) in collaboration with Kalinga University",
+                year: "2022–2023",
+                students: "42"
+              }
+            ]
+          }, {
+            id: 4,
+            title: "Academic Year 2021–22",
+            columns: [
+              { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
+              { key: "unit", label: "Organising Unit / Forum / Collaborating Agency", width: "w-[25%]" },
+              { key: "year", label: "Year of the Activity", width: "w-[20%]" },
+              { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
+            ],
+            data: [
+              { activity: "Felicitation of Doctors on Doctors' Day", unit: "NSS", year: "2021–2022", students: "12" },
+              { activity: "Celebration of South Sudan Independence Day", unit: "NSS", year: "2021–2022", students: "35" },
+              { activity: "Women's Health Awareness Program by NSS", unit: "NSS", year: "2021–2022", students: "14" },
+              { activity: "Kargil Vijay Diwas at 3CG Girls Battalion, Raipur", unit: "NSS", year: "2021–2022", students: "20" },
+              { activity: "Free Health Check-Up Camp", unit: "NSS", year: "2021–2022", students: "60" },
+              { activity: "World Tribal Day Celebration", unit: "NSS", year: "2021–2022", students: "25" },
+              { activity: "International Youth Day by NSS", unit: "NSS", year: "2021–2022", students: "22" },
+              { activity: "Celebration of 75th Independence Day", unit: "NSS", year: "2021–2022", students: "60" },
+              {
+                activity:
+                  "NSS Activity - Tree Plantation at Kalinga University Campus, Mr. Rajesh Tiwari, Under Secretary, Social Welfare Department, Government of Chhattisgarh, Raipur",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "20"
+              },
+              {
+                activity:
+                  'NSS Activity "Swatch Bharat Abhiyaan" to Ensure “Parthenium – Free Campus” at Kalinga University',
+                unit: "NSS",
+                year: "2021–2022",
+                students: "20"
+              },
+              { activity: "Sadbhawna Diwas Celebration", unit: "NSS", year: "2021–2022", students: "38" },
+              {
+                activity: "Polythene awareness programme at the adopted village, Paloud",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "15"
+              },
+              { activity: "Engineer's Day Celebration", unit: "NSS", year: "2021–2022", students: "101" },
+              {
+                activity:
+                  "Celebration of NSS foundation day at Pt Din Dayal Upadhyaya Auditorium, Raipur, organised by the Chhattisgarh Government and Ravishankar Shukla University",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "3"
+              },
+              { activity: "Activity on Fit India run by NCC", unit: "3CG NCC", year: "2021–2022", students: "8" },
+              {
+                activity: "Yoga Awareness Program 3CG Air SQN & 8 CG Girls BN",
+                unit: "3CG NCC",
+                year: "2021–2022",
+                students: "34"
+              },
+              {
+                activity: "Inauguration of Skill India Initiative as Social Extension Activity",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "43"
+              },
+              { activity: "23rd Blood Donation Camp", unit: "NSS", year: "2021–2022", students: "15" },
+              {
+                activity: "Quiz Activity on Vaccination Awareness",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "13"
+              },
+              { activity: "YOGA SESSION FOR FACULTIES", unit: "NSS", year: "2021–2022", students: "83" },
+              {
+                activity: "The state-level NCC camp is going on the Kalinga University campus",
+                unit: "NCC",
+                year: "2021–2022",
+                students: "200 Cadets"
+              },
+              {
+                activity:
+                  "Inauguration Ceremony of the Institute of Driving and Traffic Research, NSS Unit",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "74"
+              },
+              {
+                activity: "Two Days Free Medical Camp, Medical Room (NBGF 08)",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "42"
+              },
+              { activity: "Firing Practice", unit: "NCC", year: "2021–2022", students: "300" },
+              {
+                activity:
+                  "Kalinga University staff members took a pledge to drive safely and follow all traffic rules diligently",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "162"
+              },
+              {
+                activity:
+                  "An observational visit to Sneha Sampada Vidyalaya, Bhilai, was successfully organised by the Department of Social Work",
+                unit: "Social Work",
+                year: "2021–2022",
+                students: "13"
+              },
+              {
+                activity:
+                  "Poster Presentation Competition on the Topic Green and Clean Environment",
+                unit: "Pharmacy",
+                year: "2021–2022",
+                students: "62"
+              },
+              {
+                activity:
+                  "International Women's Day Celebration in collaboration with Sanjeevani CBCC USA Cancer Hospital",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "45"
+              },
+              {
+                activity: "ICT and e-learning platform at the government school Paloud",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "63"
+              },
+              {
+                activity:
+                  "Essay Writing Competition on the occasion of World Health Day",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "16"
+              },
+              { activity: "Visit to NGO (Akshaya Patra)", unit: "NSS", year: "2021–2022", students: "30" },
+              {
+                activity:
+                  'Blood Donation Camp on "World Hemophilia Day" in Association with Raipur Institute of Medical Sciences (RIMS), Chhattisgarh',
+                unit: "NSS",
+                year: "2021–2022",
+                students: "50"
+              },
+              {
+                activity: "Workshop on Skilling the youth of Chhattisgarh",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "10"
+              },
+              {
+                activity:
+                  "State-level Yoga competition by Chhattisgarh Yoga Ayog, Raipur",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "7"
+              },
+              {
+                activity:
+                  "Awareness Program on World Hypertension Day at Auditorium",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "50"
+              },
+              {
+                activity: "8 Years of Achievements (Impact on Women and Children)",
+                unit: "NCC",
+                year: "2021–2022",
+                students: "50"
+              },
+              {
+                activity: "One-day workshop on Environment Day",
+                unit: "NSS",
+                year: "2021–2022",
+                students: "20"
+              },
+              {
+                activity: "International Yoga Day 2022",
+                unit: "NCC",
+                year: "2021–2022",
+                students: "23"
+              }
+            ]
+          }, {
+            id: 5,
+            title: "Academic Year 2020–21",
+            columns: [
+              { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
+              { key: "unit", label: "Organising Unit / Forum / Collaborating Agency", width: "w-[25%]" },
+              { key: "year", label: "Year of the Activity", width: "w-[20%]" },
+              { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
+            ],
+            data: [
+              {
+                activity: "Fit India moment NCC Airwing",
+                unit: "NCC Airwing & Fit India Mission",
+                year: "2020–2021",
+                students: "687"
+              },
+              {
+                activity: "Online Camp Ek Bharat Shreshtha Bharat",
+                unit: "NCC Airwing",
+                year: "2020–2021",
+                students: "873"
+              },
+              {
+                activity: "NCC Constitution Day",
+                unit: "National Cadet Corps (NCC), National Service Scheme (NSS), Nehru Yuva Kendra Sangathan (NYKS)",
+                year: "2020–2021",
+                students: "852"
+              },
+              {
+                activity: "Orientation TRG of CTOS",
+                unit: "MP & CG DTE",
+                year: "2020–2021",
+                students: "780"
+              },
+              {
+                activity: "Orientation TRG for caretakers at NCC unit Rohinipuram Raipur (C.G)",
+                unit: "NCC unit Rohinipuram Raipur (C.G)",
+                year: "2020–2021",
+                students: "931"
+              },
+              {
+                activity:
+                  "3 Chhattisgarh Air Squadron NCC Raipur Administrative and Joining Instructions NCC Cadre (CATC-XVI) for SD/SW Cadets",
+                unit: "NCC unit Rohinipuram Raipur (C.G)",
+                year: "2020–2021",
+                students: "454"
+              }
+            ]
+          }, {
+            id: 6,
+            title: "Academic Year 2019–20",
+            columns: [
+              { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
+              { key: "unit", label: "Organising Unit / Forum / Collaborating Agency", width: "w-[25%]" },
+              { key: "year", label: "Year of the Activity", width: "w-[20%]" },
+              { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
+            ],
+            data: [
+              {
+                activity: "Jal Shakti Abhiyaan 2019 by NSS, at Village Kotni",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "185"
+              },
+              {
+                activity: "Kargil Vijay Diwas, 3G Air AQN NCC Raipur, National Cadet Corps",
+                unit: "NCC Air Wing",
+                year: "2019–2020",
+                students: "219"
+              },
+              {
+                activity: "Tree Plantation by Kalinga University in the Adjoining Areas, organised by NSS",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "164"
+              },
+              {
+                activity: "NCC Air Wing Camp, Shankracharya Institution of Technology, Raipur",
+                unit: "NCC Air Wing",
+                year: "2019–2020",
+                students: "74"
+              },
+              {
+                activity: "Foundation of NSS at Din Dayal Upadhyay Auditorium, Raipur",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "175"
+              },
+              {
+                activity: "Blood Donation Camp NSS, Kalinga University",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "98"
+              },
+              {
+                activity: "NCC Camp at Shankracharya College, Raipur",
+                unit: "NCC",
+                year: "2019–2020",
+                students: "110"
+              },
+              {
+                activity:
+                  "Sanrakshan Awareness rally for water augmentation at the joint event of National Service Scheme and Green Army, Raipur",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "98"
+              },
+              {
+                activity:
+                  "Saksharta Mission Drive by NSS & Students of Kalinga at Village Tandul",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "68"
+              },
+              {
+                activity: "Tobacco awareness program",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "140"
+              },
+              {
+                activity: "Digital Literacy Campaign at Village Kotni by NSS",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "121"
+              },
+              {
+                activity: "Health & Hygiene awareness camp in Village Kuhera by NSS",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "135"
+              },
+              {
+                activity:
+                  "Domestic Violence Against Women Awareness Program organised by NSS",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "130"
+              },
+              {
+                activity:
+                  "Social Harassment at Workplace - An Analysis program conducted by NSS & students of Kalinga",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "150"
+              },
+              {
+                activity:
+                  "No Alcohol Consumption Campaign at Village Kotni by NCC Kalinga & Students",
+                unit: "NCC",
+                year: "2019–2020",
+                students: "145"
+              },
+              {
+                activity: "Free Health Checkup Camp, NSS Kalinga University",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "290"
+              },
+              {
+                activity:
+                  "Legal Aid Camp by Law Deptt., organised by NSS Kalinga & Students at Village Kuhera",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "88"
+              },
+              {
+                activity:
+                  "Free Health Check-up Camp, NSS Office (NBGF -14) & Medical Room (NBGF -09) Kalinga University",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "355"
+              },
+              {
+                activity:
+                  'Health Awareness Programme "Healthy Heart" organised by NSS Unit of Kalinga University, Auditorium Dr. Javed Ali Khan',
+                unit: "NSS",
+                year: "2019–2020",
+                students: "80"
+              },
+              {
+                activity:
+                  "NSS unit of Kalinga University is organising a Blood Donation Camp, Dr. Drija Pathak, Medical Officer, In-Charge, Ramkrishan Care Hospital, Raipur",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "90"
+              },
+              {
+                activity: "Prayavaran Diwas",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "78"
+              },
+              {
+                activity: "No Plastic Drive by Kalinga University Student & NSS Team",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "95"
+              },
+              {
+                activity: "International Yoga Day Celebration by NSS & NCC",
+                unit: "NCC & NSS",
+                year: "2019–2020",
+                students: "210"
+              },
+              {
+                activity:
+                  "Nutrition and Health Awareness Drive by NSS Unit of Kalinga University",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "180"
+              },
+              {
+                activity:
+                  "Free Health Camp for Villagers of Kotni by Pharmacy Student & NCC Team",
+                unit: "NCC & TEAM",
+                year: "2019–2020",
+                students: "163"
+              },
+              {
+                activity:
+                  "Shram Daan by NSS Unit at Village - Kotni for Swachchhata Abhiyan",
+                unit: "NSS",
+                year: "2019–2020",
+                students: "98"
+              }
+            ]
+          }, {
+            id: 7,
+            title: "Academic Year 2018–19",
+            columns: [
+              { key: "activity", label: "Name of the Activity", width: "w-[40%]" },
+              { key: "unit", label: "Organising Unit / Forum / Collaborating Agency", width: "w-[25%]" },
+              { key: "year", label: "Year of the Activity", width: "w-[20%]" },
+              { key: "students", label: "Number of Students Participated", width: "w-[15%]" }
+            ],
+            data: [
+              { activity: "Blood donation camp", unit: "NSS / RED CROSS", year: "2018–2019", students: "39" },
+              { activity: "Tobacco awareness program", unit: "NSS", year: "2018–2019", students: "32" },
+              { activity: "Prayavaran Diwas", unit: "NSS", year: "2018–2019", students: "33" },
+              { activity: "Remote Control flying plan training", unit: "NCC", year: "2018–2019", students: "45" },
+              { activity: "Safai Abhiyan", unit: "NCC", year: "2018–2019", students: "70" },
+              { activity: "Ekta Diwas", unit: "NSS", year: "2018–2019", students: "76" },
+              { activity: "Digital Literacy Campaign at Village Kotni by NSS", unit: "NSS", year: "2018–2019", students: "29" },
+              {
+                activity: "Workshop on the Topic: Building self-esteem and assertiveness at Kalinga University",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "72"
+              },
+              { activity: "Aeromodeling show at Kalinga University", unit: "NCC", year: "2018–2019", students: "73" },
+              {
+                activity: 'Workshop on the topic "Building self-esteem and assertiveness" by NSS at Kalinga University',
+                unit: "NSS",
+                year: "2018–2019",
+                students: "31"
+              },
+              {
+                activity:
+                  'Regarding the 34th Inter University Central Zone Youth Festival "JUAN PARVE" at Sambalpur University, Odisha, by NSS',
+                unit: "NSS",
+                year: "2018–2019",
+                students: "30"
+              },
+              {
+                activity: "Legal Aid Camp by Students of Law and NCC at Village Kotni",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "19"
+              },
+              { activity: "Tobacco Awareness Program at our Campus conducted", unit: "NSS", year: "2018–2019", students: "61" },
+              {
+                activity: "Fire and Evacuation drill conducted by NCC at Kalinga University",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "65"
+              },
+              { activity: "Blood donation camp", unit: "NCC / RED CROSS", year: "2018–2019", students: "62" },
+              { activity: "Tobacco Awareness Camp", unit: "NSS", year: "2018–2019", students: "60" },
+              {
+                activity: "The Recent Gang Rape and the Clamour for the Change in Law (Panel Discussion)",
+                unit: "KALINGA UNIVERSITY",
+                year: "2018–2019",
+                students: "58"
+              },
+              {
+                activity: "Women's Rights and Access to the Criminal Justice System",
+                unit: "KALINGA UNIVERSITY",
+                year: "2018–2019",
+                students: "43"
+              },
+              {
+                activity: "Legal Awareness about Women-Related Law",
+                unit: "KALINGA UNIVERSITY",
+                year: "2018–2019",
+                students: "29"
+              },
+              {
+                activity: "Woman Empowerment: Rhetoric Versus Reality",
+                unit: "KALINGA UNIVERSITY",
+                year: "2018–2019",
+                students: "61"
+              },
+              { activity: "Blood donation camp", unit: "NSS / Red Cross Society", year: "2018–2019", students: "29" },
+              { activity: "Tobacco awareness program", unit: "NSS", year: "2018–2019", students: "72" },
+              { activity: "Paryavaran Diwas", unit: "NSS", year: "2018–2019", students: "64" },
+              { activity: "Swachchha Bharat Abhiyan", unit: "NCC", year: "2018–2019", students: "77" },
+              {
+                activity: "26th January Celebration of Republic Day on Campus",
+                unit: "NCC & NSS",
+                year: "2018–2019",
+                students: "57"
+              },
+              { activity: "Ekta Diwas", unit: "NSS", year: "2018–2019", students: "74" },
+              {
+                activity: "Health & Hygiene Awareness Camp in Village Kuhera by NSS",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "55"
+              },
+              {
+                activity: "Swasthya Shivir by Pharmacy Student & NSS Team at Village - Kotni",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "66"
+              },
+              {
+                activity: "Workshop on Nutrition and Health by NSS Students at Village Kuhera",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "30"
+              },
+              {
+                activity:
+                  "Tobacco Awareness Program at our Campus conducted by NSS for the youths of nearby Villages",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "57"
+              },
+              {
+                activity: "International Yoga Day Celebration by NSS & NCC",
+                unit: "NCC & NSS",
+                year: "2018–2019",
+                students: "34"
+              },
+              {
+                activity:
+                  "Tree Plantation by Kalinga University in the adjoining areas, organised by NSS",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "61"
+              },
+              {
+                activity: "No Alcohol Consumption Campaign at Village Kotni by NCC",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "75"
+              },
+              {
+                activity:
+                  "Shram Daan by NCC Unit Kalinga & Students at Village - Kuhera for Swachchhata Abhiyan",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "57"
+              },
+              {
+                activity: "No Plastic Drive by Kalinga University Student & NSS Team",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "73"
+              },
+              {
+                activity:
+                  "Health & Hygiene awareness camp in Village Kuhera by NCC, Kalinga & Students",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "76"
+              },
+              {
+                activity:
+                  "No Vehicle Day Celebrated, NSS Students. Nagar Nigam Office Raipur",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "73"
+              },
+              {
+                activity:
+                  "Health & Hygiene awareness camp in Village Palaud by NCC Kalinga & Students",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "61"
+              },
+              { activity: "Blood Donation Camp by the Red Cross Society", unit: "RED CROSS", year: "2018–2019", students: "29" },
+              {
+                activity:
+                  "Health & Hygiene awareness camp in Village Kotni by NSS Kalinga & Students",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "67"
+              },
+              {
+                activity: "Digital Literacy Campaign at Village Kuhera by NSS",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "24"
+              },
+              {
+                activity:
+                  "Shram Daan by NSS Unit of Kalinga at Village - Palaud for Swachchhata Abhiyan",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "86"
+              },
+              {
+                activity:
+                  "Domestic Violence Against Women Awareness Program organised by NSS",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "21"
+              },
+              {
+                activity:
+                  "Fire and Evacuation drill conducted by NSS at Kalinga University",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "89"
+              },
+              {
+                activity:
+                  "Social Harassment at Workplace - An Analysis Program Conducted by NSS & Students of Kalinga",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "56"
+              },
+              {
+                activity:
+                  "Workshop on Nutrition and Health by NSS Kalinga & Students at Village Kuhera",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "51"
+              },
+              {
+                activity:
+                  "Swachchha Bharat Abhiyan Rally by students of Kalinga with NSS Team at Naya Raipur",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "60"
+              },
+              {
+                activity:
+                  "Legal Aid Camp by Law Dept., organised by NSS at Village Kuhera",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "48"
+              },
+              {
+                activity:
+                  "Legal Awareness in Vulnerable Sections of Society at Palaud Village by NCC Kalinga & Students",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "43"
+              },
+              { activity: "Blood Donation Camp by the Red Cross Society", unit: "RED CROSS", year: "2018–2019", students: "18" },
+              { activity: "Voluntary Services given at Blind School, Raipur", unit: "NSS", year: "2018–2019", students: "39" },
+              {
+                activity:
+                  "Shram Daan by NSS Unit at Village - Kotni for Swachchhata Abhiyan",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "88"
+              },
+              {
+                activity:
+                  "Free Health Camp for Villagers of Kotni by Pharmacy Student & NCC Team",
+                unit: "NCC & TEAM",
+                year: "2018–2019",
+                students: "58"
+              },
+              {
+                activity:
+                  "No Plastic Drive by Kalinga University Students & NSS Team at Naya Raipur",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "85"
+              },
+              {
+                activity:
+                  "Saksharta Mission Rally by NSS & Students of Kalinga at Village Tandul",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "55"
+              },
+              {
+                activity:
+                  "NSS One-day Workshop on promoting Chhattisgarh Culture at Purkhauti Muktangan, Naya Raipur",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "66"
+              },
+              {
+                activity:
+                  "Camp for Awareness on Organ Donation at Kalinga University",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "56"
+              },
+              {
+                activity:
+                  "Rally for No Tobacco Usage Awareness in Naya Raipur",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "64"
+              },
+              {
+                activity:
+                  "Health & Hygiene awareness rally in Naya Raipur by NSS",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "67"
+              },
+              {
+                activity:
+                  "Legal Awareness Camp at Kalinga University Campus",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "69"
+              },
+              {
+                activity:
+                  "15th August - Celebration of Independence Day at Kalinga University",
+                unit: "NCC & NSS with Students",
+                year: "2018–2019",
+                students: "53"
+              },
+              {
+                activity:
+                  "Legal Aid Camp by Law Dept., organised by NSS Kalinga & Students at Village Kuhera",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "62"
+              },
+              {
+                activity:
+                  "Digital Literacy Campaign at Village Kuhera by NSS Kalinga & Students",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "41"
+              },
+              {
+                activity:
+                  "Saksharta Mission Rally by NCC & Students of Kalinga at Village Kotra Bhata",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "57"
+              },
+              {
+                activity:
+                  "No Vehicle Day Celebrated, NSS Students at Kalinga University",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "58"
+              },
+              {
+                activity:
+                  "Nutrition and Health Awareness drive by NSS Students at Naya Raipur Sec 27 & 29",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "59"
+              },
+              {
+                activity:
+                  "Domestic Violence Against Women Rally organised by NSS Kalinga & Students in Naya Raipur",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "62"
+              },
+              {
+                activity:
+                  "Sadbhavana Divas Celebration by NCC & NSS in Kalinga Campus",
+                unit: "NCC & NSS",
+                year: "2018–2019",
+                students: "74"
+              },
+              {
+                activity:
+                  "Rights of Women and Children. A Violation of Human Rights awareness drive organised by NCC Kalinga & Students in Sector 27, Naya Raipur",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "56"
+              },
+              {
+                activity:
+                  "No Alcohol Consumption Campaign at Village Kotni by NCC Kalinga & Students",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "66"
+              },
+              { activity: "Blood Donation Camp by the Red Cross Society", unit: "RED CROSS", year: "2018–2019", students: "23" },
+              {
+                activity:
+                  "Beti Bachao - Beti Padhao Rally organised by NCC Kalinga & Students at Village Kotra Bhata",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "62"
+              },
+              {
+                activity:
+                  "Tree Plantation at Kalinga University Campus by NSS Kalinga & Students",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "73"
+              },
+              {
+                activity:
+                  "Rally for Energy Saving by NCC & NSS at Kalinga University Campus and Nearby Villages",
+                unit: "NCC & NSS",
+                year: "2018–2019",
+                students: "58"
+              },
+              {
+                activity:
+                  "Legal Aid Camp by Law Dept., organised by NSS at Village Tandul",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "48"
+              },
+              {
+                activity:
+                  "No Plastic Drive by Kalinga University Student & NSS Team",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "24"
+              },
+              {
+                activity:
+                  "Plantation Drive organised by NSS at Village Kuhera",
+                unit: "NSS",
+                year: "2018–2019",
+                students: "48"
+              },
+              {
+                activity:
+                  "No Alcohol Consumption Campaign at Village Kuhera by NCC Kalinga & Students",
+                unit: "NCC",
+                year: "2018–2019",
+                students: "65"
+              }
+            ]
+          }
 
 
 
-    
-  ]}
-  overflowX={false}
 
-/>
+        ]}
+        overflowX={false}
 
-      
-       <Gallery images={defaultGalleryImages} />
+      />
+
+
+      <Gallery images={defaultGalleryImages} />
     </>
   );
 };
@@ -1233,7 +1233,7 @@ export default page;
 
 /* ---------------- MAIN COMPONENT ---------------- */
 
- function SportsFacilitiesTabs() {
+function SportsFacilitiesTabs() {
   const tabs = useMemo(
     () => [
       { id: "y2024", label: "2024–25" },
@@ -1242,7 +1242,7 @@ export default page;
       { id: "y2021", label: "2021–22" },
       { id: "y2020", label: "2020–21" },
       { id: "y2019", label: "2019–20" },
-       {id: "y2018", label: "2018–19" },
+      { id: "y2018", label: "2018–19" },
     ],
     []
   );
@@ -1286,19 +1286,21 @@ export default page;
           {tabs.map((t) => {
             const isActive = t.id === activeTab;
             return (
-              <button
-                key={t.id}
-                type="button"
-                onClick={() => setActiveTab(t.id)}
-                className={[
-                  "whitespace-nowrap rounded-lg border px-4 py-2 text-sm font-medium transition-colors",
-                  isActive
-                    ? "bg-[var(--button-red)] text-white border-white/10"
-                    : "bg-white text-[var(--foreground)] border-white/30 hover:bg-white/95",
-                ].join(" ")}
-              >
-                {t.label}
-              </button>
+              <p>
+                <button
+                  key={t.id}
+                  type="button"
+                  onClick={() => setActiveTab(t.id)}
+                  className={[
+                    "whitespace-nowrap rounded-lg border px-4 py-2 text-sm font-medium transition-colors",
+                    isActive
+                      ? "bg-[var(--button-red)] text-white border-white/10"
+                      : "bg-white text-[var(--foreground)] border-white/30 hover:bg-white/95",
+                  ].join(" ")}
+                >
+                  {t.label}
+                </button>
+              </p>
             );
           })}
         </div>
@@ -1389,11 +1391,11 @@ function EventsTable({ title, data }) {
 
   return (
     <div>
-      <h2 className="text-center mb-[20px]">
+      <h3 className="text-center mb-[20px]">
         {title}
-      </h2>
+      </h3>
 
-    
+
       <div className="max-h-[450px] overflow-y-auto">
         <DataTable
           columns={columns}

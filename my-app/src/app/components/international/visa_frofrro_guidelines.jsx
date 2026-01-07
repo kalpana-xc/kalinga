@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../general/tab";
 import SectionHeading from "../general/SectionHeading";
 
-const visaPoints = [
+const defaultVisaPoints = [
   "Students should immediately apply for a student visa at the Indian Embassy / High Commission once the Admission Letter/Visa Letter has been issued by the University.",
   "Students have to ensure that their student visa is endorsed for Kalinga University.",
   "Students have to make sure that they have applied for a visa well in advance and in time. It generally takes 3–8 weeks to get the Indian Visa; thus, it is advisable to apply for the visa accordingly and consult the Indian High Commission/Embassy, if required.",
@@ -12,7 +12,7 @@ const visaPoints = [
   "After reaching the University Campus, students have to get the visa verified by the University and have to deposit a copy of the valid visa with the International Student Coordinator. It is the responsibility of the students to ensure that throughout his/her study period, students are on a valid visa.",
 ];
 
-const extensionPoints = [
+const defaultExtensionPoints = [
   "It is mandatory for all International students except those from Nepal and Bhutan to get their student visa registered at the nearest FRRO/FRO within 14 days of arrival in India.",
   "The ISC Department of Kalinga University will guide and assist students with all the required processes needed for FRO/FRRO Registration.",
   "All international students except those from Nepal and Bhutan have to fill out an online application for Registration Certificate (RC) & Residential Permit (RP) on arrival in India.",
@@ -26,12 +26,12 @@ const extensionPoints = [
 function Bullet({ children }) {
   return (
     <li className="flex items-start gap-3 leading-relaxed">
-      <svg 
-        fill="none" 
-        height="24" 
-        className="md:h-6 md:w-6 h-6 w-9 bg-[var(--card-skin)] fill-black rounded-md p-1 flex-shrink-0 mt-0.5" 
-        viewBox="0 0 24 24" 
-        width="24" 
+      <svg
+        fill="none"
+        height="24"
+        className="md:h-6 md:w-6 h-6 w-9 bg-[var(--card-skin)] fill-black rounded-md p-1 flex-shrink-0 mt-0.5"
+        viewBox="0 0 24 24"
+        width="24"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="m19 5.50049v10.99951c0 .2761-.2239.5-.5.5s-.5-.2239-.5-.5v-9.79289l-12.14645 12.14649c-.19526.1952-.51184.1952-.7071 0-.19527-.1953-.19527-.5119 0-.7072l12.14645-12.1464h-9.7929c-.27614 0-.5-.22386-.5-.5s.22386-.5.5-.5h11c.1316 0 .2578.05186.3514.14426l.0022.00219c.0879.0879.1397.20518.1458.32876.0004.00824.0006.01699.0006.02528z"></path>
@@ -61,8 +61,47 @@ const postArrivalGuidelines = [
   "The International Student Coordinator (ISC) will assist the student in the following activities: General Introduction: ISC will arrange an introduction of the student to the concerned faculty members and will also explain the academic culture. Student Visa Registration: ISC will guide and assist the student with the student visa registration process. All the international students except those from Nepal and Bhutan must get their student visa registered at the nearest FRRO/FRO within 14 days of arrival in India. FRRO Documentation: It is the prime responsibility of international students to visit the ISC department on time to complete the required FRRO documentation, so that no fine is imposed against him/her. Visa Extension: The ISC department will guide and assist students with visa extension. Others: ISC will help in solving any problems students encounter and will provide complete guidance and support."
 ];
 
-export default function VisaFroFrroGuidelines({ viewAllHref = "#" }) {
-  const [openAccordion, setOpenAccordion] = useState("visa");
+export default function VisaFroFrroGuidelines({
+  viewAllHref = "#",
+  title = "Guidelines For Visa And FRO/FRRO",
+  tabs = null,
+  showModal = true,
+  modalContent = null,
+  backgroundClassName = "bg-[var(--card-gray)]"
+}) {
+  // Use provided tabs or fallback to default Visa content
+  const activeTabs = tabs || [
+    {
+      id: "visa",
+      title: "Guidelines For a Visa",
+      content: (
+        <>
+          <h3 className="font-stix text-[var(--foreground)] hidden md:block">
+            Guidelines For a Visa
+          </h3>
+          <ul className={`space-y-4 ${tabs ? '' : 'mt-5'}`}>
+            {defaultVisaPoints.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
+          </ul>
+        </>
+      )
+    },
+    {
+      id: "ext",
+      title: "Guidelines For Visa Extension And FRO/FRRO",
+      content: (
+        <>
+          <h3 className="font-stix text-2xl text-[var(--foreground)] hidden md:block">
+            Guidelines For Visa Extension And FRO/FRRO
+          </h3>
+          <ul className={`space-y-4 ${tabs ? '' : 'mt-5'}`}>
+            {defaultExtensionPoints.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
+          </ul>
+        </>
+      )
+    }
+  ];
+
+  const [openAccordion, setOpenAccordion] = useState(activeTabs[0]?.id || null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleAccordion = (value) => {
@@ -80,131 +119,83 @@ export default function VisaFroFrroGuidelines({ viewAllHref = "#" }) {
   return (
     <section className="w-full py-16">
       <div className="mx-auto w-full container px-4">
-        <SectionHeading 
-          title="Guidelines For Visa And FRO/FRRO"
+        <SectionHeading
+          title={title}
           titleClassName="text-center text-[var(--foreground)]"
         />
 
-        <div className="mt-8 rounded-2xl bg-[var(--card-gray)] p-5 md:p-7">
+        <div className={`mt-8 rounded-2xl p-5 md:p-7 ${backgroundClassName}`}>
           {/* Mobile Accordion */}
           <div className="block md:hidden space-y-4">
-            {/* Visa Accordion Item */}
-            <div className="border border-gray-200 rounded-lg overflow-hidden">
-              <button
-                onClick={() => toggleAccordion("visa")}
-                className={`w-full flex items-center justify-between p-4 transition-colors text-left ${
-                  openAccordion === "visa"
+            {activeTabs.map((tab) => (
+              <div key={tab.id} className="border border-gray-200 rounded-lg overflow-hidden">
+                <button
+                  onClick={() => toggleAccordion(tab.id)}
+                  className={`w-full flex items-center justify-between p-4 transition-colors text-left ${openAccordion === tab.id
                     ? "bg-[var(--button-red)] text-white"
                     : "bg-white text-[var(--foreground)] hover:bg-gray-50"
-                }`}
-              >
-                <h3 className="font-stix text-base font-semibold">
-                  Guidelines For a Visa
-                </h3>
-                <svg
-                  className={`w-5 h-5 transition-transform ${
-                    openAccordion === "visa" ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                    }`}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {openAccordion === "visa" && (
-                <div className="p-4 bg-white">
-                  <ul className="space-y-4">
-                    {visaPoints.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
-                  </ul>
-                </div>
-              )}
-            </div>
-
-            {/* Extension Accordion Item */}
-            <div className="border border-gray-200 rounded-lg overflow-hidden">
-              <button
-                onClick={() => toggleAccordion("ext")}
-                className={`w-full flex items-center justify-between p-4 transition-colors text-left ${
-                  openAccordion === "ext"
-                    ? "bg-[var(--button-red)] text-white"
-                    : "bg-white text-[var(--foreground)] hover:bg-gray-50"
-                }`}
-              >
-                <h3 className="font-stix text-base font-semibold">
-                  Guidelines For Visa Extension And FRO/FRRO
-                </h3>
-                <svg
-                  className={`w-5 h-5 transition-transform ${
-                    openAccordion === "ext" ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {openAccordion === "ext" && (
-                <div className="p-4 bg-white">
-                  <h3 className="font-stix text-xl text-[var(--foreground)] mb-5">
-                    Guidelines For Visa Extension And FRO/FRRO
+                  <h3 className="font-stix text-base font-semibold">
+                    {tab.title}
                   </h3>
-                  <ul className="space-y-4">
-                    {extensionPoints.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
-                  </ul>
-                </div>
-              )}
-            </div>
+                  <svg
+                    className={`w-5 h-5 transition-transform ${openAccordion === tab.id ? "rotate-180" : ""
+                      }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {openAccordion === tab.id && (
+                  <div className="p-4 bg-white">
+                    {tab.content}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
 
           {/* Desktop Tabs */}
           <div className="hidden md:block">
-            <Tabs defaultValue="visa">
+            <Tabs defaultValue={activeTabs[0]?.id}>
               <TabsList className="gap-0">
-                <TabsTrigger value="visa">Guidelines For a Visa</TabsTrigger>
-                <TabsTrigger value="ext">Guidelines For Visa Extension And FRO/FRRO</TabsTrigger>
+                {activeTabs.map((tab) => (
+                  <TabsTrigger key={tab.id} value={tab.id}>{tab.title}</TabsTrigger>
+                ))}
               </TabsList>
 
-              <TabsContent value="visa" className="pt-7">
-                <h3 className="font-stix text-[var(--foreground)]">
-                  Guidelines For a Visa
-                </h3>
-                <ul className="mt-5 space-y-4">
-                  {visaPoints.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
-                </ul>
-              </TabsContent>
-
-              <TabsContent value="ext" className="pt-7">
-                <h3 className="font-stix text-2xl text-[var(--foreground)]">
-                  Guidelines For Visa Extension And FRO/FRRO
-                </h3>
-                <ul className="mt-5 space-y-4">
-                  {extensionPoints.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
-                </ul>
-              </TabsContent>
+              {activeTabs.map((tab) => (
+                <TabsContent key={tab.id} value={tab.id} className="pt-7">
+                  {tab.content}
+                </TabsContent>
+              ))}
             </Tabs>
           </div>
         </div>
 
-        <div className="mt-6 flex justify-center">
-          <button 
-            onClick={openModal}
-            className="inline-flex items-center gap-2 font-semibold text-[var(--foreground)] hover:text-[var(--button-red)] transition-colors cursor-pointer"
-          >
-            <span>View all Guidelines</span>
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded bg-[var(--button-red)] text-white">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z" />
-                <path d="M5 5h6v2H7v10h10v-4h2v6H5V5z" />
-              </svg>
-            </span>
-          </button>
-        </div>
+        {showModal && (
+          <div className="mt-6 flex justify-center">
+            <button
+              onClick={openModal}
+              className="inline-flex items-center gap-2 font-semibold text-[var(--foreground)] hover:text-[var(--button-red)] transition-colors cursor-pointer"
+            >
+              <span>View all Guidelines</span>
+              <span className="inline-flex h-6 w-6 items-center justify-center rounded bg-[var(--button-red)] text-white">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                  <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z" />
+                  <path d="M5 5h6v2H7v10h10v-4h2v6H5V5z" />
+                </svg>
+              </span>
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* Modal */}
-      {isModalOpen && (
+      {/* Modal - only render if showModal is true and open */}
+      {showModal && isModalOpen && (
         <div
           className="fixed inset-0 z-[9999] flex items-center justify-center px-4"
           role="dialog"
@@ -219,7 +210,7 @@ export default function VisaFroFrroGuidelines({ viewAllHref = "#" }) {
           >
             <div className="flex items-start justify-between gap-4 mb-6">
               <h2 className="font-stix text-2xl md:text-3xl text-[var(--button-red)]">
-                Pre-Arrival & Post-Arrival Guidelines
+                {modalContent ? "Additional Details" : "Pre-Arrival & Post-Arrival Guidelines"}
               </h2>
 
               <button
@@ -232,37 +223,39 @@ export default function VisaFroFrroGuidelines({ viewAllHref = "#" }) {
               </button>
             </div>
 
-            <div className="space-y-8">
-              {/* Pre-Arrival Guidelines */}
-              <div>
-                <h3 className="font-stix text-xl md:text-2xl text-[var(--foreground)] mb-4">
-                  Pre-Arrival Guidelines
-                </h3>
-                <p className="text-sm text-[var(--light-text-gray)] mb-4 leading-relaxed">
-                  Students are advised to take care of the following points before leaving their home country:
-                </p>
-                <ul className="space-y-4">
-                  {preArrivalGuidelines.map((guideline, index) => (
-                    <Bullet key={index}>{guideline}</Bullet>
-                  ))}
-                </ul>
-              </div>
+            {modalContent ? modalContent : (
+              <div className="space-y-8">
+                {/* Pre-Arrival Guidelines */}
+                <div>
+                  <h3 className="font-stix text-xl md:text-2xl text-[var(--foreground)] mb-4">
+                    Pre-Arrival Guidelines
+                  </h3>
+                  <p className="text-sm text-[var(--light-text-gray)] mb-4 leading-relaxed">
+                    Students are advised to take care of the following points before leaving their home country:
+                  </p>
+                  <ul className="space-y-4">
+                    {preArrivalGuidelines.map((guideline, index) => (
+                      <Bullet key={index}>{guideline}</Bullet>
+                    ))}
+                  </ul>
+                </div>
 
-              {/* Post-Arrival Guidelines */}
-              <div>
-                <h3 className="font-stix text-xl md:text-2xl text-[var(--foreground)] mb-4">
-                  Post-Arrival Guidelines
-                </h3>
-                <p className="text-sm text-[var(--light-text-gray)] mb-4 leading-relaxed">
-                  Students need to take care of the following points after they arrive in the country and upon joining the University:
-                </p>
-                <ul className="space-y-4">
-                  {postArrivalGuidelines.map((guideline, index) => (
-                    <Bullet key={index}>{guideline}</Bullet>
-                  ))}
-                </ul>
+                {/* Post-Arrival Guidelines */}
+                <div>
+                  <h3 className="font-stix text-xl md:text-2xl text-[var(--foreground)] mb-4">
+                    Post-Arrival Guidelines
+                  </h3>
+                  <p className="text-sm text-[var(--light-text-gray)] mb-4 leading-relaxed">
+                    Students need to take care of the following points after they arrive in the country and upon joining the University:
+                  </p>
+                  <ul className="space-y-4">
+                    {postArrivalGuidelines.map((guideline, index) => (
+                      <Bullet key={index}>{guideline}</Bullet>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
+            )}
 
             <div className="mt-6 flex justify-end">
               <button

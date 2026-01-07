@@ -9,12 +9,12 @@ import Gallery from "@/app/components/general/gallery";
 const breadcrumbData = {
   heroImage:
     "https://kalinga-university.s3.ap-south-1.amazonaws.com/iiot/iiot-banner.webp",
-  pageTitle: "IIoT Training Centre",
+  pageTitle: "IIOT Training Centre",
   customBreadcrumbs: [
     { label: "Home", href: "/" },
     { label: "Centres of Excellence", href: "/centresofexcellence" },
     {
-      label: "IIoT Training Centre",
+      label: "IIOT Training Centre",
       href: "/centresofexcellence/iiot",
     },
   ],
@@ -114,7 +114,7 @@ export default function IIoTTrainingCentrePage() {
         title="IIoT Training Centre"
         subtitle="In collaboration with Technoviz Automation"
         description={aboutCentreDescription}
-        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/coe/coe-iiot.webp"
+        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/about/accerdation/Group+1000002977.png"
         imageAlt="IIoT Training Centre"
         readmore={false}
       />

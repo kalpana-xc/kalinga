@@ -18,7 +18,7 @@ if (typeof window !== 'undefined') {
 }
 
 
- const annualReportButtons = [
+const annualReportButtons = [
   {
     id: 1,
     text: "Annual Report 2022–23 (Volume I)",
@@ -67,7 +67,7 @@ if (typeof window !== 'undefined') {
   {
     id: 10,
     text: "Annual Report 2015–16",
-    href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/annual-reports/FINAL+ANNUAL+REPORT_2016-17_18-01-2021.pdf",
+    href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/annual-reports/FINAL+ANNUAL+REPORT_2015-16_18-01-2021.pdf",
   },
   {
     id: 11,
@@ -79,7 +79,7 @@ if (typeof window !== 'undefined') {
 export default function Page() {
   return (
     <>
-    
+
 
       {/* ✅ PAGE-SPECIFIC GRID */}
       <section className="pt-16 pb-16 bg-white">
@@ -91,7 +91,7 @@ export default function Page() {
               Annual Reports
             </h2>
             <p className="text-[16px] text-[#555] leading-relaxed">
-              Our annual reports will give you a detailed overview of the University’s growth and achievements. 
+              Our annual reports will give you a detailed overview of the University’s growth and achievements.
               These reports show transparency, academic excellence, and overall institutional development.
             </p>
           </div>

@@ -19,37 +19,31 @@ const breadcrumbData = {
 export default function SDGCell() {
   useBreadcrumbData(breadcrumbData);
 
-  // SDG Goals List
-  const sdgGoalsTable = {
-    id: 1,
-    title: "17 Sustainable Development Goals",
-    columns: [
-      { key: "slNo", label: "S.No.", width: "w-16" },
-      { key: "goal", label: "Goal", width: "flex-1" },
-    ],
-    data: [
-      { slNo: "1", goal: "No Poverty" },
-      { slNo: "2", goal: "Zero Hunger" },
-      { slNo: "3", goal: "Good Health and Well-being" },
-      { slNo: "4", goal: "Quality Education" },
-      { slNo: "5", goal: "Gender Equality" },
-      { slNo: "6", goal: "Clean Water and Sanitation" },
-      { slNo: "7", goal: "Affordable and Clean Energy" },
-      { slNo: "8", goal: "Decent Work and Economic Growth" },
-      { slNo: "9", goal: "Industry, Innovation and Infrastructure" },
-      { slNo: "10", goal: "Reduced Inequality" },
-      { slNo: "11", goal: "Sustainable Cities and Communities" },
-      { slNo: "12", goal: "Responsible Consumption and Production" },
-      { slNo: "13", goal: "Climate Action" },
-      { slNo: "14", goal: "Life Below Water" },
-      { slNo: "15", goal: "Life on Land" },
-      { slNo: "16", goal: "Peace, Justice and Strong Institutions" },
-      { slNo: "17", goal: "Partnership for the Goals" },
-    ],
-  };
-
   // FAQ items for different sections
   const faqItems = [
+    {
+      id: 1,
+      question: "17 Sustainable Development Goals",
+      answer: [
+        "No Poverty",
+        "Zero Hunger",
+        "Good Health and Well-being",
+        "Quality Education",
+        "Gender Equality",
+        "Clean Water and Sanitation",
+        "Affordable and Clean Energy",
+        "Decent Work and Economic Growth",
+        "Industry, Innovation and Infrastructure",
+        "Reduced Inequality",
+        "Sustainable Cities and Communities",
+        "Responsible Consumption and Production",
+        "Climate Action",
+        "Life Below Water",
+        "Life on Land",
+        "Peace, Justice and Strong Institutions",
+        "Partnership for the Goals",
+      ],
+    },
     {
       id: 3,
       question: "Objectives of the Practice",
@@ -68,100 +62,72 @@ export default function SDGCell() {
     {
       id: 4,
       question: "The Practice - Holistic Sustainability Strategy",
-      answer: [
-        "The university adopts a comprehensive sustainability strategy that aligns with and contributes to various SDGs, including those related to environmental protection, social equity, and economic development.",
-      ],
+      answer: "The university adopts a comprehensive sustainability strategy that aligns with and contributes to various SDGs, including those related to environmental protection, social equity, and economic development.",
     },
     {
       id: 5,
       question: "The Practice - Campus-wide Eco-Friendly Infrastructure",
-      answer: [
-        "The University has implemented energy-efficient buildings, green roofs, and sustainable landscaping practices. It has also integrated renewable energy sources, such as solar panels, to reduce the carbon footprint of campus operations. Besides, the biogas plant on the campus helps the effective utilisation of food waste. The green and clean campus provides fresh air to the staff and students.",
-      ],
+      answer: "The University has implemented energy-efficient buildings, green roofs, and sustainable landscaping practices. It has also integrated renewable energy sources, such as solar panels, to reduce the carbon footprint of campus operations. Besides, the biogas plant on the campus helps the effective utilisation of food waste. The green and clean campus provides fresh air to the staff and students.",
     },
     {
       id: 6,
       question: "The Practice - Sustainable Transportation",
-      answer: [
-        "Kalinga University promotes sustainable transportation options, including cycling infrastructure, electric vehicles, etc. Such initiatives are taken to reduce the carbon emissions associated with commuting and campus-related travel.",
-      ],
+      answer: "Kalinga University promotes sustainable transportation options, including cycling infrastructure, electric vehicles, etc. Such initiatives are taken to reduce the carbon emissions associated with commuting and campus-related travel.",
     },
     {
       id: 7,
       question: "The Practice - Interdisciplinary Sustainability Curriculum",
-      answer: [
-        "Integrated sustainability principles into the curriculum across various academic disciplines. Introduced courses focused on sustainability studies, environmental science, and social responsibility.",
-      ],
+      answer: "Integrated sustainability principles into the curriculum across various academic disciplines. Introduced courses focused on sustainability studies, environmental science, and social responsibility.",
     },
     {
       id: 8,
       question: "The Practice - Research and Collaboration for Sustainable Solutions",
-      answer: [
-        "The University has taken initiatives to address SDGs through various projects in line with at least one of the 17 SDGs. Faculty members are encouraged to prepare research projects which will find solutions to any of the SDGs. Collaboration with industry and government agencies is involved in preparing some of the research projects.",
-      ],
+      answer: "The University has taken initiatives to address SDGs through various projects in line with at least one of the 17 SDGs. Faculty members are encouraged to prepare research projects which will find solutions to any of the SDGs. Collaboration with industry and government agencies is involved in preparing some of the research projects.",
     },
     {
       id: 9,
       question: "The Practice - Community Engagement and Outreach",
-      answer: [
-        "Implemented various community-based projects that directly contribute to SDGs, addressing local challenges. IEEE Kalinga University Student Branch, Unnat Bharat Abhiyan, etc., are some of the bodies that are working towards this. Kalinga University regularly hosts awareness campaigns, workshops, and events to involve the broader community in sustainability initiatives.",
-      ],
+      answer: "Implemented various community-based projects that directly contribute to SDGs, addressing local challenges. IEEE Kalinga University Student Branch, Unnat Bharat Abhiyan, etc., are some of the bodies that are working towards this. Kalinga University regularly hosts awareness campaigns, workshops, and events to involve the broader community in sustainability initiatives.",
     },
     {
       id: 10,
       question: "The Practice - Sustainable Procurement Practices",
-      answer: [
-        "The University has adopted an ethical and sustainable procurement system for campus supplies and services. The University gives priority to environmentally friendly and fair trade products when purchasing any products.",
-      ],
+      answer: "The University has adopted an ethical and sustainable procurement system for campus supplies and services. The University gives priority to environmentally friendly and fair trade products when purchasing any products.",
     },
     {
       id: 11,
       question: "The Practice - Health and Well-being Programs",
-      answer: [
-        "The University has a provision of mental health resources and counselling services for students and staff. Programs related to stress management, healthy heart, etc., are regularly conducted for the well-being of staff and students.",
-      ],
+      answer: "The University has a provision of mental health resources and counselling services for students and staff. Programs related to stress management, healthy heart, etc., are regularly conducted for the well-being of staff and students.",
     },
     {
       id: 12,
       question: "The Practice - Sustainable Events and Conferences",
-      answer: [
-        "The University is organising various conferences, symposiums, and summits to address global needs, especially in climate change and sustainability, peace, justice and strong institutions, etc.",
-      ],
+      answer: "The University is organising various conferences, symposiums, and summits to address global needs, especially in climate change and sustainability, peace, justice and strong institutions, etc.",
     },
     {
       id: 13,
       question: "Economic Empowerment - Smart Dustbins Project",
-      answer: [
-        "The University received funding from various agencies, like IEEE, for addressing global needs in the form of Smart Dustbins. Intervention of technology was a part of the project where students and faculty members extended their efforts. These were distributed to schools in nearby villages to maintain a green campus.",
-      ],
+      answer: "The University received funding from various agencies, like IEEE, for addressing global needs in the form of Smart Dustbins. Intervention of technology was a part of the project where students and faculty members extended their efforts. These were distributed to schools in nearby villages to maintain a green campus.",
     },
     {
       id: 14,
       question: "Economic Empowerment - Pond Cleaning Robot",
-      answer: [
-        "The University provided seed funding to work on a pond cleaning robot. The robot is used in preventing the accumulation of organic matter, which could otherwise lead to water quality issues.",
-      ],
+      answer: "The University provided seed funding to work on a pond cleaning robot. The robot is used in preventing the accumulation of organic matter, which could otherwise lead to water quality issues.",
     },
     {
       id: 15,
       question: "Economic Empowerment - E-Loader from Waste Materials",
-      answer: [
-        "Faculty members and students developed a model of e-loader from waste materials in and around the campus. The rickshaw is used for the transportation of lightweight materials inside the university campus. For executing this project, the University has provided seed funding.",
-      ],
+      answer: "Faculty members and students developed a model of e-loader from waste materials in and around the campus. The rickshaw is used for the transportation of lightweight materials inside the university campus. For executing this project, the University has provided seed funding.",
     },
     {
       id: 16,
       question: "Economic Empowerment - Climate Change Conference",
-      answer: [
-        "Various government bodies, like NABARD, extended their support with funds in organising a conference to address climate change and sustainability issues. Participants published papers with solutions to various challenges related to climate change nowadays.",
-      ],
+      answer: "Various government bodies, like NABARD, extended their support with funds in organising a conference to address climate change and sustainability issues. Participants published papers with solutions to various challenges related to climate change nowadays.",
     },
     {
       id: 17,
       question: "Economic Empowerment - International Leadership Summit",
-      answer: [
-        "IEEE Kalinga University Student Branch organised an International Leadership Summit where leaders like Innovators, Scientists, and Entrepreneurs working towards sustainable development presented their thoughts to bring a better future.",
-      ],
+      answer: "IEEE Kalinga University Student Branch organised an International Leadership Summit where leaders like Innovators, Scientists, and Entrepreneurs working towards sustainable development presented their thoughts to bring a better future.",
     },
     {
       id: 18,
@@ -173,8 +139,6 @@ export default function SDGCell() {
       ],
     },
   ];
-
-  const tableSections = [sdgGoalsTable];
 
   return (
     <div className="min-h-screen bg-white">
@@ -194,7 +158,6 @@ export default function SDGCell() {
         title=""
         subtitle=""
         variant="table-display"
-        tableSections={tableSections}
         items={faqItems}
         pyClassName="py-8 md:py-12"
         headerBgColor="bg-[var(--button-red)]"

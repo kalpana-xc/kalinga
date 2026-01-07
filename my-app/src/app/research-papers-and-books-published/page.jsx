@@ -4,8 +4,25 @@ import ResearchIntro from "@/app/components/research-resources/research_intro";
 import BoardOfStudiesTable from "@/app/components/general/board_of_studies_table";
 import AccreditationRanking from "@/app/components/home/AccreditationRanking";
 import AdmissionCareer from "../components/general/admission_cta";
+import { useEffect } from "react";
+
+const breadcrumbData = {
+  heroImage:
+    "https://kalinga-university.s3.ap-south-1.amazonaws.com/research-facilities/DSC02606+2.jpg",
+  pageTitle: "Research Resources",
+  objectPosition: "center",
+  customBreadcrumbs: [
+    { label: "Home", href: "/" },
+    { label: "Research Resources", href: "/research-resources" },
+  ],
+};
 
 export default function ResearchPapersAndBooksPublished() {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.__breadcrumbData = breadcrumbData;
+    }
+  }, []);
   return (
     <>
       <MainIntro
@@ -14,7 +31,7 @@ export default function ResearchPapersAndBooksPublished() {
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png"
         imageAlt="Kalinga University Research"
         showKnowMore={true}
-        
+
       />
 
       <BoardOfStudiesTable className="text-center"
@@ -36,7 +53,7 @@ export default function ResearchPapersAndBooksPublished() {
         columns={[" ", " ", " "]}
         emptyRows={4}
       />
-      
+
       <AccreditationRanking />
       <AdmissionCareer />
     </>

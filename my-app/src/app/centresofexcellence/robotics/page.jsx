@@ -114,7 +114,7 @@ export default function RoboticsCodingDronesTrainingCentrePage() {
         title="Robotics, Coding, & Drones Training Centre"
         subtitle="In collaboration with BDS Education"
         description={aboutCentreDescription}
-        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/coe/coe-robotics.webp"
+        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/about/accerdation/Group+1000002988.png"
         imageAlt="Robotics, Coding, & Drones Training Centre"
         readmore={false}
       />

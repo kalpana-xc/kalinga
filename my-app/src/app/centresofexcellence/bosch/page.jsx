@@ -114,7 +114,7 @@ export default function BridgeCentrePage() {
         title="BRIDGE Courses Training Centre"
         subtitle="In collaboration with BOSCH"
         description={aboutCentreDescription}
-        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/coe/coe-bosch.webp"
+        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/about/accerdation/Group+1000002989.png"
         imageAlt="BRIDGE Centre Banner"
         readmore={false}
       />

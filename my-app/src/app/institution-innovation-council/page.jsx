@@ -78,7 +78,7 @@ const iicCommitteeSection = [
     data: iicCommitteeTable,
   },
 ];
- const annualReportButtons = [
+const annualReportButtons = [
   {
     id: 1,
     text: "2021-22",
@@ -116,7 +116,7 @@ const masterclassActivities = [
     id: 1,
     imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/1+(1).png",
     imageAlt: "Grow As a Leader",
-   
+
   },
   {
     id: 2,
@@ -127,7 +127,7 @@ const masterclassActivities = [
     id: 3,
     imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/3+(1).png",
     imageAlt: "Gen Z",
- 
+
   },
 ];
 
@@ -137,19 +137,19 @@ const masterclassActivities2 = [
     id: 1,
     imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/4.png",
     imageAlt: "Six Sigma",
-   
+
   },
   {
     id: 2,
     imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/5+(1).png",
     imageAlt: "HR AI",
-  
+
   },
   {
     id: 3,
     imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/6.png",
     imageAlt: "Green Industry",
-   
+
   },
 ];
 
@@ -197,16 +197,16 @@ export default function InstitutionInnovationCouncil() {
     <div className="bg-white">
 
 
-  <ImageContent 
-      imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/research/research-main-content.webp"
-      description="In 2018, the Ministry of Education (MoE), through the MoE’s Innovation Cell (MIC), launched the Institution’s Innovation Council (IIC) in collaboration with AICTE for Higher Educational Institutions (HEIs) to promote the culture of innovation and start-up ecosystem in educational institutions. The main objective of IIC is to engage a large number of faculty members and students in various entrepreneurship and innovation-related activities. It includes IPR, Ideathon, Proof of Concept Development, Design Thinking, and project handling and management at the pre-incubation level. The IIC model enables HEIs to address key challenges such as limited people’s involvement, occasional or unplanned Innovation and Entrepreneurship (I&E) activities, limited engagement of top leaders, poor coordination, weak resource planning, and underutilization of students’ creative potential."
-      additionalContent={[
-        ""
-      ]}
-      subtitle={false}
-      title="Institution Innovation Council"
+      <ImageContent
+        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/research/research-main-content.webp"
+        description="In 2018, the Ministry of Education (MoE), through the MoE’s Innovation Cell (MIC), launched the Institution’s Innovation Council (IIC) in collaboration with AICTE for Higher Educational Institutions (HEIs) to promote the culture of innovation and start-up ecosystem in educational institutions. The main objective of IIC is to engage a large number of faculty members and students in various entrepreneurship and innovation-related activities. It includes IPR, Ideathon, Proof of Concept Development, Design Thinking, and project handling and management at the pre-incubation level. The IIC model enables HEIs to address key challenges such as limited people’s involvement, occasional or unplanned Innovation and Entrepreneurship (I&E) activities, limited engagement of top leaders, poor coordination, weak resource planning, and underutilization of students’ creative potential."
+        additionalContent={[
+          ""
+        ]}
+        subtitle={false}
+        title="Institution Innovation Council"
 
-    />
+      />
       {/* Innovation Section */}
       <section className="py-16 bg-[var(--light-gray)]">
         <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -240,40 +240,40 @@ export default function InstitutionInnovationCouncil() {
         description={false}
       />
 
-   <div className="container mx-auto mt-16 bg-[var(--lite-sand)] p-6 rounded-xl">
-  <h2 className="font-stix text-2xl md:text-[36px] text-center text-[var(--foreground)] mb-6">
-    IIC Committee
-  </h2>
+      <div className="container mx-auto mt-16 bg-[var(--lite-sand)] p-6 rounded-xl">
+        <h2 className="font-stix text-2xl md:text-[36px] text-center text-[var(--foreground)] mb-6">
+          IIC Committee
+        </h2>
 
-  <div className="overflow-x-auto">
-    <DataTable
-      columns={[
-        { key: "memberType", label: "Member Type", width: "w-[35%]" },
-        { key: "role", label: "Key Role / Position Assigned in IIC", width: "w-[65%]" },
-      ]}
-      data={iicCommitteeTable}
-      overflowX={true}
-      className="shadow-none"
-    />
-  </div>
-</div>
+        <div className="overflow-x-auto">
+          <DataTable
+            columns={[
+              { key: "memberType", label: "Member Type", width: "w-[35%]" },
+              { key: "role", label: "Key Role / Position Assigned in IIC", width: "w-[65%]" },
+            ]}
+            data={iicCommitteeTable}
+            overflowX={true}
+            className="shadow-none"
+          />
+        </div>
+      </div>
 
-{/* ---------------- Kalinga Incubation Foundation ---------------- */}
-<ImageContent
-  title=" About Kalinga Incubation Foundation"
-  subtitle={false}
-  description="KIF was established in ----, where students' bold and unique ideas are supported so that their entrepreneurial ambitions can be turned into ACTION. Our motive is to promote the spirit of research, innovation, and entrepreneurship among students and faculty members of our university."
-  imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/chart+(4).png"
-  imageAlt="Kalinga Incubation Foundation"
-  hasImage={true}
-  additionalContent={[
-  "  Our dedicated incubation managers and support members will transform your raw ideas into real-world ventures. With expert guidance, research-related infrastructure, pitch trainings, workshops, guest lectures, industrial visits, and presentation trainings, Kalinga will guide you at every stage of your startup journey. "
-  ]}
-/>
-   
-      
-<SportsFacilitiesTabs />
-<section className="py-16 bg-white">
+      {/* ---------------- Kalinga Incubation Foundation ---------------- */}
+      <ImageContent
+        title=" About Kalinga Incubation Foundation"
+        subtitle={false}
+        description="KIF was established in ----, where students' bold and unique ideas are supported so that their entrepreneurial ambitions can be turned into ACTION. Our motive is to promote the spirit of research, innovation, and entrepreneurship among students and faculty members of our university."
+        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/chart+(4).png"
+        imageAlt="Kalinga Incubation Foundation"
+        hasImage={true}
+        additionalContent={[
+          "  Our dedicated incubation managers and support members will transform your raw ideas into real-world ventures. With expert guidance, research-related infrastructure, pitch trainings, workshops, guest lectures, industrial visits, and presentation trainings, Kalinga will guide you at every stage of your startup journey. "
+        ]}
+      />
+
+
+      <SportsFacilitiesTabs />
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-2">
 
           <div className="text-center mb-12">
@@ -281,7 +281,7 @@ export default function InstitutionInnovationCouncil() {
               title="IIC Star Rating"
               titleClassName="text-3xl md:text-4xl lg:text-5xl mb-6"
             />
-           
+
           </div>
 
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -306,122 +306,122 @@ export default function InstitutionInnovationCouncil() {
         </div>
       </section>
       <section className="pt-16 pb-16 bg-white">
-              <div className="container mx-auto px-6">
-      
-                {/* ✅ PAGE HEADING */}
-                <div className="mb-10 text-center">
-                  <h2 >Letter of Appreciation
-                  </h2>
-               
-                </div>
-      
-                {/* ✅ BUTTON GRID */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {annualReportButtons.map((item) => (
-                    <a
-                      key={item.id}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
-                      <GlobalArrowButton
-                        className="!w-full h-[60px] justify-between"
-                        arrowClassName="p-[3px] !px-2 mr-2 !py-1"
-                        arrowSize={29}
-                      >
-                        {item.text}
-                      </GlobalArrowButton>
-                    </a>
-                  ))}
-                </div>
-      
-              </div>
-            </section>
-       <MasterClassTab
-  tab1Title="Foundation level"
-  tab2Title="Advanced level"
+        <div className="container mx-auto px-6">
 
-  tab1Activities={masterclassActivities}
-  tab2Activities={masterclassActivities2}
-  
+          {/* ✅ PAGE HEADING */}
+          <div className="mb-10 text-center">
+            <h2 >Letter of Appreciation
+            </h2>
 
-/>
-{/* ---------------- IIC Training Achievements ---------------- */}
-<section className="py-16 bg-white">
-  <div className="container mx-auto px-6">
-    <SectionHeading
-      title="IIC Training Achievements"
-      titleClassName="text-center mb-10"
-      subtitle={false}
-     
-    />
+          </div>
 
-    <Gallery
-      images={iicTrainingAchievements}
-      backgroundColor="bg-white"
-      paddingClassName="py-0"
-      forceSliderOnMobile={true}
-       title={false}
-    />
-  </div>
-</section>
-   <ImageContent 
-        hasImage={false} 
-        readmore={false} 
-        className="items-center justify-center" 
-        title="Impact Lecture Series" 
-        subtitleclassName="hidden" 
+          {/* ✅ BUTTON GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {annualReportButtons.map((item) => (
+              <a
+                key={item.id}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <GlobalArrowButton
+                  className="!w-full h-[60px] justify-between"
+                  arrowClassName="p-[3px] !px-2 mr-2 !py-1"
+                  arrowSize={29}
+                >
+                  {item.text}
+                </GlobalArrowButton>
+              </a>
+            ))}
+          </div>
+
+        </div>
+      </section>
+      <MasterClassTab
+        tab1Title="Foundation level"
+        tab2Title="Advanced level"
+
+        tab1Activities={masterclassActivities}
+        tab2Activities={masterclassActivities2}
+
+
+      />
+      {/* ---------------- IIC Training Achievements ---------------- */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <SectionHeading
+            title="IIC Training Achievements"
+            titleClassName="text-center mb-10"
+            subtitle={false}
+
+          />
+
+          <Gallery
+            images={iicTrainingAchievements}
+            backgroundColor="bg-white"
+            paddingClassName="py-0"
+            forceSliderOnMobile={true}
+            title={false}
+          />
+        </div>
+      </section>
+      <ImageContent
+        hasImage={false}
+        readmore={false}
+        className="items-center justify-center"
+        title="Impact Lecture Series"
+        subtitleclassName="hidden"
         description=" The IIC Impact Lecture Series aims to promote innovation and entrepreneurship among students of higher education institutions across India. The lecture enables students to learn from leading experts on topics like start-ups, intellectual property rights, innovation, and entrepreneurship challenges and solutions. 
 Kalinga University hosted its first session of the Impact Lecture Series on 15th April 2024 in an offline mode. Students learned to become successful entrepreneurs, learned from real-life experiences, and received guidance on how to think and act creatively and innovatively by setting goals in the right direction. "
-      />  
+      />
 
-  <section className="pt-16 pb-16 bg-white">
-  <div className="container mx-auto px-6">
+      <section className="pt-16 pb-16 bg-white">
+        <div className="container mx-auto px-6">
 
-    {/* ===== TOP REPORTS ===== */}
-    <div className="mb-10 text-center">
-      <h2>IIC Annual Reports</h2>
-    </div>
+          {/* ===== TOP REPORTS ===== */}
+          <div className="mb-10 text-center">
+            <h2>IIC Annual Reports</h2>
+          </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-      {annualReportButtons2.map((item) => (
-        <a
-          key={item.id}
-          href={item.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block"
-        >
-          <GlobalArrowButton
-            className="!w-full h-[60px] justify-between"
-            arrowClassName="p-[3px] !px-2 mr-2 !py-1"
-            arrowSize={29}
-          >
-            {item.text}
-          </GlobalArrowButton>
-        </a>
-      ))}
-    </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {annualReportButtons2.map((item) => (
+              <a
+                key={item.id}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <GlobalArrowButton
+                  className="!w-full h-[60px] justify-between"
+                  arrowClassName="p-[3px] !px-2 mr-2 !py-1"
+                  arrowSize={29}
+                >
+                  {item.text}
+                </GlobalArrowButton>
+              </a>
+            ))}
+          </div>
 
-  
 
-  </div>
-</section>
-     <Gallery 
-        title="Glimpse" 
-       
+
+        </div>
+      </section>
+      <Gallery
+        title="Glimpse"
+
         images={[
-          { id: 1, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/DSC06210.jpg", alt: "International Students Introduction" },
-          { id: 2, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Vikshit+Bharat.jpg", alt: "Why Choose Kalinga University" },
-          { id: 3, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Q1.7.png", alt: "International Students Group" },
-          { id: 4, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Q1.6.png", alt: "Campus Safety and Security" },
-          { id: 5, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Machine+Learning+2.jpeg", alt: "International Students Banner" },
-          { id: 6, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/IIC+Meet.jpeg", alt: "International Students Banner" },
-          { id: 7, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Hackathon+2.jpeg", alt: "International Students Banner" },
-          { id: 8, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Hackathon+1.jpg", alt: "International Students Banner" },
+          { id: 1, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/DSC06210.jpg", alt: "International Students Introduction" },
+          { id: 2, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Vikshit+Bharat.jpg", alt: "Why Choose Kalinga University" },
+          { id: 3, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Q1.7.png", alt: "International Students Group" },
+          { id: 4, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Q1.6.png", alt: "Campus Safety and Security" },
+          { id: 5, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Machine+Learning+2.jpeg", alt: "International Students Banner" },
+          { id: 6, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/IIC+Meet.jpeg", alt: "International Students Banner" },
+          { id: 7, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Hackathon+2.jpeg", alt: "International Students Banner" },
+          { id: 8, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Hackathon+1.jpg", alt: "International Students Banner" },
         ]}
-      /> 
+      />
     </div>
   );
 }
@@ -436,7 +436,7 @@ function SportsFacilitiesTabs() {
       { id: "y2021", label: "2024–25 (QUATER 1)" },
       { id: "y2020", label: "2024–25 (QUATER 2)" },
       { id: "y2019", label: "2024–25 (QUATER 3)" },
-       {id: "y2018", label: "2024–25 (QUATER 4)" },
+      { id: "y2018", label: "2024–25 (QUATER 4)" },
     ],
     []
   );
@@ -567,7 +567,7 @@ function EventsTable({ title, data }) {
     { key: "date", label: "Date of the Activity", width: "w-48" },
   ];
 
-  const limitedData = data.slice(0, 35);   
+  const limitedData = data.slice(0, 35);
 
   const tableData = limitedData.map((item, index) => ({
     sno: index + 1,
@@ -577,7 +577,7 @@ function EventsTable({ title, data }) {
 
   return (
     <div>
-      <h2 className="text-center mb-[30px]">{title}</h2>
+      <h3 className="text-center mb-[30px]">{title}</h3>
 
       <div className="max-h-[450px] overflow-y-auto">
         <DataTable
@@ -610,11 +610,11 @@ const events2024 = [
   { date: "12-02-2023", name: "National Pollution Control Day" },
   { date: "28-02-2023", name: "National Science Day" },
   { date: "03-03-2023 to 04-03-2023", name: "Smart City Hackathon – 2023" },
-{
-  date: "16-03-2023",
-  name:"Expert Talk on Process of Innovative Development,\u200B Technology Readiness Level (TRL),\u200B Commercialization of Technologies and Tech Transfer"
+  {
+    date: "16-03-2023",
+    name: "Expert Talk on Process of Innovative Development,\u200B Technology Readiness Level (TRL),\u200B Commercialization of Technologies and Tech Transfer"
 
-},
+  },
 
   { date: "20-03-2023", name: "Science Model and Poster Exhibition" },
   { date: "13-04-2023", name: "Attitude and Behaviour for Being a Successful Entrepreneur" },
@@ -813,4 +813,3 @@ const events2018 = [
     name: "Angel Investment / VC Funding Opportunity for Early-Stage"
   }
 ];
- 
