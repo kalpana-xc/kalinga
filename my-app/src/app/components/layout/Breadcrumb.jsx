@@ -163,6 +163,9 @@ const Breadcrumb = ({ customBreadcrumbs, heroImage, pageTitle }) => {
   // Don't show breadcrumb on homepage
   if (pathname === '/') return null;
 
+  // Don't show breadcrumb on thank-you page
+  if (pathname === '/thank-you') return null;
+
   // Don't show breadcrumb on corporate-training-and-consultancy-division page
   if (pathname === '/corporate-training-and-consultancy-division') return null;
 

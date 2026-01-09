@@ -1,10 +1,12 @@
 'use client'
 
 import { useState, useRef, useLayoutEffect, useEffect } from "react"
+import { useRouter } from 'next/navigation'
 import GlobalArrowButton from "../general/global-arrow_button"
 import { submitForm } from '../../config/api'
 
 export default function CareerForm() {
+    const router = useRouter()
     const [activeTab, setActiveTab] = useState("personal")
     const [formData, setFormData] = useState({
         full_name: '',
@@ -107,19 +109,10 @@ export default function CareerForm() {
 
         try {
             await submitForm('/career-forms/', data, true)
-            setStatus({ type: 'success', message: 'Application submitted successfully!' })
-            // Reset form
-            setFormData({
-                full_name: '', email: '', mobile_number: '', alternate_phone: '',
-                date_of_birth: '', gender: '', nationality: '', current_city: '',
-                state: '', country: '', position_applied_for: '', department: '',
-                employment_type: '', preferred_campus: '', expected_salary: '', notice_period: '',
-            })
-            setResume(null)
-            setActiveTab("personal")
+            // Redirect to thank you page
+            router.push('/thank-you?form=career')
         } catch (err) {
             setStatus({ type: 'error', message: err.message || 'Error submitting application.' })
-        } finally {
             setLoading(false)
         }
     }

@@ -1,11 +1,13 @@
 'use client'
 
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import GlobalArrowButton from '../general/global-arrow_button'
 import SectionHeading from '../general/SectionHeading'
 import { submitForm } from '../../config/api'
 
 export default function ContactForm() {
+    const router = useRouter()
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -27,12 +29,10 @@ export default function ContactForm() {
 
         try {
             await submitForm('/contact-forms/', formData)
-            setStatus({ type: 'success', message: 'Message sent successfully!' })
-            // Reset form on success
-            setFormData({ name: '', email: '', phone: '', message: '' })
+            // Redirect to thank you page
+            router.push('/thank-you?form=contact')
         } catch (err) {
             setStatus({ type: 'error', message: err.message || 'Error sending message.' })
-        } finally {
             setLoading(false)
         }
     }
