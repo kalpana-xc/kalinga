@@ -40,11 +40,11 @@ export const ScrollScene = () => {
     const tunnelImages = [
         // Top Left Cluster
         { id: 1, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/campus/1.webp", top: "15%", left: "10%", xMove: -800, yMove: -400, className: "w-32 h-40 md:w-40 md:h-52" },
-        { id: 2, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg", top: "8%", left: "28%", xMove: -400, yMove: -600, className: "w-24 h-24 md:w-32 md:h-32" },
+        { id: 2, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg", top: "8%", left: "28%", xMove: -400, yMove: -600, className: "hidden md:block w-24 h-24 md:w-32 md:h-32" },
 
         // Top Right Cluster
         { id: 3, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/campus/3.webp", top: "15%", right: "20%", xMove: 600, yMove: -500, className: "w-28 h-36 md:w-36 md:h-56" },
-        { id: 4, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/campus/4.webp", top: "5%", right: "38%", xMove: 300, yMove: -600, className: "w-32 h-20 md:w-48 md:h-40" },
+        { id: 4, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/campus/4.webp", top: "5%", right: "38%", xMove: 300, yMove: -600, className: "hidden md:block w-32 h-20 md:w-48 md:h-40" },
 
         // Bottom Left Cluster
         { id: 5, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/student-grppic.webp", bottom: "15%", left: "8%", xMove: -600, yMove: 400, className: "w-40 h-40 md:w-52 md:h-52" },
@@ -80,7 +80,7 @@ export const ScrollScene = () => {
                     {/* Main Title - Slides UP and OUT */}
                     <motion.h1
                         style={{ y: titleY, opacity: titleOpacity }}
-                        className="text-4xl md:text-6xl font-serif text-black tracking-tight drop-shadow-xl text-center origin-center px-4 mb-2 md:mb-6 leading-none"
+                        className="text-4xl  md:text-6xl font-serif text-black tracking-tight drop-shadow-xl text-center origin-center px-4 mb-2 md:mb-6 pt-16 leading-none"
                     >
                         Real Recommendations
                     </motion.h1>
@@ -113,7 +113,7 @@ export const ScrollScene = () => {
                             opacity: heroOpacity,
                             borderRadius: heroRadius,
                         }}
-                        className="absolute w-full aspect-video shadow-2xl origin-center overflow-hidden bg-black flex items-center justify-center z-10"
+                        className="absolute w-full h-[90vh] md:aspect-video shadow-2xl origin-center overflow-hidden bg-black flex items-center justify-center z-10"
                     >
                         <img
                             src="https://framerusercontent.com/images/cnRtwVuxzVat35pyP94Hlnw1g.png?width=1600"
@@ -143,7 +143,7 @@ export const ScrollScene = () => {
                                     borderRadius,
                                     zIndex: 50 - index, // Lagging/Smaller on TOP
                                 }}
-                                className="absolute w-full aspect-video origin-center overflow-hidden pointer-events-none flex items-center justify-center will-change-transform"
+                                className="absolute w-full h-[90vh] md:aspect-video origin-center overflow-hidden pointer-events-none flex items-center justify-center will-change-transform"
                             >
                                 <img
                                     src="https://framerusercontent.com/images/oWJ5kVT9dEXuazRGl0p8qbEN1M.png?width=1600"
