@@ -151,7 +151,7 @@ export default function Page() {
         knowMoreHref="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/Public+Notice+IBC+Verifictions+Bangalore+21st+September+2024.pdf"
         showKnowMore={true}
       />
-      <ImageListItem boxItems={boxItems} imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/ccrc.webp" title="Advantages Of Document Verification" description="" />
+      <ImageListItem boxItems={boxItems} imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/ccrc.webp" title="" description="" />
       <FAQ
         title="Our Document Verification Procedure "
         subtitle=""
@@ -159,7 +159,10 @@ export default function Page() {
         items={[]}
         tableSections={tableSections}
         className="mt-8 mb-8" />
-      <FAQ items={faqContent} />
+      <FAQ
+        title="Frequently Asked Questions"
+        subtitle=""
+        items={faqContent} />
       <div className="flex justify-center py-8">
         <GlobalArrowButton
           className="px-8 py-3 text-base"

@@ -82,7 +82,7 @@ export default function GrievanceRedressalPage() {
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/grievance/grievance-main-intro.webp"
         imageAlt="Grievance Redressal Cell"
         showKnowMore={true}
-        initialVisibleParagraphs={1}
+        initialVisibleParagraphs={2}
       />
 
       <ImageListItem

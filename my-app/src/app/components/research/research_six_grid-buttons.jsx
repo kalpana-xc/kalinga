@@ -36,9 +36,10 @@ const defaultButtons = [
   },
   {
     id: 6,
-    text: "Research Facilities and Resources",
-    href: "/research-facilities",
+    text: "Conferences",
+    href: "/research-conferences",
   },
+
   // Right Column
   {
     id: 7,
@@ -52,11 +53,11 @@ const defaultButtons = [
     text: "Plagiarism Policy",
     href: "/research-resources",
   },
-  {
-    id: 9,
-    text: "Ph.D. Admissions",
-    href: "/phd",
-  },
+  // {
+  //   id: 9,
+  //   text: "Ph.D. Admissions",
+  //   href: "/phd",
+  // },
   {
     id: 10,
     text: "Research Integrity & Ethics Policy",
@@ -72,6 +73,14 @@ const defaultButtons = [
     text: "Doctoral Research Committee",
     href: "/phd",
   },
+  {
+    id: 13,
+    text: "Seed Money",
+    href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/research-resources/Seed+Money+Policy.pdf",
+  },
+
+
+
 ];
 
 // Research Advisory Committee Table Data

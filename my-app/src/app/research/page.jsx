@@ -15,6 +15,7 @@ import NewsEvents from "../components/home/news_and_events";
 import CenterOfExcellence from "../components/about/center_of_excellence";
 import AwardsScrollbar from "../components/home/awards-scrollbar";
 import AutoBreadcrumb from "../components/layout/BreadcrumbData";
+import ResearchCE from '../components/research-facilities/research-coe'
 export default function Research() {
 
   const newsConferences = [
@@ -127,11 +128,11 @@ export default function Research() {
         useContainer={true}
 
       />
-      <UGCLogo />
+      {/* <UGCLogo /> */}
       <QuickLinks
         title="Research Facilities and Resources"
         titleClassName="text-white"
-        description="We provide a conducive environment for research work through our advanced laboratories, IPR cell, CIF labs, and library."
+        description="We provide a conducive environment for research work through our advanced laboratories, IPR cell, Central Instrumentation Facility labs, and library."
         links={[
           {
             id: 1,
@@ -149,9 +150,9 @@ export default function Research() {
           },
           {
             id: 3,
-            href: "/cif-labs",
+            href: "/career-and-corporate-resource-centre",
             icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Extensive+Research+Facilities.svg",
-            title: "CIF Labs",
+            title: "Central Instrumentation Facility Labs",
             description: "Convert your bold ideas into a great discovery! Our CIF Labs are packed with high-end instruments like an X-Ray Diffractometer, 3D Printer, Bio-Chemistry Analyser, Scanning Electron Microscope, and more.",
           },
           {
@@ -188,7 +189,7 @@ export default function Research() {
         message="Research is the soul of academic excellence, and Kalinga University strives to develop a rich research ecosystem that generates curiosity, problem-solving, and inspiration among young researchers and faculty. With our advanced research labs, high-tech instruments, updated policy guidelines, IPR facilitation, CIF labs, and connections with national and international organisations, our research scholars work together toward societal progress. With hands-on training opportunities, workshops, and seminars on how to use modern machines, students learn to lead in their field. Our faculty members support students in publishing their research papers, filing patents, and presenting their work on different platforms."
       />
 
-      <FAQ
+      {/* <FAQ
         title="Conferences"
         subtitleClassName="!hidden"
         variant="table-display"
@@ -240,7 +241,7 @@ export default function Research() {
           }
         ]}
         overflowX={false}
-      />
+      /> */}
 
       <ResearchSixGridButtons />
 
@@ -251,17 +252,18 @@ export default function Research() {
         Once a real Research category ID exists, it will filter correctly.
       */}
       {/* <NewsEvents categoryId="RESEARCH_ID" title="Upcoming Conferences & Events" /> */}
-      <UpcomingConferences
+      {/* <UpcomingConferences
         categoryIds={['5']}
         title="Conferences & Events"
         fallback="all"
         limit={5}
-      />
-      <CenterOfExcellence
+      /> */}
+      {/* <CenterOfExcellence
         centres={centres}
         title=" Collaborative Activities/MoU"
         description="Explore the spaces and partnerships that power the Kalinga Incubation Foundation."
-      />
+      /> */}
+      <ResearchCE />
       <AwardsScrollbar
         title="Awards Received for Research & Innovation"
         awards={awards}

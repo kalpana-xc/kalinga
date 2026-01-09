@@ -54,17 +54,17 @@ export default function ImageContent({
           <SectionHeading title={title} subtitle={subtitle} titleClassName="!py-2" subtitleClassName={`${subtitleclassName}`} />
           <div className="text-sm pb-4 space-y-3">
             <p>{description}</p>
-            {isExpanded && (
+            {(isExpanded || readmore === false) && (
               <div className="space-y-3 mt-3">
                 {additionalContent && additionalContent.length > 0 && additionalContent.map((item, index) => (
                   <p key={index} className="text-sm">{item}</p>
                 ))}
-                
+
                 {certificateLink && (
                   <div className="mt-4">
-                    <a 
-                      href={certificateLink} 
-                      target="_blank" 
+                    <a
+                      href={certificateLink}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-[var(--button-red)] hover:text-[var(--dark-blue)] font-semibold text-sm underline"
                     >
@@ -72,7 +72,7 @@ export default function ImageContent({
                     </a>
                   </div>
                 )}
-                
+
                 {selectionCriteria && selectionCriteria.length > 0 && (
                   <div className="mt-4">
                     <p className="font-semibold text-sm mb-2">The following are the benefits of being a member of the Young Indians:</p>

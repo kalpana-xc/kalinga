@@ -39,23 +39,27 @@ const DataTable = ({
   headerTextColor = "text-white",
   evenRowBg = "bg-gray-50",
   oddRowBg = "bg-white",
-  borderColor = "border-gray-300"
+  borderColor = "border-gray-300",
+  title = ""
 }) => {
   // If no columns provided, create default structure
-  const tableColumns = columns.length > 0 
-    ? columns 
+  const tableColumns = columns.length > 0
+    ? columns
     : [
-        { key: "slNo", label: "Sl. No", width: "w-20" },
-        { key: "name", label: "Name of member", width: "w-48" },
-        { key: "designation", label: "Designation", width: "flex-1" },
-        { key: "category", label: "Category", width: "w-40" }
-      ]
+      { key: "slNo", label: "Sl. No", width: "w-20" },
+      { key: "name", label: "Name of member", width: "w-48" },
+      { key: "designation", label: "Designation", width: "flex-1" },
+      { key: "category", label: "Category", width: "w-40" }
+    ]
 
   // If no data provided, use empty array
   const tableData = data || []
 
   return (
-    <div className={`${overflowX ? '' : 'container mx-auto'} rounded-lg  ${className}`}>
+    <div className={`container mx-auto rounded-lg  ${className}`}>
+      {title && (
+        <h3 className="text-2xl pt-6 mb-4">{title}</h3>
+      )}
       <div className={overflowX ? "overflow-x-auto rounded-lg" : "rounded-lg overflow-hidden"}>
         <table className={`${overflowX ? "min-w-full w-max" : "w-full"}`} style={{ borderSpacing: 0, borderCollapse: 'separate' }}>
           <thead>
@@ -94,25 +98,25 @@ const DataTable = ({
                   className={rowIdx % 2 === 0 ? oddRowBg : evenRowBg}
                 >
                   {tableColumns.map((column, colIdx) => {
-                    const cellValue = row[column.key] !== undefined 
-                      ? row[column.key] 
+                    const cellValue = row[column.key] !== undefined
+                      ? row[column.key]
                       : (column.key === "slNo" ? rowIdx + 1 : "-")
-                    
+
                     // Check if this row has listItems and we're rendering the description column
                     const hasListItems = row.listItems && Array.isArray(row.listItems) && column.key === 'description'
-                    
+
                     // Check if this is the last row
                     const isLastRow = rowIdx === tableData.length - 1
-                    
+
                     // Check if this cell should be merged (colSpan support)
                     const cellColSpan = row.colSpan && row.colSpan[column.key] !== undefined ? row.colSpan[column.key] : 1
                     const shouldSkipCell = cellColSpan === 0
-                    
+
                     // Skip rendering if this cell is merged into previous cell
                     if (shouldSkipCell) {
                       return null
                     }
-                    
+
                     // Calculate actual column index after accounting for skipped cells
                     let actualColIdx = colIdx
                     if (row.colSpan) {
@@ -124,7 +128,7 @@ const DataTable = ({
                       }
                       actualColIdx = colIdx - skippedCount
                     }
-                    
+
                     return (
                       <td
                         key={column.key || colIdx}
