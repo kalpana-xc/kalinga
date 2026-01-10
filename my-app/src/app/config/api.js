@@ -39,6 +39,19 @@ export const API_CONFIG = {
     seo: (slug) => `/news-events/${slug}/seo/`,
   },
 
+  // Tables endpoints
+  tables: {
+    list: (params = '') => `/tables/${params}`,
+    detail: (idOrSlug) => `/tables/${idOrSlug}/`,
+    byCategory: (categoryIdOrSlug) => `/tables/by-category/${categoryIdOrSlug}/`,
+    byDepartment: (departmentIdOrSlug) => `/tables/by-department/${departmentIdOrSlug}/`,
+  },
+
+  // Table Categories endpoints
+  tableCategories: {
+    list: () => `/table-categories/`,
+  },
+
   // Add other API endpoints here as needed
 };
 
