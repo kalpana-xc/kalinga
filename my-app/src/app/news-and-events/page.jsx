@@ -22,6 +22,7 @@ const breadcrumbData = {
 function NewsAndEvents() {
   const [newsItems, setNewsItems] = useState([]);
   const [departments, setDepartments] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
 
 
@@ -52,6 +53,19 @@ function NewsAndEvents() {
 
       if (data && data.results) {
         setNewsItems(data.results);
+
+        // Extract unique categories from the data
+        const categoryMap = new Map();
+        data.results.forEach(item => {
+          if (item.category && item.category_name) {
+            categoryMap.set(String(item.category), {
+              id: String(item.category),
+              name: item.category_name
+            });
+          }
+        });
+        const uniqueCategories = Array.from(categoryMap.values());
+        setCategories(uniqueCategories);
       }
     } catch (error) {
       console.error("Failed to fetch news", error);
@@ -117,7 +131,7 @@ function NewsAndEvents() {
       )}
 
       {/* 2. Main Filters & List */}
-      <EventCalendar items={newsItems} departments={departments} />
+      <EventCalendar items={newsItems} departments={departments} categories={categories} />
 
       {/* 3. Newly Adds (This Week) */}
       {newlyAdds.length > 0 && (

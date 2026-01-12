@@ -1,11 +1,13 @@
 'use client'
 
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { FormWrapper, InputField, FormGrid } from './FormComponents'
 import GlobalArrowButton from '../general/global-arrow_button'
 import { submitForm } from '../../config/api'
 
 export default function EnquiryForm() {
+    const router = useRouter()
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -44,11 +46,10 @@ export default function EnquiryForm() {
 
         try {
             await submitForm('/cif-forms/', formData)
-            setStatus({ type: 'success', message: 'Inquiry submitted successfully!' })
-            setFormData({ name: '', email: '', phone: '', program: '' })
+            // Redirect to thank you page with form type
+            router.push('/thank-you?form=enquiry')
         } catch (err) {
             setStatus({ type: 'error', message: err.message || 'Error submitting form.' })
-        } finally {
             setLoading(false)
         }
     }

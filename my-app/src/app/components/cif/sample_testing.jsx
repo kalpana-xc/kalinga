@@ -200,7 +200,7 @@ export default function SampleTesting({
         {/* Note */}
         {note && (
           <div className="mt-6 text-center">
-            <p className="text-sm md:text-base text-[var(--light-text-gray)]">
+            <p className="text-sm md:text-base text-[var(--light-text-gray)] font-semibold">
               {note}
             </p>
           </div>

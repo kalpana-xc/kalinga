@@ -1,6 +1,7 @@
 "use client";
 
 import GlobalArrowButton from "../components/general/global-arrow_button";
+import FlipbookTrigger from "../components/general/FlipbookTrigger";
 
 // Breadcrumb configuration
 const breadcrumbData = {
@@ -99,21 +100,22 @@ export default function Page() {
           {/* ✅ BUTTON GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {annualReportButtons.map((item) => (
-              <a
-                key={item.id}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <GlobalArrowButton
-                  className="!w-full h-[60px] justify-between"
-                  arrowClassName="p-[3px] !px-2 mr-2 !py-1"
-                  arrowSize={29}
+              <FlipbookTrigger key={item.id} pdfUrl={item.href} title={item.text}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
                 >
-                  {item.text}
-                </GlobalArrowButton>
-              </a>
+                  <GlobalArrowButton
+                    className="!w-full h-[60px] justify-between"
+                    arrowClassName="p-[3px] !px-2 mr-2 !py-1"
+                    arrowSize={29}
+                  >
+                    {item.text}
+                  </GlobalArrowButton>
+                </a>
+              </FlipbookTrigger>
             ))}
           </div>
 

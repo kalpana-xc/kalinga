@@ -1,9 +1,10 @@
 'use client';
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import GlobalArrowButton from "../general/global-arrow_button";
 import SectionHeading from "../general/SectionHeading";
+import FlipbookTrigger from "../general/FlipbookTrigger";
 
 const defaultContent = {
   title: "Transforming futures with knowledge & innovation",
@@ -47,9 +48,39 @@ export default function MainIntro({
     ? paragraphs
     : paragraphs.slice(0, initialVisibleParagraphs);
 
+  // Track if desktop view (for clipPath)
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    // Check if desktop on mount
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    // Check initially
+    checkDesktop();
+
+    // Add resize listener
+    window.addEventListener('resize', checkDesktop);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
+
 
   return (
     <section className="md:py-16 bg-white py-16 !pb-20 ">
+      {/* SVG ClipPath Definition */}
+      <svg width="0" height="0" className="absolute pointer-events-none">
+        <defs>
+          <clipPath id="rounded-polygon-main" clipPathUnits="objectBoundingBox">
+            <path d="M 0.08 0.143 L 0.96 0.01 Q 1.0 0.0 1.0 0.04 L 1.0 0.92 Q 1.0 0.96 0.96 0.96 L 0.08 0.847 Q 0.05 0.842 0.05 0.802 L 0.05 0.188 Q 0.05 0.148 0.08 0.143 Z"></path>
+          </clipPath>
+          <clipPath id="rounded-polygon-main-inverted" clipPathUnits="objectBoundingBox">
+            <path d="M 0.0 0.04 Q 0.0 0.0 0.04 0.01 L 0.92 0.143 Q 0.95 0.148 0.95 0.188 L 0.95 0.802 Q 0.95 0.842 0.92 0.847 L 0.04 0.96 Q 0.0 0.96 0.0 0.92 L 0.0 0.04 Z"></path>
+          </clipPath>
+        </defs>
+      </svg>
       <div className="container mx-auto px-2">
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 ${showAll ? 'items-start' : 'items-center'}`}>
           {/* Left Section - Text Content */}
@@ -92,22 +123,43 @@ export default function MainIntro({
               {showKnowMore && (descriptionArray.length > initialVisibleParagraphs || (knowMoreHref && knowMoreHref !== "#")) && (
                 <div className="pt-2">
                   {knowMoreHref && knowMoreHref !== "#" ? (
-                    <a
-                      href={knowMoreHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={onKnowMore}
-                      className="inline-block"
-                    >
-                      <GlobalArrowButton
-                        className="w-fit !bg-white !text-white gap-2 !px-0 !py-0"
-                        textClassName="!text-[var(--button-red)] !font-semibold !px-0"
-                        arrowClassName="p-[3px] !px-1 mr-2 !py-1 !bg-[var(--button-red)]"
-                        arrowIconClassName="!text-white"
-                      >
-                        {knowMoreLabel}
-                      </GlobalArrowButton>
-                    </a>
+                    (() => {
+                      const isPdf = knowMoreHref.toLowerCase().endsWith(".pdf");
+                      const buttonEl = (
+                        <GlobalArrowButton
+                          className="w-fit !bg-white !text-white gap-2 !px-0 !py-0"
+                          textClassName="!text-[var(--button-red)] !font-semibold !px-0"
+                          arrowClassName="p-[3px] !px-1 mr-2 !py-1 !bg-[var(--button-red)]"
+                          arrowIconClassName="!text-white"
+                        >
+                          {knowMoreLabel}
+                        </GlobalArrowButton>
+                      );
+
+                      return isPdf ? (
+                        <FlipbookTrigger pdfUrl={knowMoreHref} title={knowMoreLabel}>
+                          <a
+                            href={knowMoreHref}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={onKnowMore}
+                            className="inline-block"
+                          >
+                            {buttonEl}
+                          </a>
+                        </FlipbookTrigger>
+                      ) : (
+                        <a
+                          href={knowMoreHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={onKnowMore}
+                          className="inline-block"
+                        >
+                          {buttonEl}
+                        </a>
+                      );
+                    })()
                   ) : (
                     <GlobalArrowButton
                       className="w-fit !bg-white !text-white gap-2 !px-0 !py-0"
@@ -127,13 +179,17 @@ export default function MainIntro({
           {/* Right Section - Image */}
           {showImage && (
             <div className={`order-1 ${reverseLayout ? 'lg:order-1' : 'lg:order-2'} lg:pl-4 lg:pr-8`}>
-              <div className={`relative w-full overflow-visible ${expanded ? "min-h-[420px]" : "min-h-[360px]"}`}>
+              <div className="relative w-full overflow-visible min-h-[400px]">
                 <Image
                   src={imageUrl}
                   alt={imageAlt}
                   width={500}
                   height={500}
-                  className={`w-full h-full object-cover rounded-2xl max-h-[400px] ${applyTransform3dSlant ? 'transform-3d-slant' : 'transform-3d-slant-mirror'}`}
+                  className={`w-full h-[450px] object-cover rounded-2xl max-h-[500px]`}
+                  style={isDesktop ? {
+                    clipPath: applyTransform3dSlant ? 'url(#rounded-polygon-main)' : 'url(#rounded-polygon-main-inverted)',
+                    WebkitClipPath: applyTransform3dSlant ? 'url(#rounded-polygon-main)' : 'url(#rounded-polygon-main-inverted)'
+                  } : { borderRadius: '20px' }}
                   priority
                 />
               </div>

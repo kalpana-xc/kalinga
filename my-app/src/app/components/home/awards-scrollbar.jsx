@@ -9,6 +9,7 @@ import "swiper/css/free-mode"
 import Image from "next/image"
 import SectionHeading from "../general/SectionHeading"
 import GlobalArrowButton from "../general/global-arrow_button"
+import FlipbookTrigger from "../general/FlipbookTrigger"
 
 const defaultAwards = [
   {
@@ -254,17 +255,19 @@ export default function AwardsScrollbar({
 
 
                         {award.link ? (
-                          <a
-                            href={award.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`mt-2 rounded-md px-5 py-3 text-xs sm:text-sm font-stix cursor-pointer transition-opacity hover:bg-[var(--lite-sand)] ${award.active
-                              ? "bg-[var(--button-red)] text-white hover:text-[var(--red)] shadow-md"
-                              : "bg-[#e6e6e6] text-[var(--red )]"
-                              }`}
-                          >
-                            {award.year}
-                          </a>
+                          <FlipbookTrigger pdfUrl={award.link} title={`Award ${award.year}`}>
+                            <a
+                              href={award.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`mt-2 rounded-md px-5 py-3 text-xs sm:text-sm font-stix cursor-pointer transition-opacity hover:bg-[var(--lite-sand)] ${award.active
+                                ? "bg-[var(--button-red)] text-white hover:text-[var(--red)] shadow-md"
+                                : "bg-[#e6e6e6] text-[var(--red )]"
+                                }`}
+                            >
+                              {award.year}
+                            </a>
+                          </FlipbookTrigger>
                         ) : (
                           <div
                             className={`mt-2 rounded-md px-5 py-3 text-xs sm:text-sm font-stix ${award.active
@@ -335,17 +338,19 @@ export default function AwardsScrollbar({
                         )}
 
                         {award.link ? (
-                          <a
-                            href={award.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`mt-2 rounded-md px-5 py-3 text-xs sm:text-sm font-stix cursor-pointer transition-opacity hover:bg-[var(--lite-sand)] ${award.active
-                              ? "bg-[var(--button-red)] text-white hover:text-[var(--red)] shadow-md"
-                              : "bg-[#e6e6e6] text-[var(--red)]"
-                              }`}
-                          >
-                            {award.year}
-                          </a>
+                          <FlipbookTrigger pdfUrl={award.link} title={`Award ${award.year}`}>
+                            <a
+                              href={award.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`mt-2 rounded-md px-5 py-3 text-xs sm:text-sm font-stix cursor-pointer transition-opacity hover:bg-[var(--lite-sand)] ${award.active
+                                ? "bg-[var(--button-red)] text-white hover:text-[var(--red)] shadow-md"
+                                : "bg-[#e6e6e6] text-[var(--red)]"
+                                }`}
+                            >
+                              {award.year}
+                            </a>
+                          </FlipbookTrigger>
                         ) : (
                           <div
                             className={`mt-2 rounded-md px-5 py-3 text-xs sm:text-sm font-stix ${award.active

@@ -14,10 +14,10 @@ import OrganogramOfKalinga from "../components/about/organogram_of_kalinga";
 // Breadcrumb configuration
 const breadcrumbData = {
   heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/student-gathered.webp",
-  pageTitle: "Admissions",
+  pageTitle: "Discover Programs",
   customBreadcrumbs: [
     { label: 'Home', href: '/' },
-    { label: 'Admissions', href: '/admissions' }
+    { label: 'Discover Programs', href: '/admissions' }
   ]
 };
 
@@ -209,44 +209,44 @@ export default function Admissions() {
       {
         id: 1,
         icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/check-icon.png",
-        title: "How to Apply",
-        description: "Learn about the step-by-step admission process and apply easily for your preferred program through our online portal.",
-        href: "/admissions#admission-steps"
+        title: "Value Added Courses",
+        description: "Kalinga University offers a range of short-term value-added certification courses conducted by industry experts.",
+        href: "/value-added-course"
       },
       {
         id: 2,
         icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/Value+addition.svg",
         title: "Value Addition",
         description: "Gain a competitive edge with our value-added courses, workshops, and certifications designed to enhance your professional and personal development.",
-        href: "/value-added-course"
+        href: "/value-addition"
       },
       {
         id: 3,
-        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/covid.svg",
+        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/hotel.svg",
         title: "Hostel",
         description: "Fully-furnished separate hostels for girls and boys with round-the-clock security, clean rooms, and mess facilities in a safe, comfortable environment.",
         href: "/hostel"
       },
       {
         id: 4,
-        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship.svg",
-        title: "Transports",
+        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/transport.svg",
+        title: "Transport",
         description: "Convenient, safe, and affordable transport service with 30+ buses and 4-wheelers covering pick-up and drop facilities across Raipur, up to 70 km each way.",
         href: "/transport-facility"
       },
       {
         id: 5,
-        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/elgbility.svg",
-        title: "Pay fees",
+        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/fees.svg",
+        title: "KU Fees",
         description: "Pay your fees securely online through our payment portal using debit/credit cards or online banking. View detailed fee structure and payment options.",
         href: "/ku-fees"
       },
       {
         id: 6,
-        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/admission+procedure.svg",
-        title: "Admission Procedure",
-        description: "Understand the complete admission process, document checklist, and important deadlines to ensure a smooth enrollment experience.",
-        href: "/admissions#admission-steps"
+        icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/about+us.svg",
+        title: "Why Kalinga",
+        description: "From building a solid academic foundation to experiencing a diverse campus life, Kalinga University offers the best of both worlds.",
+        href: "/about-us"
       },
     ],
   };
@@ -309,7 +309,7 @@ export default function Admissions() {
           </div>
         </section>
       }>
-        <OurPrograms programCardTitleClassName="uppercase !text-base md:!text-lg lg:!text-xl" />
+        <OurPrograms programCardTitleClassName=" !text-base md:!text-lg lg:!text-xl" />
       </Suspense>
       <OrganogramOfKalinga
         title={entranceExamContent.title}
@@ -359,6 +359,7 @@ export default function Admissions() {
         title={facilityContent.title}
         subtitle={facilityContent.subtitle}
         facilities={facilityContent.facilities}
+        className="!pt-4 pb-16"
       />
       <QuickLinks
         title={quickLinksContent.title}
@@ -368,6 +369,7 @@ export default function Admissions() {
       />
       <FAQ
         title={faqContent.title}
+        subtitle=""
         items={faqContent.items}
       />
       <AdmissionCareer />

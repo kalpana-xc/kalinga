@@ -459,7 +459,7 @@ export default function KIFPage({
         subtitle="About KIF"
         description="KIF was established in 2023, where students' bold and unique ideas are supported so that their entrepreneurial ambitions can be turned into ACTION. Recognised as a Host Institute under the Ministry of MSME, Government of India, and structured as a Section 8, not-for-profit company under the Ministry of Corporate Affairs (MCA), Government of India, its motive is to promote the spirit of research, innovation, and entrepreneurship among students and faculty members of our University."
         additionalContent={kifAdditionalContent}
-        certificateLink="https://drive.google.com/file/d/1Lz-kMpsQjxyPBScXs5mpQ3-RYEpF4g89/view?usp=drive_link"
+        certificateLink="https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/KIF+MCA_compressed.pdf"
         certificateLinkText="Ministry of Corporate Affairs Certificate"
         selectionCriteria={selectionCriteria}
       />

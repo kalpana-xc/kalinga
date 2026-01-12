@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import GlobalArrowButton from "../general/global-arrow_button";
 import SectionHeading from "../general/SectionHeading";
+import FlipbookTrigger from "../general/FlipbookTrigger";
+import { useFlipbook } from "../general/FlipbookContext";
 
-export default function DeptSyllabus({ 
+export default function DeptSyllabus({
   title,
   imageSrc,
   imageAlt = "Students collaborating",
@@ -23,9 +27,10 @@ export default function DeptSyllabus({
 }) {
   const defaultImageSrc = "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/bg-course.webp";
   const finalImageSrc = imageSrc || defaultImageSrc;
-  
+  const { openFlipbook } = useFlipbook();
+
   // Determine image height classes based on mobileImageHeight prop
-  const imageHeightClass = mobileImageHeight === 700 
+  const imageHeightClass = mobileImageHeight === 700
     ? `h-[700px] md:h-[600px] lg:h-[700px]`
     : "h-[400px] md:h-[600px] lg:h-[700px]";
 
@@ -41,10 +46,10 @@ export default function DeptSyllabus({
             height={500}
             className={`w-full ${imageHeightClass} object-cover rounded-2xl`}
           />
-          
+
           {/* Two Cards Overlaying the Image */}
           <div className="absolute bottom-0 left-0 right-0 px-4 md:px-6 lg:px-10 pb-4 md:pb-6">
-             {/* Title */}
+            {/* Title */}
             {title && (
               <div className="mb-8 md:mb-10 text-center">
                 <SectionHeading title={title} titleClassName="!text-white" />
@@ -64,29 +69,46 @@ export default function DeptSyllabus({
                   )}
                 </div>
                 <div className="w-full flex flex-row gap-2 md:gap-3 flex-wrap">
-                  {leftCardButtonLink ? (
-                    <Link href={leftCardButtonLink}>
-                      <GlobalArrowButton
-                        className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
-                        arrowClassName="!bg-[var(--button-red)]"
-                        arrowIconClassName="!text-white"
-                        textClassName="!font-bold"
-                      >
-                        {leftCardButtonText}
-                      </GlobalArrowButton>
-                    </Link>
-                  ) : (
-                    <GlobalArrowButton
-                      className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
-                      arrowClassName="!bg-[var(--button-red)]"
-                      arrowIconClassName="!text-white"
-                      textClassName="!font-bold"
-                    >
-                      {leftCardButtonText}
-                    </GlobalArrowButton>
+                  {leftCardButtonLink && (
+                    leftCardButtonLink.toLowerCase().endsWith('.pdf') ? (
+                      <FlipbookTrigger pdfUrl={leftCardButtonLink} title={leftCardButtonText}>
+                        <GlobalArrowButton
+                          className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
+                          arrowClassName="!bg-[var(--button-red)]"
+                          arrowIconClassName="!text-white"
+                          textClassName="!font-bold"
+                          onClick={() => openFlipbook(leftCardButtonLink, leftCardButtonText)}
+                        >
+                          {leftCardButtonText}
+                        </GlobalArrowButton>
+                      </FlipbookTrigger>
+                    ) : (
+                      <Link href={leftCardButtonLink}>
+                        <GlobalArrowButton
+                          className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
+                          arrowClassName="!bg-[var(--button-red)]"
+                          arrowIconClassName="!text-white"
+                          textClassName="!font-bold"
+                        >
+                          {leftCardButtonText}
+                        </GlobalArrowButton>
+                      </Link>
+                    )
                   )}
-                  {leftCardSecondButtonText && (
-                    leftCardSecondButtonLink ? (
+                  {leftCardSecondButtonLink && (
+                    leftCardSecondButtonLink.toLowerCase().endsWith('.pdf') ? (
+                      <FlipbookTrigger pdfUrl={leftCardSecondButtonLink} title={leftCardSecondButtonText}>
+                        <GlobalArrowButton
+                          className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
+                          arrowClassName="!bg-[var(--button-red)]"
+                          arrowIconClassName="!text-white"
+                          textClassName="!font-bold"
+                          onClick={() => openFlipbook(leftCardSecondButtonLink, leftCardSecondButtonText)}
+                        >
+                          {leftCardSecondButtonText}
+                        </GlobalArrowButton>
+                      </FlipbookTrigger>
+                    ) : (
                       <Link href={leftCardSecondButtonLink}>
                         <GlobalArrowButton
                           className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
@@ -97,15 +119,6 @@ export default function DeptSyllabus({
                           {leftCardSecondButtonText}
                         </GlobalArrowButton>
                       </Link>
-                    ) : (
-                      <GlobalArrowButton
-                        className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
-                        arrowClassName="!bg-[var(--button-red)]"
-                        arrowIconClassName="!text-white"
-                        textClassName="!font-bold"
-                      >
-                        {leftCardSecondButtonText}
-                      </GlobalArrowButton>
                     )
                   )}
                 </div>
@@ -124,29 +137,46 @@ export default function DeptSyllabus({
                   )}
                 </div>
                 <div className="w-full flex flex-row gap-2 md:gap-3 flex-wrap">
-                  {rightCardButtonLink ? (
-                    <Link href={rightCardButtonLink}>
-                      <GlobalArrowButton
-                        className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
-                        arrowClassName="!bg-[var(--dark-orange-red)]"
-                        arrowIconClassName="!text-white"
-                        textClassName="!font-bold"
-                      >
-                        {rightCardButtonText}
-                      </GlobalArrowButton>
-                    </Link>
-                  ) : (
-                    <GlobalArrowButton
-                      className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
-                      arrowClassName="!bg-[var(--dark-orange-red)]"
-                      arrowIconClassName="!text-white"
-                      textClassName="!font-bold"
-                    >
-                      {rightCardButtonText}
-                    </GlobalArrowButton>
+                  {rightCardButtonLink && (
+                    rightCardButtonLink.toLowerCase().endsWith('.pdf') ? (
+                      <FlipbookTrigger pdfUrl={rightCardButtonLink} title={rightCardButtonText}>
+                        <GlobalArrowButton
+                          className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
+                          arrowClassName="!bg-[var(--dark-orange-red)]"
+                          arrowIconClassName="!text-white"
+                          textClassName="!font-bold"
+                          onClick={() => openFlipbook(rightCardButtonLink, rightCardButtonText)}
+                        >
+                          {rightCardButtonText}
+                        </GlobalArrowButton>
+                      </FlipbookTrigger>
+                    ) : (
+                      <Link href={rightCardButtonLink}>
+                        <GlobalArrowButton
+                          className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
+                          arrowClassName="!bg-[var(--dark-orange-red)]"
+                          arrowIconClassName="!text-white"
+                          textClassName="!font-bold"
+                        >
+                          {rightCardButtonText}
+                        </GlobalArrowButton>
+                      </Link>
+                    )
                   )}
-                  {rightCardSecondButtonText && (
-                    rightCardSecondButtonLink ? (
+                  {rightCardSecondButtonLink && (
+                    rightCardSecondButtonLink.toLowerCase().endsWith('.pdf') ? (
+                      <FlipbookTrigger pdfUrl={rightCardSecondButtonLink} title={rightCardSecondButtonText}>
+                        <GlobalArrowButton
+                          className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
+                          arrowClassName="!bg-[var(--dark-orange-red)]"
+                          arrowIconClassName="!text-white"
+                          textClassName="!font-bold"
+                          onClick={() => openFlipbook(rightCardSecondButtonLink, rightCardSecondButtonText)}
+                        >
+                          {rightCardSecondButtonText}
+                        </GlobalArrowButton>
+                      </FlipbookTrigger>
+                    ) : (
                       <Link href={rightCardSecondButtonLink}>
                         <GlobalArrowButton
                           className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
@@ -157,15 +187,6 @@ export default function DeptSyllabus({
                           {rightCardSecondButtonText}
                         </GlobalArrowButton>
                       </Link>
-                    ) : (
-                      <GlobalArrowButton
-                        className="!bg-white !text-[#000] !w-auto !justify-start text-sm md:text-base !px-4 !py-3 md:!py-2"
-                        arrowClassName="!bg-[var(--dark-orange-red)]"
-                        arrowIconClassName="!text-white"
-                        textClassName="!font-bold"
-                      >
-                        {rightCardSecondButtonText}
-                      </GlobalArrowButton>
                     )
                   )}
                 </div>

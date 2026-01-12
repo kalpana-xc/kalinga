@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import SectionHeading from './SectionHeading'
 import DataTable from './data-table'
 import GlobalArrowButton from './global-arrow_button'
+import FlipbookTrigger from './FlipbookTrigger'
+import { useFlipbook } from './FlipbookContext'
 
 const defaultFAQItems = [
   {
@@ -335,16 +337,27 @@ const FAQ = ({
           }
 
           // Make the label clickable, hide the URL
+          const isPdf = match.text.toLowerCase().endsWith('.pdf');
           parts.push(
-            <a
-              key={`${match.type}-${match.index}`}
-              href={match.text}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800 underline"
-            >
-              {labelText}
-            </a>
+            isPdf ? (
+              <FlipbookTrigger key={`${match.type}-${match.index}`} pdfUrl={match.text} title={labelText}>
+                <a
+                  className="text-blue-600 hover:text-blue-800 underline cursor-pointer"
+                >
+                  {labelText}
+                </a>
+              </FlipbookTrigger>
+            ) : (
+              <a
+                key={`${match.type}-${match.index}`}
+                href={match.text}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
+                {labelText}
+              </a>
+            )
           )
 
           lastIndex = match.index + match.length
@@ -365,16 +378,31 @@ const FAQ = ({
             linkText = match.text
           }
 
+          const isPdf = match.type === 'url' && match.text.toLowerCase().endsWith('.pdf');
+
           parts.push(
-            <a
-              key={`${match.type}-${match.index}`}
-              href={href}
-              target={match.type === 'url' ? '_blank' : undefined}
-              rel={match.type === 'url' ? 'noopener noreferrer' : undefined}
-              className="text-blue-600 hover:text-blue-800 underline break-all"
-            >
-              {linkText}
-            </a>
+            isPdf ? (
+              <FlipbookTrigger key={`${match.type}-${match.index}`} pdfUrl={href} title={labelText || "Document"}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 underline break-all"
+                >
+                  {linkText}
+                </a>
+              </FlipbookTrigger>
+            ) : (
+              <a
+                key={`${match.type}-${match.index}`}
+                href={href}
+                target={match.type === 'url' ? '_blank' : undefined}
+                rel={match.type === 'url' ? 'noopener noreferrer' : undefined}
+                className="text-blue-600 hover:text-blue-800 underline break-all"
+              >
+                {linkText}
+              </a>
+            )
           )
 
           lastIndex = match.index + match.length
@@ -394,16 +422,31 @@ const FAQ = ({
           linkText = match.text
         }
 
+        const isPdf = match.type === 'url' && match.text.toLowerCase().endsWith('.pdf');
+
         parts.push(
-          <a
-            key={`${match.type}-${match.index}`}
-            href={href}
-            target={match.type === 'url' ? '_blank' : undefined}
-            rel={match.type === 'url' ? 'noopener noreferrer' : undefined}
-            className="text-blue-600 hover:text-blue-800 underline break-all"
-          >
-            {linkText}
-          </a>
+          isPdf ? (
+            <FlipbookTrigger key={`${match.type}-${match.index}`} pdfUrl={href} title="Document">
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 underline break-all"
+              >
+                {linkText}
+              </a>
+            </FlipbookTrigger>
+          ) : (
+            <a
+              key={`${match.type}-${match.index}`}
+              href={href}
+              target={match.type === 'url' ? '_blank' : undefined}
+              rel={match.type === 'url' ? 'noopener noreferrer' : undefined}
+              className="text-blue-600 hover:text-blue-800 underline break-all"
+            >
+              {linkText}
+            </a>
+          )
         )
 
         lastIndex = match.index + match.length
@@ -666,9 +709,9 @@ const FAQ = ({
                     }`}
                 >
                   <div className="bg-[var(--lite-sand)] p-6">
-                    <p className="text-gray-700 text-sm leading-relaxed font-plus-jakarta-sans mb-4">
+                    <div className="text-gray-700 text-sm leading-relaxed font-plus-jakarta-sans mb-4">
                       {item.description}
-                    </p>
+                    </div>
                     <div className="flex flex-wrap gap-3">
                       {item.buttons.map((btn, btnIdx) => (
                         <GlobalArrowButton

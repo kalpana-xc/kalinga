@@ -40,13 +40,13 @@ const formatDuration = (course) => {
   const duration = course.duration
   const durationNum = typeof duration === 'number' ? duration : parseInt(duration)
   let formattedDuration = "3 Year"
-  
+
   if (!isNaN(durationNum)) {
     formattedDuration = `${durationNum} Year${durationNum > 1 ? 's' : ''}`
   } else if (duration && typeof duration === 'string') {
     formattedDuration = duration
   }
-  
+
   return formattedDuration
 }
 
@@ -89,7 +89,7 @@ const Programs = () => {
             return []
           })
         ])
-        
+
         // Create a map of course ID to image URL
         // Handle multiple entries per course by keeping the first one
         const aboutMap = new Map()
@@ -98,7 +98,7 @@ const Programs = () => {
             if (item.course && item.image) {
               // Convert course ID to number for consistent matching
               const courseId = typeof item.course === 'number' ? item.course : parseInt(item.course)
-              // Only set if not already in map (keep first entry)
+
               if (!aboutMap.has(courseId) && item.image) {
                 aboutMap.set(courseId, item.image)
               }
@@ -106,17 +106,17 @@ const Programs = () => {
           })
         }
         setCourseAboutMap(aboutMap)
-        
+
         if (coursesResponse && coursesResponse.courses) {
-          const coursesData = Array.isArray(coursesResponse.courses) 
+          const coursesData = Array.isArray(coursesResponse.courses)
             ? coursesResponse.courses.map(course => ({
-                ...course,
-                departmentId: course.department?.id || course.departmentId,
-                departmentName: course.department?.name || course.departmentName || '',
-                departmentSlug: course.department?.slug || course.departmentSlug || '',
-              }))
+              ...course,
+              departmentId: course.department?.id || course.departmentId,
+              departmentName: course.department?.name || course.departmentName || '',
+              departmentSlug: course.department?.slug || course.departmentSlug || '',
+            }))
             : []
-          
+
           setAllCourses(coursesData)
         } else {
           setAllCourses([])
@@ -160,7 +160,7 @@ const Programs = () => {
   // Filter and format programs based on active tab and search query
   const visiblePrograms = useMemo(() => {
     if (loading) return []
-    
+
     let filtered = allCourses
 
     // Filter by study level (active tab)
@@ -187,16 +187,16 @@ const Programs = () => {
 
     // Format courses for renderProgramCard
     return filtered.map(course => {
-      const courseName = formatCourseName(course.name || "")
+      const courseName = course.name || ""
       const programType = course.program_type
       const mappedLevel = getStudyLevel(programType)
       const courseSlug = course.slug || course.name?.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "")
-      
+
       // Get image from course-about API, fallback to placeholder
       // Ensure course.id is treated as a number for consistent map lookup
       const courseId = typeof course.id === 'number' ? course.id : parseInt(course.id)
       const courseImage = courseAboutMap.get(courseId) || getPlaceholderImage(programType)
-      
+
       return {
         id: course.id,
         title: courseName,
@@ -216,12 +216,12 @@ const Programs = () => {
       <div className="container mx-auto px-2 md:pt-16">
         {/* Two column layout */}
         <div className="mb-4 sm:mb-5 lg:mb-6 text-center">
-              <SectionHeading
-                subtitle="Explore Our Programs"
-                title="Learn Without Limits. Grow Without Boundaries."
-              />
-              <p className="text-[var(--light-text-gray)] text-sm md:text-sm max-w-3xl mx-auto">Explore future-focused programs that combine academic excellence with hands-on industry exposure, preparing you for success in a connected, global world.</p>
-            </div>
+          <SectionHeading
+            subtitle="Explore Our Programs"
+            title="Learn Without Limits. Grow Without Boundaries."
+          />
+          <p className="text-[var(--light-text-gray)] text-sm md:text-sm max-w-3xl mx-auto">Explore future-focused programs that combine academic excellence with hands-on industry exposure, preparing you for success in a connected, global world.</p>
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 mb-6 sm:mb-8 lg:mb-10 items-center">
           {/* Left column: Text and Tabs */}
           <div className="flex flex-col justify-around">
@@ -315,7 +315,7 @@ const Programs = () => {
                 </div>
               </div>
               <div className="flex justify-center mt-6 sm:mt-8">
-                <GlobalArrowButton 
+                <GlobalArrowButton
                   className="!bg-white !text-black"
                   arrowClassName="!bg-[var(--button-red)]"
                   arrowIconClassName="!text-white"

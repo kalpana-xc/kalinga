@@ -36,7 +36,9 @@ function page() {
 `}</style>
 
       <AutoBreadcrumb data={breadcrumbData} />
-      <RaipurMainIntro />
+      <RaipurMainIntro 
+      knowMoreLabel=''
+      knowMoreHref=''/>
       <NewRaipur />
       <Objectives />
       <Highlights />

@@ -79,6 +79,7 @@ const EventDetailContent = ({
                 src={selectedImage.src}
                 alt={selectedImage.alt || 'Event Gallery'}
                 fill
+                sizes="100vw"
                 className="object-contain"
                 priority
               />
@@ -134,6 +135,7 @@ const EventDetailContent = ({
                           src={image.src}
                           alt={image.alt}
                           fill
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                           className="object-cover"
                         />
                       </div>
@@ -166,6 +168,7 @@ const EventDetailContent = ({
                       src={image.src}
                       alt={image.alt}
                       fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
                       className="object-cover"
                     />
                   </div>

@@ -80,7 +80,7 @@ const EntranceExamPage = () => {
           arrowSubmitVariant="white"
         />  
 
-        <FaqSection items={careerFAQs} showHeading={false} />
+        {/* <FaqSection items={careerFAQs} showHeading={false} /> */}
         <AdmissionCareer />
     </>
   )

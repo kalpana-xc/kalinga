@@ -4,6 +4,8 @@ import ResearchIntro from "@/app/components/research-resources/research_intro";
 import BoardOfStudiesTable from "@/app/components/general/board_of_studies_table";
 import AccreditationRanking from "@/app/components/home/AccreditationRanking";
 import AdmissionCareer from "../components/general/admission_cta";
+import APITable from "../components/general/api-table";
+import CtcdTrainingTabs from "../components/ctcd/ctcd_training_tabs";
 import { useEffect } from "react";
 
 const breadcrumbData = {
@@ -23,6 +25,33 @@ export default function ResearchPapersAndBooksPublished() {
       window.__breadcrumbData = breadcrumbData;
     }
   }, []);
+
+  // 7 tabs: IDs 35-41
+  // Mapping logic:
+  // 35 -> 2025-2026
+  // 36 -> 2024-2025
+  // ...
+  // 41 -> 2019-2020
+  const researchPaperTabs = Array.from({ length: 7 }, (_, i) => {
+    const id = 35 + i; // 35 to 41
+    const yearStart = 2025 - i; // 2025 to 2018
+    const yearEnd = yearStart + 1;
+    const label = `${yearStart}-${yearEnd}`;
+
+    return {
+      value: `year-${id}`,
+      label,
+      content: (
+        <APITable
+          tableId={id.toString()}
+          title={`Research Papers ${label}`}
+          className="py-16"
+          overflowX={true}
+        />
+      ),
+    };
+  });
+
   return (
     <>
       <MainIntro
@@ -33,28 +62,20 @@ export default function ResearchPapersAndBooksPublished() {
         showKnowMore={true}
 
       />
-
+      <AccreditationRanking />
       <BoardOfStudiesTable className="text-center"
         title="List of Books Published"
         description="Explore the published research works of our scholars, whose hard work in researching and putting their ideas together in one place can be seen in their impactful books."
         columns={[" ", " ", " "]}
         emptyRows={4}
       />
-
-      <BoardOfStudiesTable className="text-center"
-        title="List of Research Papers Published"
-        description="Explore the list of published papers that reflect their contribution to student research work and academic excellence. "
-        columns={[" ", " ", " "]}
-        emptyRows={4}
-      />
-
       <BoardOfStudiesTable className="text-center"
         title="Kalinga University Patents"
         columns={[" ", " ", " "]}
         emptyRows={4}
       />
+      <CtcdTrainingTabs customTabs={researchPaperTabs} />
 
-      <AccreditationRanking />
       <AdmissionCareer />
     </>
   );

@@ -625,3 +625,96 @@ export async function fetchNewsEventSEO(slug) {
     return null; // Return null on error to allow fallback to default SEO
   }
 }
+
+/**
+ * Fetches tables from the API with optional filtering
+ * @param {Object} params - Query parameters (search, category, department, slug)
+ * @returns {Promise<Object>} Tables data with pagination
+ */
+export async function fetchTables(params = {}) {
+  try {
+    const searchParams = new URLSearchParams();
+    Object.entries(params).forEach(([key, value]) => {
+      if (value !== null && value !== undefined && value !== '') {
+        searchParams.append(key, value);
+      }
+    });
+
+    const queryString = searchParams.toString() ? `?${searchParams.toString()}` : '';
+    const url = getApiUrl(API_CONFIG.tables.list(queryString));
+
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      cache: 'no-store',
+    });
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching tables:', error);
+    throw error;
+  }
+}
+
+/**
+ * Fetches full table data including headers, rows, and column widths
+ * @param {string|number} idOrSlug - The table ID or slug
+ * @returns {Promise<Object>} Table data with headers, rows, and column_widths
+ */
+export async function fetchTableData(idOrSlug) {
+  try {
+    const url = getApiUrl(API_CONFIG.tables.detail(idOrSlug));
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      cache: 'no-store',
+    });
+
+    if (!response.ok) {
+      if (response.status === 404) return null;
+      throw new Error(`API error: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`Error fetching table data for ${idOrSlug}:`, error);
+    throw error;
+  }
+}
+
+/**
+ * Fetches all table categories
+ * @returns {Promise<Array>} Array of table category objects
+ */
+export async function fetchTableCategories() {
+  try {
+    const url = getApiUrl(API_CONFIG.tableCategories.list());
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      cache: 'no-store',
+    });
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return extractResults(data);
+  } catch (error) {
+    console.error('Error fetching table categories:', error);
+    throw error;
+  }
+}

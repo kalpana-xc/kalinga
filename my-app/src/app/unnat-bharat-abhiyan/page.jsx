@@ -10,6 +10,7 @@ import ImageListItem from "../components/ccrc/imagelistitem";
 import DataTable from "@/app/components/general/data-table";
 import ContactSection from '../components/cif/contact_section';
 import AdmissionSteps from "../components/admissions/admission-steps";
+import SectionHeading from "../components/general/SectionHeading";
 const ubaSteps = [
   {
     id: 1,
@@ -102,7 +103,7 @@ const ubaContact = [
     department: "Registrar, Kalinga University",
     email: "registrar@kalingauniversity.ac.in",
     phone: "+91-9303097043",
-    
+
   },
 ];
 
@@ -128,10 +129,10 @@ const SECTION_TITLE_CLASSNAME = "font-stix text-1xl md:text-[30px] text-[var(--f
 
 /* ---------------- Page ---------------- */
 export default function UnnatBharatAbhiyanPage() {
- 
+
 
   return (
-    
+
     <div className="bg-white">
 
       <ImageContent
@@ -151,7 +152,7 @@ export default function UnnatBharatAbhiyanPage() {
       />
 
       <VisionMission data={visionMissionData} showImg={false} />
-      
+
       <ImageListItem
         items={objectives}
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/kalinga-students-2.jpg"
@@ -167,96 +168,98 @@ export default function UnnatBharatAbhiyanPage() {
         subtitle=""
         showHeaderButton={false}
       />
-<div className="container mx-auto px-4 mt-16">
-  <div className="grid grid-cols-1  lg:grid-cols-12 items-center gap-8">
+      <div className="container mx-auto px-4 mt-16">
+        <div className="grid grid-cols-1  lg:grid-cols-12 items-center gap-8">
 
-    {/* IMAGE */}
-  <div className="lg:col-span-4 flex justify-center mb-2 lg:mb-25 lg:justify-start relative z-20 lg:translate-x-6">
+          {/* IMAGE */}
+          <div className="lg:col-span-4 flex justify-center mb-2 lg:mb-25 lg:justify-start relative z-20 lg:translate-x-6">
 
 
-      <div className="bg-[var(--lite-sand)] rounded-2xl  p-2 w-[280px] sm:w-[320px] md:w-full max-w-[380px]">
-        <img
-          src="https://kalinga-university.s3.ap-south-1.amazonaws.com/unnat-bharat-abhiyan/chart+(1).png"
-          alt="Dr. Sandeep Gandhi"
-          className="w-full h-[300px] md:h-[380px]   object-cover rounded-2xl"
-        />
-      </div>
-    </div>
-
-    {/* BLUE CARD */}
-   <div className="lg:col-span-8 relative mt-0 lg:mt-40 lg:left-[-40px] z-10">
-
-      <div className="bg-[var(--dark-blue)] rounded-xl p-6 sm:p-10 md:p-14 lg:pl-16">
-
-        {/* NAME */}
-        <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-stix mb-2">
-          Dr. Sandeep Gandhi
-        </h3>
-
-        {/* DESIGNATION */}
-        <p className="text-white/80 text-sm sm:text-base mb-6 leading-relaxed">
-          UBA Principal Investigator (Coordinator)<br />
-          Registrar, Kalinga University
-        </p>
-
-        {/* CONTACT */}
-        <div className="space-y-5 text-white/80">
-
-          {/* EMAIL */}
-          <div className="flex items-center gap-3 break-all">
-            <svg className="w-5 h-5 text-[var(--dark-orange-red)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-            </svg>
-            <a href="mailto:registrar@kalingauniversity.ac.in" className="underline">
-              registrar@kalingauniversity.ac.in
-            </a>
+            <div className="bg-[var(--lite-sand)] rounded-2xl  p-2 w-[280px] sm:w-[320px] md:w-full max-w-[380px]">
+              <img
+                src="https://kalinga-university.s3.ap-south-1.amazonaws.com/unnat-bharat-abhiyan/chart+(1).png"
+                alt="Dr. Sandeep Gandhi"
+                className="w-full h-[300px] md:h-[380px]   object-cover rounded-2xl"
+              />
+            </div>
           </div>
 
-          {/* PHONE */}
-          <div className="flex items-center gap-3">
-            <svg className="w-5 h-5 text-[var(--dark-orange-red)] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-            </svg>
-            <span>+91-9303097043</span>
+          {/* BLUE CARD */}
+          <div className="lg:col-span-8 relative mt-0 lg:mt-40 lg:left-[-40px] z-10">
+
+            <div className="bg-[var(--dark-blue)] rounded-xl p-6 sm:p-10 md:p-14 lg:pl-16">
+
+              {/* NAME */}
+              <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-stix mb-2">
+                Dr. Sandeep Gandhi
+              </h3>
+
+              {/* DESIGNATION */}
+              <p className="text-white/80 text-sm sm:text-base mb-6 leading-relaxed">
+                UBA Principal Investigator (Coordinator)<br />
+                Registrar, Kalinga University
+              </p>
+
+              {/* CONTACT */}
+              <div className="space-y-5 text-white/80">
+
+                {/* EMAIL */}
+                <div className="flex items-center gap-3 break-all">
+                  <svg className="w-5 h-5 text-[var(--dark-orange-red)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                  </svg>
+                  <a href="mailto:registrar@kalingauniversity.ac.in" className="underline">
+                    registrar@kalingauniversity.ac.in
+                  </a>
+                </div>
+
+                {/* PHONE */}
+                <div className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-[var(--dark-orange-red)] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>+91-9303097043</span>
+                </div>
+
+              </div>
+            </div>
           </div>
 
         </div>
       </div>
-    </div>
-
-  </div>
-</div>
 
 
 
 
-<div className="container mx-auto mt-16">
-  {/* Title */}
-  <h2 className="font-stix text-2xl md:text-[36px] text-center text-[var(--foreground)] mb-6">
-    UBA Committee
-  </h2>
+      <div className="container mx-auto mt-16">
+        {/* Title */}
+        <h2 className="font-stix text-2xl md:text-[36px] text-center text-[var(--foreground)] mb-6">
+          UBA Committee
+        </h2>
 
-  {/* Table Wrapper */}
-  <div className="overflow-x-auto">
-    <DataTable
-      columns={[
-        { key: "slNo", label: "S. No.", width: "w-24" },
-        { key: "name", label: "Name", width: "w-72" },
-        { key: "designation", label: "Designation", width: "w-80" },
-        { key: "role", label: "Role in UBA", width: "w-40" },
-      ]}
-      data={ubaTeamTable}
-      overflowX={true}
-      className="shadow-none"
-    />
-  </div>
-</div>
-
-
+        {/* Table Wrapper */}
+        <div className="overflow-x-auto">
+          <DataTable
+            columns={[
+              { key: "slNo", label: "S. No.", width: "w-24" },
+              { key: "name", label: "Name", width: "w-72" },
+              { key: "designation", label: "Designation", width: "w-80" },
+              { key: "role", label: "Role in UBA", width: "w-40" },
+            ]}
+            data={ubaTeamTable}
+            overflowX={true}
+            className="shadow-none"
+          />
+        </div>
+      </div>
 
 
+      <SectionHeading
+        title="Activities Organised by KU"
+        titleClassName="mt-20 text-center"
+      />
       {/* ================== UBA ACTIVITIES TABS ================== */}
 
 
@@ -282,266 +285,266 @@ export default function UnnatBharatAbhiyanPage() {
 
               {/* TAB 1 */}
               <TabsContent value="infra">
-              {/* ================= INFRASTRUCTURE DEVELOPMENT ================= */}
-<div className="space-y-6">
+                {/* ================= INFRASTRUCTURE DEVELOPMENT ================= */}
+                <div className="space-y-6">
 
- <h2 className={SECTION_TITLE_CLASSNAME}>
+                  <h2 className={SECTION_TITLE_CLASSNAME}>
 
-    Infrastructure (Basic Amenities) Development of Government Schools
-  </h2>
-<p className={CARD_TEXT_CLASSNAME}>
-
-
-    An infrastructure development program for Government schools in rural areas
-    of Naya Raipur was conducted by the National Service Scheme (NSS) unit and
-    Internal Quality Assurance Cell (IQAC) of Kalinga University from 22-08-2022 to
-    27-08-2022. This program aimed to provide basic amenities to Government schools
-    present in rural areas to develop their infrastructure. In total,
-    <strong> 6 faculty members</strong> and <strong>30 students</strong> participated
-    in the event.
-  </p>
-
-  <p className={CARD_TEXT_CLASSNAME}>
+                    Infrastructure (Basic Amenities) Development of Government Schools
+                  </h2>
+                  <p className={CARD_TEXT_CLASSNAME}>
 
 
-    During the program, a team from the NSS unit and the IQAC cell of Kalinga
-    University visited the following seven schools:
-  </p>
+                    An infrastructure development program for Government schools in rural areas
+                    of Naya Raipur was conducted by the National Service Scheme (NSS) unit and
+                    Internal Quality Assurance Cell (IQAC) of Kalinga University from 22-08-2022 to
+                    27-08-2022. This program aimed to provide basic amenities to Government schools
+                    present in rural areas to develop their infrastructure. In total,
+                    <strong> 6 faculty members</strong> and <strong>30 students</strong> participated
+                    in the event.
+                  </p>
 
-  <ul className="list-disc pl-6 space-y-2 text-[var(--foreground)]">
-    <li>Govt. Primary School, Kotni</li>
-    <li>Govt. Primary School, Palaud</li>
-    <li>Govt. Primary School, Kuhera</li>
-    <li>Govt. Primary School, Parsada</li>
-    <li>Govt. Middle School, Kotni</li>
-    <li>Govt. Middle School, Tandul</li>
-    <li>Govt. Middle School, Kuhera</li>
-  </ul>
-
- <p className={CARD_TEXT_CLASSNAME}>
+                  <p className={CARD_TEXT_CLASSNAME}>
 
 
-    Initially, a survey was carried out to fetch the requirements of the Government
-    schools, and based on this, various amenities like Green Board, Carpet,
-    Dustbin, Almira, Book Rack, wheel chair, etc., were distributed to the above
-    Government schools of Naya Raipur. This initiative brought a smile to the
-    faces of the students and teachers of the schools. Finally, the Head
-    Master/Mistress appreciated this initiative of Kalinga University by
-    providing an appreciation certificate.
-  </p>
+                    During the program, a team from the NSS unit and the IQAC cell of Kalinga
+                    University visited the following seven schools:
+                  </p>
 
-</div>
+                  <ul className="list-disc pl-6 space-y-2 text-[var(--foreground)]">
+                    <li>Govt. Primary School, Kotni</li>
+                    <li>Govt. Primary School, Palaud</li>
+                    <li>Govt. Primary School, Kuhera</li>
+                    <li>Govt. Primary School, Parsada</li>
+                    <li>Govt. Middle School, Kotni</li>
+                    <li>Govt. Middle School, Tandul</li>
+                    <li>Govt. Middle School, Kuhera</li>
+                  </ul>
+
+                  <p className={CARD_TEXT_CLASSNAME}>
+
+
+                    Initially, a survey was carried out to fetch the requirements of the Government
+                    schools, and based on this, various amenities like Green Board, Carpet,
+                    Dustbin, Almira, Book Rack, wheel chair, etc., were distributed to the above
+                    Government schools of Naya Raipur. This initiative brought a smile to the
+                    faces of the students and teachers of the schools. Finally, the Head
+                    Master/Mistress appreciated this initiative of Kalinga University by
+                    providing an appreciation certificate.
+                  </p>
+
+                </div>
 
               </TabsContent>
 
               {/* TAB 2 */}
               <TabsContent value="survey">
-           {/* ================= VILLAGE / HOUSEHOLD SURVEY ================= */}
-<div className="space-y-6">
+                {/* ================= VILLAGE / HOUSEHOLD SURVEY ================= */}
+                <div className="space-y-6">
 
- <h2 className={SECTION_TITLE_CLASSNAME}>
+                  <h2 className={SECTION_TITLE_CLASSNAME}>
 
-    Village / Household Surveys in the Kalinga University UBA Adopted Villages
-  </h2>
-
-
-  {/* ===== TABLE ===== */}
-  <div className="overflow-x-auto rounded-xl border border-gray-300">
-
-    <table className="w-full border-collapse text-left">
-
-      <thead className="bg-[var(--dark-blue)] text-white">
-        <tr>
-          <th className="border border-gray-300 px-4 py-3">S. No.</th>
-          <th className="border border-gray-300 px-4 py-3">Date of Visit</th>
-          <th className="border border-gray-300 px-4 py-3">Village Name</th>
-          <th className="border border-gray-300 px-4 py-3 text-center">Houses Surveyed</th>
-        </tr>
-      </thead>
-
-     <tbody className="bg-white">
+                    Village / Household Surveys in the Kalinga University UBA Adopted Villages
+                  </h2>
 
 
-        <tr>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">1</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">03-11-2022</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Palaud</td>
-          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">52</td>
-        </tr>
+                  {/* ===== TABLE ===== */}
+                  <div className="overflow-x-auto rounded-xl border border-gray-300">
 
-        <tr>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">2</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">04-11-2022</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Kotni</td>
-          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">52</td>
-        </tr>
+                    <table className="w-full border-collapse text-left">
 
-        <tr>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">3</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">05-11-2022</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Tandul</td>
-          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">52</td>
-        </tr>
+                      <thead className="bg-[var(--dark-blue)] text-white">
+                        <tr>
+                          <th className="border border-gray-300 px-4 py-3">S. No.</th>
+                          <th className="border border-gray-300 px-4 py-3">Date of Visit</th>
+                          <th className="border border-gray-300 px-4 py-3">Village Name</th>
+                          <th className="border border-gray-300 px-4 py-3 text-center">Houses Surveyed</th>
+                        </tr>
+                      </thead>
 
-        <tr>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">4</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">07-11-2022</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Kuhera</td>
-          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">49</td>
-        </tr>
-
-        <tr>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">5</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">08-11-2022</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Parsada</td>
-          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">60</td>
-        </tr>
-
-        <tr>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">6</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">09-11-2022</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Kotara Bhata</td>
-          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">54</td>
-        </tr>
-
-        {/* TOTAL */}
-        <tr className="font-semibold bg-gray-50">
-          <td colSpan="3" className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)] ">
-            Total Number of Houses Surveyed
-          </td>
-          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">319</td>
-        </tr>
-
-      </tbody>
-    </table>
-  </div>
-
-  {/* ===== BELOW TABLE CONTENT ===== */}
-<p className={CARD_TEXT_CLASSNAME}>
+                      <tbody className="bg-white">
 
 
-    Under the UBA scheme, Kalinga University, Raipur, has adopted six villages, and
-    in these villages, separate teams were assigned to collect data from every
-    house in that area. A meeting was conducted with the village Sarpanch, and
-    basic information related to the village, like village infrastructure,
-    amenities/services availability, details of the land, forest, and horticulture
-    field in the village, was collected.
-  </p>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">1</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">03-11-2022</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Palaud</td>
+                          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">52</td>
+                        </tr>
 
-  <p className={CARD_TEXT_CLASSNAME}>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">2</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">04-11-2022</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Kotni</td>
+                          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">52</td>
+                        </tr>
+
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">3</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">05-11-2022</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Tandul</td>
+                          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">52</td>
+                        </tr>
+
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">4</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">07-11-2022</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Kuhera</td>
+                          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">49</td>
+                        </tr>
+
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">5</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">08-11-2022</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Parsada</td>
+                          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">60</td>
+                        </tr>
+
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">6</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">09-11-2022</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Kotara Bhata</td>
+                          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">54</td>
+                        </tr>
+
+                        {/* TOTAL */}
+                        <tr className="font-semibold bg-gray-50">
+                          <td colSpan="3" className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)] ">
+                            Total Number of Houses Surveyed
+                          </td>
+                          <td className="border border-gray-300 px-4 py-3 text-center text-[var(--foreground)]">319</td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* ===== BELOW TABLE CONTENT ===== */}
+                  <p className={CARD_TEXT_CLASSNAME}>
 
 
-    Along with this, the requirements of the common electrical appliances for the
-    village were also discussed. The household survey started from
-    <strong> 3rd November 2022</strong> and was completed on
-    <strong> 9th November 2022</strong>.
-  </p>
+                    Under the UBA scheme, Kalinga University, Raipur, has adopted six villages, and
+                    in these villages, separate teams were assigned to collect data from every
+                    house in that area. A meeting was conducted with the village Sarpanch, and
+                    basic information related to the village, like village infrastructure,
+                    amenities/services availability, details of the land, forest, and horticulture
+                    field in the village, was collected.
+                  </p>
 
-</div>
+                  <p className={CARD_TEXT_CLASSNAME}>
+
+
+                    Along with this, the requirements of the common electrical appliances for the
+                    village were also discussed. The household survey started from
+                    <strong> 3<sup>rd</sup> November 2022</strong> and was completed on
+                    <strong> 9<sup>th</sup> November 2022</strong>.
+                  </p>
+
+                </div>
 
               </TabsContent>
 
               {/* TAB 3 */}
               <TabsContent value="garbage">
-               {/* ================= SMART GARBAGE MONITORING ================= */}
-<div className="space-y-6">
+                {/* ================= SMART GARBAGE MONITORING ================= */}
+                <div className="space-y-6">
 
- <h2 className={SECTION_TITLE_CLASSNAME}>
+                  <h2 className={SECTION_TITLE_CLASSNAME}>
 
-    Smart Garbage Monitoring System in Government Schools
-  </h2>
-
- 
-
-  {/* ===== TABLE ===== */}
-<div className="overflow-x-auto rounded-xl border border-gray-300">
-
-    <table className="w-full border-collapse text-left">
-
-      <thead className="bg-[var(--dark-blue)] text-white">
-        <tr>
-          <th className="border border-gray-300 px-4 py-3">S. No.</th>
-          <th className="border border-gray-300 px-4 py-3">Date of Visit</th>
-          <th className="border border-gray-300 px-4 py-3">Village / School Name</th>
-          <th className="border border-gray-300 px-4 py-3 text-center">No. of Students Attended</th>
-        </tr>
-      </thead>
-
-    <tbody className="bg-white">
-
-        <tr>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">1</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">03-10-2023</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Government Middle School, Kuhera</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)] text-center">53</td>
-        </tr>
-
-        <tr>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">2</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">04-10-2023</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Government Middle School, Tandul</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)] text-center">57</td>
-        </tr>
-
-        <tr>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">3</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">05-10-2023</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Government Middle School, Palaud</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]  text-center">64</td>
-        </tr>
-
-        <tr>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">4</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">06-10-2023</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Mahatma Vidya Pith School, Palaud</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)] text-center">42</td>
-        </tr>
-
-        <tr>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">5</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">07-10-2023</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Government Middle School, Kotara Bhata</td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)] text-center">52</td>
-        </tr>
-
-        {/* TOTAL ROW */}
-        <tr className="font-semibold bg-gray-50">
-          <td colSpan="3" className="border border-gray-300 px-4 py-3 text-[var(--foreground)] text-center">
-            Total Number of Students Attended
-          </td>
-          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)] text-center">268</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  {/* ===== BELOW TABLE CONTENT ===== */}
-<p className={CARD_TEXT_CLASSNAME}>
+                    Smart Garbage Monitoring System in Government Schools
+                  </h2>
 
 
-    Government schools often struggle with maintaining a clean and hygienic
-    environment. Improper garbage disposal can lead to unclean surroundings,
-    attracting pests and causing health issues for students and staff members.
-    Implementing a smart garbage monitoring system in government schools can have
-    several benefits and impacts, leading to improved hygiene, sustainability,
-    and cost-efficiency. With real-time monitoring and alerts, the system can
-    ensure that garbage bins are emptied promptly, reducing the risk of litter
-    and unhygienic conditions.
-  </p>
 
-<p className={CARD_TEXT_CLASSNAME}>
+                  {/* ===== TABLE ===== */}
+                  <div className="overflow-x-auto rounded-xl border border-gray-300">
+
+                    <table className="w-full border-collapse text-left">
+
+                      <thead className="bg-[var(--dark-blue)] text-white">
+                        <tr>
+                          <th className="border border-gray-300 px-4 py-3">S. No.</th>
+                          <th className="border border-gray-300 px-4 py-3">Date of Visit</th>
+                          <th className="border border-gray-300 px-4 py-3">Village / School Name</th>
+                          <th className="border border-gray-300 px-4 py-3 text-center">No. of Students Attended</th>
+                        </tr>
+                      </thead>
+
+                      <tbody className="bg-white">
+
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">1</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">03-10-2023</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Government Middle School, Kuhera</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)] text-center">53</td>
+                        </tr>
+
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">2</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">04-10-2023</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Government Middle School, Tandul</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)] text-center">57</td>
+                        </tr>
+
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">3</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">05-10-2023</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Government Middle School, Palaud</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]  text-center">64</td>
+                        </tr>
+
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">4</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">06-10-2023</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Mahatma Vidya Pith School, Palaud</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)] text-center">42</td>
+                        </tr>
+
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">5</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">07-10-2023</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)]">Government Middle School, Kotara Bhata</td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)] text-center">52</td>
+                        </tr>
+
+                        {/* TOTAL ROW */}
+                        <tr className="font-semibold bg-gray-50">
+                          <td colSpan="3" className="border border-gray-300 px-4 py-3 text-[var(--foreground)] text-center">
+                            Total Number of Students Attended
+                          </td>
+                          <td className="border border-gray-300 px-4 py-3 text-[var(--foreground)] text-center">268</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* ===== BELOW TABLE CONTENT ===== */}
+                  <p className={CARD_TEXT_CLASSNAME}>
 
 
-    Keeping this into consideration, a proposal was submitted to the IEEE Signal
-    Processing Society (SPS) and the IEEE Humanitarian Activities Committee (HAC).
-    In response to this, IEEE Kalinga University Student Branch (IEEE KU SB)
-    received a sanctioned amount of <strong>USD 1,000.00</strong> for the project
-    named “Smart Garbage Monitoring System” with project code and grant reference
-    number: <strong>22-SPSHAC-07</strong>. The visit was scheduled from
-    <strong> 3rd October 2023 to 7th October 2023</strong>.
-  </p>
+                    Government schools often struggle with maintaining a clean and hygienic
+                    environment. Improper garbage disposal can lead to unclean surroundings,
+                    attracting pests and causing health issues for students and staff members.
+                    Implementing a smart garbage monitoring system in government schools can have
+                    several benefits and impacts, leading to improved hygiene, sustainability,
+                    and cost-efficiency. With real-time monitoring and alerts, the system can
+                    ensure that garbage bins are emptied promptly, reducing the risk of litter
+                    and unhygienic conditions.
+                  </p>
 
-</div>
+                  <p className={CARD_TEXT_CLASSNAME}>
+
+
+                    Keeping this into consideration, a proposal was submitted to the IEEE Signal
+                    Processing Society (SPS) and the IEEE Humanitarian Activities Committee (HAC).
+                    In response to this, IEEE Kalinga University Student Branch (IEEE KU SB)
+                    received a sanctioned amount of <strong>USD 1,000.00</strong> for the project
+                    named “Smart Garbage Monitoring System” with project code and grant reference
+                    number: <strong>22-SPSHAC-07</strong>. The visit was scheduled from
+                    <strong> 3<sup>rd</sup> October 2023 to 7<sup>th</sup> October 2023</strong>.
+                  </p>
+
+                </div>
 
               </TabsContent>
 

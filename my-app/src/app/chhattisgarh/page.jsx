@@ -2,6 +2,9 @@
 
 import React from "react";
 import FeatureCards from "@/app/components/home/featurecard";
+import RaipurMainIntro from '@/app/components/about-raipur/raipur_main_intro'
+import SectionHeading from "../components/general/SectionHeading";
+
 
 const cards = [
   {
@@ -163,32 +166,22 @@ const breadcrumbData = {
   ],
 };
 
-// Register breadcrumb data globally
-if (typeof window !== "undefined") {
-  window.__breadcrumbData = breadcrumbData;
-}
-
-export default function Chhattisgarh() {
-  return (
-    <div>
-      <FeatureCards
-        title="Popular Tourist Attractions"
-        subtitle="Discover Chhattisgarh"
-        description="Located in the heart of India and also known as the ‘Rice Bowl of India’, Chhattisgarh is known for its popular temples, waterfalls, and historical sites. It has become a hub for students, researchers, travellers, and entrepreneurs due to growing opportunities in education, sustainable development, innovation, and exploration. It is famous for its Dhokra (bell metal) art, terracotta sculptures, and bamboo crafts that are admired globally for their detailing and precision. Chhattisgarh offers an inspiring learning environment and lifestyle. "
-        cards={cards.map((card) => ({
-          ...card,
-          body: card.body.startsWith("Places To Visit") ? (
-            <span>
-              <b>Places To Visit</b>
-              {card.body.substring("Places To Visit".length)}
-            </span>
-          ) : (
-            card.body
-          ),
-        }))}
-        cardMinHeight="180px"
-        cardLineClamp={3}
-      />
-    </div>
-  );
-}
+  export default function Chhattisgarh() {
+    return (
+      <div>
+         <RaipurMainIntro 
+           knowMoreLabel="Know More"
+           knowMoreHref="/about-raipur"
+         />
+        <FeatureCards
+          title="A Land Rich in Culture, Heritage & Diversity"
+          subtitle="Discover Chhattisgarh"
+          description="Located in the heart of India and also known as the ‘Rice Bowl of India’, Chhattisgarh is known for its popular temples, waterfalls, and historical sites. It has become a hub for students, researchers, travellers, and entrepreneurs due to growing opportunities in education, sustainable development, innovation, and exploration. It is famous for its Dhokra (bell metal) art, terracotta sculptures, and bamboo crafts that are admired globally for their detailing and precision. Chhattisgarh offers an inspiring learning environment and lifestyle. "
+          cards={cards}
+          cardMinHeight="180px"
+          cardLineClamp={3}
+          imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/Map-chat.webp"
+        />
+      </div>
+    );
+  }

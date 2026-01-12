@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import GetInTouch from "@/app/components/contact_us/get_in_touch";
+import ContactForm from "@/app/components/forms/ContactForm";
 import AdmissionCareer from "@/app/components/general/admission_cta";
 import FollowUs from "@/app/components/contact_us/follow_us";
 import Map from "@/app/components/contact_us/map_section";
@@ -24,7 +24,7 @@ const ContactUs = () => {
   }, []);
   return (
     <>
-      <GetInTouch />
+      <ContactForm />
       <FollowUs />
       <Map />
       <AdmissionCareer />

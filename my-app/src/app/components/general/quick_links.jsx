@@ -114,7 +114,7 @@ const QuickLinks = ({
                       cardBackgroundColor={cardBackgroundColor}
                       showReadMore={showReadMore}
                       showDescriptionReadMore={showDescriptionReadMore}
-                      href={link.href}
+                      href={link.href || link.link}
                     />
                   </div>
                 </SwiperSlide>
@@ -172,7 +172,7 @@ const QuickLinks = ({
                 cardBackgroundColor={cardBackgroundColor}
                 showReadMore={showReadMore}
                 showDescriptionReadMore={showDescriptionReadMore}
-                href={link.href}
+                href={link.href || link.link}
               />
             ))}
           </div>

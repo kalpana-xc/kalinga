@@ -8,6 +8,7 @@ import ImageListItem from "../components/ccrc/imagelistitem";
 import FAQ from "../components/general/faq";
 import SectionHeading from "../components/general/SectionHeading";
 import GlobalArrowButton from "../components/general/global-arrow_button";
+import FlipbookTrigger from "../components/general/FlipbookTrigger";
 import MasterClassTab from "../components/ctcd/master_class_tab";
 import Gallery from "@/app/components/general/gallery";
 
@@ -111,47 +112,47 @@ const certificates = [
 // ================= MASTERCLASS DATA =================
 
 // 2024–25 Masterclasses
-const masterclassActivities = [
-  {
-    id: 1,
-    imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/1+(1).png",
-    imageAlt: "Grow As a Leader",
+// const masterclassActivities = [
+//   {
+//     id: 1,
+//     imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/1+(1).png",
+//     imageAlt: "Grow As a Leader",
 
-  },
-  {
-    id: 2,
-    imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/2+(1).png",
-    imageAlt: "CSR Fund Raising",
-  },
-  {
-    id: 3,
-    imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/3+(1).png",
-    imageAlt: "Gen Z",
+//   },
+//   {
+//     id: 2,
+//     imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/2+(1).png",
+//     imageAlt: "CSR Fund Raising",
+//   },
+//   {
+//     id: 3,
+//     imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/3+(1).png",
+//     imageAlt: "Gen Z",
 
-  },
-];
+//   },
+// ];
 
 // 2025–26 Masterclasses
-const masterclassActivities2 = [
-  {
-    id: 1,
-    imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/4.png",
-    imageAlt: "Six Sigma",
+// const masterclassActivities2 = [
+//   {
+//     id: 1,
+//     imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/4.png",
+//     imageAlt: "Six Sigma",
 
-  },
-  {
-    id: 2,
-    imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/5+(1).png",
-    imageAlt: "HR AI",
+//   },
+//   {
+//     id: 2,
+//     imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/5+(1).png",
+//     imageAlt: "HR AI",
 
-  },
-  {
-    id: 3,
-    imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/6.png",
-    imageAlt: "Green Industry",
+//   },
+//   {
+//     id: 3,
+//     imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/6.png",
+//     imageAlt: "Green Industry",
 
-  },
-];
+//   },
+// ];
 
 
 // ================= IIC TRAINING ACHIEVEMENTS =================
@@ -199,12 +200,13 @@ export default function InstitutionInnovationCouncil() {
 
       <ImageContent
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/research/research-main-content.webp"
-        description="In 2018, the Ministry of Education (MoE), through the MoE’s Innovation Cell (MIC), launched the Institution’s Innovation Council (IIC) in collaboration with AICTE for Higher Educational Institutions (HEIs) to promote the culture of innovation and start-up ecosystem in educational institutions. The main objective of IIC is to engage a large number of faculty members and students in various entrepreneurship and innovation-related activities. It includes IPR, Ideathon, Proof of Concept Development, Design Thinking, and project handling and management at the pre-incubation level. The IIC model enables HEIs to address key challenges such as limited people’s involvement, occasional or unplanned Innovation and Entrepreneurship (I&E) activities, limited engagement of top leaders, poor coordination, weak resource planning, and underutilization of students’ creative potential."
+        description="An Initiative of the Ministry of Education"
         additionalContent={[
-          ""
+          "In 2018, the Ministry of Education (MoE), through the MoE’s Innovation Cell (MIC), launched the Institution’s Innovation Council (IIC) in collaboration with AICTE for Higher Educational Institutions (HEIs) to promote the culture of innovation and start-up ecosystem in educational institutions. The main objective of IIC is to engage a large number of faculty members and students in various entrepreneurship and innovation-related activities. It includes IPR, Ideathon, Proof of Concept Development, Design Thinking, and project handling and management at the pre-incubation level. The IIC model enables HEIs to address key challenges such as limited people’s involvement, occasional or unplanned Innovation and Entrepreneurship (I&E) activities, limited engagement of top leaders, poor coordination, weak resource planning, and underutilization of students’ creative potential."
         ]}
-        subtitle={false}
+        subtitle=""
         title="Institution Innovation Council"
+        readmore={false}
 
       />
       {/* Innovation Section */}
@@ -259,7 +261,7 @@ export default function InstitutionInnovationCouncil() {
       </div>
 
       {/* ---------------- Kalinga Incubation Foundation ---------------- */}
-      <ImageContent
+      {/* <ImageContent
         title=" About Kalinga Incubation Foundation"
         subtitle={false}
         description="KIF was established in ----, where students' bold and unique ideas are supported so that their entrepreneurial ambitions can be turned into ACTION. Our motive is to promote the spirit of research, innovation, and entrepreneurship among students and faculty members of our university."
@@ -269,7 +271,7 @@ export default function InstitutionInnovationCouncil() {
         additionalContent={[
           "  Our dedicated incubation managers and support members will transform your raw ideas into real-world ventures. With expert guidance, research-related infrastructure, pitch trainings, workshops, guest lectures, industrial visits, and presentation trainings, Kalinga will guide you at every stage of your startup journey. "
         ]}
-      />
+      /> */}
 
 
       <SportsFacilitiesTabs />
@@ -318,27 +320,28 @@ export default function InstitutionInnovationCouncil() {
           {/* ✅ BUTTON GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {annualReportButtons.map((item) => (
-              <a
-                key={item.id}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <GlobalArrowButton
-                  className="!w-full h-[60px] justify-between"
-                  arrowClassName="p-[3px] !px-2 mr-2 !py-1"
-                  arrowSize={29}
+              <FlipbookTrigger key={item.id} pdfUrl={item.href} title={`Appreciation Letter ${item.text}`}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
                 >
-                  {item.text}
-                </GlobalArrowButton>
-              </a>
+                  <GlobalArrowButton
+                    className="!w-full h-[60px] justify-between"
+                    arrowClassName="p-[3px] !px-2 mr-2 !py-1"
+                    arrowSize={29}
+                  >
+                    {item.text}
+                  </GlobalArrowButton>
+                </a>
+              </FlipbookTrigger>
             ))}
           </div>
 
         </div>
       </section>
-      <MasterClassTab
+      {/* <MasterClassTab
         tab1Title="Foundation level"
         tab2Title="Advanced level"
 
@@ -346,7 +349,7 @@ export default function InstitutionInnovationCouncil() {
         tab2Activities={masterclassActivities2}
 
 
-      />
+      /> */}
       {/* ---------------- IIC Training Achievements ---------------- */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
@@ -386,21 +389,22 @@ Kalinga University hosted its first session of the Impact Lecture Series on 15th
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {annualReportButtons2.map((item) => (
-              <a
-                key={item.id}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <GlobalArrowButton
-                  className="!w-full h-[60px] justify-between"
-                  arrowClassName="p-[3px] !px-2 mr-2 !py-1"
-                  arrowSize={29}
+              <FlipbookTrigger key={item.id} pdfUrl={item.href} title={`IIC Annual Report ${item.text}`}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
                 >
-                  {item.text}
-                </GlobalArrowButton>
-              </a>
+                  <GlobalArrowButton
+                    className="!w-full h-[60px] justify-between"
+                    arrowClassName="p-[3px] !px-2 mr-2 !py-1"
+                    arrowSize={29}
+                  >
+                    {item.text}
+                  </GlobalArrowButton>
+                </a>
+              </FlipbookTrigger>
             ))}
           </div>
 
@@ -412,14 +416,24 @@ Kalinga University hosted its first session of the Impact Lecture Series on 15th
         title="Glimpse"
 
         images={[
-          { id: 1, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/DSC06210.jpg", alt: "International Students Introduction" },
-          { id: 2, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Vikshit+Bharat.jpg", alt: "Why Choose Kalinga University" },
-          { id: 3, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Q1.7.png", alt: "International Students Group" },
-          { id: 4, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Q1.6.png", alt: "Campus Safety and Security" },
-          { id: 5, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Machine+Learning+2.jpeg", alt: "International Students Banner" },
-          { id: 6, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/IIC+Meet.jpeg", alt: "International Students Banner" },
-          { id: 7, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Hackathon+2.jpeg", alt: "International Students Banner" },
-          { id: 8, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Hackathon+1.jpg", alt: "International Students Banner" },
+          { id: 1, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/DSC06210.jpg", alt: "Institution Innovation Council" },
+          { id: 2, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Vikshit+Bharat.jpg", alt: "Institution Innovation Council" },
+          { id: 3, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Q1.7.png", alt: "Institution Innovation Council" },
+          { id: 4, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Q1.6.png", alt: "Institution Innovation Council" },
+          { id: 5, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Machine+Learning+2.jpeg", alt: "Institution Innovation Council" },
+          { id: 6, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/IIC+Meet.jpeg", alt: "Institution Innovation Council" },
+          { id: 7, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Hackathon+2.jpeg", alt: "Institution Innovation Council" },
+          { id: 8, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/IIC/Hackathon+1.jpg", alt: "Institution Innovation Council" },
+          // { id: 9, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/institution-innovation-council/iic-1.jpg", alt: "Institution Innovation Council" },
+          // { id: 10, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/institution-innovation-council/iic-2.jpeg", alt: "Institution Innovation Council" },
+          // { id: 11, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/institution-innovation-council/iic-2.jpeg", alt: "Institution Innovation Council" },
+          // { id: 12, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/institution-innovation-council/iic-3.png", alt: "Institution Innovation Council" },
+          // { id: 13, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/institution-innovation-council/iic-4.jfif", alt: "Institution Innovation Council" },
+          // { id: 14, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/institution-innovation-council/iic-5.png", alt: "Institution Innovation Council" },
+          // { id: 15, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/institution-innovation-council/iic-5.jpg", alt: "Institution Innovation Council" },
+          // { id: 16, image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/institution-innovation-council/iic-6.jpg", alt: "Institution Innovation Council" },
+
+
         ]}
       />
     </div>
@@ -430,13 +444,15 @@ Kalinga University hosted its first session of the Impact Lecture Series on 15th
 function SportsFacilitiesTabs() {
   const tabs = useMemo(
     () => [
-      { id: "y2024", label: "2022–23 " },
-      { id: "y2023", label: "2023–24(QUATER 1)" },
-      { id: "y2022", label: "2023–24 (QUATER 2)" },
-      { id: "y2021", label: "2024–25 (QUATER 1)" },
-      { id: "y2020", label: "2024–25 (QUATER 2)" },
-      { id: "y2019", label: "2024–25 (QUATER 3)" },
       { id: "y2018", label: "2024–25 (QUATER 4)" },
+      { id: "y2019", label: "2024–25 (QUATER 3)" },
+      { id: "y2020", label: "2024–25 (QUATER 2)" },
+      { id: "y2021", label: "2024–25 (QUATER 1)" },
+      { id: "y2022", label: "2023–24 (QUATER 2)" },
+      { id: "y2023", label: "2023–24(QUATER 1)" },
+      { id: "y2024", label: "2022–23 " },
+
+
     ],
     []
   );
@@ -465,8 +481,7 @@ function SportsFacilitiesTabs() {
     if (tabId === "y2019")
       return <EventsTable title="Activities Performed During Quarter 3 of Calendar year 2024-25" data={events2019} />;
 
-    if (tabId === "y2018")
-      return <EventsTable title="Activities Performed During Quarter 4 of Calendar year 2024-25" data={events2018} />;
+
 
     return null;
   };

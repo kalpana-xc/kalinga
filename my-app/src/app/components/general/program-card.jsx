@@ -14,6 +14,7 @@ export default function ProgramCard({
   specializationPlaceholder = "Select Specialisation",
   href = "/admissions",
   applyNowLink = "https://admissions.kalingauniversity.ac.in/",
+  exploreLinkText = "Explore Program",
   titleClassName = ""
 }) {
   const [selectedSpecialization, setSelectedSpecialization] = useState("");
@@ -87,64 +88,70 @@ export default function ProgramCard({
           )}
 
           {/* Links Row - Hide if specialization dropdown is shown */}
+          {/* Links Row - Hide if specialization dropdown is shown */}
           {!showSpecializationDropdown && (
             <div className="flex items-center gap-3 md:gap-4 justify-start flex-wrap md:flex-nowrap mt-2 md:mt-0">
-              <a
-                href="/admissions"
-                onClick={(e) => {
-                  if (onScholarshipsClick) {
+              {!program.hideScholarshipLink && (
+                <a
+                  href="/admissions"
+                  onClick={(e) => {
+                    if (onScholarshipsClick) {
+                      e.preventDefault();
+                      onScholarshipsClick(program);
+                    }
+                  }}
+                  className="text-[var(--button-red)] text-xs md:text-sm font-medium hover:underline flex items-center gap-1 whitespace-nowrap !text-[11px] md:!text-[12px]"
+                >
+                  Scholarships
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="md:w-[14px] md:h-[14px]"
+                  >
+                    <path d="M7 17L17 7" />
+                    <path d="M7 7h10v10" />
+                  </svg>
+                </a>
+              )}
+              {!program.hideExploreLink && (
+                <a
+                  href="/admissions"
+                  onClick={(e) => {
                     e.preventDefault();
-                    onScholarshipsClick(program);
-                  }
-                }}
-                className="text-[var(--button-red)] text-xs md:text-sm font-medium hover:underline flex items-center gap-1 whitespace-nowrap !text-[11px] md:!text-[12px]"
-              >
-                Scholarships
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="md:w-[14px] md:h-[14px]"
+                    if (onExploreProgramClick) onExploreProgramClick(program);
+                  }}
+                  className="text-[var(--button-red)] text-xs md:text-sm font-medium hover:underline flex items-center gap-1 whitespace-nowrap !text-[11px] md:!text-[12px]"
                 >
-                  <path d="M7 17L17 7" />
-                  <path d="M7 7h10v10" />
-                </svg>
-              </a>
-              <a
-                href="/admissions"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (onExploreProgramClick) onExploreProgramClick(program);
-                }}
-                className="text-[var(--button-red)] text-xs md:text-sm font-medium hover:underline flex items-center gap-1 whitespace-nowrap !text-[11px] md:!text-[12px]"
-              >
-                Explore Program
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="md:w-[14px] md:h-[14px]"
-                >
-                  <path d="M7 17L17 7" />
-                  <path d="M7 7h10v10" />
-                </svg>
-              </a>
+                  {program.exploreLinkText || exploreLinkText}
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="md:w-[14px] md:h-[14px]"
+                  >
+                    <path d="M7 17L17 7" />
+                    <path d="M7 7h10v10" />
+                  </svg>
+                </a>
+              )}
             </div>
           )}
         </div>
 
         {/* Action Buttons */}
         <div className="flex flex-row gap-2 md:gap-3">
+
           {/* Check Eligibility Button - Dark Red with white arrow in white square */}
           <a href={href} onClick={(e) => {
             e.preventDefault();
@@ -155,28 +162,28 @@ export default function ProgramCard({
             }
             if (onCheckEligibility) onCheckEligibility(program);
           }}>
-          <GlobalArrowButton
-            className="!bg-[var(--dark-orange-red)] !text-[var(--background)] whitespace-nowrap text-xs md:text-sm lg:text-base !h-[38px] md:!h-[40px] !rounded-lg !px-1"
-            arrowClassName="!bg-[var(--background)] !px-1"
-            arrowIconClassName="!text-[var(--button-red)]"
-            textClassName="!text-[12px] md:!text-[14px] !px-2 md:!px-3"
-            onClick={(e) => {
-              e.preventDefault();
-              // Validate if specialization is required
-              if (showSpecializationDropdown && !selectedSpecialization) {
-                alert("Please select a specialization from the dropdown before checking eligibility.");
-                return;
-              }
-              if (onCheckEligibility) onCheckEligibility(program);
-            }}
+            <GlobalArrowButton
+              className="!bg-[var(--dark-orange-red)] !text-[var(--background)] whitespace-nowrap text-xs md:text-sm lg:text-base !h-[38px] md:!h-[40px] !rounded-lg !px-1"
+              arrowClassName="!bg-[var(--background)] !px-1"
+              arrowIconClassName="!text-[var(--button-red)]"
+              textClassName="!text-[12px] md:!text-[14px] !px-2 md:!px-3"
+              onClick={(e) => {
+                e.preventDefault();
+                // Validate if specialization is required
+                if (showSpecializationDropdown && !selectedSpecialization) {
+                  alert("Please select a specialization from the dropdown before checking eligibility.");
+                  return;
+                }
+                if (onCheckEligibility) onCheckEligibility(program);
+              }}
             >
               Check Eligibility
             </GlobalArrowButton>
           </a>
 
           {/* Apply Now Button - Dark Red with white arrow in white square */}
-          <a 
-            href={applyNowLink} 
+          <a
+            href={applyNowLink}
             {...(applyNowLink.startsWith('#') ? {} : { target: "_blank", rel: "noopener noreferrer" })}
             onClick={(e) => {
               if (applyNowLink.startsWith('#')) {
@@ -189,14 +196,14 @@ export default function ProgramCard({
               if (onApplyNow) onApplyNow(program);
             }}
           >
-          <GlobalArrowButton
-            className="!bg-[var(--button-red)] !text-[var(--background)] whitespace-nowrap !text-xs md:!text-sm lg:!text-base !h-[38px] md:!h-[40px] !rounded-lg !px-1"
-            arrowClassName="!bg-[var(--background)] !px-1 !text-white"
-            arrowIconClassName="!text-[var(--button-red)]"
-            textClassName="!text-[12px] md:!text-[14px] !px-2 md:!px-3"
-          >
-            Apply Now
-          </GlobalArrowButton>
+            <GlobalArrowButton
+              className="!bg-[var(--button-red)] !text-[var(--background)] whitespace-nowrap !text-xs md:!text-sm lg:!text-base !h-[38px] md:!h-[40px] !rounded-lg !px-1"
+              arrowClassName="!bg-[var(--background)] !px-1 !text-white"
+              arrowIconClassName="!text-[var(--button-red)]"
+              textClassName="!text-[12px] md:!text-[14px] !px-2 md:!px-3"
+            >
+              Apply Now
+            </GlobalArrowButton>
           </a>
         </div>
       </div>

@@ -6,6 +6,7 @@ import VisionMission from "../components/about/vision-mission";
 import ImageListItem from "../components/ccrc/imagelistitem";
 import DataTable from "@/app/components/general/data-table";
 import GlobalArrowButton from "../components/general/global-arrow_button";
+import FlipbookTrigger from "../components/general/FlipbookTrigger";
 import Gallery from "../components/campuslife/campusgallery";
 /* ---------------- BREADCRUMB CONFIG ---------------- */
 
@@ -59,13 +60,13 @@ const objectives = [
   },
 ];
 
- const annualReportButtons = [
+const annualReportButtons = [
   {
     id: 1,
     text: "Anti-Ragging UGC Policy",
     href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/anti-ragging-cell/Ugc_Anti_ragging_Regulations.pdf",
   },
-   {
+  {
     id: 2,
     text: "National Ragging Prevention Programme",
     href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/anti-ragging-cell/antiragging-information.pdf",
@@ -151,7 +152,7 @@ export default function Page() {
         items={objectives}
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/kalinga-students-2.jpg"
         title="Anti-Ragging Policy"
-        description="Students will be punished on the following grounds:"
+        description="As per the order of Supreme Court of India and subsequent Notification from University Grants Commission (UGC), ragging constitutes one or more of any intention by any student or group of students on:"
       />
 
       <SportsFacilitiesTabs />
@@ -195,12 +196,12 @@ export default function Page() {
 }
 
 
- function SportsFacilitiesTabs() {
+function SportsFacilitiesTabs() {
   const tabs = useMemo(
     () => [
       { id: "y2024", label: "Anti-Ragging Committee" },
       { id: "y2023", label: "Anti-Ragging Squad" },
-     
+
     ],
     []
   );
@@ -219,7 +220,7 @@ export default function Page() {
       return <EventsTable title="Anti-Ragging Squad (2023-24)
 " data={events2023} />;
 
-    
+
     return null;
   };
 
@@ -342,7 +343,7 @@ function EventsTable({ title, description, data }) {
       <h2 className="text-center mb-[20px]">
         {title}
       </h2>
-      
+
       {description && (
         <p className="text-center mb-[20px] text-gray-700 font-plus-jakarta-sans">
           {description}

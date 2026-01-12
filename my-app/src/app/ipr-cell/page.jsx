@@ -7,7 +7,9 @@ import DataTable from "@/app/components/general/data-table";
 import Link from "next/link";
 import GlobalArrowButton from "@/app/components/general/global-arrow_button";
 import AdmissionCareer from "@/app/components/general/admission_cta";
-
+import FlipbookTrigger from "@/app/components/general/FlipbookTrigger";
+import APITable from "../components/general/api-table";
+import CtcdTrainingTabs from "../components/ctcd/ctcd_training_tabs";
 const breadcrumbData = {
   heroImage:
     "https://kalinga-university.s3.ap-south-1.amazonaws.com/alumini/alumini.webp",
@@ -31,7 +33,7 @@ const MentorIntroProps = [
     subtitle: "A Message From the Dean",
     department: "Dean/HoD - IPR Cell",
     imageSrc:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/placeholder-img.png",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/ipr/ipr-sir.webp",
     imageAlt: "Dean - IPR Cell",
 
     quote:
@@ -91,6 +93,26 @@ export default function IPRCellPage() {
     position: m.position,
   }));
 
+  const yearlyTabs = Array.from({ length: 12 }, (_, i) => {
+    const id = 14 + i; // 14 to 25
+    const yearStart = 2024 - i; // 2024 to 2013
+    const yearEnd = yearStart + 1;
+    const label = `${yearStart}-${yearEnd}`;
+
+    return {
+      value: `year-${id}`,
+      label,
+      content: (
+        <APITable
+          tableId={id.toString()}
+          title={label}
+          className="py-16"
+          overflowX={true}
+        />
+      ),
+    };
+  });
+
   return (
     <main className="bg-white font-jakarta">
       <ImageContent
@@ -119,19 +141,22 @@ export default function IPRCellPage() {
       </section>
       <section className="pb-12">
         <div className="container mx-auto px-4 flex justify-center">
-          <Link
-            href="https://kalinga-university.s3.ap-south-1.amazonaws.com/ipr/KU_REF_CITATION.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GlobalArrowButton
-              variant="default"
+          <FlipbookTrigger pdfUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/ipr/KU_REF_CITATION.pdf" title="KU Ref. Citation">
+            <Link
+              href="https://kalinga-university.s3.ap-south-1.amazonaws.com/ipr/KU_REF_CITATION.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              KU Ref. Citation
-            </GlobalArrowButton>
-          </Link>
+              <GlobalArrowButton
+                variant="default"
+              >
+                KU Ref. Citation
+              </GlobalArrowButton>
+            </Link>
+          </FlipbookTrigger>
         </div>
       </section>
+      <CtcdTrainingTabs customTabs={yearlyTabs} />
       <AdmissionCareer />
     </main>
   );

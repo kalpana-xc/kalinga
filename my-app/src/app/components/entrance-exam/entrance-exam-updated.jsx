@@ -11,11 +11,11 @@ const EntranceExamUpdated = () => {
     {
       id: 'kalsee',
       title: 'KALSEE 2026-27',
-      subtitle: 'Kalinga Scholarship & Entrance Exam',
+      subtitle: 'Kalinga Scholastic Entrance Examination',
       features: [
         'UG / PG / PhD Programs',
         'CBT (Computer Based Test) Mode',
-        'Multiple Test Dates Available'
+        'Flexible Scheduling Options'
       ],
       buttonText: 'Apply For KALSEE',
       href: '/kalsee',
@@ -27,7 +27,7 @@ const EntranceExamUpdated = () => {
       subtitle: 'Kalinga Management Aptitude Test',
       features: [
         'BBA / MBA Programs',
-        'Online Mode Examination',
+        'CBT (Computer Based Test) Mode',
         'Flexible Scheduling Options'
       ],
       buttonText: 'Apply For KAL-MAT',

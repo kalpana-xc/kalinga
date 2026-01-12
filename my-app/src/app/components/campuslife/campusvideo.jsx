@@ -5,7 +5,7 @@ import GlobalArrowButton from "../general/global-arrow_button";
 import SectionHeading from "../general/SectionHeading";
 
 export default function CampusLife() {
-  const videoId = "diXWwdjlWCM?si=_h3Hnjqvly7MfsrN"; // put your YouTube video ID here
+  const videoId = "1awXKWYD6Zg?si=bF9ggHwPvCJkMpfT"; // put your YouTube video ID here
   const [play, setPlay] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -67,9 +67,8 @@ export default function CampusLife() {
             <SectionHeading title="Campus Life" titleClassName="text-white !text-2xl md:!text-[40px]" />
           </div>
           <div className="max-w-5xl mx-auto">
-            <p className={`text-white text-xs sm:text-sm md:text-base leading-relaxed ${
-              !isExpanded ? 'line-clamp-2 md:line-clamp-none' : ''
-            }`}>
+            <p className={`text-white text-xs sm:text-sm md:text-base leading-relaxed ${!isExpanded ? 'line-clamp-2 md:line-clamp-none' : ''
+              }`}>
               At Kalinga University, experience a campus life that's vibrant, inspiring, and feels like home. Here, every day is a new opportunity to learn, explore, and grow — both personally and professionally.
               From academic excellence and cultural festivals to sports, innovation hubs, and student clubs, the University offers an environment that encourages creativity, collaboration, and leadership. Our 50-acre green campus provides the perfect setting for students to discover their potential and create lifelong memories.
             </p>

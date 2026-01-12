@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import GlobalArrowButton from "../general/global-arrow_button";
 import SectionHeading from "../general/SectionHeading";
+import FlipbookTrigger from "../general/FlipbookTrigger";
 
 const defaultContent = {
   title: "Organogram of Kalinga University",
@@ -69,14 +70,9 @@ const OrganogramOfKalinga = ({
               {/* Buttons */}
               <div className="flex flex-wrap gap-3 md:gap-4 justify-start">
                 {buttons && buttons.length > 0 ? (
-                  buttons.map((btn) => (
-                    <a
-                      key={btn.id}
-                      href={btn.fileUrl || "#"}
-                      target={btn.fileUrl ? "_blank" : undefined}
-                      rel={btn.fileUrl ? "noopener noreferrer" : undefined}
-                      className="inline-flex"
-                    >
+                  buttons.map((btn) => {
+                    const isPdf = btn.fileUrl && btn.fileUrl.toLowerCase().endsWith(".pdf");
+                    const buttonEl = (
                       <GlobalArrowButton
                         className={buttonClassName}
                         arrowClassName={arrowClassName}
@@ -85,16 +81,45 @@ const OrganogramOfKalinga = ({
                       >
                         {btn.text}
                       </GlobalArrowButton>
-                    </a>
-                  ))
-                ) : (
-                  href ? (
+                    );
+
+                    return isPdf ? (
+                      <FlipbookTrigger key={btn.id} pdfUrl={btn.fileUrl} title={btn.text}>
+                        <a
+                          href={btn.fileUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex"
+                        >
+                          {buttonEl}
+                        </a>
+                      </FlipbookTrigger>
+                    ) : (
+                      <a
+                        key={btn.id}
+                        href={btn.fileUrl || "#"}
+                        target={btn.fileUrl ? "_blank" : undefined}
+                        rel={btn.fileUrl ? "noopener noreferrer" : undefined}
+                        className="inline-flex"
+                      >
+                        {buttonEl}
+                      </a>
+                    );
+                  })
+                ) : href ? (
+                  href.toLowerCase().endsWith(".pdf") ? (
+                    <FlipbookTrigger pdfUrl={href} title={buttonLabel}>
+                      <a href={href} className="inline-flex" target="_blank" rel="noopener noreferrer">
+                        {ButtonContent}
+                      </a>
+                    </FlipbookTrigger>
+                  ) : (
                     <a href={href} className="inline-flex" target="_blank" rel="noopener noreferrer">
                       {ButtonContent}
                     </a>
-                  ) : (
-                    ButtonContent
                   )
+                ) : (
+                  ButtonContent
                 )}
               </div>
             </div>

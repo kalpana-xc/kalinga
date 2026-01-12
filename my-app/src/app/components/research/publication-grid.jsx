@@ -13,11 +13,11 @@ export default function PublicationGrid({
       value: "3360 +",
       description: "Kalinga University has produced a strong body of research publications in reputed national and international journals, reflecting academic depth and innovation.",
     },
-    {
-      title: "Startups",
-      value: "6 +",
-      description: "Through a strong incubation ecosystem, the university has nurtured multiple startups that promote entrepreneurship, innovation, and industry impact.",
-    },
+    // {
+    //   title: "Startups",
+    //   value: "6 +",
+    //   description: "Through a strong incubation ecosystem, the university has nurtured multiple startups that promote entrepreneurship, innovation, and industry impact.",
+    // },
     {
       title: "Patents",
       value: "532 +",

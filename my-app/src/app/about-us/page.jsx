@@ -19,6 +19,8 @@ import Map from "../components/home/global_presence-new";
 import CoreValues from "../components/about/core_values";
 import QuickLinks from "../components/general/quick_links";
 import FAQ from "../components/general/faq";
+import AdmissionSteps from "../components/admissions/admission-steps";
+import VisionMissionUpdated from "../components/about/vision-mission-updated";
 // Breadcrumb configuration
 const breadcrumbData = {
   heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/about-banner.webp",
@@ -230,6 +232,97 @@ const aboutQuickLinks = [
   },
 ];
 
+const universityAchievements = [
+  {
+    id: 1,
+    stepNumber: "01",
+    title: "2018-19",
+    description: "Best Research and Innovation University",
+    backDescription: "Best Research and Innovation University - Global Leaders Award",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/step1.png",
+  },
+  {
+    id: 2,
+    stepNumber: "02",
+    title: "2018-19",
+    description: "Excellence Work in the Educational Sector",
+    backDescription: "Excellence Work in the Educational Sector - National Majesty Awards",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/step1.png",
+  },
+  {
+    id: 3,
+    stepNumber: "03",
+    title: "2018-19",
+    description: "Educational Inculcation Award",
+    backDescription: "Educational Inculcation Award - Prayag Foundation",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/step1.png",
+  },
+  {
+    id: 4,
+    stepNumber: "04",
+    title: "2019-20",
+    description: "Best Private University",
+    backDescription: "Best Private University - ASSOCHAM National Educational Awards 2020",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/step1.png",
+  },
+  {
+    id: 5,
+    stepNumber: "05",
+    title: "2019-20",
+    description: "Knowledge Partner",
+    backDescription: "Knowledge Partner - Chhattisgarh Youth Parliament - II",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/step1.png",
+  },
+  {
+    id: 6,
+    stepNumber: "06",
+    title: "2022-23",
+    description: "Best Universities Ranking",
+    backDescription: "Best Universities Ranking - All India Rank - 51 - India Today",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/step1.png",
+  },
+  {
+    id: 7,
+    stepNumber: "07",
+    title: "2022-23",
+    description: "National Institutional Ranking Framework (NIRF)",
+    backDescription: "National Institutional Ranking Framework (NIRF) - Rank Band: 101-150 - Ministry of Education (MoE)",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/step1.png",
+  },
+  {
+    id: 8,
+    stepNumber: "08",
+    title: "2022-23",
+    description: "Institution's Innovation Council (IIC)",
+    backDescription: "Institution's Innovation Council (IIC) - MoE, Innovation Cell",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/step1.png",
+  },
+  {
+    id: 9,
+    stepNumber: "09",
+    title: "2023-24",
+    description: "Recognition as Scientific and Industrial Research Organization (SIRO)",
+    backDescription: "Recognition as Scientific and Industrial Research Organization (SIRO) - Department of Scientific & Industrial Research (DSIR)",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/step1.png",
+  },
+  {
+    id: 10,
+    stepNumber: "10",
+    title: "2023-24",
+    description: "IEEE WIE KU SB Champion",
+    backDescription: "IEEE WIE KU SB selected as IEEE R10 WIE Champion as Mentor of IEEE WIE IIIT Naya Raipur - IEEE R10",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/step1.png",
+  },
+  {
+    id: 11,
+    stepNumber: "11",
+    title: "2023-24",
+    description: "Global University Rankings",
+    backDescription: "Global University Rankings - Top 250 Institutions in India - GU Rankings, London",
+    image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/step1.png",
+  },
+];
+
 export default function AboutUs() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -263,7 +356,8 @@ export default function AboutUs() {
         accreditations={aboutAccreditations}
       />
       <CoreValues />
-      <VisionMission />
+      {/* <VisionMission /> */}
+      <VisionMissionUpdated />
       <WhoWeAre />
       <Leadership />
       <AccreditationRanking
@@ -304,6 +398,17 @@ export default function AboutUs() {
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg"
         titleClassName="!text-left"
         subtitleClassName="!text-left"
+      />
+
+
+      <AdmissionSteps
+        steps={universityAchievements}
+        title="University Achievements"
+        subtitle=""
+        ctaLabel="Explore More"
+        ctaHref="/news-and-events"
+        showReadMore={true}
+        showIcon={false}
       />
       <Facility />
       {/* <GlobalPresence

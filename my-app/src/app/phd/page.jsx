@@ -7,9 +7,11 @@ import PhdObjectivesPanel from "../components/phd/phd-objectives";
 import FAQ from "../components/general/faq";
 import ScholarStats from "../components/phd/scholar_stats";
 import WhyChoosePhd from "../components/phd/why-phd";
+import { useFlipbook } from "../components/general/FlipbookContext";
 
 
 export default function PhdPage() {
+  const { openFlipbook } = useFlipbook();
   const breadcrumbData = {
     heroImage:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Phd-BannerImage.webp",
@@ -26,8 +28,8 @@ export default function PhdPage() {
       title: "Ph.D. Ordinance",
       description: "Download the complete ordinance documents governing the Ph.D. program.",
       buttons: [
-        { label: "Ordinance No. 48", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Ordinance+No.+48+(16.09.2013).pdf", "_blank") },
-        { label: "Revised Ordinance No. 48", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Amended+Ordinance+No.+48+(18.02.2022).pdf", "_blank") },
+        { label: "Ordinance No. 48", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Ordinance+No.+48+(16.09.2013).pdf", "Ordinance No. 48") },
+        { label: "Revised Ordinance No. 48", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Amended+Ordinance+No.+48+(18.02.2022).pdf", "Revised Ordinance No. 48") },
       ]
     },
     {
@@ -35,11 +37,11 @@ export default function PhdPage() {
       title: "Thesis Format",
       description: "Guidelines and templates for thesis submission.",
       buttons: [
-        { label: "Cover Page Format", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Kalinga+University-+Cover+Page+-Thesis.pdf", "_blank") },
-        { label: "Synopsis Format", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Kalinga+University+-Synopsis+Format+-Cover+Page+(1).pdf", "_blank") },
-        { label: "Summary Format", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Kalinga+University+-Summary+Format-+Cover+page.pdf", "_blank") },
-        { label: "Arrangement of Thesis Content", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/ARRANGEMENT+OF+THESIS+CONTENTS.pdf", "_blank") },
-        { label: "Thesis Chapterization", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Kalinga+University-+Thesis+Chapterization_Final.pdf", "_blank") },
+        { label: "Cover Page Format", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Kalinga+University-+Cover+Page+-Thesis.pdf", "Cover Page Format") },
+        { label: "Synopsis Format", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Kalinga+University+-Synopsis+Format+-Cover+Page+(1).pdf", "Synopsis Format") },
+        { label: "Summary Format", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Kalinga+University+-Summary+Format-+Cover+page.pdf", "Summary Format") },
+        { label: "Arrangement of Thesis Content", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/ARRANGEMENT+OF+THESIS+CONTENTS.pdf", "Arrangement of Thesis Content") },
+        { label: "Thesis Chapterization", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Kalinga+University-+Thesis+Chapterization_Final.pdf", "Thesis Chapterization") },
       ]
     },
     {
@@ -47,7 +49,7 @@ export default function PhdPage() {
       title: "Ph.D. Admission Policy",
       description: "Detailed policy document regarding Ph.D. admissions.",
       buttons: [
-        { label: "Ph.D. Admission Policy", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/2.+Admission+poilcy+(1).pdf", "_blank") },
+        { label: "Ph.D. Admission Policy", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/2.+Admission+poilcy+(1).pdf", "Ph.D. Admission Policy") },
       ]
     },
     {
@@ -55,7 +57,7 @@ export default function PhdPage() {
       title: "Detailed Syllabus of Research Methodology",
       description: "Course syllabus for Research Methodology coursework.",
       buttons: [
-        { label: "Detailed Syllabus", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Detailed+Syllabus.pdf", "_blank") },
+        { label: "Detailed Syllabus", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Detailed+Syllabus.pdf", "Detailed Syllabus") },
       ]
     },
     {
@@ -63,7 +65,7 @@ export default function PhdPage() {
       title: "Fellowship Scholarship Policy for Ph.D. Scholars",
       description: "Policy details for research fellowships and scholarships.",
       buttons: [
-        { label: "Fellowship Scholarship Policy", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/3.+Fellowship+Scholarship+Policy+for+Ph.D.+Scholars.pdf", "_blank") },
+        { label: "Fellowship Scholarship Policy", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/3.+Fellowship+Scholarship+Policy+for+Ph.D.+Scholars.pdf", "Fellowship Scholarship Policy") },
       ]
     },
     {
@@ -71,7 +73,7 @@ export default function PhdPage() {
       title: "Policy for the Grievance Redress Mechanism of Scholars",
       description: "Mechanism for addressing scholar grievances.",
       buttons: [
-        { label: "Grievance Redress Policy", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/6+POLICY+FOR+GRIEVANCE+REDRESS+MECHANISM+OF+SCHOLARS.pdf", "_blank") },
+        { label: "Grievance Redress Policy", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/6+POLICY+FOR+GRIEVANCE+REDRESS+MECHANISM+OF+SCHOLARS.pdf", "Grievance Redress Policy") },
       ]
     },
     {
@@ -79,7 +81,7 @@ export default function PhdPage() {
       title: "Ph.D. Process Improvement",
       description: "Best practices and process improvement guidelines.",
       buttons: [
-        { label: "Best Practices & Process Improvement", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Best+Practices+%26+Process+Improvement+(1).pdf", "_blank") },
+        { label: "Best Practices & Process Improvement", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Best+Practices+%26+Process+Improvement+(1).pdf", "Best Practices & Process Improvement") },
       ]
     },
     {
@@ -87,9 +89,9 @@ export default function PhdPage() {
       title: "UGC Regulations",
       description: "Relevant University Grants Commission regulations.",
       buttons: [
-        { label: "2022", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/UGC+Regulation+2022+(1).pdf", "_blank") },
-        { label: "2016", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/UGC+Regulations+2016+(1).pdf", "_blank") },
-        { label: "2018 (Plagiarism)", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/UGCNotification_Plagiarism_2018.pdf", "_blank") },
+        { label: "2022", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/UGC+Regulation+2022+(1).pdf", "UGC Regulation 2022") },
+        { label: "2016", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/UGC+Regulations+2016+(1).pdf", "UGC Regulation 2016") },
+        { label: "2018 (Plagiarism)", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/UGCNotification_Plagiarism_2018.pdf", "UGC Notification Plagiarism 2018") },
       ]
     },
     {
@@ -97,7 +99,7 @@ export default function PhdPage() {
       title: "Ph.D. Notification 2025-26",
       description: "Latest notifications for the upcoming academic year.",
       buttons: [
-        { label: "Ph.D. Notification 2025-26", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Ph.+D.+2025+Notification+26-07-2025.pdf", "_blank") },
+        { label: "Ph.D. Notification 2025-26", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Ph.+D.+2025+Notification+26-07-2025.pdf", "Ph.D. Notification 2025-26") },
       ]
     },
     {
@@ -113,7 +115,7 @@ export default function PhdPage() {
       title: "Undertaking",
       description: "Download the undertaking format.",
       buttons: [
-        { label: "Undertaking", onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Undertaking+(1).pdf", "_blank") },
+        { label: "Undertaking", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Undertaking+(1).pdf", "Undertaking") },
       ]
     },
   ];

@@ -9,7 +9,7 @@ import Link from "next/link";
 // Helper function to format course name (BSE, BTech format - uppercase first few letters, then lowercase)
 const formatCourseName = (name) => {
   if (!name) return "";
-  
+
   // Find the first space or special character
   const match = name.match(/^([A-Za-z]+)(.*)$/);
   if (match) {
@@ -32,20 +32,20 @@ const generateCourseSlug = (name) => {
 // Helper function to format duration (matches department page implementation)
 const formatDuration = (course) => {
   if (!course) return "3 Year";
-  
+
   // Check if duration exists in course object
   const duration = course.duration;
-  
+
   // Format duration - same logic as department page
   const durationNum = typeof duration === 'number' ? duration : parseInt(duration);
   let formattedDuration = "3 Year";
-  
+
   if (!isNaN(durationNum)) {
     formattedDuration = `${durationNum} Year${durationNum > 1 ? 's' : ''}`;
   } else if (duration && typeof duration === 'string') {
     formattedDuration = duration;
   }
-  
+
   return formattedDuration;
 };
 
@@ -71,11 +71,11 @@ export default function OurPrograms({
 }) {
   const searchParams = useSearchParams();
   const router = useRouter();
-  
+
   // Initialize state from URL query parameters, default to "UG" instead of "All"
   const initialStudyLevel = searchParams?.get('studyLevel') || "UG";
   const initialDepartment = searchParams?.get('department') || "All";
-  
+
   const [selectedStudyLevel, setSelectedStudyLevel] = useState(initialStudyLevel);
   const [selectedDepartment, setSelectedDepartment] = useState(initialDepartment);
   const [searchQuery, setSearchQuery] = useState("");
@@ -116,7 +116,7 @@ export default function OurPrograms({
       setLoading(false);
       return;
     }
-    
+
     const loadData = async () => {
       try {
         setLoading(true);
@@ -125,45 +125,45 @@ export default function OurPrograms({
         // Use the new all-departments-courses endpoint
         let departmentsData = [];
         let coursesData = [];
-        
+
         try {
           // Fetch all courses without program_type filter to get all departments and courses
           const response = await fetchAllDepartmentsCourses(null);
-          
+
           // Response format: { departments: [...], courses: [...] }
           if (response && response.departments && response.courses) {
             // Extract departments
-            departmentsData = Array.isArray(response.departments) 
+            departmentsData = Array.isArray(response.departments)
               ? response.departments.map(dept => ({
-                  id: dept.id,
-                  name: dept.name,
-                  slug: dept.slug
-                }))
+                id: dept.id,
+                name: dept.name,
+                slug: dept.slug
+              }))
               : [];
-            
+
             // Map courses to include department info
-            coursesData = Array.isArray(response.courses) 
+            coursesData = Array.isArray(response.courses)
               ? response.courses.map(course => {
-                  // Extract department info from nested department object
-                  const dept = course.department || {};
-                  
-                  return {
-                    ...course,
-                    departmentId: dept.id || course.departmentId,
-                    departmentName: dept.name || course.departmentName || '',
-                    departmentSlug: dept.slug || course.departmentSlug || '',
-                    // Use course URL from API (course.url contains full URL)
-                    courseUrl: course.url || `/courses/${course.slug}`,
-                    // Preserve program_type from API (ug, pg, phd, diploma)
-                    program_type: course.program_type
-                  };
-                })
+                // Extract department info from nested department object
+                const dept = course.department || {};
+
+                return {
+                  ...course,
+                  departmentId: dept.id || course.departmentId,
+                  departmentName: dept.name || course.departmentName || '',
+                  departmentSlug: dept.slug || course.departmentSlug || '',
+                  // Use course URL from API (course.url contains full URL)
+                  courseUrl: course.url || `/courses/${course.slug}`,
+                  // Preserve program_type from API (ug, pg, phd, diploma)
+                  program_type: course.program_type
+                };
+              })
               : [];
           }
-          
+
         } catch (deptCoursesError) {
           console.warn('all-departments-courses endpoint failed, trying fallback approach:', deptCoursesError);
-          
+
           // Fallback: Fetch departments separately
           try {
             departmentsData = await fetchAllDepartments();
@@ -171,7 +171,7 @@ export default function OurPrograms({
           } catch (deptError) {
             console.warn('Failed to fetch departments:', deptError);
           }
-          
+
           // Fallback: Try to use optimized endpoint (department-courses with department info)
           try {
             coursesData = await fetchAllDepartmentCourses();
@@ -181,14 +181,14 @@ export default function OurPrograms({
             }));
           } catch (deptCoursesError2) {
             console.warn('department-courses endpoint failed, trying alternative approach:', deptCoursesError2);
-            
+
             // Final fallback: Fetch all courses and departments separately
             try {
               const [allCoursesData, allDepartmentsData] = await Promise.all([
                 fetchAllCourses(),
                 fetchAllDepartments()
               ]);
-              
+
               // Create a map of department IDs to names
               const deptMap = new Map();
               (Array.isArray(allDepartmentsData) ? allDepartmentsData : []).forEach(dept => {
@@ -200,7 +200,7 @@ export default function OurPrograms({
                   });
                 }
               });
-              
+
               // Map courses with department info
               coursesData = (Array.isArray(allCoursesData) ? allCoursesData : []).map(course => ({
                 ...course,
@@ -218,10 +218,10 @@ export default function OurPrograms({
 
         // Set departments for the dropdown
         setDepartments(departmentsData);
-        
+
         // If department is selected from URL (by slug), find matching department
         if (initialDepartment !== "All" && departmentsData.length > 0) {
-          const matchingDept = departmentsData.find(dept => 
+          const matchingDept = departmentsData.find(dept =>
             dept.slug?.toLowerCase() === initialDepartment.toLowerCase() ||
             dept.id?.toString() === initialDepartment ||
             dept.name?.toLowerCase() === initialDepartment.toLowerCase()
@@ -258,7 +258,7 @@ export default function OurPrograms({
       const limited = maxPrograms ? customPrograms.slice(0, maxPrograms) : customPrograms;
       return limited;
     }
-    
+
     let filtered = allCourses;
 
     // Filter by study level (always filter, default is UG)
@@ -266,12 +266,12 @@ export default function OurPrograms({
       filtered = filtered.filter(course => {
         // Get program_type from course
         const programType = course.program_type;
-        
+
         // Handle null/undefined program_type - default to UG
         if (!programType) {
           return selectedStudyLevel === "UG";
         }
-        
+
         const level = getStudyLevel(programType);
         return level === selectedStudyLevel;
       });
@@ -283,7 +283,7 @@ export default function OurPrograms({
         const deptId = course.departmentId || course.department;
         const deptSlug = course.departmentSlug || course.department?.slug;
         const deptName = course.departmentName || course.department?.name;
-        
+
         // Match by ID, slug, or name (case-insensitive)
         const selectedDeptLower = selectedDepartment.toLowerCase();
         return (
@@ -306,11 +306,11 @@ export default function OurPrograms({
 
     // Format courses for ProgramCard
     return filtered.map(course => {
-      const courseName = formatCourseName(course.name || "");
+      const courseName = course.name || "";
       // Use course URL from API or generate from slug
       const courseUrl = course.url || course.courseUrl || `/courses/${course.slug || generateCourseSlug(course.name)}`;
       const courseSlug = course.slug || generateCourseSlug(course.name);
-      
+
       // Get program_type and map to display level
       const programType = course.program_type;
       const mappedLevel = getStudyLevel(programType);
@@ -389,7 +389,7 @@ export default function OurPrograms({
   const sectionBg = customPrograms ? "bg-[var(--dark-blue)]" : backgroundColor;
   const textColor = customPrograms ? "text-white" : "";
   const mobileWidthClass = mobileMaxWidth ? `max-w-[${mobileMaxWidth}px] md:max-w-none` : '';
-  
+
   return (
     <section className={`pt-0 md:pt-16 pb-16 ${sectionBg} ${customPrograms ? 'mx-2 rounded-xl' : 'mx-2'} ${mobileWidthClass}`}>
       <div className={`container mx-auto ${customPrograms ? 'px-2 md:px-4' : 'px-2'}`}>
@@ -408,96 +408,96 @@ export default function OurPrograms({
         <div className={`${customPrograms ? 'bg-transparent' : 'bg-[var(--dark-blue)]'} rounded-2xl md:p-5 p-4 relative overflow-hidden`}>
           {/* Search and Filter Section - Single White Bar */}
           {!hideSearchFilter && (
-          <div id="program-search-section" className="bg-[var(--light-gray)] border border-white rounded-lg flex flex-col md:flex-row items-stretch mb-8 relative z-20 overflow-hidden scroll-mt-[100px] md:scroll-mt-20">
-            {/* Study Level Dropdown - Left Section */}
-            <div className="relative flex-shrink-0 md:w-32 lg:w-36 border-r border-gray-200">
-              <select
-                value={selectedStudyLevel}
-                onChange={(e) => setSelectedStudyLevel(e.target.value)}
-                className="w-full bg-transparent px-4 py-3 text-[var(--button-red)] text-sm md:text-base font-medium appearance-none pr-8 focus:outline-none cursor-pointer"
-              >
-                {studyLevels.map(level => (
-                  <option key={level} value={level}>{level}</option>
-                ))}
-              </select>
-              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+            <div id="program-search-section" className="bg-[var(--light-gray)] border border-white rounded-lg flex flex-col md:flex-row items-stretch mb-8 relative z-20 overflow-hidden scroll-mt-[100px] md:scroll-mt-20">
+              {/* Study Level Dropdown - Left Section */}
+              <div className="relative flex-shrink-0 md:w-32 lg:w-36 border-r border-gray-200">
+                <select
+                  value={selectedStudyLevel}
+                  onChange={(e) => setSelectedStudyLevel(e.target.value)}
+                  className="w-full bg-transparent px-4 py-3 text-[var(--button-red)] text-sm md:text-base font-medium appearance-none pr-8 focus:outline-none cursor-pointer"
                 >
-                  <path
-                    d="M4 6L8 10L12 6"
-                    stroke="var(--button-red)"
+                  {studyLevels.map(level => (
+                    <option key={level} value={level}>{level}</option>
+                  ))}
+                </select>
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 6L8 10L12 6"
+                      stroke="var(--button-red)"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Department Dropdown - Middle Section */}
+              <div className="relative flex-1 border-r border-gray-200">
+                <select
+                  value={selectedDepartment}
+                  onChange={(e) => setSelectedDepartment(e.target.value)}
+                  className="w-full bg-transparent px-4 py-3 text-[var(--foreground)] text-sm md:text-base appearance-none pr-10 focus:outline-none cursor-pointer"
+                >
+                  <option value="All">All Departments</option>
+                  {departments.map(dept => (
+                    <option key={dept.id} value={dept.slug || dept.id?.toString() || dept.name}>
+                      {dept.name || "Unknown Department"}
+                    </option>
+                  ))}
+                </select>
+                <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none bg-[var(--background)] rounded p-1">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 6L8 10L12 6"
+                      stroke="var(--button-red)"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Search Bar - Right Section (Red) */}
+              <div className="relative flex-1 bg-[var(--button-red)] border border-white rounded-lg">
+                <input
+                  type="text"
+                  placeholder="Search Programs..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-transparent px-4 py-3 pr-12 text-white placeholder-white text-sm md:text-base focus:outline-none"
+                />
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                  />
-                </svg>
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                  </svg>
+                </div>
               </div>
             </div>
-
-            {/* Department Dropdown - Middle Section */}
-            <div className="relative flex-1 border-r border-gray-200">
-              <select
-                value={selectedDepartment}
-                onChange={(e) => setSelectedDepartment(e.target.value)}
-                className="w-full bg-transparent px-4 py-3 text-[var(--foreground)] text-sm md:text-base appearance-none pr-10 focus:outline-none cursor-pointer"
-              >
-                <option value="All">All Departments</option>
-                {departments.map(dept => (
-                  <option key={dept.id} value={dept.slug || dept.id?.toString() || dept.name}>
-                    {dept.name || "Unknown Department"}
-                  </option>
-                ))}
-              </select>
-              <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none bg-[var(--background)] rounded p-1">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4 6L8 10L12 6"
-                    stroke="var(--button-red)"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-
-            {/* Search Bar - Right Section (Red) */}
-            <div className="relative flex-1 bg-[var(--button-red)] border border-white rounded-lg">
-              <input
-                type="text"
-                placeholder="Search Programs..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-transparent px-4 py-3 pr-12 text-white placeholder-white text-sm md:text-base focus:outline-none"
-              />
-              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="11" cy="11" r="8" />
-                  <path d="m21 21-4.35-4.35" />
-                </svg>
-              </div>
-            </div>
-          </div>
           )}
 
           {/* Programs Grid */}
@@ -522,7 +522,7 @@ export default function OurPrograms({
               />
             ))}
           </div>
-          
+
           {/* Load More Button */}
           {!showAll && filteredPrograms.length > 6 && (
             <div className="flex justify-center mt-6 md:mt-8">

@@ -142,7 +142,7 @@ const Stack = forwardRef(({
     if (cards.length) {
       setStack(cards.map((content, index) => ({ id: index + 1, content })));
     }
-  }, [cards]);
+  }, [cards.length]);
 
   const sendToBack = (id) => {
     setStack((prev) => {

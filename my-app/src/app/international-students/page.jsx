@@ -64,35 +64,35 @@ export default function InternationalStudents() {
   const videoItems = [
     {
       id: 1,
-      name: "David Giir Riiny",
+      title: "David Giir Riiny",
       description: "B.tech Student",
       videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/REEL_AIML_TESTOMONIAL_02.mp4",
       thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/REEL_AIML_TESTOMONIAL_02.mp4",
     },
     {
       id: 2,
-      name: "Salima Naguago",
+      title: "Salima Naguago",
       description: "Pharmacy Student",
       videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/REEL_PHARMA_TESTIMONIALS_01.mp4",
       thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/REEL_PHARMA_TESTIMONIALS_01.mp4",
     },
     {
       id: 3,
-      name: "Khazi lupiya",
+      title: "Khazi lupiya",
       description: "Pharmacy Student",
       videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/REEL_PHARMA_TESTIMONIALS_04.mp4",
       thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/REEL_PHARMA_TESTIMONIALS_04.mp4",
     },
     {
       id: 4,
-      name: "Palchin Upadhyay",
+      title: "Palchin Upadhyay",
       description: "BA Gen Student",
       videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/REEL_TESTIMONIAL_BJMC_01.mp4",
       thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/REEL_TESTIMONIAL_BJMC_01.mp4",
     },
     {
       id: 5,
-      name: "Issac",
+      title: "Issac",
       description: "BSW Student",
       videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/REEL_TESTIMONIAL_BJMC_02.mp4",
       thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/REEL_TESTIMONIAL_BJMC_02.mp4",
@@ -136,118 +136,146 @@ export default function InternationalStudents() {
     },
     {
       id: 8,
-      title: "Holistic Student Development",
-      description: "Beyond academics, Indian Universities emphasise students' all-around growth and make them confident individuals.",
+      title: "Explorative Learning Approach",
+      description: "Experience a 360-degree learning designed to provide practical exposure to students outside the classroom, through interactive workshops, conferences, seminars, hands-on training programs, industrial visits, and project works.",
     },
   ]
   const internationalStudentsFeatureCards = [
     {
       id: 1,
+      title: 'From Pre-Arrival to Post-Arrival Support',
+      body: 'From pre-arrival guidance on visa, travel planning, and admissions to post-arrival assistance with pickup, documentation, campus tours, and inductions, our International Students Cell will ensure that your journey is hassle-free.',
+      image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/counselling.svg',
+      variant: 'gray',
+    },
+    {
+      id: 2,
+      title: 'Career Counselling',
+      body: 'Our primary aim is to navigate your journey towards the right direction by providing career guidance and support, helping you select your dream career.',
+      image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/customer-service.svg',
+      variant: 'amber',
+    },
+    {
+      id: 3,
       title: 'Holistic Development And Explorative Learning',
       body: 'With our 360-degree learning approach, your learning will not be limited to just classroom-based studies, but you will also learn practical skills through interactive workshops, hands-on training programs, industrial visits, project work, and case studies.',
       image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Holistic+Development.svg',
       variant: 'gray',
     },
     {
-      id: 2,
+      id: 4,
       title: 'Choose From Diverse Programs',
       body: 'Our programs are designed to provide updated industry-relevant knowledge to our students. From Fashion Designing to Biotechnology, choose from unlimited career options.',
       image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Wide+Range+of+Programs.svg',
       variant: 'amber',
     },
     {
-      id: 3,
+      id: 5,
       title: 'English Is Our Primary Language',
       body: 'English is one of the widely spoken languages in the world, and at Kalinga, you will not face any language barrier. All our programs are taught in English by highly qualified professors, and your friends from all around the Globe will even communicate with you in English.',
       image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Global.svg',
       variant: 'gray',
     },
     {
-      id: 4,
+      id: 6,
       title: 'Co-curricular And Extracurricular Activities',
       body: 'Participate in competitions, workshops, events, seminars, National and International conferences, training programs, tribal fests, and more. The University also offers indoor and outdoor sports facilities and even conducts sports competitions.',
       image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Cultural+Celebrations.svg',
       variant: 'amber',
     },
     {
-      id: 5,
+      id: 7,
       title: 'Extensive Research Facilities',
       body: "With 90 + Labs, including IT Labs and CIF labs, we're Chhattisgarh's No. 1 institute, committed to innovation and groundbreaking research facilities.",
       image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Extensive+Research+Facilities.svg',
       variant: 'gray',
     },
     {
-      id: 6,
+      id: 8,
       title: 'Build Networks And Lifelong Connections',
       body: "Here, you'll not just study but collaborate, meet industry leaders, make new connections, learn new languages, participate in multi-cultural programs, and grow together.",
       image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Networking+Opportunities.svg',
       variant: 'amber',
     },
     {
-      id: 7,
+      id: 9,
       title: 'Multicultural Environment',
       body: 'With students from different countries, our campus buzzes with high energy, new cultures, ideas, friendships, and celebrations.',
       image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Cultural+Celebrations.svg',
       variant: 'gray',
     },
     {
-      id: 8,
+      id: 10,
       title: 'Unmatched Support and Guidance',
       body: 'We let our students enjoy their academic journey without any obstacles, as our international student cell guides them at every step. From enrollment in a program till the convocation ceremony, we ensure that they get a seamless experience.',
       image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Mentor-Mentee+System.svg',
       variant: 'amber',
     },
     {
-      id: 9,
+      id: 11,
       title: 'Residential Facilities',
       body: 'We have well-furnished separate hostels for both boys and girls for our international students where all their needs are properly taken care of and they can live comfortably in a supportive environment.',
       image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/campus+life.svg',
       variant: 'gray',
     },
     {
-      id: 10,
+      id: 12,
       title: 'Enjoy an Economical Lifestyle',
       body: 'Enjoy a vibrant lifestyle at a feasible rate in Raipur, Chhattisgarh. From affordable shopping markets to transportation systems, enjoy a rich culture and diversity.',
       image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Community+Services.svg',
       variant: 'amber',
     },
+    {
+      id: 13,
+      title: 'Mentor-Mentee System',
+      body: 'Our faculty members build one-on-one connections with every student so that their issues can be identified and solved early.',
+      image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Mentor-Mentee+System.svg',
+      variant: 'gray',
+    },
+    {
+      id: 14,
+      title: 'Emotional Well-Being',
+      body: 'To cope with academic stress, mental health issues, and social anxiety, we organise well-being programs for our students according to their needs so that their voices can be heard and acted upon.',
+      image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/emotional-regulation.svg',
+      variant: 'amber',
+    },
   ];
 
   const publicationStats = [
-    {
-      id: 1,
-      title: "Students",
-      value: "8000 +",
-      description: "",
-    },
-    {
-      id: 2,
-      title: "International students from",
-      value: "600+",
-      description: "",
-    },
+    // {
+    //   id: 1,
+    //   title: "Students",
+    //   value: "8000 +",
+    //   description: "",
+    // },
+    // {
+    //   id: 2,
+    //   title: "International students from",
+    //   value: "600+",
+    //   description: "",
+    // },
     {
       id: 3,
       title: "Countries",
       value: "29+",
       description: "",
     },
-    {
-      id: 4,
-      title: "Scholarships Distributed",
-      value: "3 Cr+",
-      description: "",
-    },
-    {
-      id: 5,
-      title: "Programs",
-      value: "130+",
-      description: "",
-    },
+    // {
+    //   id: 4,
+    //   title: "Scholarships Distributed",
+    //   value: "3 Cr+",
+    //   description: "",
+    // },
+    // {
+    //   id: 5,
+    //   title: "Programs",
+    //   value: "130+",
+    //   description: "",
+    // },
     {
       id: 6,
       title: "Recruitment Partners",
-      value: "250+",
+      value: "400+",
       description: "",
     },
     {
@@ -331,12 +359,12 @@ export default function InternationalStudents() {
   return (
     <>
       <MainIntro
-        title="International Students At KU"
+        title="Where Dreams Across Borders Take Flight"
+        subtitle="A Global Learning Hub"
         description={[
           "Kalinga University, established in 2013, stands out as one of the leading private universities strategically located in the Smart City of New Raipur, Chhattisgarh. The University has consistently ranked among the top 101–150 universities in India under the NIRF Rankings 2025 for the fourth consecutive year and has also received a NAAC B+ accreditation, continuously shining on the horizons of high-quality education with equal opportunities to its international students.",
           "Our international collaborations are with different nationalities, including Afghanistan, Angola, Bangladesh, Burundi, Cameroon, Congo, Gambia, Ghana, Ivory Coast, Lesotho, Liberia, Malawi, Mozambique, Namibia, Nepal, Nigeria, PNG, Rwanda, Somalia, South Korea, South Sudan, Sudan, Swaziland, Syria, Tanzania, Zambia, Zimbabwe, ⁠Singapore, ⁠South Africa. We offer our global students a vibrant platform where they can all express their views and share their country's culture and values.",
-          "From pre-arrival to post-arrival, we're here to support them at every step of their academic journey. We conduct one-on-one counselling sessions for every student, helping them select the programs of their interest.",
-          "Our highly experienced faculty members provide unparalleled mentorship to our international students in academics and personal growth. Explore Diploma, UG, PG, and Doctorate programs designed to meet your academic aspirations.",
+          "From pre-arrival to post-arrival, we're here to support them at every step of their academic journey. We conduct one-on-one counselling sessions for every student, helping them select the programs of their interest. Our highly experienced faculty members provide unparalleled mentorship to our international students in academics and personal growth. Explore Diploma, UG, PG, and Doctorate programs designed to meet your academic aspirations.",
           "At Kalinga, you're not just another student but a part of a global community where IDEAS are nurtured, and DREAMS are fulfilled."
         ]}
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/international-students-intro.jpg"
@@ -346,21 +374,14 @@ export default function InternationalStudents() {
       />
       <PublicationGrid stats={publicationStats} />
       <AccreditationRanking
-        heading="Accreditations & Rankings"
+        heading="Accreditations & Associations"
         secondHeading=""
       />
-      <FeatureCards
-        title="Why International Students Choose Kalinga University?"
-        subtitle=""
-        description="At Kalinga University, international students discover an education hub designed for global success. From academic excellence to an inclusive learning environment, every step of their journey is thoughtfully designed so that they can focus on fulfilling their aspirations."
-        imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/int-why.jpg"
-        imageAlt="International Students"
-        cards={internationalStudentsFeatureCards}
-      />
+
       <ImageListItem
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/int-why-3.webp"
         boxItems={boxItems}
-        title="Why Study At India"
+        title="Why study in India"
         subtitle=""
         description=""
         className="bg-white"
@@ -370,6 +391,14 @@ export default function InternationalStudents() {
         cardTitleClassName="text-white"
         listItemTextClassName="text-white"
         hideIcons={true}
+      />
+      <FeatureCards
+        title="Why International Students Choose Kalinga University?"
+        subtitle=""
+        description="At Kalinga University, international students discover an education hub designed for global success. From academic excellence to an inclusive learning environment, every step of their journey is thoughtfully designed so that they can focus on fulfilling their aspirations."
+        imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/int-why.jpg"
+        imageAlt="International Students"
+        cards={internationalStudentsFeatureCards}
       />
       <StudentCell />
       <VisaFrofrroGuidelines />
@@ -382,7 +411,8 @@ export default function InternationalStudents() {
         subtitle="Faith and Worship Facility"
         title="Honouring Every Faith and Religion"
         description={[
-          "At Kalinga University, you'll find the world in one place. With students from 29+ countries, we celebrate their cultures, faiths, and beliefs. We offer an inclusive environment to all our students where they can freely practice their religion and stay connected with their roots."
+          "At Kalinga University, you'll find the world in one place. With students from 29+ countries, we celebrate their cultures, faiths, and beliefs. We offer an inclusive environment to all our students where they can freely practice their religion and stay connected with their roots.",
+          "Our multi-faith services are accessible to all students at our campus, which include:"
         ]}
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/international-students-group.webp"
         imageAlt="International Students"
@@ -445,7 +475,7 @@ export default function InternationalStudents() {
         showKnowMore={true}
       />
       <MediaCardSlider
-        categoryTitle="Video Interviews"
+        categoryTitle=""
         title="Hear From Our International Students"
         description="Discover firsthand experiences from our international students as they share their journey at Kalinga University. From academic excellence to campus life, cultural integration, and career aspirations, listen to their inspiring stories and learn why they chose Kalinga University for their higher education."
         videoItems={videoItems}
@@ -459,12 +489,12 @@ export default function InternationalStudents() {
         fallback="all"
         limit={5}
 
-        title="Conferences & Events"
+        title="News & Events"
         backgroundColor="bg-[var(--light-gray)]"
         backgroundColorcard="bg-white"
       />
       <Gallery
-        title="Glimpse"
+        title="Glimpses"
         description="Explore the vibrant life of our international students at Kalinga University. From cultural celebrations to academic achievements, witness the diverse experiences that make our campus a global community."
         images={[
           { id: 1, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/international-students/int-g-1.webp", alt: "International Students Introduction" },

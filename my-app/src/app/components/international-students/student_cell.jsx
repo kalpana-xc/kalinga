@@ -11,12 +11,27 @@ export default function StudentCell({
   tag = "International Students Cell",
   title = "Supporting Global Students At Every Step",
   description = "The International Students Cell at Kalinga University has been established to streamline the academic processes of our global students, helping them seize the best opportunities and resources of our University. The members of our cell take utmost care of our students from their arrival and admission into our programs to providing support and guidance until they receive their degree. Not just academically, but they also provide details of events, competitions, and training programs, and encourage them to actively participate in events outside the classroom. They even provide complete immigration support, make accommodation arrangements, and arrange language classes. From organising BRIDGE Classes to providing counselling sessions for academic and personal growth, their aim is to make every student feel at home.",
+
   ctaLabel = "Read More",
   ctaHref = "#",
   subtitle = "International Students Cell",
   subtitleClassName = "",
   titleClassName = "!text-white",
   subtitleTextColor = "text-[var(--dark-orange-red)]",
+  functionsTitle = "Functions of the International Student Cell",
+  functionsSubtitle = "The cell assists and guides the students on matters related to:",
+  functionsList = [
+    "Admission formalities",
+    "Hostel allocation",
+    "Issue of offer letters for provisional admission (By International Counsellor)",
+    "Issue of Bonafide Certificates",
+    "Guidance to register with the Foreign Regional Registration Office (FRRO)",
+    "Extension of the visa",
+    "Addressing any other academic or administrative problems of students",
+    "Student Information System",
+    "Redressal of student grievances",
+    "Issue of all official letters and documents related to International students",
+  ],
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -24,14 +39,14 @@ export default function StudentCell({
   const paragraphs = useMemo(() => {
     // Split by periods followed by space and capital letter, but keep the period
     const sentences = description.match(/[^.!?]+[.!?]+/g) || [description];
-    
+
     // Group sentences into paragraphs (2 sentences per paragraph, or logical breaks)
     const paras = [];
     let currentPara = '';
-    
+
     sentences.forEach((sentence, index) => {
       currentPara += sentence.trim() + ' ';
-      
+
       // Create a paragraph after every 2 sentences, or if it's the last sentence
       if ((index + 1) % 2 === 0 || index === sentences.length - 1) {
         if (currentPara.trim()) {
@@ -40,7 +55,7 @@ export default function StudentCell({
         }
       }
     });
-    
+
     return paras;
   }, [description]);
 
@@ -73,7 +88,7 @@ export default function StudentCell({
               />
               <div className="space-y-4">
                 {visibleParagraphs.map((para, index) => (
-                  <p 
+                  <p
                     key={index}
                     className="text-sm md:text-base text-white/80 leading-relaxed"
                   >
@@ -81,6 +96,17 @@ export default function StudentCell({
                   </p>
                 ))}
               </div>
+              {isExpanded && (
+                <div className="mt-4 text-white/80">
+                  <h4 className="font-bold text-white mb-2">{functionsTitle}</h4>
+                  <p className="mb-2">{functionsSubtitle}</p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    {functionsList.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               {hasMoreThanTwoParagraphs && (
                 <GlobalArrowButton
                   className="!bg-[var(--dark-blue)] !text-white shadow-none !p-0 mt-2"

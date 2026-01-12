@@ -206,6 +206,12 @@ const clubSections = [
         image:
           "https://kalinga-university.s3.ap-south-1.amazonaws.com/Academic-and-Industry-Collaborations/BNI+-+2018.webp",
       },
+      {
+        name: "EDU-CLOUD",
+        image:
+          "https://kalinga-university.s3.ap-south-1.amazonaws.com/Academic-and-Industry-Collaborations/certificate-1.webp",
+      },
+      
     ],
   },
   {
@@ -218,6 +224,19 @@ const clubSections = [
       { name: "Mgm's college of engineering Nanded-Maharashtra", image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Academic-and-Industry-Collaborations/Mgm's+college+of+engineering+Nanded-Maharashtra.webp" },
       { name: "Rajiv Gandhi National University of Law, Punjab", image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Academic-and-Industry-Collaborations/Rajiv+Gandhi+National+University+of+Law%2C+Punjab.webp" },
       { name: "Govt. Digvijay PG Autonomous College, Rajnandgaon – Chhattisgarh", image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Academic-and-Industry-Collaborations/Govt.+Digvijay+PG+Autonomous+College%2C+Rajnandgaon+%E2%80%93+Chhattisgarh.webp" },
+      
+    ],
+  },
+  {
+    id: 4,
+    title: "Partnership with International Academic Institutions",
+    clubs: [
+      { name: "", image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Academic-and-Industry-Collaborations/international-institutions-1.webp" },
+      { name: "", image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Academic-and-Industry-Collaborations/international-institutions-2.webp" },
+      { name: "", image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Academic-and-Industry-Collaborations/international-institutions-3.webp" },
+      { name: "", image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Academic-and-Industry-Collaborations/international-institutions-4.webp" },
+      { name: "", image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Academic-and-Industry-Collaborations/international-institutions-5.webp" },
+      { name: "", image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Academic-and-Industry-Collaborations/international-institutions-6.webp" },
       
     ],
   },

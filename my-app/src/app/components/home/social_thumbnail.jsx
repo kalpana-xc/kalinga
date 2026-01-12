@@ -27,14 +27,14 @@ export default function SocialThumbs({ className = '' }) {
         <div className="overflow-hidden mb-6 sm:mb-8 md:mb-1">
           <div className="flex animate-marquee gap-3 sm:gap-4 md:gap-6">
             {[...items, ...items].map((it, idx) => (
-              <div 
+              <div
                 key={`${it.id}-${idx}`}
                 className="relative overflow-hidden shadow-lg hover:shadow-2xl transition duration-200 rounded-[9.66px] flex-shrink-0 w-[220px] sm:w-[260px] md:w-[300px] h-[240px] sm:h-[280px] md:h-[320px]"
               >
-                <Image src={it.img} alt={it.alt} fill className="object-cover" />
-                <a 
-                  href="https://www.instagram.com/kalinga_university/" 
-                  target="_blank" 
+                <Image src={it.img} alt={it.alt} fill sizes="100vw" className="object-cover" />
+                <a
+                  href="https://www.instagram.com/kalinga_university/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="absolute right-2 bottom-2 rounded-full p-2 shadow-md hover:opacity-80 transition-opacity"
                   aria-label="Follow us on Instagram"
@@ -48,7 +48,7 @@ export default function SocialThumbs({ className = '' }) {
             ))}
           </div>
         </div>
-        
+
         <style jsx>{`
           @keyframes marquee {
             0% {
@@ -62,12 +62,12 @@ export default function SocialThumbs({ className = '' }) {
             animation: marquee 30s linear infinite;
           }
         `}</style>
-        
+
         {/* Instagram follow button - positioned at bottom, centered */}
         <div className="flex justify-center mt-2 sm:mt-8">
-          <a 
-            href="https://www.instagram.com/kalinga_university/" 
-            target="_blank" 
+          <a
+            href="https://www.instagram.com/kalinga_university/"
+            target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 bg-[var(--button-red)] hover:opacity-90 text-white px-6 py-2 rounded-[10px] font-semibold text-sm transition-colors shadow-md"
           >

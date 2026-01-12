@@ -103,7 +103,7 @@ export default function KalseePage() {
       backDescription: "Pay the application fees to complete your registration.",
       icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kal-mat/fees.png",
       image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/entrance-exam/entrance-exam-banner.webp"
-    },  
+    },
     {
       id: 4,
       stepNumber: "04",
@@ -172,7 +172,7 @@ export default function KalseePage() {
     },
     {
       title: "Exam Dates & Registration",
-      description: "BBA - Anytime within a week after registration, MBA - 8th March 2025",
+      description: "BBA - Anytime within a week after registration, MBA - Will be intimated by the University from time to time.",
       icon: <Image src="https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/registration.png" alt="Exam Dates & Registration" width={64} height={64} className="object-contain" />
     },
     {
@@ -202,13 +202,13 @@ export default function KalseePage() {
     },
     {
       title: "Scholarships",
-      description: "Attractive scholarships to top scorers for BBA and MBA courses.",
+      description: "Attractive scholarships to top scorers for BBA and MBA courses",
       icon: <Image src="https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/scholarship.png" alt="Scholarships" width={64} height={64} className="object-contain" />
     },
   ]
   return (
     <>
-      <HeroSectionTwo 
+      <HeroSectionTwo
         id="hero-banner"
         backgroundImage="https://kalinga-university.s3.ap-south-1.amazonaws.com/kal-mat/kalmat-banner-new.png"
         title="Turn Your Business Ambition Into A Thriving Career"
@@ -218,8 +218,8 @@ export default function KalseePage() {
         showForm={false}
         customForm={<KalseeApplicationForm />}
       />
-      <KalseeMilestone 
-        milestones={milestones} 
+      <KalseeMilestone
+        milestones={milestones}
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/student-img.png"
       />
       <MainIntro
@@ -228,8 +228,8 @@ export default function KalseePage() {
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/kal-mat/kalmat-intro.jpg"
         imageAlt="KALSEE"
       />
-      <ImageListItem textClassName="hidden" listItemTextClassName="text-black"  imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/kif/kif.webp" boxItems={boxItems} title="Details of KAL-MAT" subtitle="KAL-MAT Exam Information" description="Comprehensive details about the Kalinga Management Aptitude Test (KAL-MAT) including eligibility, exam pattern, dates, fees, and more." />
-      <DeptSyllabus 
+      <ImageListItem textClassName="hidden" listItemTextClassName="text-black" imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/kif/kif.webp" boxItems={boxItems} title="Details of KAL-MAT" subtitle="KAL-MAT Exam Information" description="Comprehensive details about the Kalinga Management Aptitude Test (KAL-MAT) including eligibility, exam pattern, dates, fees, and more." />
+      <DeptSyllabus
         title="Personal Interview"
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/bg-course.webp"
         imageAlt="KAL-MAT Course Materials"
@@ -240,14 +240,14 @@ export default function KalseePage() {
         leftCardSecondButtonText="Register now"
         leftCardSecondButtonLink="#hero-banner"
         rightCardTitle="MBA"
-        rightCardDescription="22nd March 2025"
+        rightCardDescription="Will be intimated by the University from time to time."
         rightCardButtonText="Know more"
         rightCardButtonLink="/admissions"
         rightCardSecondButtonText="Register now"
         rightCardSecondButtonLink="#hero-banner"
         mobileImageHeight={700}
       />
-      <SampleTesting 
+      <SampleTesting
         title="Pattern of KAL-MAT Exam"
         instruction="All questions carry 1 mark each."
         subtitle=""
@@ -299,55 +299,29 @@ export default function KalseePage() {
         ]}
       />
       <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center">Loading programs...</div>}>
-        <OurPrograms 
+        <OurPrograms
           customPrograms={[
             {
               id: 1,
               title: "BBA",
               specialization: "Bachelor of Business Administration",
-              duration: "4 Year",
+              duration: "3 Years",
               eligibility: "10+12",
               type: "UG",
-              showSpecializationDropdown: true,
-              specializationOptions: [
-                "Airlines & Airport Operations Management",
-                "Digital Marketing & E-Commerce",
-                "Event Management & Public Relations",
-                "Family Business & Startups",
-                "Finance",
-                "Fintech",
-                "Hospital Administration",
-                "Human Resource Management",
-                "Marketing Management",
-                "Aviation"
-              ],
-              specializationPlaceholder: "- Select Single Specialisation -",
-              coursePageUrl: "/admissions"
+              coursePageUrl: "/courses/bachelor-of-business-administration",
+              hideScholarshipLink: true,
+              exploreLinkText: "Know More"
             },
             {
               id: 2,
               title: "MBA",
               specialization: "Master of Business Administration",
-              duration: "2 Year",
+              duration: "2 Years",
               eligibility: "Graduation",
               type: "PG",
-              showSpecializationDropdown: true,
-              specializationOptions: [
-                "Banking & Insurance",
-                "Business Analytics",
-                "Digital Marketing & E-Commerce",
-                "Finance",
-                "Healthcare & Hospital Management",
-                "Hotel & Hospitality Management",
-                "Human Resource Management",
-                "Information Technology",
-                "NGO Management",
-                "International Business",
-                "Logistics & Supply Chain Management",
-                "Marketing Management"
-              ],
-              specializationPlaceholder: "- Select Dual Specialisation -",
-              coursePageUrl: "/admissions"
+              coursePageUrl: "/courses/master-of-business-administration",
+              hideScholarshipLink: true,
+              exploreLinkText: "Know More"
             }
           ]}
           hideSearchFilter={true}
@@ -360,16 +334,18 @@ export default function KalseePage() {
       <AdmissionSteps
         steps={kifSteps}
         subtitleClassName="hidden"
-        title="Your Step-By-Step Startup Process"
+        title="Your Step-By-Step Admission Process"
         ctaLabel="Apply Now"
-        showReadMore={false}
+        showReadMore={true}
         showHeaderButton={false}
         showIcon={true}
         showImage={false}
         bgColor="bg-white"
       />
       {/* <Testimonials testimonials={testimonials} className="bg-[var(--light-gray)]" /> */}
-      <FAQ title="Frequently Asked Questions" items={faqItems} />
+      <FAQ title="Frequently Asked Questions"
+      subtitle=""
+       items={faqItems} />
       <AdmissionCareer />
     </>
   );

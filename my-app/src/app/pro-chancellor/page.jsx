@@ -28,22 +28,11 @@ export default function Leadership() {
         name="Mr. Sajjan Singh"
         title="Pro-Chancellor"
         messageHeading="Pro-Chancellor's Message"
-        quote="Education is not merely about degrees, but about shaping character, leadership, and purpose for a better tomorrow."
+        quote="Education thrives when opportunity meets vision, and talent meets the right guidance"
         message={[
-"As you begin a new journey of academic exploration, I extend a heartfelt welcome to all our students joining Kalinga University.","It gives me immense pleasure to be part of Kalinga University as the Pro Chancellor and to welcome students from India and across the globe into our undergraduate, postgraduate, and research programs.",
-
-"We strive to provide a supportive learning environment that fosters innovation, sustainability, diversity, and prepares our graduates to lead businesses, society, and the nation.",
-"From onboarding to graduation, our students are trained with the right mindset and practical skills to confidently face real-life challenges.",
-
-"The successful placement of our meritorious students in reputed companies reflects their dedication and reinforces the university’s commitment to quality education and strong core values.",
-
-"Through our dedicated Career and Corporate Resource Centre, we equip students with essential communication skills, professional grooming, interview preparation, and resume-building expertise.",
-
-"With its serene and pollution-free campus, Kalinga University offers an ideal environment for focused learning, holistic development, and active participation in extracurricular activities.",
-
-"I am confident that the updated knowledge imparted at our university will empower students to become employable citizens and contribute meaningfully to the nation’s development.",
-
-"May your journey at Kalinga University be filled with growth, success, and lasting achievement."
+"As you begin a new journey of academic exploration, I extend a heartfelt welcome to all our students joining Kalinga University. It gives me immense pleasure to be part of Kalinga University as the Pro Chancellor and to welcome students from India and across the globe into our undergraduate, postgraduate, and research programs. We strive to provide a supportive learning environment that fosters innovation, sustainability, diversity, and prepares our graduates to lead businesses, society, and the nation.",
+"From onboarding to graduation, our students are trained with the right mindset and practical skills to confidently face real-life challenges. The successful placement of our meritorious students in reputed companies reflects their dedication and reinforces the university’s commitment to quality education and strong core values. Through our dedicated Career and Corporate Resource Centre, we equip students with essential communication skills, professional grooming, interview preparation, and resume-building expertise.",
+"With its serene and pollution-free campus, Kalinga University offers an ideal environment for focused learning, holistic development, and active participation in extracurricular activities. I am confident that the updated knowledge imparted at our university will empower students to become employable citizens and contribute meaningfully to the nation’s development. May your journey at Kalinga University be filled with growth, success, and lasting achievement."
         ]}
       />
     </>

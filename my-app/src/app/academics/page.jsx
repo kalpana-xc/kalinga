@@ -160,7 +160,12 @@ export default function AcademicsApi() {
           })
         );
 
-        setDepartments(departmentsWithDetails);
+        // Sort departments alphabetically by title
+        const sortedDepartments = departmentsWithDetails.sort((a, b) =>
+          (a.title || '').localeCompare(b.title || '')
+        );
+
+        setDepartments(sortedDepartments);
       } catch (err) {
         console.error('Failed to load departments:', err);
         setError(err.message || 'Failed to load departments');
@@ -188,36 +193,42 @@ export default function AcademicsApi() {
       icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/academics/icons/Programs.svg",
       title: "Student Clubs",
       description: "Our vibrant clubs motivate students to learn and grow with confidence inside and outside their classrooms.",
+      link: "/student-clubs"
     },
     {
       id: 2,
       icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/academics/icons/teachings.svg",
       title: "Value Added Courses",
       description: "Explore a wide range of short-term value-added certification courses conducted by industry experts at the University. ",
+      link: "/value-added-courses"
     },
     {
       id: 3,
       icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/academics/icons/Curriculum.svg",
       title: "Industrial Visits",
       description: "To understand the industry dynamics, we conduct industrial visits where students interact with industry professionals and explore real-world applications.",
+      link: ""
     },
     {
       id: 4,
       icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Industrial+Visits.svg",
       title: "Internships & Placement",
       description: "Get an on-campus or off-campus internship opportunity and get placed in top companies through our Campus Placement Drives.",
+      link: "/placement"
     },
     {
       id: 5,
       icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/elgbility.svg",
       title: "Academic Facilities",
       description: "Our top-notch academic facilities will support your dreams by giving an all-around practical exposure at every step of your journey.",
+      link: "/academic-facilities"
     },
     {
       id: 6,
       icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/academics/icons/Events.svg",
       title: "Conferences & Events",
       description: "Discover various National and International conferences held at Kalinga University, offering a dynamic platform for knowledge sharing.",
+      link: "/conferences-and-events"
     },
   ];
 
@@ -272,7 +283,7 @@ export default function AcademicsApi() {
           <div className="text-center mb-8 sm:mb-10 lg:mb-12">
             <SectionHeading
               subtitle="Explore Academics"
-              title="Our Academic Faculties"
+              title="Your Journey Begins Here"
               subtitleClassName="text-center !text-[var(--button-red)]"
               titleClassName="text-center"
             />
@@ -340,7 +351,7 @@ export default function AcademicsApi() {
       </section>
       <QuickLinks
         title="Quick Links"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid"
+        description="Learning at Kalinga University goes beyond classroom lectures and textbook knowledge. From participating in student clubs to attending conferences and events, these experiences will make you well-rounded learners and future professionals."
         links={quickLinks}
         titleClassName="text-white"
       />

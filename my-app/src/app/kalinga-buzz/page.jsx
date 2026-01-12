@@ -3,6 +3,7 @@
 import React from "react";
 import MainIntro from "@/app/components/about/main_intro";
 import ResearchSixGridButtons from "@/app/components/research/research_six_grid-buttons";
+import KalingaBuzzTabs from "@/app/components/kalinga-buzz/KalingaBuzzTabs";
 
 // Disable static generation to prevent SSR issues
 export const dynamic = 'force-dynamic';
@@ -126,7 +127,7 @@ export default function KalingaBuzz() {
       text: "Kalinga Buzz April 2021",
       href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/buzz/Kalinga+Buzz+april+2021.pdf",
     },
-    
+
   ];
 
   const buttons4 = [
@@ -140,30 +141,23 @@ export default function KalingaBuzz() {
   return (
     <>
       <MainIntro
-        title="Kalinga Buzz"
+        title="A One-Stop Update on Campus Life"
         subtitle="An Initiative By Kalinga University"
         description={["Stay connected and updated with our monthly newsletters! It highlights cultural events, ceremonies, research breakthroughs, sports achievements, academic achievements, students' and faculty achievements, and much more.",
-        
-      ]}
-      imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/kalinga-buzz.webp"
-      imageAlt="Kalinga University Buzz"
+
+        ]}
+        imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/kalinga-buzz.webp"
+        imageAlt="Kalinga University Buzz"
       />
-      <h2 className="text-2xl text-center">Kalinga Buzz 2019</h2>
-      <ResearchSixGridButtons
-      buttons={buttons}
+      <KalingaBuzzTabs
+        year2025={buttons4}
+        year2021={buttons3}
+        year2020={buttons2}
+        year2019={buttons}
       />
-      <h2 className="text-2xl text-center">Kalinga Buzz 2020</h2>
-      <ResearchSixGridButtons
-      buttons={buttons2}
-      />
-      <h2 className="text-2xl text-center">Kalinga Buzz 2021</h2>
-      <ResearchSixGridButtons
-      buttons={buttons3}
-      />
-      <h2 className="text-2xl text-center">Kalinga Buzz 2025</h2>
-      <ResearchSixGridButtons
-      buttons={buttons4}
-      />
+
+
+
     </>
   );
 }

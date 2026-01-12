@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 import MainIntro from "../components/about/main_intro";
 import OpenPositions from "../components/careers/OpenPositions"
 import EmployeeBenefits from "../components/careers/EmployeeBenefits"
-import CareerApplicationForm from "../components/careers/CareerApplicationForm"
+import CareerForm from "../components/forms/CareerForm"
 import FaqSection from "../components/general/faq"
-
+import Gallery from '../components/campuslife/campusgallery';
 // Breadcrumb configuration
 const breadcrumbData = {
   heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/career.webp",
@@ -22,12 +22,12 @@ export default function Careers() {
       window.__breadcrumbData = breadcrumbData;
     }
   }, []);
-  
+
   useEffect(() => {
     // Enable scrolling but hide scrollbar - works on all devices including mobile
     const body = document.body;
     const html = document.documentElement;
-    
+
     // Store original styles
     const originalBodyOverflow = body.style.overflowY;
     const originalHtmlOverflow = html.style.overflowY;
@@ -35,23 +35,23 @@ export default function Careers() {
     const originalHtmlScrollbarWidth = html.style.scrollbarWidth;
     const originalBodyMsOverflow = body.style.msOverflowStyle;
     const originalHtmlMsOverflow = html.style.msOverflowStyle;
-    
+
     // Enable scrolling (auto allows scrolling when needed)
     body.style.overflowY = 'auto';
     html.style.overflowY = 'auto';
-    
+
     // Hide scrollbar - Firefox
     body.style.scrollbarWidth = 'none';
     html.style.scrollbarWidth = 'none';
-    
+
     // Hide scrollbar - IE/Edge
     body.style.msOverflowStyle = 'none';
     html.style.msOverflowStyle = 'none';
-    
+
     // Add class for webkit browsers (Chrome, Safari, Edge)
     body.classList.add('scrollbar-hide');
     html.classList.add('scrollbar-hide');
-    
+
     // Cleanup: restore original styles when component unmounts
     return () => {
       body.style.overflowY = originalBodyOverflow;
@@ -74,7 +74,7 @@ export default function Careers() {
     {
       id: 2,
       question: "What types of positions are available at Kalinga University?",
-      answer: "We offer opportunities for teaching, non-teaching, and administrative roles across various departments. Open positions are updated regularly on our website under the “Open Positions” section."
+      answer: "We offer opportunities for teaching, non-teaching, marketing, and administrative roles across various departments. Open positions are updated regularly on our website under the “Open Positions” section."
     },
     {
       id: 3,
@@ -91,23 +91,36 @@ export default function Careers() {
     //   question: "What employee benefits does Kalinga University provide?",
     //   answer: "We offer a comprehensive benefits package including competitive salaries, research support, professional development programs, healthcare, and work-life balance initiatives to ensure overall employee well-being."
     // }
-   
+
   ]
 
   return (
     <>
-      <MainIntro  title="Why Work With Us?"
-      description={["At Kalinga University, we believe that excellence begins with people. We offer a collaborative, growth-oriented environment where innovation, integrity, and inclusivity drive everything we do. Our faculty and staff are empowered with continuous learning opportunities, modern infrastructure, and a culture that values both academic and personal fulfillment.Join us and become part of a forward-thinking institution shaping the next generation of leaders through education, research, and innovation."
-    ]}
-      imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/whywork.webp"
-      imageAlt="Why Work With Us?"
-      showKnowMore={false} />
-     
+      <MainIntro title="Why Work With Us?"
+        description={["Kalinga University offers a work environment where people feel valued, motivated, and supported. Our faculty members and staff are empowered through continuous learning opportunities where their ideas are encouraged, their voices are heard, and their efforts are appreciated. We value teamwork, transparency, and open communication. Become a part of an academic community that believes in learning, innovation, and collaboration. "
+        ]}
+        imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-life/whywork.webp"
+        imageAlt="Why Work With Us?"
+        showKnowMore={false} />
+
       <OpenPositions />
       <EmployeeBenefits />
-      <CareerApplicationForm />
+      <CareerForm />
       <FaqSection items={careerFAQs} title="Frequently Asked Questions" subtitle="" />
-
+      <Gallery
+        title="Gallery"
+        description=""
+        images={[
+          { id: 1, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-training-cell/pt-glimple-1.webp", alt: "Life at Kalinga 1" },
+          { id: 2, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-training-cell/pt-glimple-2.webp", alt: "Life at Kalinga 2" },
+          { id: 3, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-training-cell/pt-glimple-3.webp", alt: "Life at Kalinga 3" },
+          { id: 4, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-training-cell/pt-glimple-4.webp", alt: "Life at Kalinga 4" },
+          { id: 5, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-training-cell/pt-glimple-5.webp", alt: "Life at Kalinga 5" },
+          { id: 6, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-training-cell/placement-intro-2.webp", alt: "Life at Kalinga 6" },
+          { id: 7, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-training-cell/placemnt-intro.webp", alt: "Life at Kalinga 7" },
+          { id: 8, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-intro.jpg", alt: "Life at Kalinga 8" },
+        ]}
+      />
     </>
   );
 }

@@ -10,6 +10,7 @@ import Gallery from "@/app/components/general/gallery";
 import DeptHeadIntro from "@/app/components/department/dept_head_intro";
 import AdmissionCareer from "@/app/components/general/admission_cta";
 import MediaCardSlider from "@/app/components/general/media-card-slider";
+import { title } from "process";
 
 const breadcrumbData = {
   heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/kif-banner.webp",
@@ -293,21 +294,31 @@ const accreditations = [
 const videoItems = [
   {
     id: 1,
-    name: "Name",
-    description: "Lorem ipsum",
-    thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
+    title: "Rajiv Chawla",
+    description: "Integrated Association of MSME of India",
+    thumbnail: "https://img.youtube.com/vi/Fy4fnnqU238/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=Fy4fnnqU238",
   },
   {
     id: 2,
-    name: "Name",
-    description: "Lorem ipsum",
-    thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
+    title: "Dr. Sumit Mitra",
+    description: "Global Business Services & Tesco Bengal",
+    thumbnail: "https://img.youtube.com/vi/lflHA63O7FQ/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=lflHA63O7FQ",
   },
   {
     id: 3,
-    name: "Name",
-    description: "Lorem ipsum",
-    thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg",
+    title: "Amar Pathak",
+    description: "Resource Person",
+    thumbnail: "https://img.youtube.com/vi/6otNYEFKnek/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=6otNYEFKnek",
+  },
+  {
+    id: 4,
+    title: "Prateek Singh",
+    description: "Lead Corporate Affairs & Media Relations",
+    thumbnail: "https://img.youtube.com/vi/hi2yJ5OPM5k/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=hi2yJ5OPM5k",
   },
 ]
 
@@ -343,19 +354,19 @@ export default function CCRCPage() {
     <Cards cards={cards} />
     <Hearfrom items={sliderItems} title="Hear From Our Clients" />
     <MediaCardSlider
-        categoryTitle="Video Interviews"
-        title="Alumni Talk"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed"
-        videoItems={videoItems}
-        cardBgClass="bg-white"
-        nameTextClass="text-[var(--button-red)]"
-        descriptionTextClass=""
-        swiperClassName="ccrc-video-slider"
-      />
-    <Partner 
-      blueTitle="Industry Partner" 
-      redTitle="MoU Partners" 
-      blueItems={blueItems} 
+      categoryTitle=""
+      title="Video Interviews"
+      description=""
+      videoItems={videoItems}
+      cardBgClass="bg-white"
+      nameTextClass="text-[var(--button-red)]"
+      descriptionTextClass=""
+      swiperClassName="ccrc-video-slider"
+    />
+    <Partner
+      blueTitle="Industry Partner"
+      redTitle="MoU Partners"
+      blueItems={blueItems}
       redItems={redItems}
       ccrcLogo="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/ccrclogo.webp"
     />

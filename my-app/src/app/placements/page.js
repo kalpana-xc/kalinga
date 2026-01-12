@@ -1,9 +1,10 @@
 "use client"
 import { useEffect } from "react";
+import { useFlipbook } from "../components/general/FlipbookContext";
 import PublicationGrid from "../components/research/publication-grid";
 import UGCLogo from "../components/research/ugc_logo";
 import UpcomingConference from "../components/research/upcoming_conference";
-import ProgramsOffered from "../components/department/programs-offered"; 
+import ProgramsOffered from "../components/department/programs-offered";
 import OrganogramOfKalinga from "../components/about/organogram_of_kalinga";
 import MainIntro from "../components/about/main_intro";
 import QuickLinks from "../components/general/quick_links";
@@ -13,8 +14,9 @@ import AdmissionCareer from "../components/general/admission_cta";
 import UpcomingConferences from "../components/research/upcoming_conference";
 import MentorIntro from "../components/department/dept_head_intro";
 import CenterOfExcellence from "../components/about/center_of_excellence";
-import AwardsScrollbar from "../components/home/awards-scrollbar";  
+import AwardsScrollbar from "../components/home/awards-scrollbar";
 import MediaCardSlider from "@/app/components/general/media-card-slider";
+import Gallery from '../components/campuslife/campusgallery';
 import Placements from "../components/home/placements";
 import Partner from "../components/ccrc/partner";
 
@@ -32,12 +34,13 @@ const breadcrumbData = {
 
 
 export default function Research() {
+  const { openFlipbook } = useFlipbook();
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.__breadcrumbData = breadcrumbData;
     }
   }, []);
-  
+
   const blueItems = [
     {
       imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/infosys.webp",
@@ -219,14 +222,14 @@ export default function Research() {
       imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/mou/veterans.png",
       imageAlt: "Veterans",
     },
-  ] 
+  ]
 
   const milestones = [
     { value: "400", label: "Recruitment Partners" },
     { value: "12 L ", label: "Highest Package" },
     { value: "4 Lakh ", label: "Average Package" },
   ]
-  
+
   const links = [
     {
       id: 7,
@@ -290,7 +293,7 @@ export default function Research() {
       title: "Build Networks",
       description: "We organise industrial visits, seminars, guest lectures, and industrial talks every week, which help our young minds build new connections and clarity in launching their businesses.",
     },
-   
+
   ]
   const videoItems = [
     {
@@ -341,38 +344,167 @@ export default function Research() {
       videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/Shiwangi+Sinha+CCRC+Placement+Video.mp4",
       description: "Pharmachy department",
     },
+  ]
+  const videoItems2 = [
+    {
+      id: 1,
+      name: "SGS Technical Services Pvt Ltd ",
+      videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/rec-1.mp4",
+      thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/rec-1.png",
+      description: "Abhijeet Lal - IndusInd Bank Ltd",
+    },
+    {
+      id: 2,
+      name: "9M India Limited",
+      videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/rec-2.mp4",
+      thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/rec-2.png",
+      description: "Abhinav Khandelwal - B Plan Advisors",
+    },
+    {
+      id: 3,
+      name: "Hirojet Campus Drive",
+      videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/rec-3.mp4",
+      thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/rec-3.png",
+      description: "Abhishek Doijode - TCS",
+    },
+    {
+      id: 4,
+      name: "Airtel Campus Drive",
+      videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/rec-4.mp4",
+      thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/rec-4.png",
+      description: "Nikhil Rao - Shelar",
+    },
+    {
+      id: 5,
+      name: "Airtel Campus Drive",
+      videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/rec-5.mp4",
+      thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/rec-5.png",
+      description: "Sneha Shinde - Justdial",
+    },
+  ];
+
+  const videoItems1 = [
+    {
+      id: 1,
+      name: "SGS Technical Services Pvt Ltd ",
+      videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/Campus+Drives/SGS+Technical+services+Pvt.+ltd+Campus+Drive.mp4",
+      thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/Campus+Drives/campus-1.png",
+      description: "SGS Technical Services Pvt Ltd",
+    },
+    {
+      id: 2,
+      name: "9M India Limited",
+      videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/Campus+Drives/9M+india+limited+Campus+Drive+CCRC.mp4",
+      thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/Campus+Drives/campus-2.png",
+      description: "9M India Limited",
+    },
+    {
+      id: 3,
+      name: "Hirojet Campus Drive",
+      videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/Campus+Drives/Hirojet+Campus+Drive.mp4",
+      thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/Campus+Drives/campus-3.png",
+      description: "Hirojet",
+    },
+    {
+      id: 4,
+      name: "Airtel Campus Drive",
+      videoUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/Campus+Drives/Airtel+Campus+Drive.mp4",
+      thumbnail: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/Campus+Drives/campus-4.png",
+      description: "Airtel",
+    },
+  ];
+
+  const placementColumns = [
+    { key: "slNo", label: "S.No", width: "w-16" },
+    { key: "name", label: "Name of Student", width: "w-64" },
+    { key: "program", label: "Program Name", width: "w-64" },
+    { key: "session", label: "Session", width: "w-32" },
+    { key: "company", label: "Company Name", width: "flex-1" }
+  ];
+
+  const placementData = [
+    { slNo: 1, name: "Ritesh Tiwari", program: "B. Computer Science AI & ML", session: "2023-2026", company: "TTEC" },
+    { slNo: 2, name: "Prachi Sahu", program: "MBA", session: "2023-2025", company: "Bharti Airtel" },
+    { slNo: 3, name: "Kriti Rajput", program: "B.Tech Civil Engineering", session: "2021-2025", company: "Ultratech Cement" },
+    { slNo: 4, name: "Aashutosh Mishra", program: "LLB", session: "2022-2025", company: "Piramal Foundation" },
+    { slNo: 5, name: "Kashish Bawne", program: "BSc Computer Science", session: "2022-2025", company: "Accenture" },
+    { slNo: 6, name: "Aryan Prakash Gupta", program: "MBA", session: "2023-2025", company: "TCS" },
+    { slNo: 7, name: "Ashley Christeena Thomas", program: "B. Pharma", session: "2021-2025", company: "Boston Scientific" },
+    { slNo: 8, name: "Anisha Hussain", program: "MBA", session: "2023-2025", company: "Haleon" },
+    { slNo: 9, name: "Ajay Sharma", program: "BCA", session: "2022-2025", company: "Prodesk IT & Engineering Services" },
+    { slNo: 10, name: "Sayyad Sinwan Awez", program: "B.Tech Computer Science Engineering", session: "2021-2025", company: "Quality Kiosk" },
+    { slNo: 11, name: "Jigyasa Sahu", program: "BA Journalism & Mass Communication", session: "2022-2025", company: "Brandcom PR" },
+    { slNo: 12, name: "Sanskar Dewangan", program: "B Pharma", session: "2021-2025", company: "9M India Limited" },
+    { slNo: 13, name: "Supriya Kadti", program: "MBA", session: "2023-2025", company: "Univesto Capital" },
+    { slNo: 14, name: "Anish Dewangan", program: "MBA", session: "2023-2025", company: "ITSA Hospitals" },
+    { slNo: 15, name: "Nitin Yadav", program: "MBA", session: "2023", company: "Wangfeng Wheels Pvt Ltd" },
+    { slNo: 16, name: "Nupur Mourya", program: "BA Journalism & Mass Communication", session: "2024", company: "HITACHI - CHENNAI & NOIDA" },
+    { slNo: 17, name: "Abhinandan Kumar", program: "B.Tech Mechanical Engineering", session: "2023", company: "Piaggio" },
+    { slNo: 18, name: "Priyata Roy", program: "M Pharma", session: "2024", company: "Genpact" },
+    { slNo: 19, name: "Swati Dewangan", program: "M.Tech Civil Engineering", session: "2023", company: "Cummins India Ltd" },
+    { slNo: 20, name: "Amar Kumar", program: "B.Tech Civil Engineering", session: "2023", company: "Ultratech Cement Pvt Ltd" },
+    { slNo: 21, name: "Anjali Gajghate", program: "MCA", session: "2023", company: "Fiducia Labs Pvt Ltd" },
+    { slNo: 22, name: "Hrishabh Biswas", program: "B.Tech Civil Engineering", session: "2023", company: "Adani Group" },
+    { slNo: 23, name: "Ayush", program: "Diploma Electrical Engineering", session: "2023", company: "SUBROS LTD" },
+    { slNo: 24, name: "Tejas Nahargadkar", program: "B.Tech Computer Science Engineering", session: "2023", company: "Cisco Systems (India) Pvt. Ltd." },
+    { slNo: 25, name: "Ritesh Kumar", program: "B. Sc", session: "2022", company: "Wipro Ltd." },
+    { slNo: 26, name: "DIVESH PANDEY", program: "B.Pharma", session: "2022", company: "ALEMBIC PHARMA" },
+    { slNo: 27, name: "Madhuri Singh", program: "B.ED.", session: "2022", company: "KPS Raipur" },
+    { slNo: 28, name: "Shibani Dey", program: "BA Journalism & Mass Communication", session: "2022", company: "Paharaa TV" },
+    { slNo: 29, name: "Palash Mandal", program: "M.Sc Chemistry", session: "2022", company: "Aurobindo Pharma Ltd." },
+    { slNo: 30, name: "Namita Sharma", program: "B.Sc Biotechnology", session: "2023", company: "BALCO MEDICAL CENTRE" },
+    { slNo: 31, name: "Ankit Yadav", program: "Diploma Mechanical Engineering", session: "2022", company: "DIXON TECHNOLOGIES INDIA LTD" },
+    { slNo: 32, name: "Vaishnav Santosh", program: "B.Tech Computer Science Engineering", session: "2024", company: "TechMahindra" },
+    { slNo: 33, name: "Ankita Shrivastava", program: "LLM", session: "2020", company: "Ernst & Young LLP" },
+    { slNo: 34, name: "Abhishek Namdeo", program: "B.Com", session: "2021", company: "Godrej & Boyce Mfg. Co. Ltd." },
+    { slNo: 35, name: "Dolly Bagal", program: "MBA", session: "2019", company: "LG Electronics India Pvt. Ltd." },
+    { slNo: 36, name: "Harish Jaiswal", program: "B.Pharma", session: "2020", company: "Lex Process Outsourcing Pvt. Ltd." },
+    { slNo: 37, name: "Himanshi Bedi", program: "MBA", session: "2020", company: "Chegg India" },
+    { slNo: 38, name: "NISHA KUMARI", program: "MBA", session: "", company: "Nestle" },
+    { slNo: 39, name: "Aditi Choudhary", program: "MBA", session: "2023", company: "Mahindra Finance" },
+    { slNo: 40, name: "Khushboo Taank", program: "LLB", session: "2022", company: "RBP LAW CHAMBERS" },
+    { slNo: 41, name: "Rahul Agrawal", program: "MBA", session: "2023-2025", company: "VE Commercial Vehicles" },
   ];
   return (
     <>
-      <MainIntro 
-        title="Placement Overview" 
+      <MainIntro
+        title="Placement Overview"
         description={[
-          "Your journey from the classroom to the corporate world begins at Kalinga University. KU offers personalised training and conducts campus drives each year so that you can begin your professional journey right after you graduate. We just don’t teach you the curriculum, but we train, guide, and connect you with industry leaders. We help students build confidence to clear any interview by securing top positions and packages in leading companies."        ]}
-        imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-intro.jpg" 
+          "Your journey from the classroom to the corporate world begins at Kalinga University. KU offers personalised training and conducts campus drives each year so that you can begin your professional journey right after you graduate. We just don’t teach you the curriculum, but we train, guide, and connect you with industry leaders. We help students build confidence to clear any interview by securing top positions and packages in leading companies."]}
+        imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-intro.jpg"
         imageAlt="Kalinga University Research"
         initialVisibleParagraphs={1}
         showKnowMore={true}
       />
-      <Partner 
-        blueTitle="Best Campus Placement University in Chhattisgarh" 
-        redTitle="MoU Partners" 
-        blueItems={blueItems} 
+      <Partner
+        blueTitle="Best Campus Placement University in Chhattisgarh"
+        redTitle="MoU Partners"
+        blueItems={blueItems}
         ccrcLogo="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/ccrclogo.webp"
         singleColumn={true}
         milestones={milestones}
         description="Maintaining the track record of providing students with the best job opportunities and rewarding salary packages at top companies."
-        footerText="Trusted by 500+ Global Recruiters"
+        footerText="Trusted by 400+ Global Recruiters"
         noContainer={true}
       />
-      <QuickLinks 
-        links={links} 
-        title="Training Initiatives Of Kalinga’s TnP Cell" 
-        description="Kalinga University's placement program bridges academia and industry with 400+ recruitment partners, comprehensive training, and dedicated support to prepare students for successful careers in top companies."
-        backgroundColor="bg-white" 
-        textColorClassName="text-black" 
-        showReadMore={true} 
+      <MediaCardSlider
+        categoryTitle=""
+        title="Campus Drives"
+        videoItems={videoItems1}
+        cardBgClass="bg-white"
+        nameTextClass="text-[var(--button-red)]"
+        descriptionTextClass=""
+        swiperClassName="ccrc-video-slider"
       />
-      <Placements hideMarquee={true} hideMilestones={true} bgColor="bg-[var(--light-gray)] mx-2 rounded-xl" marginClassName="mb-0"/>
+      <QuickLinks
+        links={links}
+        title="Training Initiatives Of Kalinga’s TnP Cell"
+        description="Kalinga University's placement program bridges academia and industry with 400+ recruitment partners, comprehensive training, and dedicated support to prepare students for successful careers in top companies."
+        backgroundColor="bg-white"
+        textColorClassName="text-black"
+        showReadMore={true}
+      />
+      <Placements hideMarquee={true} hideMilestones={true} bgColor="bg-[var(--light-gray)] mx-2 rounded-xl" marginClassName="mb-0" />
       <MediaCardSlider
         categoryTitle="Video Interviews"
         title="Hear From Our Success Stories"
@@ -382,8 +514,18 @@ export default function Research() {
         descriptionTextClass=""
         swiperClassName="ccrc-video-slider"
       />
-      <QuickLinks title="Entrepreneurship & Startup Support" titleClassName="text-white" links={links2} description="We're here to put your entrepreneurial ideas into action. Here, you will not just dream but build something real that solves people's problems." showReadMore={false}/>
-      <FAQ 
+      <QuickLinks title="Entrepreneurship & Startup Support" titleClassName="text-white" links={links2} description="We're here to put your entrepreneurial ideas into action. Here, you will not just dream but build something real that solves people's problems." showReadMore={false} />
+      <MediaCardSlider
+        categoryTitle=""
+        title="Recruiters Testimonials"
+        videoItems={videoItems2}
+        cardBgClass="bg-white"
+        nameTextClass="text-[var(--button-red)]"
+        descriptionTextClass=""
+        swiperClassName="ccrc-video-slider"
+        imageObjectPosition="object-bottom"
+      />
+      <FAQ
         title="Placement Records"
         variant="button"
         subtitle=""
@@ -393,13 +535,13 @@ export default function Research() {
             title: "Placements 2022-2023",
             description: "Annual placement reports and detailed placement statistics for the academic year 2022-2023.",
             buttons: [
-              { 
-                label: "Annual Report", 
-                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/KALINGA+Placement+Annaul+Report_2022-23.pdf", "_blank") 
+              {
+                label: "Annual Report",
+                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/KALINGA+Placement+Annaul+Report_2022-23.pdf", "_blank")
               },
-              { 
-                label: "Placement Details", 
-                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement+Details+(2022-23).pdf", "_blank") 
+              {
+                label: "Placement Details",
+                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement+Details+(2022-23).pdf", "_blank")
               }
             ]
           },
@@ -408,13 +550,13 @@ export default function Research() {
             title: "Placements 2021-2022",
             description: "Annual placement reports and detailed placement statistics for the academic year 2021-2022.",
             buttons: [
-              { 
-                label: "Annual Report", 
-                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/KALINGA+Placement+Annual+Report_2021-22.pdf", "_blank") 
+              {
+                label: "Annual Report",
+                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/KALINGA+Placement+Annual+Report_2021-22.pdf", "_blank")
               },
-              { 
-                label: "Placement Details", 
-                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement+Details+(2021-22).pdf", "_blank") 
+              {
+                label: "Placement Details",
+                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement+Details+(2021-22).pdf", "_blank")
               }
             ]
           },
@@ -423,13 +565,13 @@ export default function Research() {
             title: "Placements 2020-2021",
             description: "Annual placement reports and detailed placement statistics for the academic year 2020-2021.",
             buttons: [
-              { 
-                label: "Annual Report", 
-                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/KALINGA+Placement+Annual+Report_2020-21.pdf", "_blank") 
+              {
+                label: "Annual Report",
+                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/KALINGA+Placement+Annual+Report_2020-21.pdf", "_blank")
               },
-              { 
-                label: "Placement Details", 
-                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement+Details+(2020-21).pdf", "_blank") 
+              {
+                label: "Placement Details",
+                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement+Details+(2020-21).pdf", "_blank")
               }
             ]
           },
@@ -438,13 +580,13 @@ export default function Research() {
             title: "Placements 2019-2020",
             description: "Annual placement reports and detailed placement statistics for the academic year 2019-2020.",
             buttons: [
-              { 
-                label: "Annual Report", 
-                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/KALINGA+Placement+Annual+Report_2019-20.pdf", "_blank") 
+              {
+                label: "Annual Report",
+                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/KALINGA+Placement+Annual+Report_2019-20.pdf", "_blank")
               },
-              { 
-                label: "Placement Details", 
-                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement+Details+(2019-20).pdf", "_blank") 
+              {
+                label: "Placement Details",
+                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement+Details+(2019-20).pdf", "_blank")
               }
             ]
           },
@@ -453,19 +595,44 @@ export default function Research() {
             title: "Placements 2018-2019",
             description: "Annual placement reports and detailed placement statistics for the academic year 2018-2019.",
             buttons: [
-              { 
-                label: "Annual Report", 
-                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/KALINGA+Placement+Annual+Report_2018-19.pdf", "_blank") 
+              {
+                label: "Annual Report",
+                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/KALINGA+Placement+Annual+Report_2018-19.pdf", "_blank")
               },
-              { 
-                label: "Placement Details", 
-                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement+Details(2018-19).pdf", "_blank") 
+              {
+                label: "Placement Details",
+                onClick: () => window.open("https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement+Details(2018-19).pdf", "_blank")
               }
             ]
           }
         ]}
       />
+      <Gallery
+        title="Industrial Visit"
+        description=""
+        images={[
+          { id: 1, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-1.jpeg", alt: "International Students Introduction" },
+          { id: 2, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-2.jpeg", alt: "Why Choose Kalinga University" },
+          { id: 3, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-3.jpeg", alt: "International Students Group" },
+          { id: 4, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-4.jpg", alt: "Campus Safety and Security" },
+          { id: 5, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-5.jpg", alt: "International Students Banner" },
+          { id: 6, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-6.jpg", alt: "International Students Banner" },
+          { id: 7, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-7.jpg", alt: "International Students Banner" },
+          { id: 8, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-8.jpg", alt: "International Students Banner" },
+          { id: 9, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-9.jpg", alt: "International Students Banner" },
+          { id: 10, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-10.jpg", alt: "International Students Banner" },
+          { id: 11, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-11.jpg", alt: "International Students Banner" },
+          { id: 12, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-12.jpg", alt: "International Students Banner" },
+          { id: 13, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-13.jpg", alt: "International Students Banner" },
+          { id: 14, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-14.jpg", alt: "International Students Banner" },
+          { id: 15, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-15.jpg", alt: "International Students Banner" },
+          { id: 16, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-16.jpg", alt: "International Students Banner" },
+          { id: 17, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-17.jpg", alt: "International Students Banner" },
+          { id: 18, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-18.jpg", alt: "International Students Banner" },
+          { id: 19, src: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ind-19.jpg", alt: "International Students Banner" },
+        ]}
+      />
       <AdmissionCareer />
     </>
-  );        
+  );
 }

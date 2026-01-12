@@ -20,12 +20,12 @@ export default function EmployeeBenefits({ counsellingAreas, headingTextColor })
     {
       id: 3,
       title: "Health & Wellness",
-      description: "Comprehensive health coverage and wellness initiatives ensure the physical and mental well-being of our employees.",
+      description: "Comprehensive health and wellness initiatives like free checkup camps and wellness initiatives ensure the physical and mental well-being of our employees.",
       img: "https://kalinga-university.s3.ap-south-1.amazonaws.com/careers/Health+%26+Wellness.svg"
     },
     {
       id: 4,
-      title: "Work–Life Balance",
+      title: "Employee Friendly Policies and facilities",
       description: "A positive and flexible work environment that promotes productivity while supporting personal commitments.",
       img: "https://kalinga-university.s3.ap-south-1.amazonaws.com/careers/Work%E2%80%93Life+Balance.svg"
     },
@@ -64,14 +64,14 @@ export default function EmployeeBenefits({ counsellingAreas, headingTextColor })
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        
+
         {benefits.map((item) => (
           <div key={item.id} className="bg-[#FFEBD0] rounded-[10px] p-8 relative h-full">
             {item.img && (
               <div>
-                <img 
-                  src={item.img} 
-                  alt={item.title} 
+                <img
+                  src={item.img}
+                  alt={item.title}
                   className="w-15 h-15 object-contain"
                   onError={(e) => {
                     // Fallback to a default icon if the image fails to load
@@ -81,9 +81,9 @@ export default function EmployeeBenefits({ counsellingAreas, headingTextColor })
                 />
               </div>
             )}
-            
 
-            <h3 className="text-[20px] mb-[10px] border-b border-[var(--dark-gray)] pb-2">{item.title}</h3>
+
+            <h3 className="text-[20px] mb-[10px] border-b border-[var(--dark-gray)] pb-2 leading-8 mt-4">{item.title}</h3>
             <p className="text-[var(--dark-gray)] text-[15px]">
               {item.description}
             </p>

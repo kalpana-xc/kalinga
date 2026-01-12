@@ -63,9 +63,12 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
   const placementImages = placementPhotos.length > 0
     ? placementPhotos.map(photo => photo.image).filter(Boolean)
     : [
-      'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-slider-1.png',
-      'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement.png',
-      'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-slider-2.png'
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-5.png',
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-1.png',
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-4.png',
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-3.png',
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-6.png',
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-2.png'
     ]
 
   // Get title and description from API or use defaults
@@ -205,11 +208,11 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
 
             {/* Right: Stack card component */}
             <div className={`flex justify-center md:justify-end mt-6 md:mt-0 z-2 ${marginClassName}`}>
-              <div className="w-full max-w-[420px]">
+              <div className="w-full max-w-[530px]">
                 <div style={{ width: '100%', height: '480px' }}>
                   <Stack
                     ref={stackRef}
-                    randomRotation={true}
+                    randomRotation={false}
                     sensitivity={180}
                     sendToBackOnClick={false}
                     autoplay={true}

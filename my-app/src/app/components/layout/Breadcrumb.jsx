@@ -62,7 +62,7 @@ const STATIC_PAGE_DATA = {
     title: 'Admissions',
     image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/student-gathered.webp'
   },
-  '/leadership': { title: 'Administration & Leadership' },
+  '/leadership': { title: 'Leadership' },
   '/academic-calendar': { title: 'Academic Calendar' },
   '/campuslife': { title: 'Life @ KU' },
   '/student-support': { title: 'Student Support' },
@@ -162,6 +162,9 @@ const Breadcrumb = ({ customBreadcrumbs, heroImage, pageTitle }) => {
 
   // Don't show breadcrumb on homepage
   if (pathname === '/') return null;
+
+  // Don't show breadcrumb on thank-you page
+  if (pathname === '/thank-you') return null;
 
   // Don't show breadcrumb on corporate-training-and-consultancy-division page
   if (pathname === '/corporate-training-and-consultancy-division') return null;

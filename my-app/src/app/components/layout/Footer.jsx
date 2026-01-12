@@ -1,8 +1,12 @@
+"use client";
 import React from 'react'
 import Image from 'next/image'
 import { getLogoSrc, getLogoAlt } from '../../config/contact-info'
+import FlipbookTrigger from '../general/FlipbookTrigger'
+import { useFlipbook } from '../general/FlipbookContext'
 
 export default function Footer() {
+  const { openFlipbook } = useFlipbook();
   return (
     <>
       <style dangerouslySetInnerHTML={{
@@ -24,7 +28,7 @@ export default function Footer() {
           }
         }
       `}} />
-      <footer className="text-white mt-5 px-2 sm:px-4">
+      <footer className="text-white mt-5 px-2">
         <div className="relative bg-[var(--dark-blue)] rounded-[10px] sm:rounded-[15px]">
           <div className="px-4 sm:px-6 md:px-6 lg:px-12 py-6 sm:py-8 md:py-8 lg:py-10 !pb-0 relative z-10">
             {/* Top Row: Logo and Follow Us */}
@@ -84,7 +88,11 @@ export default function Footer() {
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="#">Accessibility</a></li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/downloads">Downloads</a></li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/important-links">Important Links</a></li>
-                    <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="https://kalinga-university.s3.ap-south-1.amazonaws.com/downloads/KU+NIRF+2024+DCF.pdf">NIRF Ranking</a></li>
+                    <li>
+                      <FlipbookTrigger pdfUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/downloads/KU+NIRF+2024+DCF.pdf" title="NIRF Ranking">
+                        <a className="hover:text-white transition-colors md:whitespace-nowrap break-words cursor-pointer" onClick={() => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/downloads/KU+NIRF+2024+DCF.pdf", "NIRF Ranking")}>NIRF Ranking</a>
+                      </FlipbookTrigger>
+                    </li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/ku-fees">Proposed KU Fees</a></li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/academic-planner">Academic Planner</a></li>
 
@@ -105,7 +113,11 @@ export default function Footer() {
                   <ul className="text-white/80 space-y-2 sm:space-y-3">
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/value-added-course">Value Added Courses</a></li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/unnat-bharat-abhiyan">Unnat Bharat Abhiyan </a></li>
-                    <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/UGC+(Detailed+Info.).pdf">UGC Detailed Information</a></li>
+                    <li>
+                      <FlipbookTrigger pdfUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/UGC+(Detailed+Info.).pdf" title="UGC Detailed Information">
+                        <a className="hover:text-white transition-colors md:whitespace-nowrap break-words cursor-pointer" onClick={() => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/common/UGC+(Detailed+Info.).pdf", "UGC Detailed Information")}>UGC Detailed Information</a>
+                      </FlipbookTrigger>
+                    </li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="https://studyinindia.gov.in/">Study in India</a></li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/pay-online">Pay Online</a></li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/sdg-cell">SDG Cell</a></li>
@@ -117,14 +129,22 @@ export default function Footer() {
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/radio">Kalinga Radio</a></li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/podcast">Kalinga Podcast</a></li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/kalinga-buzz">Kalinga Buzz</a></li>
-                    <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="https://kalinga-university.s3.ap-south-1.amazonaws.com/downloads/IT+Policy+-+KU.pdf">IT Policy</a></li>
+                    <li>
+                      <FlipbookTrigger pdfUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/downloads/IT+Policy+-+KU.pdf" title="IT Policy">
+                        <a className="hover:text-white transition-colors md:whitespace-nowrap break-words cursor-pointer" onClick={() => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/downloads/IT+Policy+-+KU.pdf", "IT Policy")}>IT Policy</a>
+                      </FlipbookTrigger>
+                    </li>
 
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/institution-innovation-council">Institution's Innovation Council</a></li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="#">Code of Conduct Handbook</a></li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/executive-development-program">Executive Development Program</a></li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/national-council-teacher-education">National Council For Teacher Education</a></li>
                     <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="/academic-and-industry-collaborations">Academic and Industry Collaborations</a></li>
-                    <li><a className="hover:text-white transition-colors md:whitespace-nowrap break-words" href="https://kalinga-university.s3.ap-south-1.amazonaws.com/downloads/IIC_Appreciation_Letter_AY_2023_24.pdf">IIC Appreciation Letter AY 2023-24</a></li>
+                    <li>
+                      <FlipbookTrigger pdfUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/downloads/IIC_Appreciation_Letter_AY_2023_24.pdf" title="IIC Appreciation Letter AY 2023-24">
+                        <a className="hover:text-white transition-colors md:whitespace-nowrap break-words cursor-pointer" onClick={() => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/downloads/IIC_Appreciation_Letter_AY_2023_24.pdf", "IIC Appreciation Letter AY 2023-24")}>IIC Appreciation Letter AY 2023-24</a>
+                      </FlipbookTrigger>
+                    </li>
 
                   </ul>
                 </div>

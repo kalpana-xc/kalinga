@@ -6,6 +6,7 @@ import ImageListItem from "@/app/components/ccrc/imagelistitem";
 import DataTable from "@/app/components/general/data-table";
 import GlobalArrowButton from "@/app/components/general/global-arrow_button";
 import AdmissionCareer from "@/app/components/general/admission_cta";
+import GrievanceForm from "@/app/components/forms/GrievanceForm";
 
 const breadcrumbData = {
   heroImage:
@@ -52,127 +53,6 @@ const committeeMembers = [
   { sno: 15, name: "Ms. Priyanka Singh", position: "Student Coordinator" },
 ];
 
-function GrievanceFormCard() {
-  const [form, setForm] = useState({
-    studentName: "",
-    courseName: "",
-    semesterYear: "",
-    enrollmentNo: "",
-    mobile: "",
-    email: "",
-    grievance: "",
-  });
-
-  const onChange = (key) => (e) => setForm((p) => ({ ...p, [key]: e.target.value }));
-
-  const onSubmit = () => {
-    console.log("Grievance Submitted:", form);
-  };
-
-  return (
-    <section className="py-14">
-      <div className="container mx-auto px-4">
-        <div className="bg-[var(--button-red)] rounded-2xl px-6 sm:px-12 py-14">
-          <h2 className="text-white text-center text-3xl sm:text-[40px] font-light font-stix">
-            Kalinga University Grievance Cell
-          </h2>
-
-          <div className="mt-12 max-w-4xl mx-auto grid sm:grid-cols-2 gap-x-14 gap-y-10">
-            <div>
-              <label className="text-white text-sm sm:text-base font-plus-jakarta-sans">
-                Student Name
-              </label>
-              <input
-                value={form.studentName}
-                onChange={onChange("studentName")}
-                placeholder="Student Name"
-                className="w-full mt-2 bg-transparent border-b border-white/60 text-white py-3 outline-none placeholder:text-white/60 focus:border-white font-plus-jakarta-sans"
-              />
-            </div>
-
-            <div>
-              <label className="text-white text-sm sm:text-base font-plus-jakarta-sans">
-                Course Name
-              </label>
-              <input
-                value={form.courseName}
-                onChange={onChange("courseName")}
-                placeholder="Course Name"
-                className="w-full mt-2 bg-transparent border-b border-white/60 text-white py-3 outline-none placeholder:text-white/60 focus:border-white font-plus-jakarta-sans"
-              />
-            </div>
-
-            <div>
-              <label className="text-white text-sm sm:text-base font-plus-jakarta-sans">
-                Semester / Year
-              </label>
-              <input
-                value={form.semesterYear}
-                onChange={onChange("semesterYear")}
-                placeholder="Semester / Year"
-                className="w-full mt-2 bg-transparent border-b border-white/60 text-white py-3 outline-none placeholder:text-white/60 focus:border-white font-plus-jakarta-sans"
-              />
-            </div>
-
-            <div>
-              <label className="text-white text-sm sm:text-base font-plus-jakarta-sans">
-                Enrollment No
-              </label>
-              <input
-                value={form.enrollmentNo}
-                onChange={onChange("enrollmentNo")}
-                placeholder="Enrollment No"
-                className="w-full mt-2 bg-transparent border-b border-white/60 text-white py-3 outline-none placeholder:text-white/60 focus:border-white font-plus-jakarta-sans"
-              />
-            </div>
-
-            <div>
-              <label className="text-white text-sm sm:text-base font-plus-jakarta-sans">
-                Please Enter Mobile No
-              </label>
-              <input
-                value={form.mobile}
-                onChange={onChange("mobile")}
-                placeholder="Please Enter Mobile No"
-                className="w-full mt-2 bg-transparent border-b border-white/60 text-white py-3 outline-none placeholder:text-white/60 focus:border-white font-plus-jakarta-sans"
-              />
-            </div>
-
-            <div>
-              <label className="text-white text-sm sm:text-base font-plus-jakarta-sans">
-                Email
-              </label>
-              <input
-                value={form.email}
-                onChange={onChange("email")}
-                placeholder="Email"
-                className="w-full mt-2 bg-transparent border-b border-white/60 text-white py-3 outline-none placeholder:text-white/60 focus:border-white font-plus-jakarta-sans"
-              />
-            </div>
-
-            <div className="sm:col-span-2">
-              <label className="text-white text-sm sm:text-base font-plus-jakarta-sans">
-                Grievance
-              </label>
-              <input
-                value={form.grievance}
-                onChange={onChange("grievance")}
-                placeholder="Grievance"
-                className="w-full mt-2 bg-transparent border-b border-white/60 text-white py-3 outline-none placeholder:text-white/60 focus:border-white font-plus-jakarta-sans"
-              />
-            </div>
-          </div>
-
-          <div className="flex justify-center mt-12">
-            <GlobalArrowButton variant="white" onClick={onSubmit}>
-              Submit
-            </GlobalArrowButton>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function GrievanceRedressalPage() {
   useLayoutEffect(() => {
@@ -202,7 +82,7 @@ export default function GrievanceRedressalPage() {
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/grievance/grievance-main-intro.webp"
         imageAlt="Grievance Redressal Cell"
         showKnowMore={true}
-        initialVisibleParagraphs={1}
+        initialVisibleParagraphs={2}
       />
 
       <ImageListItem
@@ -218,13 +98,13 @@ export default function GrievanceRedressalPage() {
             <center>Grievance Redressal Committee</center>
           </h2>
 
-          <div className="mt-10">
+          <div className="mt-10 max-w-4xl mx-auto">
             <DataTable columns={columns} data={data} overflowX={true} />
           </div>
         </div>
       </section>
 
-      <GrievanceFormCard />
+      <GrievanceForm />
       <AdmissionCareer />
 
       {/* Existing breadcrumb image position override + font harmoniser */}

@@ -125,9 +125,10 @@ export default function Facility({
   titleClassName = "text-center",
   subtitleClassName = "text-center !text-[var(--button-red)]",
   facilities = defaultFacilities,
+  className = "py-16",
 }) {
   return (
-    <section className="py-16 bg-white relative">
+    <section className={`${className} bg-white relative`}>
       <div className="px-2">
         {/* Header Section */}
         <SectionHeading
@@ -137,7 +138,7 @@ export default function Facility({
           title={title}
         />
         {description && (
-          <p className="text-center text-gray-600 max-w-4xl mx-auto mt-4 mb-8">
+          <p className="text-center text-gray-600 max-w-6xl mx-auto mt-4 mb-4">
             {description}
           </p>
         )}

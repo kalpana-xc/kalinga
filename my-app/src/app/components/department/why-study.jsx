@@ -37,13 +37,17 @@ export default function WhyStudy({
   items = whyStudyItems,
   sectionTitle = 'Why Study Information Technology?',
   backgroundImage = 'https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/why-this-course-1.webp',
+  breakpoints = {
+    768: { slidesPerView: 2 },
+    1280: { slidesPerView: 2 },
+  }
 }) {
   const [cardExpanded, setCardExpanded] = useState({});
   const [needsReadMore, setNeedsReadMore] = useState({});
   const textRefs = useRef({});
-  
+
   const toggleCard = (id) => setCardExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
-  
+
   const collapsedTextStyle = {
     display: '-webkit-box',
     WebkitLineClamp: 3,
@@ -61,7 +65,7 @@ export default function WhyStudy({
           // Get the line height (approximate)
           const lineHeight = parseFloat(getComputedStyle(ref).lineHeight) || 20;
           const maxClampedHeight = lineHeight * 3; // 3 lines
-          
+
           // Temporarily remove clamp to measure full height
           const wasClamped = ref.style.display === '-webkit-box';
           if (wasClamped) {
@@ -70,9 +74,9 @@ export default function WhyStudy({
             ref.style.webkitBoxOrient = '';
             ref.style.overflow = '';
           }
-          
+
           const fullHeight = ref.scrollHeight;
-          
+
           // Restore clamp if it was there
           if (wasClamped) {
             ref.style.display = '-webkit-box';
@@ -80,7 +84,7 @@ export default function WhyStudy({
             ref.style.webkitBoxOrient = 'vertical';
             ref.style.overflow = 'hidden';
           }
-          
+
           const needsTruncation = fullHeight > maxClampedHeight;
           setNeedsReadMore((prev) => ({ ...prev, [item.id]: needsTruncation }));
         }
@@ -101,21 +105,18 @@ export default function WhyStudy({
             height={500}
             className="w-full h-[500px] md:h-[600px] lg:h-[700px] object-cover rounded-2xl"
           />
-          
+
           {/* Slider Cards Overlaying the Image at Bottom */}
           <div className="absolute bottom-0 left-0 right-0 px-4 md:px-6 lg:px-10 pb-4 md:pb-6">
-            <div className="text-center">   
-            <h2 className="mb-8  text-white text-left md:text-center">{sectionTitle}</h2>
+            <div className="text-center">
+              <h2 className="mb-8  text-white text-left md:text-center">{sectionTitle}</h2>
             </div>
             <div className="relative">
               <Swiper
                 modules={[Navigation, Autoplay]}
                 spaceBetween={20}
                 slidesPerView={1}
-                breakpoints={{
-                  768: { slidesPerView: 2 },
-                  1280: { slidesPerView: 2 },
-                }}
+                breakpoints={breakpoints}
                 autoplay={{
                   delay: 2500,
                   disableOnInteraction: false,
@@ -181,7 +182,7 @@ export default function WhyStudy({
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
-              
+
               <button
                 className="why-study-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[var(--button-red)] hover:bg-[#A2A2A2] text-white flex items-center justify-center hover:opacity-90 transition-opacity shadow-md"
                 aria-label="Next cards"

@@ -60,9 +60,9 @@ const IQACPage = () => {
 
   const publicationStats = [
     {
-        id: 1,
-        title: "Publications",
-        value: "100+",
+      id: 1,
+      title: "Publications",
+      value: "100+",
 
     },
     {
@@ -70,7 +70,7 @@ const IQACPage = () => {
       title: "Journals",
       value: "50+",
     },
-    {   
+    {
       id: 3,
       title: "Books",
       value: "30+",
@@ -83,21 +83,21 @@ const IQACPage = () => {
   ]
   return (
     <>
-    <MainIntro 
-    title="About IQAC"
-    description={["In pursuance of the National Action Plan of the National Assessment and Accreditation Council (NAAC) for performance evaluation, assessment and accreditation, and quality upgradation of institutions of higher education, NAAC proposes that every accredited institution should have an Internal Quality Assurance Cell (IQAC) as a post-accreditation quality sustenance measure. With this aim, Kalinga University established its internal quality assurance cell on 5th July 2016.",
-       "The primary motto of our IQAC is to continuously monitor and improve the quality of every activity and propose new improvements with the cooperation of all the stakeholders. It will channelise the overall performance of the institute towards academic excellence. Our IQAC produces quality reports on various institutional activities, enabling committee members to take rational and informed decisions for continuous improvement."
-    ]}
-    imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/banner.webp"
-    imageAlt="IQAC"
-    descriptionClassName="text-[var(--foreground)]"
-    />
-    <PublicationGrid stats={publicationStats} />
-    <DeptHeadIntro items={MentorIntroProps} />
-    <IQACTabSection />
-    <ISOCertificateSection description="Kalinga University is committed to maintaining the highest standards of quality in all its academic and administrative processes. Our ISO 9001:2015 certification demonstrates our dedication to continuous improvement and excellence in education, ensuring that we meet international quality benchmarks and provide the best possible learning experience for our students." />
-    <ContactSection />
-    <AdmissionCareer />
+      <MainIntro
+        title="About IQAC"
+        description={["In pursuance of the National Action Plan of the National Assessment and Accreditation Council (NAAC) for performance evaluation, assessment and accreditation, and quality upgradation of institutions of higher education, NAAC proposes that every accredited institution should have an Internal Quality Assurance Cell (IQAC) as a post-accreditation quality sustenance measure. With this aim, Kalinga University established its internal quality assurance cell on 5th July 2016.",
+          "The primary motto of our IQAC is to continuously monitor and improve the quality of every activity and propose new improvements with the cooperation of all the stakeholders. It will channelise the overall performance of the institute towards academic excellence. Our IQAC produces quality reports on various institutional activities, enabling committee members to take rational and informed decisions for continuous improvement."
+        ]}
+        imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/IQAC/banner.webp"
+        imageAlt="IQAC"
+        descriptionClassName="text-[var(--foreground)]"
+      />
+      {/* <PublicationGrid stats={publicationStats} /> */}
+      <DeptHeadIntro items={MentorIntroProps} />
+      <IQACTabSection />
+      <ISOCertificateSection description="Kalinga University is committed to maintaining the highest standards of quality in all its academic and administrative processes. Our ISO 9001:2015 certification demonstrates our dedication to continuous improvement and excellence in education, ensuring that we meet international quality benchmarks and provide the best possible learning experience for our students." />
+      <ContactSection />
+      <AdmissionCareer />
     </>
   )
 }

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import ResearchSixGridButtons from "../components/research/research_six_grid-buttons";
 import GlobalArrowButton from "../components/general/global-arrow_button";
+import FlipbookTrigger from "../components/general/FlipbookTrigger";
 
 
 const breadcrumbData = {
@@ -126,28 +127,33 @@ export default function Page() {
   }, []);
   return (
     <>
-    
+
 
       {/* ✅ PAGE-SPECIFIC GRID */}
       <section className="pt-16 pb-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {downloadsreport.map((item) => (
-              <a
+              <FlipbookTrigger
                 key={item.id}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
+                pdfUrl={item.href}
+                title={item.text}
               >
-                <GlobalArrowButton
-                  className="!w-full h-[60px] justify-between"
-                  arrowClassName="p-[3px] !px-2 mr-2 !py-1"
-                  arrowSize={29}
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
                 >
-                  {item.text}
-                </GlobalArrowButton>
-              </a>
+                  <GlobalArrowButton
+                    className="!w-full h-[60px] justify-between"
+                    arrowClassName="p-[3px] !px-2 mr-2 !py-1"
+                    arrowSize={29}
+                  >
+                    {item.text}
+                  </GlobalArrowButton>
+                </a>
+              </FlipbookTrigger>
             ))}
           </div>
         </div>

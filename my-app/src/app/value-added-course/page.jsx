@@ -3,6 +3,9 @@ import { useState } from "react";
 import MainIntro from "../components/about/main_intro";
 import MediaCardSlider from "../components/general/media-card-slider";
 import SectionHeading from "../components/general/SectionHeading";
+import FlipbookTrigger from "../components/general/FlipbookTrigger";
+import { useFlipbook } from "../components/general/FlipbookContext";
+import GlobalArrowButton from "../components/general/global-arrow_button";
 
 /* ---------------- Breadcrumb ---------------- */
 const breadcrumbData = {
@@ -22,8 +25,8 @@ if (typeof window !== 'undefined') {
 const videoItems = [
   {
     id: 1,
-    name: "Sujjal Saraf",
-    description: "BBA",
+    title: "Sujjal Saraf",
+    subtitle: "BBA",
     videoUrl:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VIDEO_856d6f87-40aa-4311-9bd2-a4c2854b83b2+(1).mp4",
     thumbnail:
@@ -31,8 +34,8 @@ const videoItems = [
   },
   {
     id: 2,
-    name: "Sadiq Isa Yusuf",
-    description: "MBA",
+    title: "Sadiq Isa Yusuf",
+    subtitle: "MBA",
     videoUrl:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/students-video-1.mp4",
     thumbnail:
@@ -40,8 +43,8 @@ const videoItems = [
   },
   {
     id: 3,
-    name: "Debraj Debnath",
-    description: "B.Tech CS",
+    title: "Debraj Debnath",
+    subtitle: "B.Tech CS",
     videoUrl:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VIDEO_5112c405-c05e-42cd-a9f2-6f043d3d2181.mp4",
     thumbnail:
@@ -49,8 +52,8 @@ const videoItems = [
   },
   {
     id: 4,
-    name: "Surya Kumar Srivastava",
-    description: "B.Tech CS (AIML)",
+    title: "Surya Kumar Srivastava",
+    subtitle: "B.Tech CS (AIML)",
     videoUrl:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VIDEO_8b1b9390-247c-4ca7-b120-29a1e6e2d85d.mp4",
     thumbnail:
@@ -58,17 +61,17 @@ const videoItems = [
   },
   {
     id: 5,
-    name: "Naman Kumar",
-    description: "MCA",
+    title: "Naman Kumar",
+    subtitle: "MCA",
     videoUrl:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/Value+Added+Byte+08+(1)+(1).mp4",
     thumbnail:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/Value+Added+Byte+08+(1)+(1).mp4",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/Value+Added+Byte+08+(1)+(1).mp4#t=3",
   },
   {
     id: 6,
-    name: "Karda Karwolor",
-    description: "BCS AI ML",
+    title: "Karda Karwolor",
+    subtitle: "BCS AI ML",
     videoUrl:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VIDEO_d95ed852-87bb-43b3-b52e-95c23b096a02.mp4",
     thumbnail:
@@ -76,17 +79,17 @@ const videoItems = [
   },
   {
     id: 7,
-    name: "Alex Teo",
-    description: "MBA",
+    title: "Alex Teo",
+    subtitle: "MBA",
     videoUrl:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/Value+Added+Byte+07+(1)+(1).mp4",
     thumbnail:
-      "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/Value+Added+Byte+07+(1)+(1).mp4",
+      "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/Value+Added+Byte+07+(1)+(1).mp4#t=3",
   },
   {
     id: 9,
-    name: "Abubakar",
-    description: "MCOM BF",
+    title: "Abubakar",
+    subtitle: "MCOM BF",
     videoUrl:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VIDEO_85b47a2b-6778-43cc-b817-929a4beaf67c+(2)+(1).mp4",
     thumbnail:
@@ -115,10 +118,11 @@ const pdfData = {
 export default function ValueAddedPage() {
   const years = Object.keys(pdfData);
   const [activeYear, setActiveYear] = useState(years[0]);
+  const { openFlipbook } = useFlipbook();
 
   return (
     <>
-    <section className="research-welfare-intro">
+      <section className="research-welfare-intro">
         <MainIntro
           breadcrumbData={breadcrumbData}
           title="Get Ready To Future-Proof Your Resumes With Industry-Ready Skills"
@@ -132,50 +136,57 @@ export default function ValueAddedPage() {
         />
       </section>
 
-     {/* ---------- YEAR WISE PDF SECTION ---------- */}
-     <SectionHeading 
-       title="Our Value Added Courses"
-       titleClassName="text-center mt-10"
-     />
-<section className="py-14">
-  <div className="mx-auto max-w-6xl rounded-3xl bg-[#0d4a75] p-6">
-    {/* <h3 className="text-white mb-6">
-      
-    </h3> */}
-
-    {/* Tabs */}
-    <div className="flex flex-wrap gap-3 mb-6">
-      {years.map((year) => {
-        const isActive = activeYear === year;
-        return (
-          <button
-            key={year}
-            onClick={() => setActiveYear(year)}
-            className={[
-              "whitespace-nowrap rounded-lg border px-4 py-2 text-sm font-medium transition-colors",
-              isActive
-                ? "bg-[var(--button-red)] text-white border-white/10"
-                : "bg-white text-[var(--foreground)] border-white/30 hover:bg-white/95",
-            ].join(" ")}
-          >
-            {year}
-          </button>
-        );
-      })}
-    </div>
-
-   
-
-    {/* PDF Preview */}
-    <div className="bg-white rounded-xl overflow-hidden shadow-lg">
-      <iframe
-        src={pdfData[activeYear].replace("/view", "/preview")}
-        className="w-full h-[600px]"
-        allow="autoplay"
+      {/* ---------- YEAR WISE PDF SECTION ---------- */}
+      <SectionHeading
+        title="Our Value Added Courses"
+        titleClassName="text-center mt-10"
       />
-    </div>
-  </div>
-</section>
+      <section className="py-14">
+        <div className="mx-auto max-w-6xl rounded-3xl bg-[#0d4a75] p-4">
+          {/* Tabs */}
+          <div className="flex flex-wrap gap-3 mb-3">
+            {years.map((year) => {
+              const isActive = activeYear === year;
+              return (
+                <button
+                  key={year}
+                  onClick={() => setActiveYear(year)}
+                  className={[
+                    "whitespace-nowrap rounded-lg border px-4 py-2 text-sm font-medium transition-colors",
+                    isActive
+                      ? "bg-[var(--button-red)] text-white border-white/10"
+                      : "bg-white text-[var(--foreground)] border-white/30 hover:bg-white/95",
+                  ].join(" ")}
+                >
+                  {year}
+                </button>
+              );
+            })}
+          </div>
+
+
+          {/* Flipbook Button */}
+          <div className="bg-white rounded-xl overflow-hidden shadow-lg p-8 flex flex-col items-center justify-center min-h-[400px]">
+            <h3 className="text-2xl font-bold text-[var(--foreground)] mb-4 text-center">
+              Value Added Courses {activeYear}
+            </h3>
+            <p className="text-gray-600 mb-6 text-center max-w-2xl">
+              Click below to view the complete list of value-added courses offered during the academic year {activeYear}
+            </p>
+            <FlipbookTrigger
+              pdfUrl={pdfData[activeYear]}
+              title={`Value Added Courses ${activeYear}`}
+            >
+              <GlobalArrowButton
+                onClick={() => openFlipbook(pdfData[activeYear], `Value Added Courses ${activeYear}`)}
+                className="!w-auto !px-8 !py-3"
+              >
+                View {activeYear} Courses
+              </GlobalArrowButton>
+            </FlipbookTrigger>
+          </div>
+        </div>
+      </section>
 
 
       {/* Video Slider */}

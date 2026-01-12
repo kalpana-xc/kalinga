@@ -202,8 +202,8 @@ export default function Page() {
 
       {/* Club Sections */}
       {clubSections.map((section) => (
-        <section key={section.id} className="py-8 bg-white">
-          <div className="container mx-auto px-4">
+        <section key={section.id} className="bg-white">
+          <div className="container mx-auto px-4 mt-5">
 
             {/* Smaller Section Title */}
             <h3 className="  text-[var(--foreground)] mb-8 text-center">
@@ -213,12 +213,14 @@ export default function Page() {
             {/* Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {section.clubs.map((club, index) => (
-                <div key={index}>
+                <div key={index} className="h-full">
                   <LeadershipCard
                     name={club.name}
                     title=""
                     image={club.image}
                     usePTagForName={true}
+                    imageFit="contain"
+                    imageContainerClassName="aspect-square"
                   />
                 </div>
               ))}

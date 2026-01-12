@@ -113,6 +113,7 @@ export const ScrollComponent = ({
                 width={120}
                 height={120}
                 className="object-contain"
+                style={{ width: 'auto', height: 'auto' }}
               />
             </span>
           )}
@@ -157,4 +158,4 @@ export const ScrollComponent = ({
   );
 };
 
-export default  ScrollComponent;
+export default ScrollComponent;
