@@ -90,6 +90,7 @@ export default function GrievanceRedressalPage() {
         subtitle=""
         items={functionsList}
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/grievance/grievance-functions.webp"
+        description=""
       />
 
       <section className="py-12">
