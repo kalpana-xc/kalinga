@@ -508,9 +508,9 @@ export default function DynamicCoursePage() {
       tabs.push({ id: 'eligibility', label: 'Eligibility Criteria' });
     }
 
-    // Career Pathwayss section
+    // Career Pathways section
     if (careerPathContent && careerPathContent.careers && careerPathContent.careers.length > 0) {
-      tabs.push({ id: 'career', label: 'Career Pathwayss' });
+      tabs.push({ id: 'career', label: 'Career Pathways' });
     }
 
     // Specialization section

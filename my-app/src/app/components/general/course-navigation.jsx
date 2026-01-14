@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 const defaultTabs = [
   { id: 'about', label: 'About' },
   { id: 'eligibility', label: 'Eligibility Criteria' },
-  { id: 'career', label: 'Career Pathwayss' },
+  { id: 'career', label: 'Career Pathways' },
   { id: 'specialization', label: 'Specialization' },
   { id: 'facilities', label: 'Facilities' },
   { id: 'activities', label: 'Student Activities' },
@@ -52,8 +52,8 @@ export default function CourseNavigation({
                 key={tab.id}
                 onClick={() => handleTabClick(tab.id)}
                 className={`font-plus-jakarta-sans text-sm md:text-base lg:text-lg px-3 md:px-4 py-1.5 md:py-2 transition-colors duration-200 whitespace-nowrap flex-shrink-0 cursor-pointer ${currentActive === tab.id
-                    ? 'text-[var(--button-red)] font-semibold'
-                    : 'text-[var(--foreground)] font-medium hover:text-[var(--button-red)]'
+                  ? 'text-[var(--button-red)] font-semibold'
+                  : 'text-[var(--foreground)] font-medium hover:text-[var(--button-red)]'
                   }`}
               >
                 {tab.label}

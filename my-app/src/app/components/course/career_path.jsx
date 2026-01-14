@@ -34,7 +34,7 @@ const defaultCareers = [
 ];
 
 export default function CareerPath({
-  title = "Career Pathwayss",
+  title = "Career Pathways",
   description = "Get ready to turn your unique ideas into reality in the world of tech and design with limitless career opportunities.",
   careers = defaultCareers,
 }) {
