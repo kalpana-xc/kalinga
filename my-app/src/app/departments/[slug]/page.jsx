@@ -206,7 +206,7 @@ export default function DynamicDepartmentPage() {
   // Map API data to components (same logic as static page)
   const mainIntroContent = departmentData?.about_sections?.[0] ? (() => {
     const apiParagraphs = parseHtmlToParagraphs(departmentData.about_sections[0].content);
-    const mockSecondParagraph = " world.";
+    const mockSecondParagraph = "";
 
     const description = apiParagraphs.length > 0
       ? [apiParagraphs[0], mockSecondParagraph, ...apiParagraphs.slice(1)]
@@ -218,7 +218,7 @@ export default function DynamicDepartmentPage() {
       description: description,
       imageUrl: departmentData.about_sections[0].image,
       imageAlt: departmentData.about_sections[0].alt,
-      initialVisibleParagraphs: 2,
+      initialVisibleParagraphs: 3,
       showKnowMore: true,
       knowMoreLabel: "Read More",
     };

@@ -111,7 +111,7 @@ export default async function NewsEventDetailsPage({ params }) {
                 mainImage={mainImage}
                 galleryImages={galleryImages}
             />
-            <CareerApplicationForm
+            {/* <CareerApplicationForm
                 heading="Registration Form"
                 description="Share your details to stay connected with Kalinga University, receive updates, and participate in alumni activities and events."
                 backgroundClass="bg-[var(--dark-blue)]"
@@ -119,7 +119,7 @@ export default async function NewsEventDetailsPage({ params }) {
                 submitLabel="Submit Career Details"
                 useArrowSubmitButton={true}
                 arrowSubmitVariant="white"
-            />
+            /> */}
             <UpcomingEvents />
             <AdmissionCareer />
         </>
