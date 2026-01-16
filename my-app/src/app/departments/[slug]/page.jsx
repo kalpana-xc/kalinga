@@ -228,7 +228,7 @@ export default function DynamicDepartmentPage() {
   // Component expects: title, subtitle, department, imageSrc, quote, message
   const deptHeadIntroContent = departmentData?.department_faculty_details?.[0] ? {
     title: departmentData.department_faculty_details[0].name || "",
-    subtitle: departmentData.department_faculty_details[0].qualification || "Head of Department",
+    subtitle: departmentData.department_faculty_details[0].qualification || "Message from the Dean",
     department: departmentData.name || "",
     imageSrc: departmentData.department_faculty_details[0].image || "",
     quote: departmentData.department_faculty_details[0].quote_description || "",
@@ -505,7 +505,7 @@ export default function DynamicDepartmentPage() {
       )}
       {departmentData?.clubs && departmentData.clubs.length > 0 && (
         <UpcomingConference
-          title="Student Clubs"
+          title={`Introducing Our ${departmentData.name} Clubs`}
           registerButtonText="Join Now"
           imageContainerClass="object-contain py-16 h-[350px]"
 
