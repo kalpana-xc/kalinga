@@ -344,8 +344,8 @@ export default function DynamicCoursePage() {
     customBreadcrumbs: [
       { label: 'Home', href: '/' },
       {
-        label: courseData.name,
-        href: `/courses/${courseData.slug || generateSlug(courseData.name)}`
+        label: "Academics",
+        href: `/admissions#course-finder`
       }
     ]
   } : null;
@@ -698,6 +698,7 @@ export default function DynamicCoursePage() {
       />
       {faqContent && faqContent.items && faqContent.items.length > 0 && (
         <FAQ
+          subtitle=""
           title={faqContent.title}
           items={faqContent.items}
         />

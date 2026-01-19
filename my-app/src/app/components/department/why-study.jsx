@@ -118,14 +118,16 @@ export default function WhyStudy({
                 slidesPerView={1}
                 breakpoints={breakpoints}
                 autoplay={{
-                  delay: 2500,
-                  disableOnInteraction: false,
+                  delay: 3500,
+                  disableOnInteraction: true,
+                  pauseOnMouseEnter: true,
                 }}
                 speed={1000}
                 navigation={{
                   nextEl: '.why-study-next',
                   prevEl: '.why-study-prev',
                 }}
+                loop={false}
                 className="why-study-swiper [&_.swiper-wrapper]:items-stretch"
               >
                 {items.map((item) => (

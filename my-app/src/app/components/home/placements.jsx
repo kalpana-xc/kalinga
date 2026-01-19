@@ -72,7 +72,7 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
     ]
 
   // Get title and description from API or use defaults
-  const title = placementInfo?.heading || "Empowering Careers, One Success Story at a Time"
+  const title = placementInfo?.heading || "A Proven Placement Track Record"
   const description = placementInfo?.description || "Kalinga University has a strong placement ecosystem that bridges academic excellence with real-world opportunities. With over 400+ corporate recruiters and 1200+ internships offered, our graduates are shaping successful careers across industries worldwide."
 
   // Convert logo URLs to image elements for LogoLoop

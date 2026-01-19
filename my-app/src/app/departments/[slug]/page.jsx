@@ -30,6 +30,7 @@ import EligibilityCriteria from "@/app/components/course/eligibility_criteria";
 import CareerPath from "@/app/components/course/career_path";
 import { fetchAllDepartments, fetchDepartmentCompleteDetail, fetchAllDepartmentsCourses, parseHtmlToParagraphs, parseHtmlToText, parseHtmlListItems } from "@/app/lib/api";
 import { useBreadcrumbData } from "@/app/components/layout/BreadcrumbContext";
+import Gallery from "@/app/components/general/gallery";
 
 // Generate slug from department name if slug is not available
 const generateSlug = (name) => {
@@ -484,7 +485,7 @@ export default function DynamicDepartmentPage() {
       )}
 
       <Placements placementData={placementData} bgColor="bg-white" title="Placements" />
-      <Facility subtitle="Facilities" />
+      <Facility subtitle="Campus Facilities" title="Step into a World-Class Infrastructure" description="Every space of our campus is designed to support learning, innovation, and comfort. Our eco-friendly campus and state-of-the-art facilities are designed to create an environment where students can focus, collaborate, and make life-long memories. " />
       {whyStudyContent && whyStudyContent.items && whyStudyContent.items.length > 0 && (
         <WhyStudy
           sectionTitle={whyStudyContent.sectionTitle}
@@ -505,7 +506,7 @@ export default function DynamicDepartmentPage() {
       )}
       {departmentData?.clubs && departmentData.clubs.length > 0 && (
         <UpcomingConference
-          title={`Introducing Our ${departmentData.name} Clubs`}
+          title={`Introducing Our ${(departmentData.name || "").replace(/^Faculty of\s+/i, '')} Club`}
           registerButtonText="Join Now"
           imageContainerClass="object-contain py-16 h-[350px]"
 
@@ -519,7 +520,7 @@ export default function DynamicDepartmentPage() {
               category: "Clubs", // Default category from component, can be customized per club if needed
             }))
           }
-          showCategory={true}
+          showCategory={false}
           showDate={false}
         />
       )}
@@ -568,10 +569,14 @@ export default function DynamicDepartmentPage() {
       )} */}
       <StudentActivities
         departmentId={departmentData?.id}
+
       />
+      <Gallery title="Glimpse" />
+
       {faqItems && faqItems.length > 0 && (
         <FAQ
           title="Frequently Asked Questions"
+          subtitle=""
           items={faqItems}
           key={`${departmentData.id}-${faqItems.length}-${faqItems.map(item => item.id).join('-')}`}
         />
