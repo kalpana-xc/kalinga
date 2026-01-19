@@ -242,13 +242,13 @@ export default function EventCalendar({ items = [], departments = [], showNews =
                     return (
                       <div key={item.id} className="bg-[var(--light-gray)] rounded-lg shadow-sm overflow-hidden flex items-center flex-wrap md:flex-nowrap">
                         <div className="relative p-3 md:p-5 w-full md:w-auto flex-shrink-0">
-                          <div className="relative w-full md:w-[280px] h-[200px] md:h-[200px]">
+                          <div className="relative w-full md:w-[280px] h-[200px] md:h-[200px] !bg-[var(--light-sand)]">
                             <Image
                               src={item.images?.[0]?.image || "https://kalinga-university.s3.ap-south-1.amazonaws.com/common/student.jpg"}
                               alt={item.heading}
                               fill
                               sizes="(max-width: 768px) 100vw, 280px"
-                              className="object-contain rounded-lg"
+                              className="object-contain rounded-lg !bg-[var(--lite-sand)]"
                             />
                             {item.date && (
                               <div className="absolute bottom-4 right-4 bg-[var(--dark-orange-red-light)] bg-opacity-90 px-3 py-1.5 rounded text-black text-xs font-bold">

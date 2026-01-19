@@ -63,12 +63,12 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
   const placementImages = placementPhotos.length > 0
     ? placementPhotos.map(photo => photo.image).filter(Boolean)
     : [
-      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-5.png',
-      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-1.png',
-      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-4.png',
-      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-3.png',
-      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-6.png',
-      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-2.png'
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placement1.webp',
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placement2.webp',
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placement3.webp',
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placement4.webp',
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placement5.webp',
+      'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placement6.webp'
     ]
 
   // Get title and description from API or use defaults

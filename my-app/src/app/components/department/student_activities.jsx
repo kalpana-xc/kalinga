@@ -102,7 +102,7 @@ export default function StudentActivities({
             title: item.heading,
             description: parseHtmlToText(item.content),
             imageSrc: item.primary_image?.image || item.images?.[0]?.image || "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/image+15.png",
-            imageAlt: item.primary_image?.alt || item.images?.[0]?.alt || item.heading || "Student Activity",
+            imageAlt: item.primary_image?.alt || item.images?.[0]?.alt || item.heading || "Events & Activities",
             date: item.date,
             buttonText: "Read More",
             slug: item.slug
