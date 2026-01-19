@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Section - CTCD</title>
+    
+    <!-- Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="header-container col-xs-12">
+                    <div class="header-content flex align-items-center justify-content-between">
+                        <div class="flex align-items-center" style="padding: 15px; gap: 15px;">
+                            <!-- Kalinga University Logo -->
+                            <div class="header-logo flex align-items-center">
+                                <img src="images/kalinga-logo.png" alt="Kalinga University" class="kalinga-logo-img">
+                            </div>
+                            
+                            <!-- NIRF Ranking -->
+                            <div class="header-badge nirf-badge flex align-items-center">
+                                <img src="images/nirf.png" alt="NIRF Ranking 2023" class="nirf-logo-img">
+                            </div>
+                            
+                            <!-- NAAC Accreditation -->
+                            <div class="header-badge naac-badge flex align-items-center">
+                                <img src="images/naac.png" alt="NAAC Grade B+" class="naac-logo-img">
+                            </div>
+                        </div>
+                        <div class="flex align-items-center">
+                            <!-- Admissions Button -->
+                            <a href="#" class="btn-component btn-red align-items-center">
+                                <p>
+                                Admissions Open 2026-27
+                                </p>
+                                <span class="btn-arrow">
+                                    <img src="images/arrow-red.png" alt="Arrow" style="width: 50%; height: 100%; object-fit: contain;">
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section id="hero-section" class="hero-section">
+        <!-- Background Image -->
+        <div class="hero-background" style="background-image: url('https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/kalsee-banner-new.png');">
+        </div>
+        
+        <div class="container hero-content flex align-items-center">
+            <div class="row flex justify-content-between align-items-center">
+                <!-- Left Side - Text Content -->
+                <div class="col-xs-12 col-md-6 hero-text flex flex-column justify-content-center">
+                    <!-- Logo (optional - uncomment if needed) -->
+                    <!--
+                    <div class="hero-logo">
+                        <img src="logo-image-url" alt="Logo" width="100" height="100">
+                    </div>
+                    -->
+                    
+                    <!-- Subtitle Image (optional - uncomment if needed) -->
+                    <!--
+                    <div class="hero-subtitle-image">
+                        <img src="subtitle-image-url" alt="Subtitle" width="120" height="30" style="object-fit: contain;">
+                    </div>
+                    -->
+                    <!-- Subtitle -->
+                    <h5 class="hero-subtitle-new font-plus-jakarta-sans">Admissions Open 2026-27</h5>
+                    
+                    <!-- Title -->
+                    <h2 class="hero-title-new font-stix">
+                        Your Next Big Chapter Starts With One Click
+                    </h2>
+                    
+                    <!-- Button -->
+                    <a href="/about-us" class="btn-component align-items-center btn-white">
+                        <p>Learn More</p>
+                        <span class="btn-arrow-red">
+                            <img src="images/arrow-white.png" alt="Arrow" style="width: 50%; height: 100%; object-fit: contain;">
+                        </span>
+                    </a>
+                </div>
+                
+                <!-- Right Side - Form -->
+                <div class="col-xs-12 col-md-6 hero-form-container flex flex-column align-items-end justify-content-center">
+                    <form class="hero-form" method="POST" action="#">
+                        <div class="form-group">
+                            <label for="name" class="control-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="control-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="control-label">Phone</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="control-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Enter your message" required style="resize: none;"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Milestone Section -->
+    <section class="milestone-section" id="milestone-section">
+        <div class="">
+            <div class="milestone-banner flex align-items-center justify-content-between">
+                <!-- First Milestone -->
+                <div class="milestone-item flex flex-column align-items-center justify-content-center">
+                    <h2 class="milestone-value font-stix" data-value="4 LPA" data-index="0">4 LPA</h2>
+                    <h5 class="milestone-label font-stix">Average Package</h5>
+                </div>
+                
+                <!-- Divider -->
+                <div class="milestone-divider hidden-xs hidden-sm"></div>
+                
+                <!-- Second Milestone -->
+                <div class="milestone-item flex flex-column align-items-center justify-content-center">
+                    <h2 class="milestone-value font-stix" data-value="12L +" data-index="1">12L +</h2>
+                    <h5 class="milestone-label font-stix">Highest Package</h5>
+                </div>
+                
+                <!-- Student Image -->
+                <div class="milestone-image-container hidden-xs">
+                    <img src="images/girl-milestone.webp" alt="Student" class="milestone-image">
+                </div>
+                
+                <!-- Divider -->
+                <div class="milestone-divider hidden-xs hidden-sm"></div>
+                
+                <!-- Third Milestone -->
+                <div class="milestone-item flex flex-column align-items-center justify-content-center">
+                    <h2 class="milestone-value font-stix" data-value="400 +" data-index="2">400 +</h2>
+                    <h5 class="milestone-label font-stix">Recruitment Partners</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Accreditation Section -->
+    <section class="accreditation-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="accreditation-title font-stix">Accreditations</h1>
+                </div>
+            </div>
+            <div class="row flex align-items-end accreditation-section-wrapper">
+                <!-- Left Section: Accreditations -->
+                <div class="col-xs-12 col-md-7 accreditation-left flex flex-column justify-content-between">
+                    <h2 class="accreditation-slogan font-stix">Your Career Deserves an Accredited Start</h2>
+                    
+                    <div class="accreditation-badges flex">
+                        <!-- NIRF Badge -->
+                        <div class="accreditation-badge-item flex align-items-center justify-content-center">
+                            <div class="accreditation-badge-card"></div>
+                            <img src="images/nirf.png" alt="NIRF Ranking 2025" class="accreditation-badge-img">
+                        </div>
+                        
+                        <!-- NAAC Badge -->
+                        <div class="accreditation-badge-item flex align-items-center justify-content-center">
+                            <div class="accreditation-badge-card"></div>
+                            <img src="images/naac.png" alt="NAAC Grade B+" class="accreditation-badge-img">
+                        </div>
+                        
+                        <!-- UGC Badge -->
+                        <div class="accreditation-badge-item flex align-items-center justify-content-center">
+                            <div class="accreditation-badge-card"></div>
+                            <img src="images/ugc.png" alt="UGC" class="accreditation-badge-img">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Section: Ranking Banner Image -->
+                <div class="col-xs-12 col-md-5 accreditation-right flex align-items-center justify-content-center">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Details of KALSEE Section -->
+    <section class="kalsee-details-section">
+        <div class="container">
+            <div class="row flex align-items-end kalsee-section">
+                <!-- Left Column: Image -->
+                <div class="col-xs-12 col-md-6 kalsee-image-container">
+                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/ccrc/kif/kif.webp" alt="KIF" class="kalsee-image">
+                </div>
+                
+                <!-- Right Column: Content -->
+                <div class="col-xs-12 col-md-6 kalsee-content-container flex flex-column justify-content-center">
+                    <!-- Title -->
+                    <h2 class="kalsee-title font-stix">Details of KALSEE</h2>
+                    
+                    <!-- Description (hidden) -->
+                    <p class="kalsee-description hidden">Kalinga Incubation Foundation (KIF) is a platform for students to incubate their ideas and turn them into reality.</p>
+                    
+                    <!-- Scrollable Box Items -->
+                    <ul class="kalsee-box-items">
+                        <!-- Box Item 1: Eligibility -->
+                        <li class="kalsee-box-item flex align-items-center">
+                            <div class="kalsee-box-icon flex align-items-center justify-content-center">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/criteria+(1).png" alt="Eligibility" class="kalsee-icon-img">
+                            </div>
+                            <div class="kalsee-box-content flex flex-column">
+                                <h4 class="kalsee-box-title font-stix">Eligibility</h4>
+                                <p class="kalsee-box-text text-black">Required for UG, PG, and Ph.D. Programs.</p>
+                            </div>
+                        </li>
+                        
+                        <!-- Box Item 2: Mode of Examination -->
+                        <li class="kalsee-box-item flex align-items-center">
+                            <div class="kalsee-box-icon flex align-items-center justify-content-center">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/test.png" alt="Mode of Examination" class="kalsee-icon-img">
+                            </div>
+                            <div class="kalsee-box-content">
+                                <h4 class="kalsee-box-title font-stix">Mode of Examination</h4>
+                                <p class="kalsee-box-text text-black">Computer-Based Test (CBT).</p>
+                            </div>
+                        </li>
+                        
+                        <!-- Box Item 3: Exam Registration -->
+                        <li class="kalsee-box-item flex align-items-center">
+                            <div class="kalsee-box-icon flex align-items-center justify-content-center">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/registration.png" alt="Exam Registration" class="kalsee-icon-img">
+                            </div>
+                            <div class="kalsee-box-content">
+                                <h4 class="kalsee-box-title font-stix">Exam Registration</h4>
+                                <p class="kalsee-box-text text-black">Online registration is mandatory to appear for the KALSEE exam.</p>
+                            </div>
+                        </li>
+                        
+                        <!-- Box Item 4: Exam Pattern & Duration -->
+                        <li class="kalsee-box-item flex align-items-center">
+                            <div class="kalsee-box-icon flex align-items-center justify-content-center">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/pattern.png" alt="Exam Pattern & Duration" class="kalsee-icon-img">
+                            </div>
+                            <div class="kalsee-box-content">
+                                <h4 class="kalsee-box-title font-stix">Exam Pattern & Duration</h4>
+                                <p class="kalsee-box-text text-black">MCQ-based examination. Duration is 90 minutes for UG and PG programs, and 120 minutes for Ph.D. programs.</p>
+                            </div>
+                        </li>
+                        
+                        <!-- Box Item 5: Total Questions -->
+                        <li class="kalsee-box-item flex align-items-center">
+                            <div class="kalsee-box-icon flex align-items-center justify-content-center">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/exam+(1).png" alt="Total Questions" class="kalsee-icon-img">
+                            </div>
+                            <div class="kalsee-box-content">
+                                <h4 class="kalsee-box-title font-stix">Total Questions</h4>
+                                <p class="kalsee-box-text text-black">90 questions for UG and PG programs, and 100 questions for Ph.D. programs.</p>
+                            </div>
+                        </li>
+                        
+                        <!-- Box Item 6: Negative Marking -->
+                        <li class="kalsee-box-item flex align-items-center">
+                            <div class="kalsee-box-icon flex align-items-center justify-content-center">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/exam.png" alt="Negative Marking" class="kalsee-icon-img">
+                            </div>
+                            <div class="kalsee-box-content">
+                                <h4 class="kalsee-box-title font-stix">Negative Marking</h4>
+                                <p class="kalsee-box-text text-black">There is no negative marking in the KALSEE examination.</p>
+                            </div>
+                        </li>
+                        
+                        <!-- Box Item 7: Passing Marks -->
+                        <li class="kalsee-box-item flex align-items-center">
+                            <div class="kalsee-box-icon flex align-items-center justify-content-center">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/mark.png" alt="Passing Marks" class="kalsee-icon-img">
+                            </div>
+                            <div class="kalsee-box-content">
+                                <h4 class="kalsee-box-title font-stix">Passing Marks</h4>
+                                <p class="kalsee-box-text text-black">Candidates must secure a minimum of 50% marks to qualify.</p>
+                            </div>
+                        </li>
+                        
+                        <!-- Box Item 8: Exam Fee -->
+                        <li class="kalsee-box-item flex align-items-center">
+                            <div class="kalsee-box-icon flex align-items-center justify-content-center">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/hand.png" alt="Exam Fee" class="kalsee-icon-img">
+                            </div>
+                            <div class="kalsee-box-content">
+                                <h4 class="kalsee-box-title font-stix">Exam Fee</h4>
+                                <p class="kalsee-box-text text-black">India & SAARC candidates: INR 1,400 for all UG and PG courses, and INR 3,500 for Ph.D. courses.</p>
+                            </div>
+                        </li>
+                        
+                        <!-- Box Item 9: Scholarship Opportunities -->
+                        <li class="kalsee-box-item flex align-items-center">
+                            <div class="kalsee-box-icon flex align-items-center justify-content-center">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/scholarship.png" alt="Scholarship Opportunities" class="kalsee-icon-img">
+                            </div>
+                            <div class="kalsee-box-content">
+                                <h4 class="kalsee-box-title font-stix">Scholarship Opportunities</h4>
+                                <p class="kalsee-box-text text-black">Merit-based scholarships are available for top scorers.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Scholarship Section -->
+    <section class="scholarship-section">
+        <div class="">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="scholarship-wrapper flex align-items-center">
+                        <div class="scholarship-card">
+                            <div class="container scholarship-content">
+                                <!-- Main Heading -->
+                                <h2 class="scholarship-main-heading font-stix">
+                                  INR
+                                    <span class="scholarship-amount-accent font-stix">3 Cr+</span>
+                                </h2>
+                                
+                                <!-- Sub-heading -->
+                                <h2 class="scholarship-sub-heading font-stix">
+                                    Our Scholarships will Make Your DREAMS Affordable
+                                </h2>
+                                
+                                <!-- Description -->
+                                <p class="scholarship-description font-plus-jakarta-sans">
+                                    Turn your hard work into achievements with our 100% scholarships in different categories.
+                                </p>
+                                
+                                <!-- CTA Button -->
+                                <a href="#" class="btn-component btn-red scholarship-btn align-items-center">
+                                    <p>Apply for Scholarships</p>
+                                    <span class="btn-arrow">
+                                        <img src="images/arrow-red.png" alt="Arrow" style="width: 50%; height: 100%; object-fit: contain;">
+                                    </span>
+                                </a>
+                                
+                                <!-- Faded Background Text -->
+                                <div class="accreditation-title font-stix scholarship-bg-text">Scholarships</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Section: Image/Video Frame -->
+                        <div class="scholarship-right">
+                            <div class="scholarship-frame">
+                                <!-- Swiper -->
+                                <div class="swiper scholarship-swiper">
+                                    <div class="swiper-wrapper">
+                                        <!-- Slide 1 -->
+                                        <div class="swiper-slide">
+                                            <div class="scholarship-slide-content flex align-items-center justify-content-center">
+                                                <img src="https://via.placeholder.com/400x300/FFEBD0/973B28?text=Scholarship+Image+1" alt="Scholarship 1" class="scholarship-slide-img">
+                                            </div>
+                                        </div>
+                                        <!-- Slide 2 -->
+                                        <div class="swiper-slide">
+                                            <div class="scholarship-slide-content">
+                                                <img src="https://via.placeholder.com/400x300/FFEBD0/973B28?text=Scholarship+Image+2" alt="Scholarship 2" class="scholarship-slide-img">
+                                            </div>
+                                        </div>
+                                        <!-- Slide 3 -->
+                                        <div class="swiper-slide">
+                                            <div class="scholarship-slide-content">
+                                                <img src="https://via.placeholder.com/400x300/FFEBD0/973B28?text=Scholarship+Image+3" alt="Scholarship 3" class="scholarship-slide-img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Navigation Buttons -->
+                                <div class="scholarship-nav-buttons flex">
+                                    <button class="scholarship-nav-btn scholarship-nav-btn-prev scholarship-swiper-button-prev flex align-items-center justify-content-center">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                    <button class="scholarship-nav-btn scholarship-nav-btn-next scholarship-swiper-button-next flex align-items-center justify-content-center">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Entrance Examinations Section -->
+    <section class="entrance-exam-section">
+        <div class="container">
+            <!-- Header Section -->
+            <div class="text-center entrance-exam-header">
+                <h5 class="entrance-exam-subtitle font-plus-jakarta-sans">Entrance Examinations</h5>
+                <h2 class="entrance-exam-title font-stix">Choose your pathway to academic excellence</h2>
+            </div>
+            
+            <!-- Cards Grid -->
+            <div class="row entrance-exam-cards">
+                <!-- KALSEE Card -->
+                <div class="col-xs-12 col-md-6 entrance-exam-card-wrapper">
+                    <div class="entrance-exam-card">
+                        <!-- Card Content -->
+                        <div class="entrance-exam-card-content flex flex-column">
+                            <!-- Title and Subtitle -->
+                            <div class="entrance-exam-card-header">
+                                <h3 class="entrance-exam-card-title font-plus-jakarta-sans">KALSEE 2026-27</h3>
+                                <p class="entrance-exam-card-subtitle">Kalinga Scholastic Entrance Examination</p>
+                            </div>
+                            
+                            <!-- Features List -->
+                            <ul class="entrance-exam-features flex flex-column">
+                                <li class="entrance-exam-feature-item flex align-items-start">
+                                    <div class="entrance-exam-feature-dot"></div>
+                                    <span>UG / PG / PhD Programs</span>
+                                </li>
+                                <li class="entrance-exam-feature-item flex align-items-start">
+                                    <div class="entrance-exam-feature-dot"></div>
+                                    <span>CBT (Computer Based Test) Mode</span>
+                                </li>
+                                <li class="entrance-exam-feature-item flex align-items-start">
+                                    <div class="entrance-exam-feature-dot"></div>
+                                    <span>Flexible Scheduling Options</span>
+                                </li>
+                            </ul>
+                            
+                            <!-- Button -->
+                            <div class="entrance-exam-card-button">
+                                <a href="/kalsee" class="btn-component btn-red align-items-center">
+                                    <p>Apply For KALSEE</p>
+                                    <span class="btn-arrow">
+                                        <img src="images/arrow-red.png" alt="Arrow" style="width: 50%; height: 100%; object-fit: contain;">
+                                    </span>
+                                </a>
+                            </div>
+                            
+                            <!-- Orange Background - hidden on mobile, visible on desktop -->
+                            <div class="entrance-exam-orange-bg hidden-xs hidden-sm"></div>
+                        </div>
+                        
+                        <!-- Image - hidden on mobile, visible on desktop -->
+                        <div class="entrance-exam-image hidden-xs hidden-sm">
+                            <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/student-img.png" alt="KALSEE Student" class="entrance-exam-student-img">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- KAL-MAT Card -->
+                <div class="col-xs-12 col-md-6 entrance-exam-card-wrapper">
+                    <div class="entrance-exam-card">
+                        <!-- Card Content -->
+                        <div class="entrance-exam-card-content flex flex-column">
+                            <!-- Title and Subtitle -->
+                            <div class="entrance-exam-card-header">
+                                <h3 class="entrance-exam-card-title font-plus-jakarta-sans">KAL-MAT 2026-27</h3>
+                                <p class="entrance-exam-card-subtitle">Kalinga Management Aptitude Test</p>
+                            </div>
+                            
+                            <!-- Features List -->
+                            <ul class="entrance-exam-features flex flex-column">
+                                <li class="entrance-exam-feature-item flex align-items-start">
+                                    <div class="entrance-exam-feature-dot"></div>
+                                    <span>BBA / MBA Programs</span>
+                                </li>
+                                <li class="entrance-exam-feature-item flex align-items-start">
+                                    <div class="entrance-exam-feature-dot"></div>
+                                    <span>CBT (Computer Based Test) Mode</span>
+                                </li>
+                                <li class="entrance-exam-feature-item flex align-items-start">
+                                    <div class="entrance-exam-feature-dot"></div>
+                                    <span>Flexible Scheduling Options</span>
+                                </li>
+                            </ul>
+                            
+                            <!-- Button -->
+                            <div class="entrance-exam-card-button">
+                                <a href="/kalmat" class="btn-component btn-red align-items-center">
+                                    <p>Apply For KAL-MAT</p>
+                                    <span class="btn-arrow">
+                                        <img src="images/arrow-red.png" alt="Arrow" style="width: 50%; height: 100%; object-fit: contain;">
+                                    </span>
+                                </a>
+                            </div>
+                            
+                            <!-- Orange Background - hidden on mobile, visible on desktop -->
+                            <div class="entrance-exam-orange-bg hidden-xs hidden-sm"></div>
+                        </div>
+                        
+                        <!-- Image - hidden on mobile, visible on desktop -->
+                        <div class="entrance-exam-image hidden-xs hidden-sm">
+                            <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/entrance-exam/kalmat-person-img-new.png" alt="KAL-MAT Student" class="entrance-exam-student-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- New-Age Programs Section -->
+    <section class="new-age-programs-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="new-age-programs-wrapper flex align-items-center">
+                        <!-- Left Panel: Dark Blue with Programs List -->
+                        <div class="new-age-programs-panel">
+                            <h2 class="new-age-programs-title font-stix">Pursue New-Age Programs for Next-Gen Careers</h2>
+                            <ul class="new-age-programs-list">
+                                <li class="new-age-programs-item">
+                                    <a href="#" class="new-age-programs-link flex align-items-center justify-content-between">
+                                        <span>BA & MA Film Making</span>
+                                        <span class="new-age-programs-arrow">
+                                            <img src="images/arrow-white.png" alt="Arrow" style="width: 16px; height: 16px; object-fit: contain;">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="new-age-programs-item">
+                                    <a href="#" class="new-age-programs-link flex align-items-center justify-content-between">
+                                        <span>B.Tech CS in AI & ML in collaboration with IBM ICE</span>
+                                        <span class="new-age-programs-arrow">
+                                            <img src="images/arrow-white.png" alt="Arrow" style="width: 16px; height: 16px; object-fit: contain;">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="new-age-programs-item">
+                                    <a href="#" class="new-age-programs-link flex align-items-center justify-content-between">
+                                        <span>BCA in AI & ML</span>
+                                        <span class="new-age-programs-arrow">
+                                            <img src="images/arrow-white.png" alt="Arrow" style="width: 16px; height: 16px; object-fit: contain;">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="new-age-programs-item">
+                                    <a href="#" class="new-age-programs-link flex align-items-center justify-content-between">
+                                        <span>B.CS & M.CS in AI & ML and Cybersecurity</span>
+                                        <span class="new-age-programs-arrow">
+                                            <img src="images/arrow-white.png" alt="Arrow" style="width: 16px; height: 16px; object-fit: contain;">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="new-age-programs-item">
+                                    <a href="#" class="new-age-programs-link flex align-items-center justify-content-between">
+                                        <span>B.Sc. & M.Sc. in Forensic Science</span>
+                                        <span class="new-age-programs-arrow">
+                                            <img src="images/arrow-white.png" alt="Arrow" style="width: 16px; height: 16px; object-fit: contain;">
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="new-age-programs-item">
+                                    <a href="#" class="new-age-programs-link flex align-items-center justify-content-between">
+                                        <span>BBA (with Fintech as a specialisation)</span>
+                                        <span class="new-age-programs-arrow">
+                                            <img src="images/arrow-white.png" alt="Arrow" style="width: 16px; height: 16px; object-fit: contain;">
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Right Panel: People Image -->
+                        <div class="new-age-programs-image">
+                            <img src="images/people.webp" alt="Students" class="new-age-programs-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Choose the Field Section -->
+    <section class="choose-field-section">
+        <div class="container">
+            <!-- Header Section -->
+            <div class="text-center choose-field-header">
+                <h2 class="choose-field-title font-stix">Choose the Field That Inspires You</h2>
+                <p class="choose-field-subtitle font-plus-jakarta-sans">Explore 130+ academic programs designed to challenge your perspective and shape your future career.</p>
+            </div>
+            
+            <!-- Desktop Fields Grid (hidden on mobile) -->
+            <div class="row choose-field-grid hidden-xs hidden-sm">
+                <!-- Row 1 -->
+                <div class="col-xs-6 col-md-3 choose-field-card-wrapper">
+                    <div class="choose-field-card flex flex-column align-items-center">
+                        <div class="choose-field-icon">
+                            <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/research.svg" alt="Research" class="choose-field-icon-img">
+                        </div>
+                        <span class="choose-field-name font-plus-jakarta-sans">Research</span>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-3 choose-field-card-wrapper">
+                    <div class="choose-field-card flex flex-column align-items-center">
+                        <div class="choose-field-icon">
+                            <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/science.svg" alt="Science" class="choose-field-icon-img">
+                        </div>
+                        <span class="choose-field-name font-plus-jakarta-sans">Science</span>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-3 choose-field-card-wrapper">
+                    <div class="choose-field-card flex flex-column align-items-center">
+                        <div class="choose-field-icon">
+                            <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/education.svg" alt="Education" class="choose-field-icon-img">
+                        </div>
+                        <span class="choose-field-name font-plus-jakarta-sans">Education</span>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-3 choose-field-card-wrapper">
+                    <div class="choose-field-card flex flex-column align-items-center">
+                        <div class="choose-field-icon">
+                            <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/facility-management.svg" alt="Management" class="choose-field-icon-img">
+                        </div>
+                        <span class="choose-field-name font-plus-jakarta-sans">Management</span>
+                    </div>
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="col-xs-6 col-md-3 choose-field-card-wrapper">
+                    <div class="choose-field-card flex flex-column align-items-center">
+                        <div class="choose-field-icon">
+                            <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/science.svg" alt="Pharmacy" class="choose-field-icon-img">
+                        </div>
+                        <span class="choose-field-name font-plus-jakarta-sans">Pharmacy</span>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-3 choose-field-card-wrapper">
+                    <div class="choose-field-card flex flex-column align-items-center">
+                        <div class="choose-field-icon">
+                            <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/admissions.svg" alt="Commerce" class="choose-field-icon-img">
+                        </div>
+                        <span class="choose-field-name font-plus-jakarta-sans">Commerce</span>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-3 choose-field-card-wrapper">
+                    <div class="choose-field-card flex flex-column align-items-center">
+                        <div class="choose-field-icon">
+                            <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/international.svg" alt="LAW" class="choose-field-icon-img">
+                        </div>
+                        <span class="choose-field-name font-plus-jakarta-sans">LAW</span>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-3 choose-field-card-wrapper">
+                    <div class="choose-field-card flex flex-column align-items-center">
+                        <div class="choose-field-icon">
+                            <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/book.svg" alt="Library & Information Science" class="choose-field-icon-img">
+                        </div>
+                        <span class="choose-field-name font-plus-jakarta-sans">Library & Information Science</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Swiper Slider (visible on mobile only) -->
+            <div class="choose-field-swiper-wrapper visible-xs visible-sm">
+                <div class="swiper choose-field-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="choose-field-card flex flex-column align-items-center">
+                                <div class="choose-field-icon">
+                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/research.svg" alt="Research" class="choose-field-icon-img">
+                                </div>
+                                <span class="choose-field-name font-plus-jakarta-sans">Research</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="choose-field-card flex flex-column align-items-center">
+                                <div class="choose-field-icon">
+                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/science.svg" alt="Science" class="choose-field-icon-img">
+                                </div>
+                                <span class="choose-field-name font-plus-jakarta-sans">Science</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="choose-field-card flex flex-column align-items-center">
+                                <div class="choose-field-icon">
+                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/education.svg" alt="Education" class="choose-field-icon-img">
+                                </div>
+                                <span class="choose-field-name font-plus-jakarta-sans">Education</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="choose-field-card flex flex-column align-items-center">
+                                <div class="choose-field-icon">
+                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/facility-management.svg" alt="Management" class="choose-field-icon-img">
+                                </div>
+                                <span class="choose-field-name font-plus-jakarta-sans">Management</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="choose-field-card flex flex-column align-items-center">
+                                <div class="choose-field-icon">
+                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/science.svg" alt="Pharmacy" class="choose-field-icon-img">
+                                </div>
+                                <span class="choose-field-name font-plus-jakarta-sans">Pharmacy</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="choose-field-card flex flex-column align-items-center">
+                                <div class="choose-field-icon">
+                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/admissions.svg" alt="Commerce" class="choose-field-icon-img">
+                                </div>
+                                <span class="choose-field-name font-plus-jakarta-sans">Commerce</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="choose-field-card flex flex-column align-items-center">
+                                <div class="choose-field-icon">
+                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/international.svg" alt="LAW" class="choose-field-icon-img">
+                                </div>
+                                <span class="choose-field-name font-plus-jakarta-sans">LAW</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="choose-field-card flex flex-column align-items-center">
+                                <div class="choose-field-icon">
+                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/book.svg" alt="Library & Information Science" class="choose-field-icon-img">
+                                </div>
+                                <span class="choose-field-name font-plus-jakarta-sans">Library & Information Science</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navigation -->
+                    <div class="choose-field-nav flex">
+                        <button class="choose-field-nav-btn choose-field-nav-prev choose-field-swiper-button-prev flex align-items-center justify-content-center">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="choose-field-nav-btn choose-field-nav-next choose-field-swiper-button-next flex align-items-center justify-content-center">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Explore More Button -->
+            <div class="text-center choose-field-button">
+                <a href="#" class="btn-component btn-red align-items-center">
+                    <p>Explore More</p>
+                    <span class="btn-arrow">
+                        <img src="images/arrow-red.png" alt="Arrow" style="width: 50%; height: 100%; object-fit: contain;">
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Facilities Section -->
+    <section class="facilities-section">
+        <div class="">
+            <div class="facilities-main-panel" id="facilities-main-panel">
+                <!-- Dark Overlay -->
+                <div class="facilities-overlay"></div>
+                
+                <div class="container facilities-content">
+                    <!-- Top Section - Heading -->
+                    <div class="facilities-header">
+                        <h5 class="facilities-subtitle font-plus-jakarta-sans">Life at Kalinga — Beyond Classrooms</h5>
+                        <h2 class="facilities-title font-stix">Facilities</h2>
+                    </div>
+                    
+                    <!-- Bottom Section - Counter, Title, and Description -->
+                    <div class="facilities-bottom">
+                        <!-- Slide Counter -->
+                        <div class="facilities-counter">
+                            <span class="facilities-counter-current font-plus-jakarta-sans" id="facilities-counter-current">01</span>
+                            <span class="facilities-counter-total font-plus-jakarta-sans" id="facilities-counter-total">/06</span>
+                        </div>
+                        
+                        <!-- Title and Description -->
+                        <div class="facilities-info flex">
+                            <div class="facilities-info-title-wrapper">
+                                <h3 class="facilities-info-title font-stix" id="facilities-info-title">Library</h3>
+                            </div>
+                            <div class="facilities-info-description-wrapper">
+                                <p class="facilities-info-description font-plus-jakarta-sans" id="facilities-info-description">Quiet, inviting, and rich with resources — our library is a favorite spot for learners. With thousands of books, journals, digital materials, and peaceful study corners, it encourages deep focus and academic excellence. It's where ideas grow and curiosity thrives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Thumbnail Slider (overlapping) -->
+                <div class="facilities-thumbnails-desktop hidden-xs hidden-sm">
+                    <div class="facilities-thumbnails-wrapper flex" id="facilities-thumbnails-desktop">
+                        <!-- Thumbnails will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Thumbnail Slider (below) -->
+            <div class="facilities-thumbnails-mobile visible-xs visible-sm">
+                <div class="facilities-thumbnails-wrapper flex" id="facilities-thumbnails-mobile">
+                    <!-- Thumbnails will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Placements Section -->
+    <section class="placements-section" id="placements-section">
+        <div class="container">
+            <div class="row flex align-items-center placements-content-wrapper">
+                <!-- Left Column: Content -->
+                <div class="col-xs-12 col-md-6 placements-content">
+                    <!-- Header -->
+                    <div class="placements-header">
+                        <h5 class="placements-subtitle font-plus-jakarta-sans">Student Placements</h5>
+                        <h2 class="placements-title font-stix">Empowering Careers, One Success Story at a Time</h2>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="placements-description font-plus-jakarta-sans">
+                        Kalinga University has a strong placement ecosystem that bridges academic excellence with real-world opportunities. With over 400+ corporate recruiters, 8000+ students placed, and 1300+ internships offered, our graduates are shaping successful careers across industries worldwide.
+                    </p>
+                    
+                    <!-- Milestones -->
+                    <div class="placements-milestones flex">
+                        <div class="placements-milestone-item">
+                            <h2 class="placements-milestone-value font-stix" data-value="8000" data-index="0">0</h2>
+                            <h5 class="placements-milestone-label font-stix">Students Placed</h5>
+                        </div>
+                        <div class="placements-milestone-divider hidden-xs hidden-sm"></div>
+                        <div class="placements-milestone-item">
+                            <h2 class="placements-milestone-value font-stix" data-value="400" data-index="1">0</h2>
+                            <h5 class="placements-milestone-label font-stix">Corporate Recruiters</h5>
+                        </div>
+                        <div class="placements-milestone-divider hidden-xs hidden-sm"></div>
+                        <div class="placements-milestone-item">
+                            <h2 class="placements-milestone-value font-stix" data-value="1300" data-index="2">0</h2>
+                            <h5 class="placements-milestone-label font-stix">Internships Offered</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Image Stack -->
+                <div class="col-xs-12 col-md-6 placements-images">
+                    <div class="placements-stack-container">
+                        <div class="placements-stack" id="placements-stack">
+                            <!-- Images will be generated by JavaScript -->
+                        </div>
+                        <!-- Navigation Buttons -->
+                        <div class="placements-nav flex">
+                            <button class="placements-nav-btn placements-nav-prev flex align-items-center justify-content-center" id="placements-prev">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <button class="placements-nav-btn placements-nav-next flex align-items-center justify-content-center" id="placements-next">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <!-- Company Logos Marquee -->
+                    <div class="placements-logos-section">
+                        <div class="placements-logos-container">
+                            <h5 class="placements-logos-title font-plus-jakarta-sans">Trusted by 500+ Global Recruiters</h5>
+                            <div class="placements-logos-wrapper">
+                                <div class="placements-logos-track flex" id="placements-logos-track">
+                                    <!-- Logos will be generated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </section>
+    
+    <!-- jQuery (required for Bootstrap 3) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap 3 JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Milestone Animation Script -->
+    <script>
+        (function() {
+            const milestoneSection = document.getElementById('milestone-section');
+            if (!milestoneSection) return;
+            
+            const milestoneValues = milestoneSection.querySelectorAll('.milestone-value');
+            let hasAnimated = false;
+            
+            function parseValue(valueStr) {
+                const match = valueStr.toString().match(/\d+/);
+                const number = match ? parseInt(match[0], 10) : 0;
+                const suffix = valueStr.replace(match ? match[0] : '', '').trim();
+                return { number, suffix };
+            }
+            
+            function animateValue(element, start, end, duration, suffix) {
+                const startTime = performance.now();
+                const animate = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const current = Math.floor(start + (end - start) * progress);
+                    
+                    if (suffix.includes('LPA')) {
+                        element.textContent = current + ' ' + suffix;
+                    } else {
+                        element.textContent = current + suffix;
+                    }
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    }
+                };
+                requestAnimationFrame(animate);
+            }
+            
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting && !hasAnimated) {
+                            hasAnimated = true;
+                            
+                            milestoneValues.forEach((element) => {
+                                const valueStr = element.getAttribute('data-value');
+                                const { number, suffix } = parseValue(valueStr);
+                                if (number > 0) {
+                                    animateValue(element, 0, number, 2000, suffix);
+                                }
+                            });
+                        }
+                    });
+                },
+                { threshold: 0.3 }
+            );
+            
+            observer.observe(milestoneSection);
+        })();
+    </script>
+    
+    <!-- Scholarship Swiper Initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scholarshipSwiper = new Swiper('.scholarship-swiper', {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.scholarship-swiper-button-next',
+                    prevEl: '.scholarship-swiper-button-prev',
+                },
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                speed: 600,
+            });
+            
+            // Choose Field Swiper (Mobile only)
+            const chooseFieldSwiper = new Swiper('.choose-field-swiper', {
+                slidesPerView: 2,
+                spaceBetween: 15,
+                loop: false,
+                navigation: {
+                    nextEl: '.choose-field-swiper-button-next',
+                    prevEl: '.choose-field-swiper-button-prev',
+                },
+            });
+        });
+    </script>
+    
+    <!-- Facilities Slider Script -->
+    <script>
+        (function() {
+            const facilities = [
+                {
+                    id: 1,
+                    title: 'Library',
+                    image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/facilities/library-new.webp',
+                    description: 'Quiet, inviting, and rich with resources — our library is a favorite spot for learners. With thousands of books, journals, digital materials, and peaceful study corners, it encourages deep focus and academic excellence. It\'s where ideas grow and curiosity thrives.'
+                },
+                {
+                    id: 2,
+                    title: 'Canteen',
+                    image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/facilities/canteen+mess.webp',
+                    description: 'The KU canteen offers more than just food — it offers comfort. Fresh, hygienic meals and a variety of snacks keep students energized throughout the day. Whether you\'re grabbing a quick bite between classes or relaxing with friends, the canteen is a space everyone loves.'
+                },
+                {
+                    id: 3,
+                    title: 'Sports',
+                    image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/facilities/DSC00047.webp',
+                    description: 'Sports at KU go beyond just play - they build teamwork, discipline, and confidence. With spacious grounds, indoor arenas, and trained coaches, students get the perfect space to unwind, compete, and stay active. Whether you\'re into football, cricket, athletics, or indoor games, there\'s a place for everyone.'
+                },
+                {
+                    id: 4,
+                    title: 'Gym',
+                    image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/facilities/gym.webp',
+                    description: 'Our campus gym helps students prioritize both physical and mental well-being. Equipped with modern machines and guided by trained staff, it offers a supportive environment for workouts, fitness routines, and stress relief after a busy day of classes.'
+                },
+                {
+                    id: 5,
+                    title: 'Lab',
+                    image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/facilities/labotories.webp',
+                    description: 'Learning at KU is deeply practical. Our modern, well-equipped laboratories allow students to experiment, explore, and put theory into action. Every lab session is guided by experienced faculty, helping students build confidence, clarity, and industry-ready skills.'
+                },
+                {
+                    id: 6,
+                    title: 'Hostel',
+                    image: 'https://kalinga-university.s3.ap-south-1.amazonaws.com/facilities/hostel.webp',
+                    description: 'Our hostels are designed to feel like a second home. Clean, well-furnished rooms, round-the-clock security, and a friendly residential atmosphere ensure comfort and safety. Students get the perfect blend of privacy, community living, and support to focus on their academic journey without worries.'
+                }
+            ];
+            
+            const SLIDE_DURATION = 4000;
+            let currentSlide = 0;
+            let progress = 0;
+            let slideStartTime = Date.now();
+            let rafId = null;
+            
+            const mainPanel = document.getElementById('facilities-main-panel');
+            const counterCurrent = document.getElementById('facilities-counter-current');
+            const counterTotal = document.getElementById('facilities-counter-total');
+            const infoTitle = document.getElementById('facilities-info-title');
+            const infoDescription = document.getElementById('facilities-info-description');
+            const thumbnailsDesktop = document.getElementById('facilities-thumbnails-desktop');
+            const thumbnailsMobile = document.getElementById('facilities-thumbnails-mobile');
+            
+            if (!mainPanel) return;
+            
+            // Set total counter
+            counterTotal.textContent = '/0' + facilities.length;
+            
+            // Create thumbnails
+            function createThumbnails(container) {
+                container.innerHTML = '';
+                facilities.forEach((facility, idx) => {
+                    const item = document.createElement('div');
+                    item.className = 'facility-thumbnail-item';
+                    
+                    const progressBar = document.createElement('div');
+                    progressBar.className = 'facility-thumbnail-progress';
+                    const progressBarFill = document.createElement('div');
+                    progressBarFill.className = 'facility-thumbnail-progress-bar';
+                    progressBarFill.style.width = '0%';
+                    progressBar.appendChild(progressBarFill);
+                    
+                    const button = document.createElement('button');
+                    button.className = 'facility-thumbnail-button' + (idx === currentSlide ? ' active' : '');
+                    button.setAttribute('aria-label', facility.title);
+                    
+                    const imgWrapper = document.createElement('div');
+                    imgWrapper.className = 'facility-thumbnail-img-wrapper';
+                    const img = document.createElement('img');
+                    img.src = facility.image;
+                    img.alt = facility.title;
+                    img.className = 'facility-thumbnail-img';
+                    const overlay = document.createElement('div');
+                    overlay.className = 'facility-thumbnail-overlay';
+                    
+                    imgWrapper.appendChild(img);
+                    imgWrapper.appendChild(overlay);
+                    
+                    if (idx === currentSlide) {
+                        const label = document.createElement('div');
+                        label.className = 'facility-thumbnail-label';
+                        label.textContent = facility.title;
+                        imgWrapper.appendChild(label);
+                    }
+                    
+                    button.appendChild(imgWrapper);
+                    button.addEventListener('click', function() {
+                        slideStartTime = Date.now();
+                        currentSlide = idx;
+                        progress = 0;
+                        updateSlide();
+                    });
+                    
+                    item.appendChild(progressBar);
+                    item.appendChild(button);
+                    container.appendChild(item);
+                });
+            }
+            
+            createThumbnails(thumbnailsDesktop);
+            createThumbnails(thumbnailsMobile);
+            
+            function updateSlide() {
+                const facility = facilities[currentSlide];
+                mainPanel.style.backgroundImage = 'url(' + facility.image + ')';
+                counterCurrent.textContent = '0' + (currentSlide + 1);
+                infoTitle.textContent = facility.title;
+                infoDescription.textContent = facility.description;
+                
+                // Update thumbnails
+                [thumbnailsDesktop, thumbnailsMobile].forEach(container => {
+                    const buttons = container.querySelectorAll('.facility-thumbnail-button');
+                    const progressBars = container.querySelectorAll('.facility-thumbnail-progress-bar');
+                    const labels = container.querySelectorAll('.facility-thumbnail-label');
+                    
+                    buttons.forEach((btn, idx) => {
+                        btn.classList.toggle('active', idx === currentSlide);
+                        if (idx === currentSlide) {
+                            if (!btn.querySelector('.facility-thumbnail-label')) {
+                                const label = document.createElement('div');
+                                label.className = 'facility-thumbnail-label';
+                                label.textContent = facilities[idx].title;
+                                btn.querySelector('.facility-thumbnail-img-wrapper').appendChild(label);
+                            }
+                        } else {
+                            const existingLabel = btn.querySelector('.facility-thumbnail-label');
+                            if (existingLabel) {
+                                existingLabel.remove();
+                            }
+                        }
+                    });
+                });
+            }
+            
+            function animate() {
+                const elapsed = Date.now() - slideStartTime;
+                progress = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
+                
+                // Update progress bars
+                [thumbnailsDesktop, thumbnailsMobile].forEach(container => {
+                    const progressBars = container.querySelectorAll('.facility-thumbnail-progress-bar');
+                    progressBars.forEach((bar, idx) => {
+                        if (idx < currentSlide) {
+                            bar.style.width = '100%';
+                        } else if (idx === currentSlide) {
+                            bar.style.width = progress + '%';
+                        } else {
+                            bar.style.width = '0%';
+                        }
+                    });
+                });
+                
+                if (elapsed >= SLIDE_DURATION) {
+                    slideStartTime = Date.now();
+                    progress = 0;
+                    currentSlide = (currentSlide + 1) % facilities.length;
+                    updateSlide();
+                }
+                
+                rafId = requestAnimationFrame(animate);
+            }
+            
+            updateSlide();
+            rafId = requestAnimationFrame(animate);
+        })();
+    </script>
+    
+    <!-- Placements Section Script -->
+    <script>
+        (function() {
+            // Placement images
+            const placementImages = [
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-5.png',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-1.png',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-4.png',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-3.png',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-6.png',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-2.png'
+            ];
+            
+            // Company logos
+            const companyLogos = [
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/infosys.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/byjus.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/capgemini.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/airtel.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/amul.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/cipla.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/wipro.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/adani.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/bosch.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/biocon.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/apollo.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/asahi.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/axis.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/cognizant.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/suzuki.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/himalaya.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/decathlon.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/force.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/goorej.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/genpact.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/hdfc.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/jio.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/justdail.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/lg.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/nestle.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/sail.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/tata-motors.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/tech+mahindra.webp',
+                'https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/ultratech.webp'
+            ];
+            
+            const placementsSection = document.getElementById('placements-section');
+            if (!placementsSection) return;
+            
+            // Initialize placement stack
+            const stackContainer = document.getElementById('placements-stack');
+            let currentStackIndex = 0;
+            
+            function createStackItems() {
+                if (!stackContainer) return;
+                stackContainer.innerHTML = '';
+                placementImages.forEach((src, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'placements-stack-item';
+                    item.style.zIndex = placementImages.length - index;
+                    item.style.transform = 'translate(' + (index * 10) + 'px, ' + (index * 10) + 'px) scale(' + (1 - index * 0.05) + ')';
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = 'Placement ' + (index + 1);
+                    item.appendChild(img);
+                    stackContainer.appendChild(item);
+                });
+            }
+            
+            function updateStack(direction) {
+                if (!stackContainer) return;
+                const items = stackContainer.querySelectorAll('.placements-stack-item');
+                if (items.length === 0) return;
+                
+                if (direction === 'left') {
+                    currentStackIndex = (currentStackIndex - 1 + placementImages.length) % placementImages.length;
+                } else {
+                    currentStackIndex = (currentStackIndex + 1) % placementImages.length;
+                }
+                
+                items.forEach((item, index) => {
+                    const actualIndex = (currentStackIndex + index) % placementImages.length;
+                    item.style.zIndex = placementImages.length - index;
+                    item.style.transform = 'translate(' + (index * 10) + 'px, ' + (index * 10) + 'px) scale(' + (1 - index * 0.05) + ')';
+                    const img = item.querySelector('img');
+                    if (img) {
+                        img.src = placementImages[actualIndex];
+                    }
+                });
+            }
+            
+            // Navigation buttons
+            const prevBtn = document.getElementById('placements-prev');
+            const nextBtn = document.getElementById('placements-next');
+            if (prevBtn) prevBtn.addEventListener('click', () => updateStack('left'));
+            if (nextBtn) nextBtn.addEventListener('click', () => updateStack('right'));
+            
+            // Initialize stack
+            createStackItems();
+            
+            // Auto-play stack
+            setInterval(() => {
+                updateStack('right');
+            }, 3000);
+            
+            // Initialize logos marquee
+            const logosTrack = document.getElementById('placements-logos-track');
+            if (logosTrack) {
+                // Duplicate logos for seamless loop
+                const logosToShow = [...companyLogos, ...companyLogos];
+                logosToShow.forEach((logo) => {
+                    const item = document.createElement('div');
+                    item.className = 'placements-logo-item';
+                    const img = document.createElement('img');
+                    img.src = logo;
+                    img.alt = 'Company logo';
+                    item.appendChild(img);
+                    logosTrack.appendChild(item);
+                });
+            }
+            
+            // Milestone animation
+            const milestoneValues = placementsSection.querySelectorAll('.placements-milestone-value');
+            let hasAnimated = false;
+            
+            function animateValue(element, start, end, duration) {
+                const startTime = performance.now();
+                const animate = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const current = Math.floor(start + (end - start) * progress);
+                    element.textContent = current.toLocaleString();
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        element.textContent = end.toLocaleString() + '+';
+                    }
+                };
+                requestAnimationFrame(animate);
+            }
+            
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting && !hasAnimated) {
+                            hasAnimated = true;
+                            
+                            milestoneValues.forEach((element) => {
+                                const valueStr = element.getAttribute('data-value');
+                                const number = parseInt(valueStr, 10);
+                                if (number > 0) {
+                                    animateValue(element, 0, number, 2000);
+                                }
+                            });
+                        }
+                    });
+                },
+                { threshold: 0.3 }
+            );
+            
+            observer.observe(placementsSection);
+        })();
+    </script>
+</body>
+</html>
