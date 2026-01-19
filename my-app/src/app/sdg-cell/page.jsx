@@ -4,6 +4,9 @@ import React from "react";
 import FAQ from "../components/general/faq";
 import { useBreadcrumbData } from "../components/layout/BreadcrumbContext";
 import ImageContent from "../components/ccrc/imagecontent";
+import MainIntro from "../components/about/main_intro";
+import React from "react";
+import SdgTabSection from "../components/sdg-cell/sdg-tab-section";
 
 // Breadcrumb configuration
 const breadcrumbData = {
@@ -168,6 +171,45 @@ const faqItems = [
   },
 ];
 
+const Items = [
+  {
+    id: 1,
+    text: "To provide a holistic sustainability strategy."
+  },
+  {
+    id: 2,
+    text: "To introduce programs to promote good health and well-being."
+  },
+  {
+    id: 3,
+    text: "To provide quality education to students and also spread education to society."
+  },
+  {
+    id: 4,
+    text: "To offer courses to educate on gender equity."
+  },
+  {
+    id: 5,
+    text: "To generate and utilise green energy."
+  },
+  {
+    id: 6,
+    text: "To incorporate a culture of innovation."
+  },
+  {
+    id: 7,
+    text: "To spread awareness on climate change and sustainability."
+  },
+  {
+    id: 8,
+    text: "To promote peace, justice, and educate people about various laws."
+  },
+  {
+    id: 9,
+    text: "To establish collaborations with industries and academia in meeting the SDGs."
+  },
+];
+
 export default function SDGCell() {
   useBreadcrumbData(breadcrumbData);
 
@@ -186,6 +228,37 @@ export default function SDGCell() {
         readmore={false}
         className="!my-8"
       />
+      <ImageContent
+        hasImage={false}
+        readmore={false}
+        className="items-center justify-center"
+        title="Sustainable Initiatives"
+        subtitle="Every Small Action Can Make A Big Difference"
+        subtitleclassName="hidden"
+        description={
+          <>
+            Our University promotes sustainable and eco-friendly practices by taking initiatives that minimise environmental impact for the betterment of our planet and future generations. The goal is to make our students environmentally conscious and responsible towards society. They are being taught ways to reduce their carbon footprints and ways to conserve natural resources. By practising the 3 R’s (Reduce, Recycle, and Reuse) at our University, our students and faculty members work together towards green initiatives and set new benchmarks in the field of sustainable education.
+          </>
+        }
+      />
+      <MainIntro
+        title="KU’s Commitment Towards SDGs"
+        description={[
+          "The Sustainable Development Goals (SDGs), also known as the Global Goals, were adopted by the United Nations in 2015. The SDGs' 17 goals aim to protect the planet, end poverty, and ensure peace and prosperity by 2030. These goals are well-connected, so if one area progresses or struggles, it will impact others, too. ",
+          "Kalinga University has adopted all 17 practices to address global needs and work towards impactful solutions by balancing social, economic, and environmental needs. We integrate sustainable practices into our University’s academic, social, cultural, research, administrative, and community engagement activities."
+        ]}
+        imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/sdg-cell/sdg-goals.webp"
+        imageAlt="SDG Goals"
+        showKnowMore={true}
+        initialVisibleParagraphs={1}
+      />
+      <ImageListItem
+        items={Items}
+        imageSrc=""
+        title="Objectives Of the SDGs"
+        description=""
+      />
+      <SdgTabSection />
       <FAQ
         title=""
         subtitle=""
