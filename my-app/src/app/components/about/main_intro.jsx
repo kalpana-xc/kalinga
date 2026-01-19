@@ -94,7 +94,7 @@ export default function MainIntro({
 
             <div className="space-y-4">
               {visibleParagraphs.map((paragraph, idx) => (
-                <p key={idx} className={`${descriptionClassName} leading-relaxed break-words overflow-visible`}>
+                <p key={idx} className={`${descriptionClassName} leading-relaxed break-words overflow-visible text-justify`}>
                   {paragraph}
                 </p>
               ))}

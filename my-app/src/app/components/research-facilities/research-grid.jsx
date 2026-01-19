@@ -14,13 +14,13 @@ const researchItems = [
     id: 1,
     title: 'Total Number of Centres of Excellence (CoE)',
     number: '7',
-    
+
   },
   {
     id: 2,
     title: 'Total Number of Laboratories',
     number: '90+',
-    
+
   },
 
 ]
@@ -163,9 +163,9 @@ export default function ResearchGrid() {
                 autoplay={
                   researchItems.length > 1
                     ? {
-                        delay: 3000,
-                        disableOnInteraction: false,
-                      }
+                      delay: 3000,
+                      disableOnInteraction: false,
+                    }
                     : false
                 }
                 loop={canLoop}
@@ -199,7 +199,7 @@ export default function ResearchGrid() {
                         <h2 className="font-stix text-[var(--foreground)] mb-4">
                           {item.number}
                         </h2>
-                        <p className="text-[var(--light-text-gray)] leading-relaxed font-plus-jakarta-sans">
+                        <p className="text-[var(--light-text-gray)] leading-relaxed text-justifyfont-plus-jakarta-sans">
                           {item.description}
                         </p>
                       </div>

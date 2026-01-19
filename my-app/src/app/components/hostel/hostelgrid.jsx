@@ -203,7 +203,7 @@ export default function Hostelgrid() {
                         <h2 className="font-stix text-[var(--foreground)] mb-4">
                           {s.number}
                         </h2>
-                        <p className="text-[var(--light-text-gray)] leading-relaxed font-plus-jakarta-sans">
+                        <p className="text-[var(--light-text-gray)] leading-relaxed text-justifyfont-plus-jakarta-sans">
                           {s.description}
                         </p>
                       </div>

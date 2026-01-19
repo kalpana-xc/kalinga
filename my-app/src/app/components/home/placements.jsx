@@ -73,7 +73,7 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
 
   // Get title and description from API or use defaults
   const title = placementInfo?.heading || "Empowering Careers, One Success Story at a Time"
-  const description = placementInfo?.description || "Kalinga University has a strong placement ecosystem that bridges academic excellence with real-world opportunities. With over 400+ corporate recruiters, 8000+ students placed, and 1300+ internships offered, our graduates are shaping successful careers across industries worldwide."
+  const description = placementInfo?.description || "Kalinga University has a strong placement ecosystem that bridges academic excellence with real-world opportunities. With over 400+ corporate recruiters and 1200+ internships offered, our graduates are shaping successful careers across industries worldwide."
 
   // Convert logo URLs to image elements for LogoLoop
   const logoLoopItems = logos.map((logo, index) => ({
@@ -109,11 +109,11 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
     if (hasAnimated) {
       // If already animated, just set the values directly
       // Use API data if available, otherwise use default values
-      const studentsValue = getStatValue('students placed') || 8000
+      // const studentsValue = getStatValue('students placed') || 8000
       const recruitersValue = getStatValue('corporate recruiters') || 400
-      const internshipsValue = getStatValue('internships') || 1300
+      const internshipsValue = getStatValue('internships') || 1200
 
-      setStudentsPlaced(studentsValue)
+      // setStudentsPlaced(studentsValue)
       setRecruiters(recruitersValue)
       setInternships(internshipsValue)
     }
@@ -129,13 +129,13 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
           if (entry.isIntersecting && !hasAnimated) {
             setHasAnimated(true)
             // Use API data if available, otherwise use default values
-            const studentsValue = getStatValue('students placed') || 8000
+            // const studentsValue = getStatValue('students placed') || 8000
             const recruitersValue = getStatValue('corporate recruiters') || 400
-            const internshipsValue = getStatValue('internships') || 1300
+            const internshipsValue = getStatValue('internships') || 1200
 
-            if (studentsValue > 0) {
-              animateValue(0, studentsValue, 2000, setStudentsPlaced)
-            }
+            // if (studentsValue > 0) {
+            //   animateValue(0, studentsValue, 2000, setStudentsPlaced)
+            // }
             if (recruitersValue > 0) {
               animateValue(0, recruitersValue, 2000, setRecruiters)
             }
@@ -262,7 +262,7 @@ const Placements = ({ hideMarquee = false, hideMilestones = false, bgColor = "bg
                 <h5
                   className="font-plus-jakarta-sans text-sm sm:text-base md:text-lg leading-tight sm:leading-[25px] text-white text-left w-full px-4 sm:px-6 lg:px-12"
                 >
-                  Trusted by 500+ Global Recruiters
+                  Trusted by 400+ Global Recruiters
                 </h5>
 
                 <div className="w-full overflow-hidden relative px-2">

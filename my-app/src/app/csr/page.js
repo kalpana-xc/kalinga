@@ -103,7 +103,7 @@ export default function KIFPage({
     {
       id: 1,
       imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/image-1.png",
-      imageAlt: "Student Activities",
+      imageAlt: " Events and Activities",
       title: "Startup Day Celebration 16th January 2025",
       buttonText: "Read More",
       date: "August 25 - 2025",
@@ -111,7 +111,7 @@ export default function KIFPage({
     {
       id: 2,
       imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/image-2.png",
-      imageAlt: "Student Activities",
+      imageAlt: " Events and Activities",
       title: "Visit by Dr. Laxmikant Dwivedi, President, Sanskar Bharti Chhattisgarh",
       buttonText: "Read More",
       date: "August 25 - 2025",
@@ -119,7 +119,7 @@ export default function KIFPage({
     {
       id: 3,
       imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/image-3.png",
-      imageAlt: "Student Activities",
+      imageAlt: " Events and Activities",
       title: "FDP Organised by AICTE & the Ministry of Education’s Innovation Cell",
       buttonText: "Read More",
       date: "August 25 - 2025",
@@ -127,7 +127,7 @@ export default function KIFPage({
     {
       id: 4,
       imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/chart+(18).webp",
-      imageAlt: "Student Activities",
+      imageAlt: " Events and Activities",
       title: "Evaluation of the Screening Session of CSVTU for MSME Ideathon",
       buttonText: "Read More",
       date: "August 25 - 2025",
@@ -135,7 +135,7 @@ export default function KIFPage({
     {
       id: 5,
       imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/chart+(21).webp",
-      imageAlt: "Student Activities",
+      imageAlt: " Events and Activities",
       title: "Kalinga Incubation Stall at SEML Establishment Day",
       buttonText: "Read More",
       date: "August 25 - 2025",
@@ -143,7 +143,7 @@ export default function KIFPage({
     {
       id: 6,
       imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/chart+(19).webp",
-      imageAlt: "Student Activities",
+      imageAlt: " Events and Activities",
       title: "Field visit to Incubation Centre Under IIC Activity @ NIT Raipur",
       buttonText: "Read More",
       date: "August 25 - 2025",
@@ -151,7 +151,7 @@ export default function KIFPage({
     {
       id: 7,
       imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/kif/chart+(20).webp",
-      imageAlt: "Student Activities",
+      imageAlt: " Events and Activities",
       title: "TOT Program on Entrepreneur Development organised with CSIDC & EDII, Gandhi Nagar & CSIDC C.G",
       buttonText: "Read More",
       date: "August 25 - 2025",

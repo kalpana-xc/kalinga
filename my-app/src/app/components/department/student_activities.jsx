@@ -16,7 +16,7 @@ const defaultActivities = [
     id: 1,
     imageSrc:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/image+15.png",
-    imageAlt: "Student Activities",
+    imageAlt: " Events and Activities",
     title: "Lorem ipsum dolor sit amet, consectetur",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -27,7 +27,7 @@ const defaultActivities = [
     id: 2,
     imageSrc:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/image+15.png",
-    imageAlt: "Student Activities",
+    imageAlt: " Events and Activities",
     title: "Lorem ipsum dolor sit amet, consectetur",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -38,7 +38,7 @@ const defaultActivities = [
     id: 3,
     imageSrc:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/image+15.png",
-    imageAlt: "Student Activities",
+    imageAlt: " Events and Activities",
     title: "Lorem ipsum dolor sit amet, consectetur",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -56,7 +56,7 @@ function getPreviewText(desc) {
 
 
 export default function StudentActivities({
-  title = "Student Activities",
+  title = " Events and Activities",
   subtitle = "Experience Campus Life Beyond Academics",
   activities: providedActivities,
   departmentId,
@@ -115,7 +115,7 @@ export default function StudentActivities({
           setActivities(mappedActivities);
         }
       } catch (err) {
-        console.error("Failed to load student activities:", err);
+        console.error("Failed to load  Events and Activities:", err);
         // Fallback to default activities if fetch fails? 
         // Or keep empty/error state? 
         // For now, if fetch fails, we might just show nothing or keep defaults if we want

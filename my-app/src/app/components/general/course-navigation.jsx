@@ -8,7 +8,7 @@ const defaultTabs = [
   { id: 'career', label: 'Career Pathways' },
   { id: 'specialization', label: 'Specialization' },
   { id: 'facilities', label: 'Facilities' },
-  { id: 'activities', label: 'Student Activities' },
+  { id: 'activities', label: ' Events and Activities' },
 ];
 
 export default function CourseNavigation({

@@ -521,8 +521,8 @@ export default function DynamicCoursePage() {
     // Facilities section (always available)
     tabs.push({ id: 'facilities', label: 'Facilities' });
 
-    // Student Activities section (always available)
-    tabs.push({ id: 'activities', label: 'Student Activities' });
+    //  Events and Activities section (always available)
+    tabs.push({ id: 'activities', label: ' Events and Activities' });
 
     return tabs.length > 0 ? tabs : null;
   })();

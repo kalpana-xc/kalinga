@@ -10,12 +10,12 @@ import GlobalArrowButton from '../general/global-arrow_button'
 import SectionHeading from '../general/SectionHeading'
 
 const achievements = [
-  {
-    id: 1,
-    title: 'Students',
-    number: '8000+',
-    description: 'Learners across diverse disciplines.',
-  },
+  // {
+  //   id: 1,
+  //   title: 'Students',
+  //   number: '8000+',
+  //   description: 'Learners across diverse disciplines.',
+  // },
   {
     id: 2,
     title: 'International Students',
@@ -156,9 +156,9 @@ export default function Achievements() {
               />
               <div>
                 <Link href="/about-us" className="inline-flex">
-                  <GlobalArrowButton className="w-full sm:w-[160px] h-[44px] justify-between"> 
+                  <GlobalArrowButton className="w-full sm:w-[160px] h-[44px] justify-between">
                     Learn More
-                    </GlobalArrowButton>
+                  </GlobalArrowButton>
                 </Link>
               </div>
             </div>
@@ -227,7 +227,7 @@ export default function Achievements() {
                         <h2 className="font-stix  text-[var(--foreground)] mb-4">
                           {achievement.number}
                         </h2>
-                        <p className="text-[var(--light-text-gray)] leading-relaxed font-plus-jakarta-sans">
+                        <p className="text-[var(--light-text-gray)] leading-relaxed text-justifyfont-plus-jakarta-sans">
                           {achievement.description}
                         </p>
                       </div>

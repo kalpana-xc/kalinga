@@ -166,7 +166,7 @@ export default function ChatbotPopup() {
                                 <path d="M12 2L2 7l10 5 10-5-10-5z" />
                                 <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
                             </svg>
-                            <span className="font-medium">Powered by AI Technology</span>
+                            <span className="font-medium">Powered by Xtracut</span>
                         </div>
                     </motion.div>
                 )}
