@@ -495,8 +495,8 @@ a { font-size: 14px !important; }
 }
 
 .kalsee-box-icon {
-  width: 64px;
-  height: 64px;
+  width: 45px;
+  height: 45px;
   flex-shrink: 0;
   border-radius: 4px;
 }
@@ -515,6 +515,10 @@ a { font-size: 14px !important; }
   margin: 0;
 }
 
+.kalsee-box-content h3{
+  font-size: 20px;
+  color: var(--foreground);
+}
 .kalsee-box-text {
   color: var(--foreground);
   margin: 0;
