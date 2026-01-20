@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hero Section - CTCD</title>
+    <title>Kalinga University - Best University in Chhattisgarh | Top Private University | Admission Open 2026-27</title>
     
     <!-- Bootstrap 3 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -28,12 +28,12 @@
                             </div>
                             
                             <!-- NIRF Ranking -->
-                            <div class="header-badge nirf-badge flex align-items-center">
+                            <div class="header-badge nirf-badge flex align-items-center hidden-xs">
                                 <img src="images/nirf.png" alt="NIRF Ranking 2023" class="nirf-logo-img">
                             </div>
                             
                             <!-- NAAC Accreditation -->
-                            <div class="header-badge naac-badge flex align-items-center">
+                            <div class="header-badge naac-badge flex align-items-center hidden-xs">
                                 <img src="images/naac.png" alt="NAAC Grade B+" class="naac-logo-img">
                             </div>
                         </div>
@@ -56,13 +56,14 @@
     
     <section id="hero-section" class="hero-section">
         <!-- Background Image -->
-        <div class="hero-background" style="background-image: url('https://kalinga-university.s3.ap-south-1.amazonaws.com/kalsee/kalsee-banner-new.png');">
+        <div class="hero-background" style="background-image: url('images/lp-banner.webp');">
         </div>
         
         <div class="container hero-content flex align-items-center">
             <div class="row flex justify-content-between align-items-center">
                 <!-- Left Side - Text Content -->
                 <div class="col-xs-12 col-md-6 hero-text flex flex-column justify-content-center">
+                    <div class="hero-text-wrapper">
                     <!-- Logo (optional - uncomment if needed) -->
                     <!--
                     <div class="hero-logo">
@@ -85,38 +86,19 @@
                     </h2>
                     
                     <!-- Button -->
-                    <a href="#apply-form" class="btn-component align-items-center btn-white">
+                    <!-- <a href="#apply-form" class="btn-component align-items-center btn-white">
                         <p>Learn More</p>
                         <span class="btn-arrow-red">
                             <img src="images/arrow-white.png" alt="Arrow" style="width: 50%; height: 100%; object-fit: contain;">
                         </span>
-                    </a>
+                    </a> -->
+                </div>
                 </div>
                 
                 <!-- Right Side - Form -->
                 <div class="col-xs-12 col-md-6 hero-form-container flex flex-column align-items-end justify-content-center">
-                    <form id="apply-form" class="hero-form" method="POST" action="#">
-                        <div class="form-group">
-                            <label for="name" class="control-label">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
-                        </div>
+                    <form id="apply-form" class="hero-form" method="POST" action="#" style="height: 400px;">
                         
-                        <div class="form-group">
-                            <label for="email" class="control-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone" class="control-label">Phone</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="control-label">Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Enter your message" required style="resize: none;"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-submit">Submit</button>
                     </form>
                 </div>
             </div>
@@ -172,29 +154,50 @@
                 <div class="col-xs-12 col-md-7 accreditation-left flex flex-column justify-content-between">
                     <h2 class="accreditation-slogan font-stix">Your Career Deserves an Accredited Start</h2>
                     
-                    <div class="accreditation-badges flex">
-                        <!-- NIRF Badge -->
-                        <div class="accreditation-badge-item flex align-items-center justify-content-center">
-                            <div class="accreditation-badge-card"></div>
-                            <img src="images/nirf.png" alt="NIRF Ranking 2025" class="accreditation-badge-img">
+                    <div class="accreditation-badges-wrapper">
+                        <div class="accreditation-badges flex">
+                            <!-- NIRF Badge -->
+                            <div class="accreditation-badge-item flex align-items-center justify-content-center">
+                                <div class="accreditation-badge-card"></div>
+                                <img src="images/nirf.png" alt="NIRF Ranking 2025" class="accreditation-badge-img">
+                            </div>
+                            
+                            <!-- NAAC Badge -->
+                            <div class="accreditation-badge-item flex align-items-center justify-content-center">
+                                <div class="accreditation-badge-card"></div>
+                                <img src="images/naac.png" alt="NAAC Grade B+" class="accreditation-badge-img">
+                            </div>
+                            
+                            <!-- UGC Badge -->
+                            <div class="accreditation-badge-item flex align-items-center justify-content-center">
+                                <div class="accreditation-badge-card"></div>
+                                <img src="images/ugc.png" alt="UGC" class="accreditation-badge-img">
+                            </div>
+                            
+                            <!-- Duplicate badges for seamless marquee on mobile -->
+                            <div class="accreditation-badge-item accreditation-badge-duplicate flex align-items-center justify-content-center">
+                                <div class="accreditation-badge-card"></div>
+                                <img src="images/nirf.png" alt="NIRF Ranking 2025" class="accreditation-badge-img">
+                            </div>
+                            
+                            <div class="accreditation-badge-item accreditation-badge-duplicate flex align-items-center justify-content-center">
+                                <div class="accreditation-badge-card"></div>
+                                <img src="images/naac.png" alt="NAAC Grade B+" class="accreditation-badge-img">
+                            </div>
+                            
+                            <div class="accreditation-badge-item accreditation-badge-duplicate flex align-items-center justify-content-center">
+                                <div class="accreditation-badge-card"></div>
+                                <img src="images/ugc.png" alt="UGC" class="accreditation-badge-img">
+                            </div>
                         </div>
-                        
-                        <!-- NAAC Badge -->
-                        <div class="accreditation-badge-item flex align-items-center justify-content-center">
-                            <div class="accreditation-badge-card"></div>
-                            <img src="images/naac.png" alt="NAAC Grade B+" class="accreditation-badge-img">
-                        </div>
-                        
-                        <!-- UGC Badge -->
-                        <div class="accreditation-badge-item flex align-items-center justify-content-center">
-                            <div class="accreditation-badge-card"></div>
-                            <img src="images/ugc.png" alt="UGC" class="accreditation-badge-img">
-                        </div>
+                        <!-- Right Section: Ranking Banner Image -->
+                <div class="col-xs-12 col-md-5 accreditation-right flex align-items-center justify-content-center visible-xs hidden-sm hidden-md hidden-lg">
+                </div>
                     </div>
                 </div>
                 
                 <!-- Right Section: Ranking Banner Image -->
-                <div class="col-xs-12 col-md-5 accreditation-right flex align-items-center justify-content-center">
+                <div class="col-xs-12 col-md-5 accreditation-right flex align-items-center justify-content-center hidden-xs visible-sm visible-md visible-lg">
                 </div>
             </div>
         </div>
@@ -409,12 +412,12 @@
                                 </p>
                                 
                                 <!-- CTA Button -->
-                                <a href="#apply-form" class="btn-component btn-red scholarship-btn align-items-center">
-                                    <p>Apply for Scholarships</p>
+                                <!-- <a href="#apply-form" class="btn-component btn-red scholarship-btn align-items-center">
+                                    <p>Apply Now</p>
                                     <span class="btn-arrow">
                                         <img src="images/arrow-red.png" alt="Arrow" style="width: 50%; height: 100%; object-fit: contain;">
                                     </span>
-                                </a>
+                                </a> -->
                                 
                                 <!-- Faded Background Text -->
                                 <div class="accreditation-title font-stix scholarship-bg-text">Scholarships</div>
@@ -427,22 +430,94 @@
                                 <!-- Swiper -->
                                 <div class="swiper scholarship-swiper">
                                     <div class="swiper-wrapper">
-                                        <!-- Slide 1 -->
-                                        <div class="swiper-slide">
-                                            <div class="scholarship-slide-content flex align-items-center justify-content-center">
-                                                <img src="https://via.placeholder.com/400x300/FFEBD0/973B28?text=Scholarship+Image+1" alt="Scholarship 1" class="scholarship-slide-img">
-                                            </div>
-                                        </div>
-                                        <!-- Slide 2 -->
+                                        <!-- Slide 1: Social Scholarships -->
                                         <div class="swiper-slide">
                                             <div class="scholarship-slide-content">
-                                                <img src="https://via.placeholder.com/400x300/FFEBD0/973B28?text=Scholarship+Image+2" alt="Scholarship 2" class="scholarship-slide-img">
+                                                <div class="scholarship-card">
+                                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/logos/book-logo.png" alt="Social Scholarships" class="scholarship-icon">
+                                                    <h3 class="scholarship-title">Social Scholarships</h3>
+                                                    <p class="scholarship-description">Scholarships supporting special categories and social causes (as per KU policy).</p>
+                                                </div>
                                             </div>
                                         </div>
-                                        <!-- Slide 3 -->
+                                        <!-- Slide 2: Merit Scholarships -->
                                         <div class="swiper-slide">
                                             <div class="scholarship-slide-content">
-                                                <img src="https://via.placeholder.com/400x300/FFEBD0/973B28?text=Scholarship+Image+3" alt="Scholarship 3" class="scholarship-slide-img">
+                                                <div class="scholarship-card">
+                                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/merit.svg" alt="Merit Scholarships" class="scholarship-icon">
+                                                    <h3 class="scholarship-title">Merit Scholarships</h3>
+                                                    <p class="scholarship-description">Scholarships based on aggregate percentage in qualifying examination.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Slide 3: Entrance Exam Scholarships -->
+                                        <div class="swiper-slide">
+                                            <div class="scholarship-slide-content">
+                                                <div class="scholarship-card">
+                                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/social.svg" alt="Entrance Exam Scholarships" class="scholarship-icon">
+                                                    <h3 class="scholarship-title">Entrance Exam Scholarships</h3>
+                                                    <p class="scholarship-description">Scholarships based on percentile in national/state entrance & competitive exams.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Slide 4: Culture & Achievers Scholarships -->
+                                        <div class="swiper-slide">
+                                            <div class="scholarship-slide-content">
+                                                <div class="scholarship-card">
+                                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship/scholarship-2.png" alt="Culture & Achievers Scholarships" class="scholarship-icon">
+                                                    <h3 class="scholarship-title">Culture & Achievers Scholarships</h3>
+                                                    <p class="scholarship-description">Scholarships for cultural excellence and exceptional achievements (case-to-case).</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Slide 5: Siblings Scholarships -->
+                                        <div class="swiper-slide">
+                                            <div class="scholarship-slide-content">
+                                                <div class="scholarship-card">
+                                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship/scholarship-3.png" alt="Siblings Scholarships" class="scholarship-icon">
+                                                    <h3 class="scholarship-title">Siblings Scholarships</h3>
+                                                    <p class="scholarship-description">Scholarships for direct blood relations of current KU students (as per policy).</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Slide 6: Sports Scholarships -->
+                                        <div class="swiper-slide">
+                                            <div class="scholarship-slide-content">
+                                                <div class="scholarship-card">
+                                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship/sports-bg.png" alt="Sports Scholarships" class="scholarship-icon">
+                                                    <h3 class="scholarship-title">Sports Scholarships</h3>
+                                                    <p class="scholarship-description">Scholarships for participation at District/State/National/International levels.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Slide 7: Social Media Scholarships -->
+                                        <div class="swiper-slide">
+                                            <div class="scholarship-slide-content">
+                                                <div class="scholarship-card">
+                                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship/social_media-bg.png" alt="Social Media Scholarships" class="scholarship-icon">
+                                                    <h3 class="scholarship-title">Social Media Scholarships</h3>
+                                                    <p class="scholarship-description">Scholarships for strong social media presence involved in knowledge dissemination.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Slide 8: Innovation & Research Scholarships -->
+                                        <div class="swiper-slide">
+                                            <div class="scholarship-slide-content">
+                                                <div class="scholarship-card">
+                                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship/research-bg.png" alt="Innovation & Research Scholarships" class="scholarship-icon">
+                                                    <h3 class="scholarship-title">Innovation & Research Scholarships</h3>
+                                                    <p class="scholarship-description">Scholarships for research publications, books, startups, and product innovation.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Slide 9: Other Scholarships -->
+                                        <div class="swiper-slide">
+                                            <div class="scholarship-slide-content">
+                                                <div class="scholarship-card">
+                                                    <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship/scholarship-10bg.png" alt="Other Scholarships" class="scholarship-icon">
+                                                    <h3 class="scholarship-title">Other Scholarships</h3>
+                                                    <p class="scholarship-description">Additional KU-specific scholarships as per scholarship committee/policy.</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -469,7 +544,8 @@
     </section>
     
     <!-- Entrance Examinations Section -->
-    <section class="entrance-exam-section">
+    <section style="background-color: var(--light-gray);">
+    <div class="entrance-exam-section">
         <div class="container">
             <!-- Header Section -->
             <div class="text-center entrance-exam-header">
@@ -576,6 +652,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </section>
     
     <!-- New-Age Programs Section -->
@@ -1266,7 +1343,7 @@
                 <div class="col-xs-12 col-md-6 placements-content">
                     <!-- Header -->
                     <div class="placements-header">
-                        <h5 class="placements-subtitle font-plus-jakarta-sans">Student Placements</h5>
+                        <h5 class="placements-subtitle font-plus-jakarta-sans facility-subtitle">Student Placements</h5>
                         <h2 class="placements-title font-stix">Empowering Careers, One Success Story at a Time</h2>
                     </div>
                     
@@ -1277,18 +1354,17 @@
                     
                     <!-- Milestones -->
                     <div class="placements-milestones flex">
-                        <div class="placements-milestone-item">
+                        <!-- <div class="placements-milestone-item">
                             <h2 class="placements-milestone-value font-stix" data-value="8000" data-index="0">0</h2>
                             <h5 class="placements-milestone-label font-stix">Students Placed</h5>
-                        </div>
-                        <div class="placements-milestone-divider hidden-xs hidden-sm"></div>
+                        </div> -->
                         <div class="placements-milestone-item">
                             <h2 class="placements-milestone-value font-stix" data-value="400" data-index="1">0</h2>
                             <h5 class="placements-milestone-label font-stix">Corporate Recruiters</h5>
                         </div>
                         <div class="placements-milestone-divider hidden-xs hidden-sm"></div>
                         <div class="placements-milestone-item">
-                            <h2 class="placements-milestone-value font-stix" data-value="1300" data-index="2">0</h2>
+                            <h2 class="placements-milestone-value font-stix" data-value="1200" data-index="2">0</h2>
                             <h5 class="placements-milestone-label font-stix">Internships Offered</h5>
                         </div>
                     </div>
@@ -1300,27 +1376,27 @@
                         <div class="placements-stack" id="placements-stack">
                             <!-- Image 1 -->
                             <div class="placements-stack-item" style="z-index: 6; transform: translate(0px, 0px) scale(1);">
-                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-5.png" alt="Placement 1">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placement1.webp" alt="Placement 1">
                             </div>
                             <!-- Image 2 -->
                             <div class="placements-stack-item" style="z-index: 5; transform: translate(10px, 10px) scale(0.95);">
-                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-1.png" alt="Placement 2">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placement2.webp" alt="Placement 2">
                             </div>
                             <!-- Image 3 -->
                             <div class="placements-stack-item" style="z-index: 4; transform: translate(20px, 20px) scale(0.9);">
-                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-4.png" alt="Placement 3">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placement3.webp" alt="Placement 3">
                             </div>
                             <!-- Image 4 -->
                             <div class="placements-stack-item" style="z-index: 3; transform: translate(30px, 30px) scale(0.85);">
-                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-3.png" alt="Placement 4">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placement4.webp" alt="Placement 4">
                             </div>
                             <!-- Image 5 -->
                             <div class="placements-stack-item" style="z-index: 2; transform: translate(40px, 40px) scale(0.8);">
-                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-6.png" alt="Placement 5">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placement5.webp" alt="Placement 5">
                             </div>
                             <!-- Image 6 -->
                             <div class="placements-stack-item" style="z-index: 1; transform: translate(50px, 50px) scale(0.75);">
-                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/Placement-data-2.png" alt="Placement 6">
+                                <img src="https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placement6.webp" alt="Placement 6">
                             </div>
                         </div>
                         <!-- Navigation Buttons -->
@@ -1343,7 +1419,7 @@
                     <!-- Company Logos Marquee -->
                     <div class="placements-logos-section">
                         <div class="placements-logos-container">
-                            <h5 class="placements-logos-title font-plus-jakarta-sans">Trusted by 500+ Global Recruiters</h5>
+                            <h5 class="placements-logos-title font-plus-jakarta-sans">Trusted by 400+ Global Recruiters</h5>
                             <div class="placements-logos-wrapper">
                                 <div class="placements-logos-track flex" id="placements-logos-track">
                                     <!-- Logo 1 -->
@@ -1561,7 +1637,7 @@
         <div class="container">
             <!-- Header -->
             <div class="text-center video-interviews-header">
-                <h5 class="video-interviews-category font-plus-jakarta-sans">Video Interviews</h5>
+                <h5 class="video-interviews-category font-plus-jakarta-sans facility-subtitle">Video Interviews</h5>
                 <h2 class="video-interviews-title font-stix">Hear From Our Success Stories</h2>
             </div>
             
@@ -2077,11 +2153,11 @@
             <div class="row research-innovation-top">
                 <!-- Left Content -->
                 <div class="col-xs-12 col-md-6 research-innovation-left">
-                    <h5 class="research-innovation-subtitle font-plus-jakarta-sans">Research At Kalinga</h5>
+                    <h5 class="research-innovation-subtitle font-plus-jakarta-sans">Research at Kalinga</h5>
                     <h2 class="research-innovation-title font-stix">Fueling Innovation Through Research Excellence</h2>
                     <div class="research-innovation-button">
                         <a href="#apply-form" class="btn-component btn-red flex align-items-center">
-                            <p>Explore More</p>
+                            <p>Apply Now</p>
                             <span class="btn-arrow">
                                 <img src="images/arrow-red.png" alt="Arrow" style="width: 50%; height: 100%; object-fit: contain;">
                             </span>
@@ -2604,7 +2680,7 @@
                             In a world where every field has become competitive, you'll need to stand out. But a degree alone is not enough, and it will just make you ordinary. With industry-oriented programs and hands-on learning at Kalinga University, experience a holistic academic journey like never before.
                         </p>
                         <a href="#apply-form" class="btn-component align-items-center btn-white">
-                            <p>Learn More</p>
+                            <p>Apply Now</p>
                             <span class="btn-arrow-red">
                                 <img src="images/arrow-white.png" alt="Arrow" style="width: 50%; height: 100%; object-fit: contain;">
                             </span>
@@ -2637,22 +2713,22 @@
                             </div>
                             <h3 class="footer-follow-title font-stix">Follow Us</h3>
                             <div class="footer-social flex">
-                                <a href="https://www.facebook.com/kalingauniversity/" aria-label="Facebook" class="footer-social-icon">
+                                <a href="https://www.facebook.com/kalingauniversity/" target="_blank" class="footer-social-icon">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 011-1h3v-4h-3a5 5 0 00-5 5v2.01h-2l-.396 3.98h2.396v8.01z"/>
                                     </svg>
                                 </a>
-                                <a href="https://www.youtube.com/@KalingaUniversityRaipurIndia" aria-label="YouTube" class="footer-social-icon">
+                                <a href="https://www.youtube.com/@KalingaUniversityRaipurIndia" target="_blank" aria-label="YouTube" class="footer-social-icon">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M21.593 7.203a2.506 2.506 0 00-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 00-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765 1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.515 2.515 0 001.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831zM9.996 15.005l.005-6 5.207 3.005-5.212 2.995z"/>
                                     </svg>
                                 </a>
-                                <a href="https://www.linkedin.com/school/kalinga-university-raipur/" aria-label="LinkedIn" class="footer-social-icon">
+                                <a href="https://www.linkedin.com/school/kalinga-university-raipur/" target="_blank" aria-label="LinkedIn" class="footer-social-icon">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                     </svg>
                                 </a>
-                                <a href="https://www.instagram.com/kalingauniversity/" aria-label="Instagram" class="footer-social-icon">
+                                <a href="https://www.instagram.com/kalingauniversity/" target="_blank" aria-label="Instagram" class="footer-social-icon">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                     </svg>
@@ -2671,17 +2747,21 @@
                                     <span class="footer-contact-text font-plus-jakarta-sans">Kalinga University Kotni, Near Mantralaya, Naya Raipur - 492101, Chhattisgarh, India</span>
                                 </div>
                                 <div class="footer-contact-item flex align-items-center">
+                                    <a href="tel:+91-9907252100" target="_blank">
                                     <svg class="footer-contact-icon" width="20" height="20" viewBox="0 0 20 20" fill="var(--dark-orange-red-light)">
                                         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                                     </svg>
                                     <span class="footer-contact-text font-plus-jakarta-sans">+91-9907252100</span>
+                                </a>
                                 </div>
                                 <div class="footer-contact-item flex align-items-center">
+                                    <a href="mailto:registrar@kalingauniversity.ac.in" target="_blank">
                                     <svg class="footer-contact-icon" width="20" height="20" viewBox="0 0 20 20" fill="var(--dark-orange-red-light)">
                                         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                                     </svg>
                                     <span class="footer-contact-text font-plus-jakarta-sans">registrar@kalingauniversity.ac.in</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -2694,7 +2774,7 @@
         </div>
     </footer>
     <div>
-        <p class="footer-copyright-text font-plus-jakarta-sans text-center">©2015 Kalinga University</p>
+        <p class="footer-copyright-text font-plus-jakarta-sans text-center">©2026 Kalinga University</p>
     </div>
     
     <!-- jQuery (required for Bootstrap 3) -->
@@ -3096,7 +3176,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const facilitySwiper = new Swiper('.facility-swiper', {
-                slidesPerView: 1,
+                slidesPerView: 2,
                 spaceBetween: 16,
                 loop: true,
                 autoplay: {

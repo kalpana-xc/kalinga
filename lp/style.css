@@ -213,9 +213,7 @@ a { font-size: 14px !important; }
   min-height: 500px;
   margin: 10px;
   padding: 0;
-  padding-top: 80px;
   border-radius: 10px;
-  border: 1px solid var(--button-red);
   overflow: hidden;
 }
 
@@ -248,7 +246,7 @@ a { font-size: 14px !important; }
   color: var(--foreground);
   position: relative;
   z-index: 3;
-  padding-left: 20px;
+  padding-left: 10px;
   min-height: 400px;
 }
 
@@ -259,7 +257,6 @@ a { font-size: 14px !important; }
 }
 
 .hero-title-new {
-  padding-bottom: 20px;
   position: relative;
   z-index: 2;
   color: var(--foreground);
@@ -376,6 +373,11 @@ a { font-size: 14px !important; }
   color: var(--foreground);
 }
 
+.accreditation-badges-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
 .accreditation-badges {
   background-color: var(--button-red);
   padding: 35px;
@@ -388,6 +390,11 @@ a { font-size: 14px !important; }
   position: relative;
   flex: 1;
   min-width: 150px;
+}
+
+/* Hide duplicate badges on desktop */
+.accreditation-badge-duplicate {
+  display: none;
 }
 
 .accreditation-badge-card {
@@ -462,7 +469,7 @@ a { font-size: 14px !important; }
   padding: 0;
   margin: 8px 0 0;
   overflow-y: auto;
-  max-height: 500px;
+  max-height: 440px;
   padding-right: 8px;
   scrollbar-width: thin;
   scrollbar-color: var(--button-red) rgba(255, 255, 255, 0.1);
@@ -549,15 +556,17 @@ a { font-size: 14px !important; }
 
 .scholarship-card {
   border-radius: 10px;
-  padding: 50px 70px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
   z-index: 2;
   margin: 0px 10px;
-  background-color: var(--background);
 }
-
+.scholarship-main-heading{
+  font-size: 55px;
+}
+.scholarship-main-heading span{
+  font-size: 55px;
+}
 .scholarship-content {
   position: relative;
   z-index: 2;
@@ -637,6 +646,44 @@ a { font-size: 14px !important; }
 
 .scholarship-slide-content {
   position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.scholarship-slide-content .scholarship-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  height: 100%;
+  min-height: 300px;
+}
+
+.scholarship-icon {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.scholarship-title {
+  font-size: 30px;
+  color: var(--button-red);
+  margin: 10px 0;
+  line-height: 1.3;
+}
+
+.scholarship-slide-content .scholarship-description {
+  font-size: 14px;
+  color: var(--light-text-gray);
+  line-height: 1.5;
+  max-width: 100%;
+  margin: 0;
 }
 
 .scholarship-slide-img {
@@ -691,7 +738,7 @@ a { font-size: 14px !important; }
 .entrance-exam-section {
   padding: 64px 0;
   background-color: var(--dark-blue);
-  margin: 10px;
+  margin: 0px 10px;
   border-radius: 10px;
 }
 
@@ -710,7 +757,6 @@ a { font-size: 14px !important; }
 .entrance-exam-cards {
   max-width: 1200px;
   margin: 0 auto;
-  gap: 24px;
   display: flex;
   align-items: stretch;
 }
@@ -801,7 +847,7 @@ a { font-size: 14px !important; }
 .entrance-exam-image {
   position: absolute;
   top: 0;
-  right: -25px;
+  right: -35px;
   width: 320px;
   height: 100%;
   z-index: 0;
@@ -1052,12 +1098,13 @@ a { font-size: 14px !important; }
 
 .placements-milestones {
   gap: 20px;
-  flex-wrap: wrap;
+  align-items: center;
 }
 
 .placements-milestone-item {
-  flex: 1;
+  flex: 0 1 auto;
   min-width: 120px;
+  max-width: 250px;
 }
 
 .placements-milestone-value {
@@ -1074,6 +1121,8 @@ a { font-size: 14px !important; }
   background-color: #999;
   height: 60px;
   align-self: center;
+  margin: 0 30px;
+  flex-shrink: 0;
 }
 
 .placements-images {
@@ -1096,7 +1145,6 @@ a { font-size: 14px !important; }
   position: absolute;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s, z-index 0.3s;
   cursor: pointer;
 }
@@ -1107,7 +1155,7 @@ a { font-size: 14px !important; }
 
 .placements-nav {
   position: absolute;
-  bottom: -10px;
+  bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
   gap: 12px;
@@ -1431,8 +1479,8 @@ a { font-size: 14px !important; }
 /* Facilities Section */
 .facilities-section {
   padding: 64px 0;
-  background-color: var(--background);
-  margin: 10px;
+  background-color: var(--light-gray);
+  padding: 0px 10px;
 }
 
 .facilities-main-panel {
@@ -1460,7 +1508,7 @@ a { font-size: 14px !important; }
 .facilities-content {
   position: relative;
   z-index: 2;
-  min-height: 500px;
+  min-height: 450px;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -1529,7 +1577,7 @@ a { font-size: 14px !important; }
 .facilities-thumbnails-wrapper {
   gap: 4px;
   overflow-x: auto;
-  padding-bottom: 8px;
+  padding-bottom: 75px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -1872,7 +1920,6 @@ a { font-size: 14px !important; }
 @media (min-width: 768px) {
   .hero-section { 
     height: 600px; 
-    padding-top: 90px; 
     overflow: hidden;
   }
   .hero-content { 
@@ -1895,12 +1942,10 @@ a { font-size: 14px !important; }
   .kalsee-image-container { margin-bottom: 0; }
   .entrance-exam-section { padding: 64px 0; }
   .entrance-exam-header { margin-bottom: 64px; }
-  .entrance-exam-cards { gap: 32px; }
   .entrance-exam-card-content { padding: 20px; }
-  .entrance-exam-card-header { margin-bottom: 24px; }
   .entrance-exam-features { margin-bottom: 24px; gap: 12px; }
   .facilities-main-panel { min-height: 550px; }
-  .facilities-content { min-height: 500px; }
+  .facilities-content { min-height: 450px; }
   .facilities-info {
     flex-direction: row;
     align-items: flex-end;
@@ -1922,27 +1967,39 @@ a { font-size: 14px !important; }
 }
 
 @media (max-width: 767px) {
-  .hero-subtitle-new { color: var(--background); }
+  .hero-text-wrapper{
+    background-color: var(--background);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .hero-subtitle-new { color: var(--button-red); }
   .top-header { padding: 10px 0; position: relative; }
   .header-container { padding: 8px; border-radius: 15px; }
   .header-content {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
     flex-wrap: wrap;
   }
   .header-content > div:first-child {
     padding: 10px;
-    gap: 15px;
-    flex-direction: row;
-    flex-wrap: wrap;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .header-logo,
+  .header-badge {
+    justify-content: center;
+  }
+  .kalsee-title {
+    text-align: left !important;
   }
   .btn-component p { padding: 5px 10px; }
   .kalinga-logo-img, .nirf-logo-img { height: 35px; }
   .naac-logo-img { height: 40px; }
   .container { padding: 0 10px; }
   .hero-section {
-    padding-top: 120px;
     margin: 5px;
     min-height: auto;
     border-radius: 15px;
@@ -1958,7 +2015,7 @@ a { font-size: 14px !important; }
     min-height: auto;
     text-align: center;
   }
-  .hero-title-new { max-width: 100%; color: var(--background); }
+  .hero-title-new { max-width: 100%; color: var(--foreground); }
   .hero-form-container { align-items: stretch; }
   .hero-form {
     padding: 20px;
@@ -1969,6 +2026,9 @@ a { font-size: 14px !important; }
     flex-direction: column;
     gap: 20px;
     padding: 10px 0 !important;
+  }
+  .incubation-image {
+    height: 400px !important;
   }
   .milestone-image-container {
     margin-top: -16px;
@@ -1984,20 +2044,61 @@ a { font-size: 14px !important; }
   }
   .accreditation-left {
     height: auto;
-    margin-bottom: 20px;
     padding-bottom: 20px;
+    margin-bottom: 0px;
+  }
+  .accreditation-badges-wrapper {
+    overflow: hidden;
+    background-color: var(--button-red);
+    padding: 20px 0;
+    border-radius: 10px;
+  }
+  .facilities-thumbnails-wrapper{
+    padding-bottom: 0px;
   }
   .accreditation-badges {
-    padding: 20px 15px;
-    flex-direction: column;
-    gap: 15px;
+    padding: 0 15px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    animation: marquee-scroll 15s linear infinite;
+    width: max-content;
+    background-color: transparent;
   }
+  
   .accreditation-badge-item {
-    min-width: 100%;
+    min-width: 120px;
+    flex-shrink: 0;
   }
+  
+  /* Show duplicate badges on mobile for seamless marquee */
+  .accreditation-badge-duplicate {
+    display: flex;
+  }
+  
   .accreditation-badge-img {
     height: 60px;
     padding: 10px;
+  }
+  
+  .accreditation-badge-card {
+    width: 100%;
+    height: 100%;
+  }
+  .research-innovation-left{
+    padding-top: 0px !important;
+  }
+  /* Pause animation on hover */
+  .accreditation-badges-wrapper:hover .accreditation-badges {nt-s    animation-play-state: paused;
+  }
+  
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
   .accreditation-right {
     min-height: 250px;
@@ -2005,7 +2106,7 @@ a { font-size: 14px !important; }
   }
   .kalsee-details-section {
     padding: 40px 0;
-    margin: 10px 5px;
+    margin: 0px 5px;
     border-radius: 15px;
   }
   .kalsee-image-container {
@@ -2040,6 +2141,20 @@ a { font-size: 14px !important; }
     flex: 0 0 100%;
     padding: 30px 0px;
     border-radius: 10px;
+  }
+  .scholarship-slide-content .scholarship-card {
+    padding: 20px;
+    min-height: 280px;
+  }
+  .scholarship-icon {
+    width: 90px;
+    height: 90px;
+  }
+  .scholarship-title {
+    font-size: 18px;
+  }
+  .scholarship-slide-content .scholarship-description {
+    font-size: 13px;
   }
   .scholarship-main-heading { margin-bottom: 0; }
   .scholarship-description { max-width: 100%; }
@@ -2077,7 +2192,6 @@ a { font-size: 14px !important; }
     padding: 0 10px;
   }
   .entrance-exam-cards {
-    gap: 20px;
     flex-direction: column;
   }
   .entrance-exam-card-wrapper {
@@ -2144,7 +2258,6 @@ a { font-size: 14px !important; }
     margin-bottom: 30px;
   }
   .placements-milestones {
-    flex-direction: column;
     gap: 20px;
   }
   .placements-milestone-item { width: 100%; }
@@ -2276,9 +2389,6 @@ a { font-size: 14px !important; }
   }
   .research-innovation-section {
     padding: 40px 0;
-  }
-  .research-innovation-left {
-    padding-top: 0;
   }
   .research-innovation-right {
     margin-top: 24px;
@@ -2533,13 +2643,13 @@ a { font-size: 14px !important; }
   }
   .footer-wrapper {
     flex-direction: column;
-    gap: 32px;
-    padding: 0 20px;
+    gap: 0px !important;
+    padding: 0 10px !important;
   }
   .footer-left {
-    align-items: center;
-    text-align: center;
-    gap: 20px;
+    align-items: start;
+    text-align: left;
+    gap: 0px !important;
   }
   .footer-logo-img {
     height: 40px;
@@ -2556,8 +2666,8 @@ a { font-size: 14px !important; }
     height: 28px;
   }
   .footer-right {
-    align-items: center;
-    text-align: center;
+    align-items: start;
+    text-align: left;
     gap: 20px;
   }
   .footer-contact-title {
@@ -2568,9 +2678,8 @@ a { font-size: 14px !important; }
     width: 100%;
   }
   .footer-contact-item {
-    justify-content: center;
-    text-align: center;
-    flex-wrap: wrap;
+    justify-content: start;
+    text-align: left;
     gap: 10px;
     align-items: center !important;
   }
@@ -3138,7 +3247,7 @@ a { font-size: 14px !important; }
   right: 20px;
   background-color: var(--background);
   border-radius: 10px;
-  padding: 16px 20px;
+  padding: 22px 25px;
   text-align: center;
   min-width: 120px;
 }
@@ -3147,9 +3256,10 @@ a { font-size: 14px !important; }
 }
 .incubation-stats-value {
   color: var(--button-red);
-  font-size: 32px;
+  font-size: 35px;
   line-height: 1;
   margin-bottom: 4px;
+  font-weight: 500;
 }
 
 .incubation-stats-label {
