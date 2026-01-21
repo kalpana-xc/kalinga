@@ -103,7 +103,7 @@ export default function AIMLCentrePage() {
     <>
 
       <ImageContent
-        title="AI & ML Courses Training Centre"
+        title="Artificial Intelligence and Machine Learning Courses Training Centre"
         subtitle="In collaboration with the IBM Innovation Centre for Education"
         description={aboutCentreDescription}
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/about/ibm.webp"

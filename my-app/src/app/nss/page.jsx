@@ -2,17 +2,19 @@
 
 import { useLayoutEffect } from "react";
 import Image from "next/image";
-
+import CareerPath from "@/app/components/course/career_path";
 import MainIntro from "@/app/components/about/main_intro";
 import VisionMission from "@/app/components/about/vision-mission";
 import ImageListItem from "@/app/components/ccrc/imagelistitem";
+import Gallery from "@/app/components/general/gallery";
+import MentorIntro from "@/app/components/department/dept_head_intro";
 import WeStandOut from "@/app/components/department/we_stand_out";
 import AdmissionCareer from "@/app/components/general/admission_cta";
 
 const breadcrumbData = {
   heroImage:
     "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nss-benefits-new.webp",
-  pageTitle: "National Service Scheme",
+  pageTitle: "NSS",
   customBreadcrumbs: [
     { label: "Home", href: "/" },
     { label: "NSS", href: "/nss" },
@@ -84,17 +86,36 @@ const benefitsBoxItems = benefitsItems.map((b) => ({
   ),
 }));
 
+const MentorIntroProps = [
+    {
+        id: 1,
+        title: "Dr Harsha Sharma",
+        subtitle: "A Message From the Coordinator",
+        department: "NSS Coordinator",
+        imageSrc:
+            "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/NSS+Coordinator.png",
+        imageAlt: "Harsha Sharma",
+
+        quote:
+            "Transforming students into mindful citizens and changemakers.",
+
+        message: [
+            "At Kalinga University, education goes beyond textbook knowledge as it's a place where students learn to step out, engage with people of different societies and communities, and understand their challenges and discover the power of giving back. Through our outreach programs like cleanliness campaigns, teaching underprivileged children, digital literacy, awareness sessions, tree plantation, road safety, and more, students learn to become responsible and mindful citizens. With every initiative, they learn to bring meaningful change through their collective efforts. By participating in NSS, students learn to solve challenging problems that guide them in life beyond University.",
+        ],
+    },
+];
+
 const objectiveItems = objectives.map((t, idx) => ({
   id: idx + 1,
   text: t,
 }));
 
 const learningOutcomeCards = [
-  { id: 1, text: "Learn the importance of community service" },
-  { id: 2, text: "Become a responsible and socially aware citizen" },
-  { id: 3, text: "Identify sustainable solutions to social problems" },
-  { id: 4, text: "Learn to plan, organise, and execute social issues" },
-  { id: 5, text: "Become confident while making correct decisions" },
+    { id: 1, description: "Learn the importance of community service", imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/communities.svg"},
+    { id: 2, description: "Become a responsible and socially aware citizen", imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/customer-care.svg"},
+    { id: 3, description: "Identify sustainable solutions to social problems", imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/relationship.svg"},
+    { id: 4, description: "Learn to plan, organise, and execute social issues", imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/social-media-management-2.svg"},
+    { id: 5, description: "Become confident while making correct decisions", imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/social-services.svg"},
 ];
 
 export default function NSSPage() {
@@ -108,9 +129,10 @@ export default function NSSPage() {
   return (
     <>
       <MainIntro
+      subtitle="National Service Scheme"
         title="About NSS At KU"
         description={[aboutP1, aboutP2]}
-        imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/ncc/Ncc-img-2.webp"
+        imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/nss/nns-logo.webp"
         imageAlt="NSS at Kalinga University"
         showKnowMore={true}
         knowMoreLabel="Read More"
@@ -124,7 +146,11 @@ export default function NSSPage() {
         description=""
       />
 
-      <VisionMission data={visionMissionData} />
+          <VisionMission data={visionMissionData} />
+
+          <div className="-mt-16 md:-mt-20">
+              <MentorIntro items={MentorIntroProps} />
+          </div>
 
       <div className="nss-benefits-equal-height">
         <ImageListItem
@@ -135,7 +161,9 @@ export default function NSSPage() {
         />
       </div>
 
-      <WeStandOut title="Learning Outcomes" cards={learningOutcomeCards} />
+          <CareerPath careers={learningOutcomeCards} title="Learning Outcomes" description="" />
+
+          <Gallery images={[]} title="NSS Activities Gallery" />
 
       <AdmissionCareer />
 

@@ -21,7 +21,7 @@ const breadcrumbData = {
 };
 
 const aboutCentreDescription = [
-  "Eblu by Godawari Electric Motors Pvt. Ltd. is one of the leading electric vehicle brands, offering a wide range of EVs, including E-Auto, E-Cycle, E-Scooter, and E-Cargo vehicles. They design these vehicles from scratch by focusing on consumer needs such as safety, comfort, and performance.",
+  "Eblu by Godawari Electric Motors Pvt. Ltd. is one of the leading electric vehicle brands, offering a wide range of EVs, including E-Auto, E-Cycle, E-Scooter, and E-Cargo vehicles. They design these vehicles from scratch by focusing on consumer needs such as safety, comfort, and performance. ",
   "With this CoE, students get the opportunity to learn one of the most futuristic skills, the A-Z manufacturing and functioning of two-wheeler and three-wheeler electric vehicles from their industry experts through practical training sessions. This helps them build essential EV knowledge and stand out in the industry.",
 ];
 

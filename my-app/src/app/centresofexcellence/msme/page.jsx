@@ -107,7 +107,7 @@ export default function MSMETrainingCentrePage() {
     <main className="bg-white">
       <ImageContent
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/about/smeindia.webp"
-        title="MSME Training Centre"
+        title="Micro, Small, and Medium Enterprises (MSME) Training Centre"
         subtitle="In collaboration with IamSMEofIndia"
         description={[
           "We have partnered with India’s first and only “Gold” Category accredited MSME association that provides a wide range of business solutions to MSMEs across India. Their Tried, Tested, Credible, Affordable, and Ready-made solutions help companies save their time, energy, and cost.",

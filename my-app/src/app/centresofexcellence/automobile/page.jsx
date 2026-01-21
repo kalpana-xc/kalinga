@@ -21,7 +21,7 @@ const breadcrumbData = {
 };
 
 const aboutText = [
-  "JustAuto Solutions Pvt. Ltd. is an ISO-certified company that specialises in automotive training and the supply of tools and equipment. Kalinga University has partnered with JustAuto Solutions to provide industry-focused training in the repair and maintenance of 2 & 3-wheelers.",
+  "JustAuto Solutions Pvt. Ltd. is an ISO-certified company that specialises in automotive training and the supply of tools and equipment. Kalinga University has partnered with JustAuto Solutions to provide industry-focused training in the repair and maintenance of 2 & 3-wheelers. This collaboration provides hands-on training on modern tools and equipment used in vehicles. Their experienced instructors conduct customised training programs, interactive workshops, expert-led sessions, and certification programs at Kalinga University that enhance their technical knowledge and make them employable in one of the most demanding sectors of the automotive industry.",
   "Through hands-on practice, expert-led sessions, and certification-based learning, students gain practical technical exposure and become employable in the fast-growing automobile industry.",
 ];
 

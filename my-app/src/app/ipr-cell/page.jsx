@@ -13,7 +13,7 @@ import CtcdTrainingTabs from "../components/ctcd/ctcd_training_tabs";
 const breadcrumbData = {
   heroImage:
     "https://kalinga-university.s3.ap-south-1.amazonaws.com/alumini/alumini.webp",
-  pageTitle: "Intellectual Property Rights Cell",
+  pageTitle: "IPR Cell",
   breadcrumbs: [
     { label: "Home", href: "/" },
     { label: "IPR Cell", href: "/ipr-cell" },
@@ -31,13 +31,13 @@ const MentorIntroProps = [
     id: 1,
     title: "Dr R Udaya Kumar",
     subtitle: "A Message From the Dean",
-    department: "Dean/HoD - IPR Cell",
+    department: "Head - IPR Cell",
     imageSrc:
       "https://kalinga-university.s3.ap-south-1.amazonaws.com/ipr/ipr-sir.webp",
     imageAlt: "Dean - IPR Cell",
 
     quote:
-      "KU believes that your powerful ideas need to be recognised and protected.",
+      "Where unique ideas are protected, innovation flourishes.",
 
     message: [
       "We understand that creativity and innovation are part of academic excellence and national progress. Kalinga University believes that your powerful ideas need to be recognised and protected.  Our IPR cell works towards protecting the creations of students, researchers, and faculty members. Whether you’re working on a research paper, app design, or other research-related work, we’re here to protect your work, file patents, trademarks, copyrights, or any other IP. We want every research scholar to feel confident about their rights and valuable work. Through workshops and seminars, we encourage legal empowerment, encouraging all innovators to discover new horizons in their field of study.",
@@ -117,7 +117,7 @@ export default function IPRCellPage() {
     <main className="bg-white font-jakarta">
       <ImageContent
         title="Intellectual Property Rights (IPR) Cell"
-        subtitle="About IPR Cell"
+        subtitle="Intellectual Property Rights "
         description={`${aboutP1} ${aboutP2}`}
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/ipr/ipr-cell-logo.webp"
         imageAlt="IPR Cell Logo"

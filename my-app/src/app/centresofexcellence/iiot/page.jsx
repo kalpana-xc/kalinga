@@ -111,7 +111,7 @@ export default function IIoTTrainingCentrePage() {
   return (
     <main className="bg-white">
       <ImageContent
-        title="IIoT Training Centre"
+        title="Industrial Internet of Things (IIoT) Training Centre"
         subtitle="In collaboration with Technoviz Automation"
         description={aboutCentreDescription}
         imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/about/accerdation/Group+1000002977.png"
