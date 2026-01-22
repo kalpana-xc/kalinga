@@ -232,26 +232,36 @@ export default function Research() {
         id: 1,
         title: "Aptitude Training",
         description: "We conduct classes on logical reasoning, quantitative aptitude, and analytical skills, which prepare students for pre-employment tests.",
+        imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/icons/Aptitude+Training.svg",
+        imageAlt: "Aptitude Training",
       },
       {
         id: 2,
         title: "Certification Programs",
         description: "We offer short-term and skill-oriented certification programs that will introduce them to trending tools and technologies so that they can impress the interviewers.",
+        imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/icons/Certification+Programs.svg",
+        imageAlt: "Certification Programs",
       },
       {
         id: 3,
         title: "Communication Skills",
         description: "Our T&P cell conducts personalised sessions on English speaking skills, email writing, and presentation skills.",
+        imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/icons/Communication+Skills.svg",
+        imageAlt: "Communication Skills",
       },
       {
         id: 4,
         title: "Resume Building",
         description: "Our workshops guide students in preparing a well-structured resume that highlights their strengths, skills, projects, and internships.",
+        imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/icons/Resume+Building.svg",
+        imageAlt: "Resume Building",
       },
       {
         id: 5,
         title: "Interview Preparation",
         description: "A special session is conducted where students are trained with mock interviews and group discussions so that they can clear each round without any hesitation.",
+        imageSrc: "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/icons/Interview+Preparation.svg",
+        imageAlt: "Interview Preparation",
       },
     ]
   }
@@ -534,7 +544,8 @@ export default function Research() {
   return (
     <>
       <MainIntro
-        title="Placement Overview"
+        title="Shaping your career with the right opportunities"
+        subtitle="Successful Placement Track Record"
         description={[
           "Your journey from the classroom to the corporate world begins at Kalinga University. KU offers personalised training and conducts campus drives each year so that you can begin your professional journey right after you graduate. We just don’t teach you the curriculum, but we train, guide, and connect you with industry leaders. We help students build confidence to clear any interview by securing top positions and packages in leading companies."]}
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-intro.jpg"

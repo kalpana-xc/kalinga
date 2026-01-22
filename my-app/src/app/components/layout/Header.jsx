@@ -285,6 +285,8 @@ const Header = () => {
               { label: 'Books / Book Chapters', href: '#' },
               { label: 'Ph. D', href: '/phd' },
               { label: 'Research Resources', href: '/research-resources' },
+              // { label: 'Research Facilities', href: '/research-facilities' },
+              { label: 'Laboratories', href: '/laboratories' },
             ]
           },
           // {

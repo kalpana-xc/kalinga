@@ -15,6 +15,9 @@ import NewsEvents from "../components/home/news_and_events";
 import CenterOfExcellence from "../components/about/center_of_excellence";
 import AwardsScrollbar from "../components/home/awards-scrollbar";
 import ResearchCE from '../components/research-facilities/research-coe'
+import ResearchLab from '../components/research-facilities/research-lab'
+import ImageListItem from "@/app/components/ccrc/imagelistitem";
+import ImageContent from "@/app/components/ccrc/imagecontent";
 
 const breadcrumbData = {
   heroImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/research/reserarch-banner.webp",
@@ -64,6 +67,97 @@ export default function Research() {
     },
 
   ];
+  const resourceFaqItems = [
+    {
+      id: 1,
+      question: "Seed Money",
+      answer: (
+        <>
+          <strong>Purpose</strong>
+          <br />
+          The primary goal of this scheme is to support faculty members and researchers in developing research resources in their expertise through interdisciplinary approaches or methodologies.
+          <br /><br />
+
+          <strong>Objectives</strong>
+          <ul className="list-disc list-inside mt-2 mb-4">
+            <li>To promote a research-friendly environment.</li>
+            <li>To strengthen the research culture with clear guidelines.</li>
+            <li>To encourage socially and commercially relevant research work.</li>
+            <li>To help researchers work on real projects and gain scholarships.</li>
+            <li>To promote collaboration among different departments.</li>
+            <li>To attract new and talented researchers.</li>
+            <li>To support innovation and product development.</li>
+          </ul>
+
+          <strong>Who Can Apply?</strong>
+          <br />
+          The faculty members who have been appointed as Assistant Professor, Associate Professor, and Professor at Kalinga University.
+          <br /><br />
+
+          <strong>Amount</strong>
+          <br />
+          Up to INR 100,000/- and in exceptional cases up to INR 300,000/-
+          <br /><br />
+
+          <strong>Process</strong>
+          <br />
+          The applicant has to fill in the details related to the projects along with his/her details in the format given in Kalinga University Seed Money Policy and submit the form at the Office of Vice Chancellor, Kalinga University, Raipur after getting signed by the concerned HoD and Dean Research.
+        </>
+      ),
+      buttons: [
+        {
+          label: "Seed Money Policy",
+          onClick: () =>
+            openFlipbook(
+              "https://kalinga-university.s3.ap-south-1.amazonaws.com/research-resources/Seed+Money+Policy.pdf",
+              "Seed Money Policy",
+            ),
+        },
+        {
+          label: "Download Form",
+          onClick: () =>
+            openFlipbook(
+              "https://kalinga-university.s3.ap-south-1.amazonaws.com/research-resources/Seed+money+format.pdf",
+              "Seed Money Format",
+            ),
+        },
+      ],
+    },
+    {
+      id: 2,
+      question: "Our Plagiarism Software",
+      answer:
+        "We use DrillBit to check plagiarism and originality in the research work. It is a cloud-based plagiarism-detection software that identifies copied or AI-generated content in academic and professional writing, and is successfully used by educational institutions, students, researchers, and publishers worldwide. This helps our researchers avoid duplicate content, ensuring the work they submit is self-generated and of high quality.",
+      buttons: [
+        {
+          label: "Know More",
+          onClick: () =>
+            window.open(
+              "https://www.drillbitplagiarism.com/",
+              "_blank",
+            ),
+        },
+      ],
+    },
+    {
+      id: 3,
+      question: "Our Plagiarism Policy",
+      answer:
+        "We strictly follow our anti-plagiarism rules and copying someone else’s work is not allowed in our University. We believe that our research scholars produce original work and do not copy it from somewhere else. They are required to give references for each topic and must follow ethical writing practices. We maintain high standards in research practices and appreciate their unique ideas.",
+      buttons: [
+        {
+          label: "Download PDF",
+          onClick: () =>
+            openFlipbook(
+              "https://kalinga-university.s3.ap-south-1.amazonaws.com/research-resources/PLAGIARISM-FILE-POLICY.pdf",
+              "Plagiarism Policy",
+            ),
+        },
+      ],
+    },
+  ];
+
+
   const awards = [
     {
       id: 1,
@@ -109,6 +203,53 @@ export default function Research() {
     },
   ];
 
+  const Items = [
+    {
+      id: 1,
+      text: "Library access to thousands of books, journals, magazines, research papers, dissertations, e-catalogues, online search tools, newspapers, and rare publications."
+    },
+    {
+      id: 2,
+      text: "SPSS software support for academic and research work."
+    },
+    {
+      id: 3,
+      text: "Online study materials including DELNET, NPTEL, National Digital Library, J-Gate (Social Science and Science & Technology), INSPEC by Elsevier, and Web of Science."
+    },
+    {
+      id: 4,
+      text: "CIF labs equipped with advanced instruments such as X-Ray Diffractometer, Viscometer, Scanning Electron Microscope, Digital pH Meter, 3D Printer, and more."
+    },
+    {
+      id: 5,
+      text: "Computer labs with high-performance computing systems and pre-installed software."
+    },
+    {
+      id: 6,
+      text: "Centres of Excellence including IBM Innovation Centre for Education, IamSMEofIndia, EBLU, BDS Education, IIoT, BOSCH, and JustAuto."
+    },
+    {
+      id: 7,
+      text: "Publication support for writing, editing, indexing, and publishing papers in UGC-CARE and Scopus-listed journals."
+    },
+    {
+      id: 8,
+      text: "IPR Support Cell assisting with patent filing, copyright support, ethics compliance, and plagiarism detection."
+    },
+    {
+      id: 9,
+      text: "Incubation Centre through Kalinga Incubation Foundation supporting startup ideas, business models, mentorship, and fund generation."
+    },
+    {
+      id: 10,
+      text: "Workshops, seminars, and competitions to showcase talent to a larger audience."
+    },
+    {
+      id: 11,
+      text: "Research grants and funding guidance for applying to grants and fellowships."
+    }
+  ];
+
   return (
     <div>
       <MainIntro
@@ -125,6 +266,12 @@ export default function Research() {
       />
 
       <PublicationGrid />
+      <ImageListItem
+        items={Items}
+        imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/research-resources/research-toolkit.webp"
+        title="Your Research Toolkit"
+        description=""
+      />
       <OrganogramOfKalinga
         title="Apply Now for Ph.D. Admissions"
         description="Begin your research journey with world-class faculty, advanced labs, and a structured research ecosystem."
@@ -157,7 +304,7 @@ export default function Research() {
             id: 3,
             href: "/career-and-corporate-resource-centre",
             icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Extensive+Research+Facilities.svg",
-            title: "Central Instrumentation Facility Labs",
+            title: "Central Instrumentation Facility",
             description: "Convert your bold ideas into a great discovery! Our CIF Labs are packed with high-end instruments like an X-Ray Diffractometer, 3D Printer, Bio-Chemistry Analyser, Scanning Electron Microscope, and more.",
           },
           {
@@ -176,7 +323,7 @@ export default function Research() {
           },
           {
             id: 6,
-            href: "/research-facilities",
+            href: "",
             icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/icons/Experienced+Faculties.svg",
             title: "Research Facilities",
             description: "State-of-the-art laboratories, high-tech instrumentation, and dedicated research centers equipped with cutting-edge tools for groundbreaking research across all disciplines.",
@@ -192,6 +339,19 @@ export default function Research() {
         department="HoD - Research"
         quote="Research is the foundation of academic excellence, where curiosity transforms into innovation and knowledge advances society."
         message="Research is the soul of academic excellence, and Kalinga University strives to develop a rich research ecosystem that generates curiosity, problem-solving, and inspiration among young researchers and faculty. With our advanced research labs, high-tech instruments, updated policy guidelines, IPR facilitation, CIF labs, and connections with national and international organisations, our research scholars work together toward societal progress. With hands-on training opportunities, workshops, and seminars on how to use modern machines, students learn to lead in their field. Our faculty members support students in publishing their research papers, filing patents, and presenting their work on different platforms."
+      />
+      <ImageContent
+        hasImage={false}
+        buttonText="Know More"
+        buttonLink="https://kalinga-university.s3.ap-south-1.amazonaws.com/research/Constitution+of+Research+Advisory+Committee.pdf"
+        className="items-center justify-center"
+        title="Our Research Advisory Committee"
+        subtitleclassName="hidden"
+        description={
+          <>
+            The Research Advisory Committee at Kalinga University promotes and monitors all research-related activities. They advise, promote research-related programs, support their development and implementation, review all the research and evaluation activities, help in mobilising funds through major and minor research projects, and secure sponsorship for seminars, symposia, conferences, or workshops from various funding agencies. We have a separate Departmental Research Committee for each department that oversees the Ph.D. admission process. The committee members carefully review each application and also evaluate their research proposals to ensure they are meeting the quality guidelines of their respective departments.
+          </>
+        }
       />
 
       {/* <FAQ
@@ -249,6 +409,15 @@ export default function Research() {
       /> */}
 
       <ResearchSixGridButtons />
+      <ResearchLab />
+      <div id="seedmoney">
+        <FAQ
+          items={resourceFaqItems}
+          variant="button"
+          title=""
+          subtitle=""
+        />
+      </div>
 
 
       {/* 

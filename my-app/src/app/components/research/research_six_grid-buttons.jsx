@@ -22,7 +22,7 @@ const defaultButtons = [
   {
     id: 3,
     text: "Software used for Plagiarism",
-    href: "/research-resources",
+    href: "/research-resources/#seedmoney",
   },
   {
     id: 4,
@@ -48,12 +48,12 @@ const defaultButtons = [
     isTable: true,
     tableType: "research",
   },
-  {
-    id: 8,
-    text: "Plagiarism Policy",
-    href: "/research-resources",
-    isContent: true,
-  },
+  // {
+  //   id: 8,
+  //   text: "Plagiarism Policy",
+  //   href: "/research-resources",
+  //   isContent: true,
+  // },
   // {
   //   id: 9,
   //   text: "Ph.D. Admissions",

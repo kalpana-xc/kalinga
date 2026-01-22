@@ -237,7 +237,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="text-center py-2   text-black">
-          <p className="text-xs">© 2025 Kalinga University. All rights reserved.</p>
+          <p className="text-xs">© 2026 Kalinga University. All rights reserved.</p>
         </div>
       </footer>
     </>

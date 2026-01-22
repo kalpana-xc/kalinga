@@ -2,6 +2,7 @@
 
 import { useLayoutEffect } from "react";
 import MainIntro from "@/app/components/about/main_intro";
+import ResearchCE from '../components/research-facilities/research-coe'
 import FAQ from "@/app/components/general/faq"; // adjust path if your FAQ is elsewhere
 import Gallery from "@/app/components/general/gallery";
 import AdmissionCareer from "@/app/components/general/admission_cta";
@@ -237,6 +238,7 @@ export default function LaboratoriesPage() {
         backgroundColor="bg-white"
         titleClassName="text-center"
       />
+      <ResearchCE />
 
       <Gallery
         title="Glimpses"

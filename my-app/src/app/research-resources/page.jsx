@@ -198,12 +198,14 @@ export default function ResearchResources() {
         description=""
       />
 
-      <FAQ
-        items={resourceFaqItems}
-        variant="button"
-        title=""
-        subtitle=""
-      />
+      <div id="seedmoney">
+        <FAQ
+          items={resourceFaqItems}
+          variant="button"
+          title=""
+          subtitle=""
+        />
+      </div>
     </>
   );
 }

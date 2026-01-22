@@ -6,7 +6,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function PublicationGrid({ 
+export default function PublicationGrid({
   stats = [
     {
       title: "Research Publications",
@@ -37,6 +37,18 @@ export default function PublicationGrid({
       title: "Citations",
       value: "2136 +",
       description: "High citation counts demonstrate the relevance, credibility, and global recognition of research carried out at Kalinga University.",
+    },
+    {
+      id: 1,
+      title: 'Total Number of Centres of Excellence (CoE)',
+      value: '7',
+
+    },
+    {
+      id: 2,
+      title: 'Total Number of Laboratories',
+      value: '90+',
+
     },
   ]
 }) {
@@ -103,7 +115,7 @@ export default function PublicationGrid({
         </div>
         <div>
           <h3 className="!text-6xl mb-3">{stat.value}</h3>
-          <p 
+          <p
             ref={textRef}
             className={`text-[var(--light-text-gray)] ${!isExpanded ? 'line-clamp-2' : ''}`}
           >
