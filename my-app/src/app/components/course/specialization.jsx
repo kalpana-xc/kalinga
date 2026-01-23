@@ -26,19 +26,32 @@ const cardData = [
 ];
 
 export default function TestPage() {
+    // Calculate dynamic top positions and widths based on number of cards
+    const calculateTopPosition = (index) => {
+        const baseTop = 100; // Starting top position for first card
+        const increment = 30; // Increment for each subsequent card
+        return baseTop + (index * increment);
+    };
+
+    const calculateWidth = (index) => {
+        const baseWidth = 70; // Starting width percentage for first card
+        const increment = 5; // Increment percentage for each subsequent card
+        return `${baseWidth + (index * increment)}%`;
+    };
+
     return (
         <div className="relative flex flex-col gap-6 my-[50px] mx-auto items-center bg-white">
             {cardData.map((card, index) => {
-                const topPositions = [50, 80, 110, 140];
                 // Alternate colors: 0 = light sandal, 1 = white, 2 = light sandal
                 const backgroundColor = index % 2 === 0 ? 'bg-[var(--card-skin)]' : 'bg-[var(--card-white)]';
                 
                 return (
                     <div
                         key={index}
-                        className={`w-4/5 mx-5 box-border min-h-[400px] rounded-[32px] sticky flex items-center justify-center font-sans p-8 border border-[var(--button-red)] ${backgroundColor}`}
+                        className={`mx-5 box-border min-h-[330px] rounded-[32px] sticky flex items-center justify-center font-sans p-8 border-3 border-gray-300 ${backgroundColor}`}
                         style={{
-                            top: `${topPositions[index]}px`
+                            top: `${calculateTopPosition(index)}px`,
+                            width: calculateWidth(index)
                         }}
                     >
                         <div className={`${backgroundColor} rounded-2xl p-6 md:p-8 w-full flex items-center gap-6 md:gap-12`}>

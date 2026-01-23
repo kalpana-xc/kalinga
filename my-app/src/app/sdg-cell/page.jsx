@@ -7,6 +7,7 @@ import ImageContent from "../components/ccrc/imagecontent";
 import MainIntro from "../components/about/main_intro";
 import SdgTabSection from "../components/sdg-cell/sdg-tab-section";
 import Image from "next/image";
+import SpecializationCard from "../components/course/specialization";
 
 // Breadcrumb configuration
 const breadcrumbData = {
@@ -280,6 +281,7 @@ export default function SDGCell() {
         disableClipPath={false}
       />
       <SdgTabSection />
+      <SpecializationCard />
       <FAQ
         title=""
         subtitle=""
