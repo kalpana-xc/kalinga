@@ -117,6 +117,7 @@ const QuickLinks = ({
                       showDescriptionReadMore={showDescriptionReadMore}
                       href={link.href || link.link}
                       iconWrapperClassName={iconWrapperClassName}
+                      alt={link.alt}
                     />
                   </div>
                 </SwiperSlide>
@@ -176,6 +177,7 @@ const QuickLinks = ({
                 showDescriptionReadMore={showDescriptionReadMore}
                 href={link.href || link.link}
                 iconWrapperClassName={iconWrapperClassName}
+                alt={link.alt}
               />
             ))}
           </div>

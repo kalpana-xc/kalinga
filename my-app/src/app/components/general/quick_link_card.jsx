@@ -11,12 +11,14 @@ const QuickLinkCard = ({
   showReadMore = true, // default is false, can set to true inline if needed
   showDescriptionReadMore = true, // controls the description read more button
   href = null,
-  iconWrapperClassName = "w-12 h-12 sm:w-14 sm:h-14" // Default size
+  iconWrapperClassName = "w-12 h-12 sm:w-14 sm:h-14", // Default size
+  alt = ""
 }) => {
   const isImageUrl = typeof icon === 'string' && (icon.startsWith('http') || icon.startsWith('/'))
   const [isExpanded, setIsExpanded] = useState(false)
   const [showReadMoreButton, setShowReadMoreButton] = useState(false)
   const descriptionRef = useRef(null)
+
 
   useEffect(() => {
     if (!showDescriptionReadMore) {
@@ -71,7 +73,7 @@ const QuickLinkCard = ({
             <div className={`relative ${iconWrapperClassName}`}>
               <Image
                 src={icon}
-                alt={title}
+                alt={alt || title}
                 fill
                 className="object-contain"
               />

@@ -23,7 +23,7 @@ import AdmissionCareer from "@/app/components/general/admission_cta";
 import CourseNavigation from "@/app/components/general/course-navigation";
 import QuickLinks from "@/app/components/general/quick_links";
 import GlobalArrowButton from "@/app/components/general/global-arrow_button";
-import { fetchAllCourses, fetchCourseCompleteDetail, fetchDepartmentCompleteDetail, parseHtmlToParagraphs, parseHtmlToText, parseHtmlListItems } from "@/app/lib/api";
+import { fetchAllCourses, fetchCourseCompleteDetail, fetchDepartmentCompleteDetail, parseHtmlToParagraphs, parseHtmlToText, parseHtmlListItems, fetchClubs, fetchClubDetail } from "@/app/lib/api";
 import { useBreadcrumbData } from "@/app/components/layout/BreadcrumbContext";
 
 // Helper function to format duration
@@ -65,6 +65,7 @@ export default function DynamicCoursePage() {
   const [courseId, setCourseId] = useState(null);
   const [departmentData, setDepartmentData] = useState(null);
   const [metadataLoaded, setMetadataLoaded] = useState(false);
+  const [clubsData, setClubsData] = useState([]);
 
   // Find course data from slug
   useEffect(() => {
@@ -187,6 +188,43 @@ export default function DynamicCoursePage() {
 
     loadCourseData();
   }, [courseId, courseData]);
+
+  // Fetch clubs data
+  useEffect(() => {
+    const loadClubsData = async () => {
+      try {
+        const clubsList = await fetchClubs();
+
+        // Fetch details for each club to get description (which contains the link too)
+        const detailedClubs = await Promise.all(
+          clubsList.map(async (club) => {
+            try {
+              const detail = await fetchClubDetail(club.id);
+
+              // Use description and link from the JSON detail
+              const description = typeof detail === 'object' ? parseHtmlToText(detail.description) : parseHtmlToText(detail);
+              const link = (typeof detail === 'object' && detail.link) ? detail.link : "#";
+
+              return {
+                ...club,
+                longDescription: description,
+                link: link
+              };
+            } catch (err) {
+              console.warn(`Failed to fetch details for club ${club.id}`, err);
+              return { ...club, longDescription: "", link: "#" };
+            }
+          })
+        );
+
+        setClubsData(detailedClubs);
+      } catch (err) {
+        console.error("Failed to load clubs data:", err);
+      }
+    };
+
+    loadClubsData();
+  }, []);
 
   // Update SEO metadata when courseData is available
   useEffect(() => {
@@ -430,7 +468,25 @@ export default function DynamicCoursePage() {
   } : null;
 
   const quickLinksContent = (() => {
-    // 1. Try courseData.clubs (Primary API source)
+    // 1. Try clubsData from fetchClubs (User requested source)
+    if (clubsData && clubsData.length > 0) {
+      return {
+        title: "Beyond The Curriculum",
+        description: "At KU, you will get to explore more than just academics. Here, we don’t just teach subjects, but help our students in launching their own startups and performing groundbreaking research work.",
+        links: clubsData
+          .sort((a, b) => (a.id || 0) - (b.id || 0))
+          .map(item => ({
+            id: item.id,
+            icon: item.image || null,
+            title: item.heading || "",
+            description: item.longDescription || "",
+            href: item.link || "#",
+            alt: item.image_alt_text || item.heading || ""
+          }))
+      };
+    }
+
+    // 2. Try courseData.clubs (Primary API source)
     if (courseData?.clubs && courseData.clubs.length > 0) {
       return {
         title: "Beyond The Curriculum ",
@@ -447,7 +503,7 @@ export default function DynamicCoursePage() {
       };
     }
 
-    // 2. Try courseData.curriculum_btc (Secondary/Legacy API source)
+    // 3. Try courseData.curriculum_btc (Secondary/Legacy API source)
     if (courseData?.curriculum_btc && courseData.curriculum_btc.length > 0) {
       return {
         title: "Beyond The Curriculum ",
@@ -469,7 +525,7 @@ export default function DynamicCoursePage() {
       };
     }
 
-    // 3. Fallback (Static Data)
+    // 4. Fallback (Static Data)
     return {
       title: "Beyond The Curriculum ",
       description: "At KU, you will get to explore more than just academics. Here, we don’t just teach subjects, but help our students in launching their own startups and performing groundbreaking research work. ",
@@ -705,7 +761,7 @@ export default function DynamicCoursePage() {
         description={quickLinksContent.description}
         links={quickLinksContent.links}
         titleClassName="text-white"
-        iconWrapperClassName="w-24 h-24 sm:w-24 sm:h-24"
+        iconWrapperClassName="w-full h-40 sm:h-48"
       />
       {faqContent && faqContent.items && faqContent.items.length > 0 && (
         <FAQ

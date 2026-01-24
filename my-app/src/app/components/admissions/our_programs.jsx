@@ -420,7 +420,7 @@ export default function OurPrograms({
                     <option key={level} value={level}>{level}</option>
                   ))}
                 </select>
-                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                <div className="absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none bg-[var(--background)] rounded p-1">
                   <svg
                     width="16"
                     height="16"

@@ -673,3 +673,56 @@ export async function fetchTableCategories() {
     throw error;
   }
 }
+
+/**
+ * Fetches all clubs from the API
+ * @returns {Promise<Array>} Array of club objects
+ */
+export async function fetchClubs() {
+  try {
+    const url = getApiUrl(API_CONFIG.clubs.list());
+    const response = await fetch(url, {
+      method: 'GET',
+      next: { revalidate: 3600 },
+    });
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return extractResults(data);
+  } catch (error) {
+    console.error('Error fetching clubs:', error);
+    throw error;
+  }
+}
+
+/**
+ * Fetches single club details by ID
+ * @param {number|string} id - The club ID
+ * @returns {Promise<string>} Club description text (usually returns text directly from the endpoint as per user request)
+ */
+export async function fetchClubDetail(id) {
+  try {
+    const url = getApiUrl(API_CONFIG.clubs.detail(id));
+    const response = await fetch(url, {
+      method: 'GET',
+      next: { revalidate: 3600 },
+    });
+
+    if (!response.ok) {
+      if (response.status === 404) return null;
+      throw new Error(`API error: ${response.status} ${response.statusText}`);
+    }
+
+    // Parse as JSON as it contains description and link fields
+    const data = await response.json();
+    return data;
+  } catch (error) {
+
+    console.error(`Error fetching club details for ${id}:`, error);
+    throw error;
+  }
+}
+

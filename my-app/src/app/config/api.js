@@ -52,6 +52,12 @@ export const API_CONFIG = {
     list: () => `/table-categories/`,
   },
 
+  // Clubs endpoints
+  clubs: {
+    list: () => `/clubs/`,
+    detail: (id) => `/clubs/${id}/`,
+  },
+
   // Add other API endpoints here as needed
 };
 
