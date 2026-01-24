@@ -4,6 +4,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import SectionHeading from "../general/SectionHeading";
 import ProgramCard from "../general/program-card";
 import { fetchAllDepartments, fetchAllDepartmentCourses, fetchAllCourses, fetchAllDepartmentsCourses } from "@/app/lib/api";
+import { normalizeString, rankAndSortPrograms } from "@/app/lib/search-utils";
 import Link from "next/link";
 
 // Helper function to format course name (BSE, BTech format - uppercase first few letters, then lowercase)
@@ -57,24 +58,6 @@ const getStudyLevel = (programType) => {
   if (type === "phd" || type === "doctorate") return "PhD";
   if (type === "diploma") return "Diploma";
   return "UG";
-};
-
-// Helper function to normalize strings for flexible searching (removes punctuation, filler words, and extra spaces)
-const normalizeString = (str) => {
-  if (!str) return "";
-
-  // List of common filler words to ignore in search
-  // Note: 'a' and 'an' are removed because they are common abbreviations (Arts, Animation)
-  const fillerWords = ["in", "of", "and", "the", "for", "to", "at", "by", "with", "special"];
-
-  return str
-    .toLowerCase()
-    // Replace all punctuation including brackets, braces, and symbols with space
-    .replace(/[.\-&(),\[\]{}:|]/g, " ")
-    .split(/\s+/)              // Split into words
-    .filter(word => word && !fillerWords.includes(word)) // Remove empty strings and filler words
-    .join("")                  // Join back with no spaces for dense comparison
-    .trim();
 };
 
 export default function OurPrograms({
@@ -314,53 +297,7 @@ export default function OurPrograms({
 
     // Filter and score by search query
     if (searchQuery.trim()) {
-      const query = searchQuery.trim().toLowerCase();
-      const normalizedQuery = normalizeString(query);
-      const queryTokens = query.split(/\s+/).filter(t => t.length > 1); // Split into words for token matching
-
-      filtered = filtered
-        .map(course => {
-          let score = 0;
-          const name = course.name || "";
-          const shortName = course.short_name || "";
-          const deptName = course.departmentName || course.department?.name || "";
-
-          const normName = normalizeString(name);
-          const normShort = normalizeString(shortName);
-          const normDept = normalizeString(deptName);
-
-          // 1. Exact matches in normalized strings (Highest priority)
-          if (normShort === normalizedQuery) score += 100;
-          else if (normShort.includes(normalizedQuery)) score += 80;
-
-          if (normName === normalizedQuery) score += 90;
-          else if (normName.includes(normalizedQuery)) score += 60;
-
-          if (normDept === normalizedQuery) score += 40;
-          else if (normDept.includes(normalizedQuery)) score += 20;
-
-          // 2. Token based matching (Handles word order like "PSC BA")
-          if (queryTokens.length > 1) {
-            let tokensMatched = 0;
-            queryTokens.forEach(token => {
-              const normToken = normalizeString(token);
-              if (normName.includes(normToken) || normShort.includes(normToken) || normDept.includes(normToken)) {
-                tokensMatched++;
-                score += 10;
-              }
-            });
-            // Bonus for matching all tokens
-            if (tokensMatched === queryTokens.length) score += 30;
-          }
-
-          // 3. Simple fuzzy/typo tolerance (starts with check)
-          if (name.toLowerCase().startsWith(query)) score += 25;
-          if (shortName.toLowerCase().startsWith(query)) score += 35;
-
-          return { ...course, searchScore: score };
-        })
-        .filter(course => course.searchScore > 0)
-        .sort((a, b) => b.searchScore - a.searchScore);
+      filtered = rankAndSortPrograms(filtered, searchQuery, { includeDept: true });
     }
 
     // Format courses for ProgramCard

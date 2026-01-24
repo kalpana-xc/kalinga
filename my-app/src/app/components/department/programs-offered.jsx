@@ -2,23 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useMemo } from "react";
-
-// Helper function to normalize strings for flexible searching (removes punctuation, filler words, and extra spaces)
-const normalizeString = (str) => {
-  if (!str) return "";
-
-  // List of common filler words to ignore in search
-  const fillerWords = ["in", "of", "and", "the", "for", "to", "at", "by", "with", "special"];
-
-  return str
-    .toLowerCase()
-    // Replace all punctuation including brackets, braces, and symbols with space
-    .replace(/[.\-&(),\[\]{}:|]/g, " ")
-    .split(/\s+/)              // Split into words
-    .filter(word => word && !fillerWords.includes(word)) // Remove empty strings and filler words
-    .join("")                  // Join back with no spaces for dense comparison
-    .trim();
-};
+import { normalizeString, rankAndSortPrograms } from "@/app/lib/search-utils";
 
 const defaultPrograms = [
   {
@@ -81,49 +65,7 @@ export default function ProgramsOffered({
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredPrograms = useMemo(() => {
-    if (!searchQuery.trim()) return programs;
-
-    const query = searchQuery.trim().toLowerCase();
-    const normalizedQuery = normalizeString(query);
-    const queryTokens = query.split(/\s+/).filter(t => t.length > 1);
-
-    return programs
-      .map(program => {
-        let score = 0;
-        const title = program.title || "";
-        const shortName = program.shortName || "";
-
-        const normTitle = normalizeString(title);
-        const normShort = normalizeString(shortName);
-
-        // 1. Exact matches in normalized strings (Highest priority)
-        if (normShort === normalizedQuery) score += 100;
-        else if (normShort.includes(normalizedQuery)) score += 80;
-
-        if (normTitle === normalizedQuery) score += 90;
-        else if (normTitle.includes(normalizedQuery)) score += 60;
-
-        // 2. Token based matching
-        if (queryTokens.length > 0) { // Changed from > 1 to > 0 to handle single token queries
-          let tokensMatched = 0;
-          queryTokens.forEach(token => {
-            const normToken = normalizeString(token);
-            if (normTitle.includes(normToken) || normShort.includes(normToken)) {
-              tokensMatched++;
-              score += 10;
-            }
-          });
-          if (tokensMatched === queryTokens.length) score += 30;
-        }
-
-        // 3. Simple fuzzy/typo tolerance
-        if (title.toLowerCase().startsWith(query)) score += 25;
-        if (shortName.toLowerCase().startsWith(query)) score += 35;
-
-        return { ...program, searchScore: score };
-      })
-      .filter(program => program.searchScore > 0)
-      .sort((a, b) => b.searchScore - a.searchScore);
+    return rankAndSortPrograms(programs, searchQuery, { includeDept: false });
   }, [programs, searchQuery]);
 
   return (
