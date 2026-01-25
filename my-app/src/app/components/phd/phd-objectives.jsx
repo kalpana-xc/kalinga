@@ -6,7 +6,7 @@ export default function PhdObjectivesPanel() {
       imageSrc="https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/Phd-Objectives.webp"
       imageAlt="Doctoral Studies & Research"
      description=""
-      title="Objectives Of Our Doctoral Studies & Research"
+      title="Objectives of Our Doctoral Studies & Research"
       subtitle=""
       items={[
         {

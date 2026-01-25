@@ -69,6 +69,14 @@ export default function PhdPage() {
     },
     {
       id: 4,
+      title: "Syllabus for Ph.D. Entrance",
+      description: "",
+      buttons: [
+        { label: "Syllabus for Ph.D. Entrance", onClick: () => openFlipbook("", "") },
+      ]
+    },
+    {
+      id: 5,
       title: "Detailed Syllabus of Research Methodology",
       description: "Course syllabus for Research Methodology coursework.",
       buttons: [
@@ -76,7 +84,7 @@ export default function PhdPage() {
       ]
     },
     {
-      id: 5,
+      id: 6,
       title: "Fellowship Scholarship Policy for Ph.D. Scholars",
       description: "Policy details for research fellowships and scholarships.",
       buttons: [
@@ -84,7 +92,7 @@ export default function PhdPage() {
       ]
     },
     {
-      id: 6,
+      id: 7,
       title: "Policy for the Grievance Redress Mechanism of Scholars",
       description: "Mechanism for addressing scholar grievances.",
       buttons: [
@@ -92,7 +100,7 @@ export default function PhdPage() {
       ]
     },
     {
-      id: 7,
+      id: 8,
       title: "Ph.D. Process Improvement",
       description: "Best practices and process improvement guidelines.",
       buttons: [
@@ -100,17 +108,17 @@ export default function PhdPage() {
       ]
     },
     {
-      id: 8,
+      id: 9,
       title: "UGC Regulations",
       description: "Relevant University Grants Commission regulations.",
       buttons: [
         { label: "2022", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/UGC+Regulation+2022+(1).pdf", "UGC Regulation 2022") },
+        { label: "2018", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/UGCNotification_Plagiarism_2018.pdf", "UGC Notification Plagiarism 2018") },
         { label: "2016", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/UGC+Regulations+2016+(1).pdf", "UGC Regulation 2016") },
-        { label: "2018 (Plagiarism)", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/UGCNotification_Plagiarism_2018.pdf", "UGC Notification Plagiarism 2018") },
       ]
     },
     {
-      id: 9,
+      id: 10,
       title: "Ph.D. Notification 2025-26",
       description: "Latest notifications for the upcoming academic year.",
       buttons: [
@@ -118,15 +126,17 @@ export default function PhdPage() {
       ]
     },
     {
-      id: 10,
+      id: 11,
       title: "Details of Currently Enrolled Ph.d. Scholars and Supervisors",
       description: "View details of current scholars and supervisors.",
       buttons: [
-        { label: "Open Page", onClick: () => window.open("/research", "_blank") },
+        { label: "Ph.d. Scholars", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/DETAILS+OF+CURRENTLY+ENROLLED+Ph.D.+SCHOLARS+(1).pdf", "Ph.d. Scholars") },
+        { label: "Ph.d. Supervisors", onClick: () => openFlipbook("https://kalinga-university.s3.ap-south-1.amazonaws.com/phd/DETAILS+OF+SUPERVISOR.pdf", "Ph.d. Supervisor") },
+        
       ]
     },
     {
-      id: 11,
+      id: 12,
       title: "Undertaking",
       description: "Download the undertaking format.",
       buttons: [

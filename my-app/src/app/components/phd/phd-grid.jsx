@@ -6,7 +6,7 @@ import PublicationGrid from "../research/publication-grid";
 export default function PhdGrid() {
   const phdStats = [
     {
-      title: "Patents Published and Granted",
+      title: "Patents Published",
       value: "510+",
       description: "",
     },

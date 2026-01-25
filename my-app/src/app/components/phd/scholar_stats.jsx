@@ -103,7 +103,7 @@ export default function ScholarStats() {
         <section className="py-16 bg-white">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeading
-                    title="University Registered Scholars In Various Fellowship Programmes"
+                    title="University Registered Scholars in various Fellowship Programmes"
                     titleClassName="text-center mb-8"
                 />
 
