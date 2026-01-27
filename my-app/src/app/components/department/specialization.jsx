@@ -33,7 +33,7 @@ const Specialization = ({
   }
 
   return (
-    <section className={`py-16 ${className}`}>
+    <section className={`${className}`}>
       <OpenPositions
         subtitle={title}
         title={subtitle}

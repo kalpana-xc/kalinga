@@ -23,11 +23,11 @@ export default function ScholarshipsPage() {
         { label: "Scholarships", href: "/scholarships" },
       ],
     };
-    
+
     if (typeof window !== "undefined") {
       window.__breadcrumbData = breadcrumbData;
     }
-    
+
     return () => {
       if (typeof window !== "undefined" && window.__breadcrumbData?.pathname === pathname) {
         delete window.__breadcrumbData;
@@ -364,11 +364,11 @@ export default function ScholarshipsPage() {
 
 
       <MainIntro
-        readmore={false}
-        className="items-center justify-center"
+        showKnowMore={false}
+        sectionClassName="py-6 bg-white"
         title="Rewarding the Hard Work and Academic Excellence of Meritorious Students"
         subtitle=""
-        description="We recognize the hard work of every student, and Kalinga University’s scholarships encourage them to dream bigger and confidently step forward towards their career goals."
+        description={["We recognize the hard work of every student, and Kalinga University’s scholarships encourage them to dream bigger and confidently step forward towards their career goals."]}
         imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/scholarships/scholarship-about.webp"
       />
 
@@ -404,9 +404,18 @@ export default function ScholarshipsPage() {
         }
       `}</style>
 
+      <CenterOfExcellence
+        className="bg-white"
+        centres={Banks}
+        title="Bank Loan MoUs"
+        description="Kalinga University has signed an MOU with Canara Bank and the Central Bank of India, which are providing financial assistance to our students during admissions. "
+      />
+
       {/* Slider cards */}
       <div className="hide-scholarship-cta">
         <ScholarshipsSlider
+          className="bg-[var(--light-gray)]"
+          titleClassName="text-center"
           items={scholarships}
           title="Scholarship Details Of Kalinga University"
           description=""
@@ -565,13 +574,6 @@ export default function ScholarshipsPage() {
           </div>
         </div>
       )}
-
-      <CenterOfExcellence
-        centres={Banks}
-        title="Bank Loan MoUs"
-        description="Kalinga University has signed an MOU with Canara Bank and the Central Bank of India, which are providing financial assistance to our students during admissions. "
-      />
-
       <FAQ items={defaultFAQItems} title="Clearing All Your Doubts" subtitle="" />
       {/* ✅ Download Scholarship Policy */}
       <div className="mx-auto max-w-6xl px-4 md:px-6 mt-10 mb-6">

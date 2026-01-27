@@ -8,6 +8,7 @@ import MainIntro from "../components/about/main_intro";
 import SdgTabSection from "../components/sdg-cell/sdg-tab-section";
 import Image from "next/image";
 import SpecializationCard from "../components/course/specialization";
+import FacilitySlider from "../components/course/facility-slider";
 
 // Breadcrumb configuration
 const breadcrumbData = {
@@ -279,8 +280,10 @@ export default function SDGCell() {
         showKnowMore={true}
         initialVisibleParagraphs={1}
         disableClipPath={false}
+        imageObjectFit="contain"
       />
       <SdgTabSection />
+      <FacilitySlider />
       {/* <SpecializationCard /> */}
       <FAQ
         title=""

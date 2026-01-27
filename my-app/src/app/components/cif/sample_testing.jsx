@@ -1,9 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import SectionHeading from "../general/SectionHeading";
+
 import DataTable from "../general/data-table";
+import OrganogramOfKalinga from "../about/organogram_of_kalinga";
+import Modal from "../general/Modal";
+
+
+
 
 export default function SampleTesting({
   title = "Sample Testing",
@@ -142,71 +147,56 @@ export default function SampleTesting({
 
   const finalTableColumns = tableColumns || defaultTableColumns;
   const finalTableData = tableData || defaultTableData;
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-6">
-        {/* Title */}
-        <div className="text-center mb-8">
-          <SectionHeading
-            title={title}
-            subtitle=""
-            titleClassName="text-center"
+    <>
+      <OrganogramOfKalinga
+        title={title}
+        description={[instruction, description].filter(Boolean)}
+        useContainer={true}
+        onClick={() => setIsModalOpen(true)}
+        href={null}
+      />
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title={title}
+      >
+        <div className="container mx-auto">
+          {/* Subtitle */}
+          {subtitle && (
+            <div className="text-center mb-8">
+              <h3 className="font-stix text-2xl md:text-3xl text-[var(--foreground)]">
+                {subtitle}
+              </h3>
+            </div>
+          )}
+
+          {/* Table */}
+          <DataTable
+            columns={finalTableColumns}
+            data={finalTableData}
+            overflowX={true}
+            headerBgColor="bg-[var(--button-red)]"
+            headerTextColor="text-white"
+            evenRowBg="bg-gray-50"
+            oddRowBg="bg-white"
+            borderColor="border-gray-200"
           />
-        </div>
 
-        {/* Instruction */}
-        {instruction && (
-          <div className="text-center mb-6">
-            <p className="text-[var(--light-text-gray)] leading-relaxed">
-              {instruction}
-            </p>
-          </div>
-        )}
-
-        {/* Image and Description */}
-        {description && (
-          <div className="mb-12">
-            {/* Description */}
-            <div className="flex-1">
-              <p className="leading-relaxed text-center">
-                {description}
+          {/* Note */}
+          {note && (
+            <div className="mt-6 text-center">
+              <p className="text-sm md:text-base text-[var(--light-text-gray)] font-semibold">
+                {note}
               </p>
             </div>
-          </div>
-        )}
-
-        {/* Subtitle */}
-        {subtitle && (
-          <div className="text-center mb-8">
-            <h3 className="font-stix text-2xl md:text-3xl text-[var(--foreground)]">
-              {subtitle}
-            </h3>
-          </div>
-        )}
-
-        {/* Table */}
-        <DataTable
-          columns={finalTableColumns}
-          data={finalTableData}
-          overflowX={true}
-          headerBgColor="bg-[var(--button-red)]"
-          headerTextColor="text-white"
-          evenRowBg="bg-gray-50"
-          oddRowBg="bg-white"
-          borderColor="border-gray-200"
-        />
-
-        {/* Note */}
-        {note && (
-          <div className="mt-6 text-center">
-            <p className="text-sm md:text-base text-[var(--light-text-gray)] font-semibold">
-              {note}
-            </p>
-          </div>
-        )}
-      </div>
-    </section>
+          )}
+        </div>
+      </Modal>
+    </>
   );
 }
 

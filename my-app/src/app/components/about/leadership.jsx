@@ -52,13 +52,29 @@ const leadership = [
   },
 ];
 
-export default function Leadership() {
+export default function Leadership({
+  data = leadership,
+  title = "Our Leadership",
+  subtitle = null,
+  description = null,
+  className = "py-16 bg-white relative",
+  imageFit = "cover",
+}) {
   return (
-    <section className="py-16 bg-white relative">
+    <section className={className}>
       <div className="container mx-auto px-2">
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-12">
-          <SectionHeading title="Our Leadership" titleClassName="!py-2" />
+          <SectionHeading
+            title={title}
+            subtitle={subtitle}
+            titleClassName="!py-2"
+          />
+          {description && (
+            <p className="max-w-4xl mx-auto mt-4 text-[var(--light-text-gray)]">
+              {description}
+            </p>
+          )}
         </div>
 
         {/* Slider Section */}
@@ -98,36 +114,48 @@ export default function Leadership() {
             loop={false}
             autoHeight={false}
           >
-            {leadership.map((person) => (
-              <SwiperSlide key={person.id}>
+            {data.map((item) => (
+              <SwiperSlide key={item.id}>
                 <div className="h-full w-full">
-                  <Link href={person.link || "#"} className="block h-full">
-                    <div className="bg-white rounded-xl p-1 h-full relative cursor-pointer hover:shadow-lg transition-shadow group">
-                      <LeadershipCard
-                        name={person.name}
-                        title={person.title}
-                        image={person.image}
-                      />
-                      {/* Button - Positioned at bottom right */}
-                      <div className="absolute bottom-6 right-6">
-                        <div className="w-8 h-8 bg-[var(--button-red)] group-hover:bg-[#c41e3a] rounded-lg flex items-center justify-center transition-colors shadow-md">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="white"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M7 17L17 7" />
-                            <path d="M7 7h10v10" />
-                          </svg>
+                  {item.link ? (
+                    <Link href={item.link} className="block h-full">
+                      <div className="bg-white rounded-xl p-1 h-full relative cursor-pointer hover:shadow-lg transition-shadow group">
+                        <LeadershipCard
+                          name={item.name}
+                          title={item.title}
+                          image={item.image}
+                          imageFit={imageFit}
+                        />
+                        {/* Button - Positioned at bottom right */}
+                        <div className="absolute bottom-6 right-6">
+                          <div className="w-8 h-8 bg-[var(--button-red)] group-hover:bg-[#c41e3a] rounded-lg flex items-center justify-center transition-colors shadow-md">
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="white"
+                              strokeWidth="2.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <path d="M7 17L17 7" />
+                              <path d="M7 7h10v10" />
+                            </svg>
+                          </div>
                         </div>
                       </div>
+                    </Link>
+                  ) : (
+                    <div className="bg-white rounded-xl p-1 h-full relative group">
+                      <LeadershipCard
+                        name={item.name}
+                        title={item.title}
+                        image={item.image}
+                        imageFit={imageFit}
+                      />
                     </div>
-                  </Link>
+                  )}
                 </div>
               </SwiperSlide>
             ))}

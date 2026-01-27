@@ -58,13 +58,14 @@ export default function CenterOfExcellence({
   nameOnly = false, // variant: show only name centered, no image or title
   showDescription = true,
   showReadMore = false,
+  className = "bg-white",
 }) {
   return (
-    <section className="py-16 bg-white relative">
+    <section className={`py-16 relative ${className}`}>
       <div className="container mx-auto px-2">
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-12 pt-8 md:pt-0">
-        {subtitle && (
+          {subtitle && (
             <p className="text-[var(--button-red)] font-semibold text-lg md:text-xl mb-4">
               {subtitle}
             </p>
@@ -72,7 +73,7 @@ export default function CenterOfExcellence({
           <h2 className="font-stix text-[var(--foreground)] text-2xl md:text-3xl lg:text-4xl mb-4">
             {title}
           </h2>
-         
+
           {showDescription && (
             <p className="text-[var(--light-text-gray)] max-w-4xl mx-auto">
               {description}

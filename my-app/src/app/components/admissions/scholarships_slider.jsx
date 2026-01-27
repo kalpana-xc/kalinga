@@ -5,6 +5,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Link from "next/link";
 import ScholarshipCard from "../general/scholarship-card";
+import SectionHeading from "../general/SectionHeading";
+
 import GlobalArrowButton from "../general/global-arrow_button";
 import Image from "next/image";
 
@@ -64,7 +66,7 @@ const scholarships = [
     description: "Additional KU-specific scholarships as per scholarship committee/policy.",
     icon: "https://kalinga-university.s3.ap-south-1.amazonaws.com/admission/scholarship/scholarship-10bg.png",
   },
-  
+
 ];
 
 export default function ScholarshipsSlider({
@@ -74,17 +76,20 @@ export default function ScholarshipsSlider({
   ctaHref = "/scholarships",
   items = scholarships,
   navId = "scholarships", // ✅ unique id if you reuse this component multiple times in same page
+  className = "bg-white",
+  titleClassName = "",
 }) {
   return (
-    <section className="py-16 bg-white relative">
-      <div className="container mx-auto px-2">
+    <section className={`py-16 relative ${className}`}>
+      <div className="container mx-auto p x-2">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 md:mb-12 gap-4">
           <div className="flex-1">
-            <h2 className="font-stix text-[var(--foreground)] text-3xl md:text-4xl lg:text-5xl mb-4">
-              {title}
-            </h2>
-            <p className="text-[var(--light-text-gray)] max-w-3xl">
+            <SectionHeading
+              title={title}
+              titleClassName={`${titleClassName}`}
+            />
+            <p className="max-w-3xl">
               {description}
             </p>
           </div>

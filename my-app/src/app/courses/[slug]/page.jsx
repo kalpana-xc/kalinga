@@ -16,7 +16,7 @@ import StudentActivities from "@/app/components/department/student_activities";
 import EligibilityCriteria from "@/app/components/course/eligibility_criteria";
 import CareerPath from "@/app/components/course/career_path";
 import BoardStudies from "@/app/components/course/board-studies";
-import WhyStudy from "@/app/components/department/why-study";
+import Specialization from "@/app/components/department/specialization";
 import OrganogramOfKalinga from "@/app/components/about/organogram_of_kalinga";
 import FAQ from "@/app/components/general/faq";
 import AdmissionCareer from "@/app/components/general/admission_cta";
@@ -25,7 +25,7 @@ import QuickLinks from "@/app/components/general/quick_links";
 import GlobalArrowButton from "@/app/components/general/global-arrow_button";
 import { fetchAllCourses, fetchCourseCompleteDetail, fetchDepartmentCompleteDetail, parseHtmlToParagraphs, parseHtmlToText, parseHtmlListItems, fetchClubs, fetchClubDetail } from "@/app/lib/api";
 import { useBreadcrumbData } from "@/app/components/layout/BreadcrumbContext";
-
+import FacilitySlider from "@/app/components/course/facility-slider";
 // Helper function to format duration
 const formatDuration = (duration, semester) => {
   if (duration && semester) {
@@ -721,13 +721,21 @@ export default function DynamicCoursePage() {
       )}
       {whyStudyContent && whyStudyContent.items && whyStudyContent.items.length > 0 && (
         <div id="specialization" className="scroll-mt-24 md:scroll-mt-28">
-          <WhyStudy
-            sectionTitle={whyStudyContent.sectionTitle}
-            sectionDescription={whyStudyContent.sectionDescription}
-            backgroundImage={whyStudyContent.backgroundImage}
-            items={whyStudyContent.items}
+          <Specialization
+            title=""
+            subtitle={whyStudyContent.sectionTitle}
+            description={whyStudyContent.sectionDescription}
+            items={whyStudyContent.items.map(item => ({
+              title: item.title,
+              careerOpportunities: [item.body], // Map body to skills array
+              imageUrl: item.image,
+              imageAlt: item.alt
+            }))}
           />
         </div>
+      )}
+      {['bachelor-of-arts-bachelor-of-law', 'bachelor-of-business-administration-and-bachelor-of-law', 'bachelor-of-law', 'master-of-law'].includes(slug) && (
+        <FacilitySlider />
       )}
       {syllabusContent && (
         <div id="syllabus" className="scroll-mt-24 md:scroll-mt-28">

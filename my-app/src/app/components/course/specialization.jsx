@@ -25,7 +25,7 @@ const cardData = [
     }
 ];
 
-export default function TestPage() {
+export default function Specialization({ cards = cardData }) {
     // Calculate dynamic top positions and widths based on number of cards
     const calculateTopPosition = (index) => {
         const baseTop = 100; // Starting top position for first card
@@ -40,11 +40,11 @@ export default function TestPage() {
     };
 
     return (
-        <div className="relative flex flex-col gap-6 my-[50px] mx-auto items-center bg-white">
-            {cardData.map((card, index) => {
+        <div className="relative flex flex-col gap-6 my-[50px] mx-auto items-center">
+            {cards.map((card, index) => {
                 // Alternate colors: 0 = light sandal, 1 = white, 2 = light sandal
                 const backgroundColor = index % 2 === 0 ? 'bg-[var(--card-skin)]' : 'bg-[var(--card-white)]';
-                
+
                 return (
                     <div
                         key={index}
@@ -57,22 +57,26 @@ export default function TestPage() {
                         <div className={`${backgroundColor} rounded-2xl p-2 md:p-8 w-full flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12`}>
                             {/* Left Side - Icon */}
                             <div className="flex-shrink-0">
-                                <div className="w-16 h-16 md:w-32 md:h-32 relative">
-                                    <Image
-                                        src={card.icon}
-                                        alt={card.title}
-                                        fill
-                                        className="object-contain"
-                                    />
+                                <div className="w-16 h-16 md:w-32 md:h-32 relative flex items-center justify-center">
+                                    {typeof card.icon === 'string' ? (
+                                        <Image
+                                            src={card.icon}
+                                            alt={card.title}
+                                            fill
+                                            className="object-contain"
+                                        />
+                                    ) : (
+                                        card.icon
+                                    )}
                                 </div>
                             </div>
-                            
+
                             {/* Right Side - Title and Description */}
                             <div className="flex-1 min-w-0 w-full md:w-auto">
                                 <h2 className="mb-3 text-2xl md:text-4xl md:mb-4 text-[var(--foreground)]">
                                     {card.title}
                                 </h2>
-                                <p className="leading-relaxed font-plus-jakarta-sans">
+                                <p className="leading-relaxed font-plus-jakarta-sans text-gray-700">
                                     {card.description}
                                 </p>
                             </div>

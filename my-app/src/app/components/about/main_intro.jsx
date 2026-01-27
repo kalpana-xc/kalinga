@@ -38,6 +38,7 @@ export default function MainIntro({
   descriptionClassName = "text-[var(--light-text-gray)]",
   hidePointsUntilExpanded = false,
   sectionClassName = null,
+  imageObjectFit = "cover"
 }) {
   const descriptionArray = Array.isArray(description) ? description : [description];
   const [showAll, setShowAll] = useState(false);
@@ -231,7 +232,7 @@ export default function MainIntro({
                   alt={imageAlt}
                   width={500}
                   height={500}
-                  className={`w-full h-[450px] object-cover rounded-2xl max-h-[500px]`}
+                  className={`w-full h-[450px] object-${imageObjectFit || 'cover'} rounded-2xl max-h-[500px]`}
                   style={!disableClipPath ? { borderRadius: '20px' } : (isDesktop ? {
                     clipPath: applyTransform3dSlant ? 'url(#rounded-polygon-main)' : 'url(#rounded-polygon-main-inverted)',
                     WebkitClipPath: applyTransform3dSlant ? 'url(#rounded-polygon-main)' : 'url(#rounded-polygon-main-inverted)'
