@@ -377,7 +377,12 @@ export default function DynamicCoursePage() {
     additionalButtons: [
       { label: "Fees", href: "/ku-fees" },
       { label: "Scheme & Syllabus", href: "#syllabus" }
-    ]
+    ],
+    lateralEntryData: courseData.lateral_entry ? {
+      duration: formatDuration(courseData.lateral_entry.duration, courseData.lateral_entry.semester),
+      criteria: parseEligibilityCriteria(courseData.lateral_entry.eligibility),
+      description: courseData.lateral_entry.description || ""
+    } : null
   } : null;
 
   const breadcrumbData = (courseData?.name && !loading && metadataLoaded) ? {
@@ -409,8 +414,8 @@ export default function DynamicCoursePage() {
   } : null;
 
   const whyStudyContent = courseData?.specializations && courseData.specializations.length > 0 ? {
-    sectionTitle: "Specialisations",
-    sectionDescription: "Choose one of your favourite specialisations and master what’s trending.",
+    sectionTitle: "Specialisation",
+    sectionDescription: "Choose a specialisation of your choice and master what’s trending.",
     backgroundImage: "https://kalinga-university.s3.ap-south-1.amazonaws.com/departments/why-this-course-1.webp",
     items: courseData.specializations
       .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
@@ -421,6 +426,8 @@ export default function DynamicCoursePage() {
         variant: index % 2 === 0 ? "gray" : "amber",
         image: specialization.icon || specialization.icon_url || null,
         alt: specialization.alt || "",
+        duration: specialization.duration || "",
+        fees: specialization.fee || "",
       }))
       .filter(item => item.title || item.body) // Filter out empty items
   } : null;
@@ -707,6 +714,7 @@ export default function DynamicCoursePage() {
             admissionButtonLabel={eligibilityContent.admissionButtonLabel}
             href={eligibilityContent.href}
             additionalButtons={eligibilityContent.additionalButtons}
+            lateralEntryData={eligibilityContent.lateralEntryData}
           />
         </div>
       )}
@@ -722,14 +730,17 @@ export default function DynamicCoursePage() {
       {whyStudyContent && whyStudyContent.items && whyStudyContent.items.length > 0 && (
         <div id="specialization" className="scroll-mt-24 md:scroll-mt-28">
           <Specialization
-            title=""
-            subtitle={whyStudyContent.sectionTitle}
-            description={whyStudyContent.sectionDescription}
+
+            title={whyStudyContent.sectionTitle}
+            subtitle={whyStudyContent.sectionDescription}
+            // description={whyStudyContent.sectionDescription}
             items={whyStudyContent.items.map(item => ({
               title: item.title,
               careerOpportunities: [item.body], // Map body to skills array
               imageUrl: item.image,
-              imageAlt: item.alt
+              imageAlt: item.alt,
+              duration: item.duration,
+              fees: item.fees
             }))}
           />
         </div>

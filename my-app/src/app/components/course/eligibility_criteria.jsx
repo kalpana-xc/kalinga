@@ -1,7 +1,9 @@
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import GlobalArrowButton from "../general/global-arrow_button";
 import SectionHeading from "../general/SectionHeading";
+import { Tabs, TabsList, TabsTrigger } from "../general/tab";
 
 const defaultContent = {
   imageUrl: "https://kalinga-university.s3.ap-south-1.amazonaws.com/course/course_page.webp",
@@ -26,7 +28,15 @@ export default function EligibilityCriteria({
   admissionButtonLabel = defaultContent.admissionButtonLabel,
   href = "https://admissions.kalingauniversity.ac.in/",
   additionalButtons = [], // Array of { label, href } objects
+  lateralEntryData = null, // Optional lateral entry data
 }) {
+  const [activeTab, setActiveTab] = useState("direct");
+
+  const currentDuration = activeTab === "lateral" && lateralEntryData ? lateralEntryData.duration : duration;
+  const currentCriteria = activeTab === "lateral" && lateralEntryData ? lateralEntryData.criteria : criteria;
+  const currentTitle = activeTab === "lateral" && lateralEntryData ? "Lateral Entry Eligibility" : title;
+  const currentDescription = activeTab === "lateral" && lateralEntryData ? lateralEntryData.description : null;
+
   return (
     <section className="bg-[var(--dark-blue)] py-16 rounded-2xl mx-2">
       <div className="container mx-auto px-6">
@@ -44,21 +54,47 @@ export default function EligibilityCriteria({
 
           {/* Right Column - Content */}
           <div className="flex flex-col gap-10 justify-center h-full order-3 lg:order-2">
+            {/* Tabs for Lateral Entry */}
+            {lateralEntryData && (
+              <div className="-mb-6">
+                <Tabs value={activeTab} onValueChange={setActiveTab}>
+                  <TabsList className="!flex-row mb-4">
+                    <TabsTrigger
+                      value="direct"
+                      className="flex-1 !min-w-0 !flex-shrink"
+                    >
+                      Direct
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="lateral"
+                      className="flex-1 !min-w-0 !flex-shrink"
+                    >
+                      Lateral Entry
+                    </TabsTrigger>
+                  </TabsList>
+                </Tabs>
+              </div>
+            )}
+
             {/* Duration Box */}
             <div className="bg-[var(--card-skin)] rounded-lg px-2 py-5 text-center">
-              <h3 className="text-[18px] md:text-[24px]">Duration : {duration}</h3>
+              <h3 className="text-[18px] md:text-[24px]">Duration : {currentDuration}</h3>
             </div>
 
             {/* Eligibility Criteria Section */}
             <div>
+              {currentDescription && (
+                <div className="mb-6 text-white/90 text-[15px] leading-relaxed font-plus-jakarta-sans" dangerouslySetInnerHTML={{ __html: currentDescription }} />
+              )}
               <div className="mb-6">
                 <SectionHeading
-                  title={title}
+                  title={currentTitle}
                   titleClassName="!text-white !mb-0"
                 />
               </div>
+
               <ul className="space-y-4">
-                {criteria.map((criterion, index) => (
+                {currentCriteria.map((criterion, index) => (
                   <li key={index} className="flex items-center gap-3">
                     <div className="bg-[var(--card-skin)]   rounded-md p-1.5 flex-shrink-0">
                       <svg

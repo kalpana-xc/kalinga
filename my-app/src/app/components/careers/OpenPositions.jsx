@@ -224,7 +224,7 @@ export default function OpenPositions({
   initialVisibleCount = null,
   hideCheckEligibility = false,
   titleClassName = "text-white",
-  cardTitleClassName = "",
+  cardTitleClassName = "font-semibold",
   skillsLabel = "Key Skills And Learning Outcome"
 }) {
   const itemsPerPage = initialVisibleCount || positions.length;
@@ -276,20 +276,20 @@ export default function OpenPositions({
                   {/* Left Section - Text Content */}
                   <div className={position.imageUrl || position.knowMoreButton || position.registrationButton ? "flex-1" : "w-full"}>
                     {/* Title - Training Program */}
-                    <h3 className={`text-lg sm:text-xl lg:text-2xl font-plus-jakarta-sans text-[var(--button-red)] mb-4 ${cardTitleClassName}`}>
+                    <h3 className={`text-lg sm:text-xl lg:text-2xl font-plus-jakarta-sans text-[var(--button-red)] mb-4 font-semibold ${cardTitleClassName}`}>
                       {position.title}
                     </h3>
 
                     {/* Date/Duration */}
                     {position.startDate && (
-                      <div className="text-gray-600 text-sm sm:text-base mb-6">
+                      <div className="text-gray-500 text-[15px] mb-4 font-plus-jakarta-sans">
                         <p>{position.showDateLabel !== false ? `Date: ${position.startDate}` : position.startDate}{position.endDate ? ` End Date : ${position.endDate}` : ''}</p>
                       </div>
                     )}
 
                     {/* Price - Registration Fee */}
                     {position.price && (
-                      <div className="mb-6">
+                      <div className="mb-4">
                         <p className="text-2xl sm:text-3xl lg:text-2xl text-black">
                           {position.price.includes('(Per Semester)') ? (
                             <>
@@ -305,11 +305,11 @@ export default function OpenPositions({
 
                     {/* Key Skills and Learning Outcome */}
                     {position.skills && position.skills.length > 0 && (
-                      <div className="mb-6">
-                        <h4 className="text-lg sm:text-xl font-plus-jakarta-sans text-[var(--button-red)] mb-2">
+                      <div className="mb-0">
+                        <h4 className="text-lg font-plus-jakarta-sans font-semibold text-[var(--button-red)] mb-2">
                           {position.skillsLabel || skillsLabel}
                         </h4>
-                        <p className="text-sm sm:text-base text-black leading-relaxed">
+                        <p className="text-[15px] text-gray-800 leading-relaxed font-plus-jakarta-sans">
                           {position.skills.join(", ")}
                         </p>
                       </div>
