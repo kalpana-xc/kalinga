@@ -26,7 +26,7 @@ export default function FacilitySlider({
         <div className={`w-full container mx-auto h-auto md:h-[400px] flex flex-col md:block relative mt-16 ${className}`}>
 
             {/* Content Box - Left Side */}
-            <div className="bg-[var(--card-sandal)] rounded-2xl p-6 md:p-8 shadow-md w-full md:w-[55%] md:min-h-[330px] md:absolute md:left-0 md:top-[35px] flex flex-col justify-center z-0">
+            <div className="bg-[var(--card-sandal)] rounded-2xl p-6 md:p-8 shadow-md w-full md:w-[55%] md:min-h-[330px] md:absolute md:left-0 md:top-[35px] flex flex-col justify-center z-0 order-2 mt-6 md:mt-0">
                 <h3 className="mb-2 font-serif text-[var(--foreground)]">{title}</h3>
                 {subtitle && (
                     <p className="mb-4">
@@ -46,7 +46,7 @@ export default function FacilitySlider({
             </div>
 
             {/* Image Slider - Right Side */}
-            <div className="md:absolute md:bottom-[80px] md:right-0 md:w-[55%] w-full mt-6 md:mt-0 z-10">
+            <div className="md:absolute md:bottom-[80px] md:right-0 md:w-[55%] w-full mt-0 md:mt-0 z-10 order-1">
                 <div className="relative h-[250px] md:h-[350px] rounded-2xl overflow-hidden shadow-lg w-full">
                     <Swiper
                         modules={[Pagination, Autoplay]}
