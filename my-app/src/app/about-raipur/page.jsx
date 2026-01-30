@@ -16,18 +16,18 @@ function page() {
     const breadcrumbData = {
       pathname: pathname,
       heroImage:
-        "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/about-banner.webp",
+        "https://kalinga-university.s3.ap-south-1.amazonaws.com/about-raipur/raipur_breadcrujmb.webp",
       pageTitle: "About Raipur",
       customBreadcrumbs: [
         { label: "Home", href: "/" },
         { label: "About Raipur", href: "/about-raipur" },
       ],
     };
-    
+
     if (typeof window !== "undefined") {
       window.__breadcrumbData = breadcrumbData;
     }
-    
+
     return () => {
       if (typeof window !== "undefined" && window.__breadcrumbData?.pathname === pathname) {
         delete window.__breadcrumbData;
@@ -40,7 +40,7 @@ function page() {
     <>
       <style jsx global>{`
   .absolute.inset-0 > img {
-    object-position: center 60% !important;
+    object-position: center 40% !important;
   }
 
   @media (max-width: 768px) {
