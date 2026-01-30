@@ -284,13 +284,13 @@ export default function Map({ backgroundColor = "", textColor = "", subtitleText
   }, [activeLocation]);
 
   return (
-    <section className={`py-16 ${backgroundColor}`}>
+    <section className={`pt-16 ${backgroundColor}`}>
       <div className="container mx-auto px-4 relative">
         <SectionHeading
           subtitle="Global Scale"
           title="Expanding Horizons Through Global Partnerships"
           subtitleClassName="mb-2 text-center"
-          titleClassName={`mb-8 text-center ${textColor}`}
+          titleClassName={`mb-4 text-center ${textColor}`}
           subtitleTextColor={subtitleTextColor}
         />
         <p className={`text-center ${textColor}`}>Kalinga University is home to students from 29+ countries, fostering a truly international learning environment. Through academic exchange programs, research collaborations, and strategic global alliances, the University prepares students to become globally competent professionals and leaders.</p>
@@ -341,7 +341,7 @@ export default function Map({ backgroundColor = "", textColor = "", subtitleText
         </div>
 
         {/* Legend - Horizontal under image */}
-        <div className="w-full rounded-[20px] bg-[#D9D9D975] backdrop-blur-md overflow-hidden relative top-6 md:top-[-35px]">
+        <div className="w-full rounded-[20px] bg-[#D9D9D975] backdrop-blur-md overflow-hidden relative top-6 md:top-[-100px]">
           <GlowingBox borderColor="var(--button-red)" className="p-6 rounded-[20px]">
             {/* Marquee Slider using LogoLoop */}
             <div className="relative z-20" style={{ pointerEvents: 'auto' }}>
