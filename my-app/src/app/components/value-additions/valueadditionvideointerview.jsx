@@ -1,56 +1,68 @@
 import React from "react";
 import MediaCardSlider from "@/app/components/general/media-card-slider";
 
+const getYouTubeId = (url) => {
+    if (!url) return "";
+
+    if (url.includes("youtube.com/shorts/")) {
+        return url.split("youtube.com/shorts/")[1].split("?")[0].split("&")[0];
+    }
+    if (url.includes("youtu.be/")) {
+        return url.split("youtu.be/")[1].split("?")[0].split("&")[0];
+    }
+    if (url.includes("youtube.com/watch?v=")) {
+        return url.split("v=")[1].split("&")[0];
+    }
+    if (url.includes("youtube.com/embed/")) {
+        return url.split("youtube.com/embed/")[1].split("?")[0].split("&")[0];
+    }
+
+    return "";
+};
+
+// ✅ Convert shorts → watch?v= (so MediaCardSlider's embed converter can handle it)
+const normalizeYouTubeUrl = (url) => {
+    const id = getYouTubeId(url);
+    if (!id) return url;
+    return `https://www.youtube.com/watch?v=${id}`;
+};
+
+const getYouTubeThumb = (url) => {
+    const id = getYouTubeId(url);
+    return id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : "";
+};
+
 function Valueadditionvideointerview() {
-    const videoItems = [
-        {
-            id: 1,
-            name: "Sadiq Isa Yusuf",
-            description: "MBA",
-            videoUrl:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VIDEO_7fe436a0-5cc2-45e0-90bf-49bf031fb5f2+(1)+(1).mp4",
-            thumbnail:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VIDEO_7fe436a0-5cc2-45e0-90bf-49bf031fb5f2+(1)+(1).mp4",
-        },
-        {
-            id: 2,
-            name: "Debraj Debnath",
-            description: "B.Tech CS",
-            videoUrl:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VIDEO_5112c405-c05e-42cd-a9f2-6f043d3d2181.mp4",
-            thumbnail:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VIDEO_5112c405-c05e-42cd-a9f2-6f043d3d2181.mp4",
-        },
-        {
-            id: 3,
-            name: "Surya Kumar Srivastava",
-            description: "B.Tech CS (AIML)",
-            videoUrl:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VIDEO_8b1b9390-247c-4ca7-b120-29a1e6e2d85d.mp4",
-            thumbnail:
-                "https://kalinga-university.s3.ap-south-1.amazonaws.com/Value-Added-Courses/VIDEO_8b1b9390-247c-4ca7-b120-29a1e6e2d85d.mp4",
-        },
+    const ytLinks = [
+        "https://www.youtube.com/shorts/x9PulcmUk8k",
+        "https://www.youtube.com/shorts/hpwxIgcmMcI",
+        "https://www.youtube.com/shorts/bA4ymP6VNl4",
+        "https://www.youtube.com/shorts/ReTwYJyXiSo",
+        "https://www.youtube.com/shorts/Pdc9Wwyzcc8",
     ];
+
+    const videoItems = ytLinks.map((link, idx) => ({
+        id: idx + 1,
+        title: "",
+        subtitle: "",
+        description: "",
+        videoUrl: normalizeYouTubeUrl(link),  // ✅ IMPORTANT
+        thumbnail: getYouTubeThumb(link),      // ✅ IMPORTANT
+    }));
 
     return (
         <>
             <style jsx global>{`
-        /* ✅ Only affect this slider */
         @media (max-width: 640px) {
-          /* Thumbnail <img> case */
           .ccrc-video-slider img {
             object-fit: contain !important;
-            background: #fff !important; /* optional to avoid black bars */
+            background: #fff !important;
           }
-
-          /* ReactPlayer thumbnail wrapper often uses <video> or inner div */
           .ccrc-video-slider video {
             height: 380px !important;
             object-fit: contain !important;
             background: #fff !important;
           }
-
-          /* If the player uses a background-image on a div */
           .ccrc-video-slider [style*="background-image"] {
             background-size: contain !important;
             background-position: center !important;
