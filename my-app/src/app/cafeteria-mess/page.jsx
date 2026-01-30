@@ -38,14 +38,14 @@ const page = () => {
       <AboutCafeteria />
       <CanteenMess />
       <RaipurVideoSection
-                  videoId = "Wsv6dss4wSs"
-                  thumbnail = "https://kalinga-university.s3.ap-south-1.amazonaws.com/about/about-banner.webp"
-                  title = "Kalinga University's Foodie Paradise: Satisfy Your Cravings with Fresh, and Diverse Food Options!"
-                  description = "" // optional
-                  alt = "Video thumbnail"
-                  heightClass = "h-[380px] sm:h-[420px] md:h-[520px]" // optional, keep default
-                  className = "" // optional wrapper class
-              />
+        videoId="Wsv6dss4wSs"
+        thumbnail="https://kalinga-university.s3.ap-south-1.amazonaws.com/canteen-and-mess/cafeteria-thumbnail.jpg"
+        title="Kalinga University's Foodie Paradise: Satisfy Your Cravings with Fresh, and Diverse Food Options!"
+        description="" // optional
+        alt="Video thumbnail"
+        heightClass="h-[380px] sm:h-[420px] md:h-[520px]" // optional, keep default
+        className="" // optional wrapper class
+      />
       <AdmissionCareer />
 
     </>
