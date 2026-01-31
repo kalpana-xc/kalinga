@@ -137,7 +137,7 @@ const FEES_COMMERCE = {
 };
 
 const FEES_ENGINEERING = {
-    title: "Faculty of Engineering & Technology",
+    title: "Faculty of Technology",
     columns: [
         "S.No.",
         "Course",
@@ -1006,7 +1006,7 @@ const FEES_EDUCATION = {
 };
 
 const FEES_RESEARCH = {
-    title: "Faculty of Research",
+    title: "PhD Programs",
     columns: [
         "S.No.",
         "Course",
