@@ -35,11 +35,11 @@ export default function Research() {
         { label: 'Research', href: '/research' }
       ]
     };
-    
+
     if (typeof window !== "undefined") {
       window.__breadcrumbData = breadcrumbData;
     }
-    
+
     return () => {
       if (typeof window !== "undefined" && window.__breadcrumbData?.pathname === pathname) {
         delete window.__breadcrumbData;
@@ -349,7 +349,7 @@ export default function Research() {
         title="Dr. Harsha Patil"
         subtitle="A Message From the Dean"
         department="HoD - Research"
-        quote="Research is the foundation of academic excellence, where curiosity transforms into innovation and knowledge advances society."
+        quote="Research is the soul of academic excellence"
         message="Research is the soul of academic excellence, and Kalinga University strives to develop a rich research ecosystem that generates curiosity, problem-solving, and inspiration among young researchers and faculty. With our advanced research labs, high-tech instruments, updated policy guidelines, IPR facilitation, CIF labs, and connections with national and international organisations, our research scholars work together toward societal progress. With hands-on training opportunities, workshops, and seminars on how to use modern machines, students learn to lead in their field. Our faculty members support students in publishing their research papers, filing patents, and presenting their work on different platforms."
       />
       <ImageContent

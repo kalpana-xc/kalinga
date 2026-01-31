@@ -6,6 +6,21 @@ import SectionHeading from '../components/general/SectionHeading';
 import ResearchSixGridButtons from "@/app/components/research/research_six_grid-buttons";
 import MainIntro from '../components/about/main_intro';
 
+const breadcrumbData = {
+    heroImage:
+        "https://kalinga-university.s3.ap-south-1.amazonaws.com/contact-us/contact-us-banner.webp",
+    pageTitle: " Ekeeda Digital Library",
+    customBreadcrumbs: [
+        { label: "Home", href: "/" },
+        { label: "Ekeeda Digital Library", href: "/ekeeda-digital-library" },
+    ],
+};
+
+// Register breadcrumb data globally
+if (typeof window !== "undefined") {
+    window.__breadcrumbData = breadcrumbData;
+}
+
 export default function EkeedaPage() {
     const buttons = [
         {
@@ -53,17 +68,23 @@ export default function EkeedaPage() {
         <>
             <MainIntro
                 title="Ekeeda Digital Library"
-                description="Now explore 90000+ high-quality videos recorded by renowned experts from the Engineering Industry through Ekeeda.com. Online Learning Resources are now easily available for the students of Engineering Branches at Kalinga University through the Sponsored Digital Library by Ekeeda.com. Every student will get a separate login to access the Digital Library with easy steps."
+                description={[
+                    "Now explore 90000+ high-quality videos recorded by renowned experts from the Engineering Industry through Ekeeda.com",
+                    "Online Learning Resources are now easily available for the students of Engineering Branches at Kalinga University through the Sponsored Digital Library by Ekeeda.com.",
+                    "Every student will get a separate login to access the Digital Library with easy steps.",
+                ]}
                 imageUrl="https://kalinga-university.s3.ap-south-1.amazonaws.com/common/ekeeda.webp"
                 imageAlt="Ekeeda Digital Library"
+                initialVisibleParagraphs={3}
+                showReadMore={false}
             />
             <SectionHeading
-                title="You can find informative videos from different branches of Engineering:"
+                title="Informative Videos from Different Branches of Engineering"
                 subtitle=""
                 titleClassName="text-center"
             />
             <ResearchSixGridButtons buttons={buttons} />
-            <p className="text-center pb-10">Enjoy Learning with Ekeeda. To explore, click on <a href="https://ekeeda.com/">https://ekeeda.com/</a></p>
+            <p className="text-center pb-10">Explore - <a href="https://ekeeda.com/">Ekeeda</a></p>
 
         </>
     );

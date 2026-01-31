@@ -50,6 +50,12 @@ export default function PublicationGrid({
       value: '90+',
 
     },
+    {
+      id: 3,
+      title: 'Books & Chapters',
+      value: '3306',
+
+    }
   ]
 }) {
   const prevRef = useRef(null);

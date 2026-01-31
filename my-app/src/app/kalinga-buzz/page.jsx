@@ -136,6 +136,46 @@ export default function KalingaBuzz() {
       text: "Kalinga Buzz January 2025",
       href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/buzz/Buzz+January+2025.pdf",
     },
+    {
+      id: 2,
+      text: "Kalinga Buzz February 2025",
+      href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/buzz/Buzz+February+2025.pdf",
+    },
+    {
+      id: 3,
+      text: "Kalinga Buzz March 2025",
+      href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/buzz/Buzz+March+2025.pdf",
+    },
+    {
+      id: 4,
+      text: "Kalinga Buzz April 2025",
+      href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/buzz/Buzz+April+2025.pdf",
+    },
+    {
+      id: 5,
+      text: "Kalinga Buzz May 2025",
+      href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/buzz/Buzz+May+2025.pdf",
+    },
+    {
+      id: 6,
+      text: "Kalinga Buzz June 2025",
+      href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/buzz/Buzz+June+2025.pdf",
+    },
+    {
+      id: 8,
+      text: "Kalinga Buzz August 2025",
+      href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/buzz/Buzz+August+2025.pdf",
+    },
+    {
+      id: 10,
+      text: "Kalinga Buzz October 2025",
+      href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/buzz/Buzz+October+2025.pdf",
+    },
+    {
+      id: 11,
+      text: "Kalinga Buzz November 2025",
+      href: "https://kalinga-university.s3.ap-south-1.amazonaws.com/buzz/Buzz+November+2025.pdf",
+    }
   ];
 
   return (
