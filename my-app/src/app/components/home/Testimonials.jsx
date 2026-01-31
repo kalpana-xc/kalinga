@@ -31,8 +31,8 @@ const defaultTestimonialsData = [
     },
     {
         id: 5,
-        name: "Thomas Wright",
-        role: "Student- MBA",
+        name: "Khyati",
+        role: "BTech CS AIML",
         quote: "Finding technical co-founders was my biggest challenge. This community bridged that gap immediately.",
         image: "https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/student-say-1.webp",
         theme: "amber"
