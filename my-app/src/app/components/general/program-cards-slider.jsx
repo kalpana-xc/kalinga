@@ -65,7 +65,7 @@ export const renderProgramCard = (program) => {
               arrowClassName="!bg-[var(--button-red)]"
               arrowIconClassName="!text-white"
               textClassName="!text-black"
-            >Apply More</GlobalArrowButton>
+            >Apply Now</GlobalArrowButton>
           </Link>
         </div>
       </div>
