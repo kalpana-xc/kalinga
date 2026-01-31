@@ -261,42 +261,44 @@ export default function OurPrograms({
     }
 
     let filtered = allCourses;
+    const isSearchActive = searchQuery.trim().length > 0;
 
-    // Filter by study level (always filter, default is UG)
-    if (selectedStudyLevel && selectedStudyLevel !== "All") {
-      filtered = filtered.filter(course => {
-        // Get program_type from course
-        const programType = course.program_type;
+    // Only apply Level and Department filters if search is NOT active
+    if (!isSearchActive) {
+      // Filter by study level (always filter, default is UG)
+      if (selectedStudyLevel && selectedStudyLevel !== "All") {
+        filtered = filtered.filter(course => {
+          // Get program_type from course
+          const programType = course.program_type;
 
-        // Handle null/undefined program_type - default to UG
-        if (!programType) {
-          return selectedStudyLevel === "UG";
-        }
+          // Handle null/undefined program_type - default to UG
+          if (!programType) {
+            return selectedStudyLevel === "UG";
+          }
 
-        const level = getStudyLevel(programType);
-        return level === selectedStudyLevel;
-      });
-    }
+          const level = getStudyLevel(programType);
+          return level === selectedStudyLevel;
+        });
+      }
 
-    // Filter by department (supports ID, slug, or name)
-    if (selectedDepartment !== "All") {
-      filtered = filtered.filter(course => {
-        const deptId = course.departmentId || course.department;
-        const deptSlug = course.departmentSlug || course.department?.slug;
-        const deptName = course.departmentName || course.department?.name;
+      // Filter by department (supports ID, slug, or name)
+      if (selectedDepartment !== "All") {
+        filtered = filtered.filter(course => {
+          const deptId = course.departmentId || course.department;
+          const deptSlug = course.departmentSlug || course.department?.slug;
+          const deptName = course.departmentName || course.department?.name;
 
-        // Match by ID, slug, or name (case-insensitive)
-        const selectedDeptLower = selectedDepartment.toLowerCase();
-        return (
-          deptId?.toString() === selectedDepartment ||
-          deptSlug?.toLowerCase() === selectedDeptLower ||
-          deptName?.toLowerCase() === selectedDeptLower
-        );
-      });
-    }
-
-    // Filter and score by search query
-    if (searchQuery.trim()) {
+          // Match by ID, slug, or name (case-insensitive)
+          const selectedDeptLower = selectedDepartment.toLowerCase();
+          return (
+            deptId?.toString() === selectedDepartment ||
+            deptSlug?.toLowerCase() === selectedDeptLower ||
+            deptName?.toLowerCase() === selectedDeptLower
+          );
+        });
+      }
+    } else {
+      // Global search mode: Search across all programs Irrespective of filters
       filtered = rankAndSortPrograms(filtered, searchQuery, { includeDept: true });
     }
 
@@ -407,11 +409,12 @@ export default function OurPrograms({
           {!hideSearchFilter && (
             <div id="program-search-section" className="bg-[var(--light-gray)] border border-white rounded-lg flex flex-col md:flex-row items-stretch mb-8 relative z-20 overflow-hidden scroll-mt-[100px] md:scroll-mt-20">
               {/* Study Level Dropdown - Left Section */}
-              <div className="relative flex-shrink-0 md:w-32 lg:w-36 border-r border-gray-200">
+              <div className={`relative flex-shrink-0 md:w-32 lg:w-36 border-r border-gray-200 transition-opacity duration-200 ${searchQuery.trim().length > 0 ? 'opacity-50 grayscale bg-gray-100' : ''}`}>
                 <select
                   value={selectedStudyLevel}
                   onChange={(e) => setSelectedStudyLevel(e.target.value)}
-                  className="w-full bg-transparent px-4 py-3 text-[var(--button-red)] text-sm md:text-base font-medium appearance-none pr-8 focus:outline-none cursor-pointer"
+                  disabled={searchQuery.trim().length > 0}
+                  className={`w-full bg-transparent px-4 py-3 text-[var(--button-red)] text-sm md:text-base font-medium appearance-none pr-8 focus:outline-none ${searchQuery.trim().length > 0 ? 'cursor-not-allowed' : 'cursor-pointer'}`}
                 >
                   {studyLevels.map(level => (
                     <option key={level} value={level}>{level}</option>
@@ -437,11 +440,12 @@ export default function OurPrograms({
               </div>
 
               {/* Department Dropdown - Middle Section */}
-              <div className="relative flex-1 border-r border-gray-200">
+              <div className={`relative flex-1 border-r border-gray-200 transition-opacity duration-200 ${searchQuery.trim().length > 0 ? 'opacity-50 grayscale bg-gray-100' : ''}`}>
                 <select
                   value={selectedDepartment}
                   onChange={(e) => setSelectedDepartment(e.target.value)}
-                  className="w-full bg-transparent px-4 py-3 text-[var(--foreground)] text-sm md:text-base appearance-none pr-10 focus:outline-none cursor-pointer"
+                  disabled={searchQuery.trim().length > 0}
+                  className={`w-full bg-transparent px-4 py-3 text-[var(--foreground)] text-sm md:text-base appearance-none pr-10 focus:outline-none ${searchQuery.trim().length > 0 ? 'cursor-not-allowed' : 'cursor-pointer'}`}
                 >
                   <option value="All">All Departments</option>
                   {departments.map(dept => (

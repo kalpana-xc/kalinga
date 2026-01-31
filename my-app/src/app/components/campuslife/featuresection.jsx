@@ -21,7 +21,7 @@ export default function Page() {
     // Community Service
     ["https://kalinga-university.s3.ap-south-1.amazonaws.com/unnat-bharat-abhiyan/1.jpg", "https://kalinga-university.s3.ap-south-1.amazonaws.com/unnat-bharat-abhiyan/2.jpg", "https://kalinga-university.s3.ap-south-1.amazonaws.com/unnat-bharat-abhiyan/3.jpg"],
     // Internships and Placement Drives
-    ["https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placements-silder-1.webp","https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-training-cell/placemnt-intro.webp"],
+    ["https://kalinga-university.s3.ap-south-1.amazonaws.com/Home/placements-silder-1.webp", "https://kalinga-university.s3.ap-south-1.amazonaws.com/placement/placement-training-cell/placemnt-intro.webp"],
     // Recreation Corners
     ["https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-facilities/recreation.webp", "https://kalinga-university.s3.ap-south-1.amazonaws.com/facilities/canteen.webp", "https://kalinga-university.s3.ap-south-1.amazonaws.com/campus-facilities/selfiepoints.webp"],
     // Eco-Friendly Campus
@@ -61,7 +61,7 @@ export default function Page() {
         { type: "sandal", title: "Hostel Life", subtitle: "Comfort, safety, and a home-like vibe", desc: "Hostel life at KU is all about convenience and lifelong bonds. CCTV cameras, 24/7 security, comfortable accommodation for both boys and girls, a hygienic mess facility, and a mini-market ensure students get everything they need under one roof. It's a place where students share experiences and learn to support each other like a family.", link: "/campus-facilities" },
         { type: "red", title: "Multicultural Learning Environment", subtitle: "Where cultures meet, and friendships grow", desc: "Students at KU experience a vibrant multicultural environment where they learn and grow alongside their peers from across India and around the globe. Daily interactions introduce them to new languages and perspectives. They celebrate diversity, build new connections, and exchange ideas as they prepare for a global career.", link: "/international-students" },
       ].map((sec, index) => (
-        
+
         <div
           key={index}
           className="relative w-full h-auto md:h-[400px]
@@ -88,11 +88,10 @@ export default function Page() {
                 {imageSets[index].map((_, i) => (
                   <div
                     key={i}
-                    className={`h-2 rounded-full ${
-                      i === indexes[index]
+                    className={`h-2 rounded-full ${i === indexes[index]
                         ? "bg-[var(--dark-orange-red-light)] w-12"
                         : "bg-[var(--light-gray)] w-4"
-                    }`}
+                      }`}
                   ></div>
                 ))}
               </div>
@@ -117,11 +116,10 @@ export default function Page() {
                 {imageSets[index].map((_, i) => (
                   <div
                     key={i}
-                    className={`h-2 rounded-full ${
-                      i === indexes[index]
+                    className={`h-2 rounded-full ${i === indexes[index]
                         ? "bg-[var(--dark-orange-red-light)] w-12"
                         : "bg-[var(--light-gray)] w-4"
-                    }`}
+                      }`}
                   ></div>
                 ))}
               </div>
@@ -138,7 +136,7 @@ export default function Page() {
             "
             >
               <h1 className="text-xl md:text-2xl font-regular mb-2">{sec.title}</h1>
-              {sec.subtitle && <p className="text-sm font-medium text-[var(--foreground)]/80 mb-3 italic">{sec.subtitle}</p>}
+              {sec.subtitle && <p className="text-sm font-medium text-[var(--foreground)]/80 mb-3">{sec.subtitle}</p>}
               <p className="text-sm text-[var(--foreground)]/70 leading-relaxed mb-4 md:w-3/4 w-full">{sec.desc}</p>
               {/* <Link href={sec.link}>
                 <GlobalArrowButton className="hover:!bg-[var(--background)]">Know More</GlobalArrowButton>
@@ -155,7 +153,7 @@ export default function Page() {
               <h2 className="text-xl md:text-2xl font-regular mb-2 md:pl-[140px]">
                 {sec.title}
               </h2>
-              {sec.subtitle && <p className="text-sm font-medium mb-3 italic md:pl-[140px] text-white/90">{sec.subtitle}</p>}
+              {sec.subtitle && <p className="text-sm font-medium mb-3  md:pl-[140px] text-white/90">{sec.subtitle}</p>}
               <p className="text-sm leading-relaxed mb-4 md:pl-[140px] w-full">
                 {sec.desc}
               </p>

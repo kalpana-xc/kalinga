@@ -11,6 +11,7 @@ import GlobalRedPlainButton from '../general/global-red_plain_button'
 import SectionHeading from '../general/SectionHeading'
 import { renderProgramCard } from '../general/program-cards-slider'
 import { fetchAllDepartmentsCourses, fetchAllCourseAbout } from '@/app/lib/api'
+import { rankAndSortPrograms } from "@/app/lib/search-utils";
 
 // Helper function to format course name (BSE, BTech format - uppercase first few letters, then lowercase)
 const formatCourseName = (name) => {
@@ -162,27 +163,24 @@ const Programs = () => {
     if (loading) return []
 
     let filtered = allCourses
+    const isSearchActive = query.trim().length > 0;
 
-    // Filter by study level (active tab)
-    if (activeTab && activeTab !== 'All') {
-      filtered = filtered.filter(course => {
-        const programType = course.program_type
-        if (!programType) {
-          return activeTab === "UG"
-        }
-        const level = getStudyLevel(programType)
-        return level === activeTab
-      })
-    }
-
-    // Filter by search query
-    const normalizedQuery = query.trim().toLowerCase()
-    if (normalizedQuery) {
-      filtered = filtered.filter(course => {
-        const courseName = (course.name || "").toLowerCase()
-        const deptName = (course.departmentName || "").toLowerCase()
-        return courseName.includes(normalizedQuery) || deptName.includes(normalizedQuery)
-      })
+    // Only apply Level filter if search is NOT active
+    if (!isSearchActive) {
+      // Filter by study level (active tab)
+      if (activeTab && activeTab !== 'All') {
+        filtered = filtered.filter(course => {
+          const programType = course.program_type
+          if (!programType) {
+            return activeTab === "UG"
+          }
+          const level = getStudyLevel(programType)
+          return level === activeTab
+        })
+      }
+    } else {
+      // Global search mode: Search across all programs Irrespective of filters
+      filtered = rankAndSortPrograms(filtered, query, { includeDept: true });
     }
 
     // Format courses for renderProgramCard
@@ -235,28 +233,32 @@ const Programs = () => {
             </div>
 
             {/* Tabs */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 lg:gap-2 ">
+            <div className={`flex flex-wrap items-center gap-2 sm:gap-3 lg:gap-2 transition-opacity duration-200 ${query.trim().length > 0 ? 'opacity-50 grayscale' : ''}`}>
               <button
                 onClick={() => setActiveTab('Diploma')}
-                className={`font-stix px-3 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg transition-all text-[clamp(20px,4vw,30px)] leading-tight ${activeTab === 'Diploma' ? 'bg-[var(--button-red)] text-white shadow-md' : 'text-[var(--dark-blue)] hover:bg-gray-100'}`}
+                disabled={query.trim().length > 0}
+                className={`font-stix px-3 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg transition-all text-[clamp(20px,4vw,30px)] leading-tight ${activeTab === 'Diploma' ? 'bg-[var(--button-red)] text-white shadow-md' : 'text-[var(--dark-blue)] hover:bg-gray-100'} ${query.trim().length > 0 ? 'cursor-not-allowed' : 'cursor-pointer'}`}
               >
                 Diploma
               </button>
               <button
                 onClick={() => setActiveTab('UG')}
-                className={`font-stix px-3 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg transition-all text-[clamp(20px,4vw,30px)] leading-tight ${activeTab === 'UG' ? 'bg-[var(--button-red)] text-white shadow-md' : 'text-[var(--dark-blue)] hover:bg-gray-100'}`}
+                disabled={query.trim().length > 0}
+                className={`font-stix px-3 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg transition-all text-[clamp(20px,4vw,30px)] leading-tight ${activeTab === 'UG' ? 'bg-[var(--button-red)] text-white shadow-md' : 'text-[var(--dark-blue)] hover:bg-gray-100'} ${query.trim().length > 0 ? 'cursor-not-allowed' : 'cursor-pointer'}`}
               >
                 UG
               </button>
               <button
                 onClick={() => setActiveTab('PG')}
-                className={`font-stix px-3 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg transition-all text-[clamp(20px,4vw,30px)] leading-tight ${activeTab === 'PG' ? 'bg-[var(--button-red)] text-white shadow-md' : 'text-[var(--dark-blue)] hover:bg-gray-100'}`}
+                disabled={query.trim().length > 0}
+                className={`font-stix px-3 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg transition-all text-[clamp(20px,4vw,30px)] leading-tight ${activeTab === 'PG' ? 'bg-[var(--button-red)] text-white shadow-md' : 'text-[var(--dark-blue)] hover:bg-gray-100'} ${query.trim().length > 0 ? 'cursor-not-allowed' : 'cursor-pointer'}`}
               >
                 PG
               </button>
               <button
                 onClick={() => setActiveTab('Ph.D')}
-                className={`font-stix px-3 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg transition-all text-[clamp(20px,4vw,30px)] leading-tight ${activeTab === 'Ph.D' ? 'bg-[var(--button-red)] text-white shadow-md' : 'text-[var(--dark-blue)] hover:bg-gray-100'}`}
+                disabled={query.trim().length > 0}
+                className={`font-stix px-3 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-2.5 lg:py-3 rounded-lg transition-all text-[clamp(20px,4vw,30px)] leading-tight ${activeTab === 'Ph.D' ? 'bg-[var(--button-red)] text-white shadow-md' : 'text-[var(--dark-blue)] hover:bg-gray-100'} ${query.trim().length > 0 ? 'cursor-not-allowed' : 'cursor-pointer'}`}
               >
                 Ph.D
               </button>

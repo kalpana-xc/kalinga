@@ -288,7 +288,7 @@ export default function CtcdTrainingTabs({ customTabs }) {
                                             <p className={CARD_TEXT_CLASSNAME}>
                                                 The duration of all proposed training programs largely depends on the training objectives of the organisation. The duration of training also depends on the level of the trainees.
                                             </p>
-                                            
+
                                             <div>
                                                 <p className="text-sm text-gray-700 font-medium mb-3">
                                                     Most training programs have a stipulated number of hours which could be delivered in the following modes:
@@ -334,7 +334,7 @@ export default function CtcdTrainingTabs({ customTabs }) {
                                         <p className={CARD_TEXT_CLASSNAME}>
                                             The training venue can be mutually decided. It can be delivered at our end, at your end, or at third-party venues like a hotel or a resort, depending upon the client&apos;s choice.
                                         </p>
-                                        
+
                                         <div className="mt-6 space-y-6">
                                             {/* Our Venue */}
                                             <div>
@@ -356,7 +356,7 @@ export default function CtcdTrainingTabs({ customTabs }) {
                                                 <p className="text-sm text-gray-600 mb-4">
                                                     All of the above are equipped with air conditioning, Interactive Panels for projection, and soundproofing compliant.
                                                 </p>
-                                                
+
                                                 <div className="space-y-2">
                                                     {[
                                                         "Computers and Laptops (if the training requires the use of computers)",
@@ -390,8 +390,8 @@ export default function CtcdTrainingTabs({ customTabs }) {
                                                         </div>
                                                     ))}
                                                 </div>
-                                                <p className="text-xs text-gray-500 mb-4 italic">* If not available, can be hired and installed at your venue.</p>
-                                                
+                                                <p className="text-xs text-gray-500 mb-4 ">* If not available, can be hired and installed at your venue.</p>
+
                                                 <div className="bg-green-50 p-4 rounded-lg">
                                                     <p className="text-sm font-semibold text-[var(--foreground)] mb-2">To be provided by us if the training is conducted at your end:</p>
                                                     <div className="space-y-1.5">
@@ -472,7 +472,7 @@ export default function CtcdTrainingTabs({ customTabs }) {
                                             <div>
                                                 <h4 className="font-semibold text-[var(--foreground)] mb-2">ADEO Training Initiatives:</h4>
                                                 <p className={CARD_TEXT_CLASSNAME}>
-                                                We collaborated with Thakur Pyarelal State Institute of Panchayat & Rural Development (TPSIPRD) and organised behavioural training programs for Assistant Development Extension Officers (ADEOs), helping them serve rural communities in an effective manner. The key topics were communication skills, time management, decision making, team collaboration, and delegation of responsibilities. With this, they learned to handle work pressure calmly, manage time carefully, and delegate tasks responsibly. A positive impact was also seen in their personal lives, as they shared that now they feel motivated and confident in themselves.
+                                                    We collaborated with Thakur Pyarelal State Institute of Panchayat & Rural Development (TPSIPRD) and organised behavioural training programs for Assistant Development Extension Officers (ADEOs), helping them serve rural communities in an effective manner. The key topics were communication skills, time management, decision making, team collaboration, and delegation of responsibilities. With this, they learned to handle work pressure calmly, manage time carefully, and delegate tasks responsibly. A positive impact was also seen in their personal lives, as they shared that now they feel motivated and confident in themselves.
                                                 </p>
                                             </div>
                                         </div>
@@ -492,7 +492,7 @@ export default function CtcdTrainingTabs({ customTabs }) {
                                             </div>
                                             <h3 className={CARD_TITLE_CLASSNAME}>Our Corporate Training Projects</h3>
                                         </div>
-                                        
+
                                         {/* Projects Table */}
                                         <div className="overflow-x-auto overflow-y-auto max-h-[600px] border border-gray-200 rounded-lg">
                                             <table className="w-full border-collapse min-w-[800px]">
@@ -889,7 +889,7 @@ export default function CtcdTrainingTabs({ customTabs }) {
                                             </div>
                                             <h3 className={CARD_TITLE_CLASSNAME}>Training Delivery Methods</h3>
                                         </div>
-                                        
+
                                         <p className="text-[var(--foreground)] mb-4">
                                             We employ a diverse range of training delivery methods to ensure effective learning:
                                         </p>

@@ -152,11 +152,11 @@ export default function UnnatBharatAbhiyanPage() {
         { label: "Unnat Bharat Abhiyan", href: "/unnat-bharat-abhiyan" },
       ],
     };
-    
+
     if (typeof window !== "undefined") {
       window.__breadcrumbData = breadcrumbData;
     }
-    
+
     return () => {
       if (typeof window !== "undefined" && window.__breadcrumbData?.pathname === pathname) {
         delete window.__breadcrumbData;
